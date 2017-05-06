@@ -6,7 +6,6 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
-
 import XCTest
 @testable import InstantMock
 

@@ -16,6 +16,8 @@
 		43817AD21EBE525300FB2BB1 /* CallInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ACF1EBE525300FB2BB1 /* CallInterceptor.swift */; };
 		43817AD31EBE525300FB2BB1 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD01EBE525300FB2BB1 /* Expectation.swift */; };
 		43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD11EBE525300FB2BB1 /* Stub.swift */; };
+		43817AD61EBE529C00FB2BB1 /* CallInterceptorStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD51EBE529C00FB2BB1 /* CallInterceptorStorage.swift */; };
+		43817AD81EBE559800FB2BB1 /* CallInterceptorStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		43817ACF1EBE525300FB2BB1 /* CallInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptor.swift; path = "Call Interceptors/CallInterceptor.swift"; sourceTree = "<group>"; };
 		43817AD01EBE525300FB2BB1 /* Expectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = "Call Interceptors/Expectation.swift"; sourceTree = "<group>"; };
 		43817AD11EBE525300FB2BB1 /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stub.swift; path = "Call Interceptors/Stub.swift"; sourceTree = "<group>"; };
+		43817AD51EBE529C00FB2BB1 /* CallInterceptorStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallInterceptorStorage.swift; sourceTree = "<group>"; };
+		43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallInterceptorStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			children = (
 				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
+				43817AD51EBE529C00FB2BB1 /* CallInterceptorStorage.swift */,
 				43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */,
 			);
 			path = InstantMock;
@@ -97,6 +102,7 @@
 				43817AC51EBDF8DE00FB2BB1 /* MockProtocolTests.swift */,
 				43817AC71EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift */,
 				43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */,
+				43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */,
 			);
 			path = InstantMockTests;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43817AD61EBE529C00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
 				43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */,
 				43817AD31EBE525300FB2BB1 /* Expectation.swift in Sources */,
 				43817AD21EBE525300FB2BB1 /* CallInterceptor.swift in Sources */,
@@ -243,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43817AC81EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift in Sources */,
+				43817AD81EBE559800FB2BB1 /* CallInterceptorStorageTests.swift in Sources */,
 				43817ACA1EBDFC5500FB2BB1 /* MockStubProtocolTests.swift in Sources */,
 				43817AC61EBDF8DE00FB2BB1 /* MockProtocolTests.swift in Sources */,
 			);

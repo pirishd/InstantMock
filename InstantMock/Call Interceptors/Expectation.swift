@@ -6,8 +6,6 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
-import Foundation
-
 
 public class Expectation: CallInterceptor {
 
