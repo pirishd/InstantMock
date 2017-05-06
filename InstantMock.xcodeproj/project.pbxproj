@@ -82,10 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
-				43817AA81EBDE94100FB2BB1 /* InstantMock.h */,
-				43817AA91EBDE94100FB2BB1 /* Info.plist */,
 				43817AC11EBDE98B00FB2BB1 /* Expectation.swift */,
 				43817AC31EBDE9A100FB2BB1 /* Stub.swift */,
+				43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */,
 			);
 			path = InstantMock;
 			sourceTree = "<group>";
@@ -99,6 +98,15 @@
 				43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */,
 			);
 			path = InstantMockTests;
+			sourceTree = "<group>";
+		};
+		43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43817AA91EBDE94100FB2BB1 /* Info.plist */,
+				43817AA81EBDE94100FB2BB1 /* InstantMock.h */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
