@@ -7,6 +7,7 @@
 //
 
 
+/** Base class for call interceptors */
 public class CallInterceptor {
 
 }

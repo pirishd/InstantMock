@@ -7,6 +7,21 @@
 //
 
 
+/** This class represents a stub */
 public class Stub: CallInterceptor {
+
+}
+
+
+
+// MARK: Registration
+extension Stub {
+
+    /** register call */
+    @discardableResult
+    public func call<T: Any>(_ value: T) -> Stub {
+        // nothing to do
+        return self
+    }
 
 }
