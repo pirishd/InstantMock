@@ -59,6 +59,9 @@ public class Mock {
     fileprivate var expectationBeingRegistered: Expectation?
     fileprivate var stubBeingRegistered: Stub?
 
+    fileprivate let expectationStorage = CallInterceptorStorage<Expectation>()
+    fileprivate let stubStorage = CallInterceptorStorage<Stub>()
+
 }
 
 
