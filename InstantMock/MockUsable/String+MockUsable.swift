@@ -10,10 +10,10 @@
 /** Extension for making `String` easily usage in mocks */
 extension String: MockUsable {
 
-    private static let mockValue = "something"
+    public static let any = "something"
 
-    public var any: MockUsable {
-        return String.mockValue
+    public var anyValue: MockUsable {
+        return String.any
     }
 
     public func equal(to value: MockUsable?) -> Bool {

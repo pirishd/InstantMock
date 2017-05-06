@@ -10,10 +10,10 @@
 /** Extension for making `Bool` easily usage in mocks */
 extension Bool: MockUsable {
 
-    private static let mockValue = false
+    public static let any = false
 
-    public var any: MockUsable {
-        return Bool.mockValue
+    public var anyValue: MockUsable {
+        return Bool.any
     }
 
     public func equal(to value: MockUsable?) -> Bool {

@@ -10,10 +10,10 @@
 /** Extension for making `Double` easily usage in mocks */
 extension Double: MockUsable {
 
-    private static let mockValue = 42.0
+    public static let any = 42.0
 
-    public var any: MockUsable {
-        return Double.mockValue
+    public var anyValue: MockUsable {
+        return Double.any
     }
 
     public func equal(to value: MockUsable?) -> Bool {

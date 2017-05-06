@@ -10,10 +10,10 @@
 /** Extension for making `Int` easily usage in mocks */
 extension Int: MockUsable {
 
-    private static let mockValue = 42
+    public static let any = 42
 
-    public var any: MockUsable {
-        return Int.mockValue
+    public var anyValue: MockUsable {
+        return Int.any
     }
 
     public func equal(to value: MockUsable?) -> Bool {
