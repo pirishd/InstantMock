@@ -27,6 +27,8 @@
 		43817AEB1EBE68CD00FB2BB1 /* BoolMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AEA1EBE68CD00FB2BB1 /* BoolMockUsableTests.swift */; };
 		43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AEC1EBE690C00FB2BB1 /* String+MockUsable.swift */; };
 		43817AEF1EBE694D00FB2BB1 /* StringMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AEE1EBE694D00FB2BB1 /* StringMockUsableTests.swift */; };
+		43E42A7B1EBE701A00F130D0 /* ArgConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A7A1EBE701A00F130D0 /* ArgConfiguration.swift */; };
+		43E42A7D1EBE72F300F130D0 /* ArgConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A7C1EBE72F300F130D0 /* ArgConfigurationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		43817AEA1EBE68CD00FB2BB1 /* BoolMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoolMockUsableTests.swift; path = Types/BoolMockUsableTests.swift; sourceTree = "<group>"; };
 		43817AEC1EBE690C00FB2BB1 /* String+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+MockUsable.swift"; path = "MockUsable/String+MockUsable.swift"; sourceTree = "<group>"; };
 		43817AEE1EBE694D00FB2BB1 /* StringMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringMockUsableTests.swift; path = Types/StringMockUsableTests.swift; sourceTree = "<group>"; };
+		43E42A7A1EBE701A00F130D0 /* ArgConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgConfiguration.swift; sourceTree = "<group>"; };
+		43E42A7C1EBE72F300F130D0 /* ArgConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgConfigurationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			children = (
 				43817ADC1EBE62C800FB2BB1 /* Types */,
 				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
+				43E42A7A1EBE701A00F130D0 /* ArgConfiguration.swift */,
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
 				43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */,
 			);
@@ -116,12 +121,13 @@
 		43817AB21EBDE94100FB2BB1 /* InstantMockTests */ = {
 			isa = PBXGroup;
 			children = (
+				43817AE11EBE65A300FB2BB1 /* Types */,
 				43817AB51EBDE94100FB2BB1 /* Info.plist */,
+				43E42A7C1EBE72F300F130D0 /* ArgConfigurationTests.swift */,
 				43817AC51EBDF8DE00FB2BB1 /* MockProtocolTests.swift */,
 				43817AC71EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift */,
 				43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */,
 				43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */,
-				43817AE11EBE65A300FB2BB1 /* Types */,
 			);
 			path = InstantMockTests;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */,
 				43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
 				43817AE51EBE674100FB2BB1 /* Double+MockUsable.swift in Sources */,
+				43E42A7B1EBE701A00F130D0 /* ArgConfiguration.swift in Sources */,
 				43817AE91EBE688100FB2BB1 /* Bool+MockUsable.swift in Sources */,
 				43817ADE1EBE630000FB2BB1 /* MockUsable.swift in Sources */,
 			);
@@ -311,6 +318,7 @@
 				43817AD81EBE559800FB2BB1 /* CallInterceptorStorageTests.swift in Sources */,
 				43817AEB1EBE68CD00FB2BB1 /* BoolMockUsableTests.swift in Sources */,
 				43817AE31EBE65B600FB2BB1 /* IntMockUsableTests.swift in Sources */,
+				43E42A7D1EBE72F300F130D0 /* ArgConfigurationTests.swift in Sources */,
 				43817ACA1EBDFC5500FB2BB1 /* MockStubProtocolTests.swift in Sources */,
 				43817AC61EBDF8DE00FB2BB1 /* MockProtocolTests.swift in Sources */,
 			);
