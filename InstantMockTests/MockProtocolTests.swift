@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class DummyClass: MockProtocol {
+class DummyClass: MockDelegate {
     var it: Mock {
         return Mock()
     }

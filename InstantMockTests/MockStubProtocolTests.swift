@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class DummyStubClass: MockProtocol, MockStubProtocol {
+class DummyStubClass: MockDelegate, MockStub {
 
     private let mock = Mock()
 

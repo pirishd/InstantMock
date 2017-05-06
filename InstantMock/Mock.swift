@@ -8,7 +8,7 @@
 
 
 /** Main protocol for adding mocking capabilities to any object, using delegation */
-public protocol MockProtocol {
+public protocol MockDelegate {
 
     /// Provide mock instance
     var it: Mock { get }
@@ -16,7 +16,7 @@ public protocol MockProtocol {
 
 
 /** Protocol for mock expectations */
-public protocol MockExpectationProtocol {
+public protocol MockExpectation {
 
     /// Create new expectation for current instance
     func expect() -> Expectation
@@ -27,7 +27,7 @@ public protocol MockExpectationProtocol {
 
 
 /** Protocol for stubs */
-public protocol MockStubProtocol {
+public protocol MockStub {
 
     /// Create new stub for current instance
     func stub() -> Stub
@@ -66,7 +66,7 @@ public class Mock {
 
 
 /* Extension for handling mock expectations */
-extension Mock: MockExpectationProtocol {
+extension Mock: MockExpectation {
 
     @discardableResult
     public func expect() -> Expectation {
@@ -89,7 +89,7 @@ extension Mock: MockExpectationProtocol {
 
 
 /* Extension for handling stubs */
-extension Mock: MockStubProtocol {
+extension Mock: MockStub {
 
     @discardableResult
     public func stub() -> Stub {
