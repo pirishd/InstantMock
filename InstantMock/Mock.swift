@@ -61,6 +61,7 @@ public class Mock {
 }
 
 
+/* Extension for handling mock expectations */
 extension Mock: MockExpectationProtocol {
 
     @discardableResult
@@ -76,6 +77,7 @@ extension Mock: MockExpectationProtocol {
 }
 
 
+/* Extension for handling stubs */
 extension Mock: MockStubProtocol {
 
     @discardableResult
