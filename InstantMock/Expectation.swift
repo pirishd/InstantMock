@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Expectation {
+public class Expectation {
 
 
 }

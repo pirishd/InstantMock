@@ -9,6 +9,6 @@
 import Foundation
 
 
-class Stub {
+public class Stub {
 
 }
