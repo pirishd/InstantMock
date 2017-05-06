@@ -19,7 +19,7 @@ class CallInterceptorStorage<T: CallInterceptor> {
         Register an interceptor
         - parameter interceptor: call interceptor to register
         - parameter function: function name triggering this interceptor
-        - parameter args: list of arguments passed to the function name for the interceptor
+        - parameter args: list of arguments passed to the function for this interceptor
      */
     func store(interceptor: T, for function: String, with args: [Any?]) {
         var interceptors = self.repository[function] ?? [T]()
