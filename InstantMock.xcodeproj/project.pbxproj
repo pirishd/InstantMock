@@ -18,6 +18,7 @@
 		43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD11EBE525300FB2BB1 /* Stub.swift */; };
 		43817AD81EBE559800FB2BB1 /* CallInterceptorStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */; };
 		43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ADA1EBE623E00FB2BB1 /* CallInterceptorStorage.swift */; };
+		43817ADE1EBE630000FB2BB1 /* MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ADD1EBE630000FB2BB1 /* MockUsable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		43817AD11EBE525300FB2BB1 /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stub.swift; path = "Call Interceptors/Stub.swift"; sourceTree = "<group>"; };
 		43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallInterceptorStorageTests.swift; sourceTree = "<group>"; };
 		43817ADA1EBE623E00FB2BB1 /* CallInterceptorStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorStorage.swift; path = "Call Interceptors/Helpers/CallInterceptorStorage.swift"; sourceTree = "<group>"; };
+		43817ADD1EBE630000FB2BB1 /* MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockUsable.swift; path = MockUsable/MockUsable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		43817AA71EBDE94100FB2BB1 /* InstantMock */ = {
 			isa = PBXGroup;
 			children = (
+				43817ADC1EBE62C800FB2BB1 /* Types */,
 				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
 				43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */,
@@ -132,6 +135,14 @@
 				43817ADA1EBE623E00FB2BB1 /* CallInterceptorStorage.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		43817ADC1EBE62C800FB2BB1 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				43817ADD1EBE630000FB2BB1 /* MockUsable.swift */,
+			);
+			name = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +261,7 @@
 				43817AD21EBE525300FB2BB1 /* CallInterceptor.swift in Sources */,
 				43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */,
 				43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
+				43817ADE1EBE630000FB2BB1 /* MockUsable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
