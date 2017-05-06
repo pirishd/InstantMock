@@ -85,6 +85,13 @@ extension Mock: MockExpectation {
         // FIXME: nothing for now
     }
 
+
+    /** Handle expectations */
+    fileprivate func handleExpectations(_ args: [Any?], function: String) {
+        // FIXME: to do
+    }
+
+
 }
 
 
@@ -99,6 +106,48 @@ extension Mock: MockStub {
         self.stubBeingRegistered = stub
 
         return stub
+    }
+
+
+    /** handle stubs */
+    fileprivate func handleStubs<T>(_ args: [Any?], function: String) -> T? {
+        var ret: T?
+
+        // default value
+        if let mockUsableType = T.self as? MockUsable.Type {
+            if let value = mockUsableType.anyValue as? T {
+                ret = value
+            }
+        }
+
+        return ret
+    }
+
+}
+
+
+// MARK: Call
+extension Mock {
+
+
+    /** Call with no return value */
+    public func call(_ args: Any?..., function: String = #function) -> Void {
+        let ret: Void? = self.handleCall(args, function: function)
+        return ret ?? Void()
+    }
+
+
+    /** Call with return type object */
+    public func call<T>(_ args: Any?..., function: String = #function) -> T? {
+        return self.handleCall(args, function: function) as T?
+    }
+
+
+    /** Handle a call */
+    @discardableResult
+    private func handleCall<T>(_ args: [Any?], function: String) -> T? {
+        self.handleExpectations(args, function: function)
+        return self.handleStubs(args, function: function)
     }
 
 }

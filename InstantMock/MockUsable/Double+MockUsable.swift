@@ -12,7 +12,7 @@ extension Double: MockUsable {
 
     public static let any = 42.0
 
-    public var anyValue: MockUsable {
+    public static var anyValue: MockUsable {
         return Double.any
     }
 

@@ -12,7 +12,7 @@ extension String: MockUsable {
 
     public static let any = "something"
 
-    public var anyValue: MockUsable {
+    public static var anyValue: MockUsable {
         return String.any
     }
 

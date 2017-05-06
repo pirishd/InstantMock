@@ -29,6 +29,7 @@
 		43817AEF1EBE694D00FB2BB1 /* StringMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AEE1EBE694D00FB2BB1 /* StringMockUsableTests.swift */; };
 		43E42A7B1EBE701A00F130D0 /* ArgConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A7A1EBE701A00F130D0 /* ArgConfiguration.swift */; };
 		43E42A7D1EBE72F300F130D0 /* ArgConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A7C1EBE72F300F130D0 /* ArgConfigurationTests.swift */; };
+		43E42A811EBE7C3B00F130D0 /* MockTests_Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A801EBE7C3B00F130D0 /* MockTests_Call.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		43817AEE1EBE694D00FB2BB1 /* StringMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringMockUsableTests.swift; path = Types/StringMockUsableTests.swift; sourceTree = "<group>"; };
 		43E42A7A1EBE701A00F130D0 /* ArgConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgConfiguration.swift; sourceTree = "<group>"; };
 		43E42A7C1EBE72F300F130D0 /* ArgConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgConfigurationTests.swift; sourceTree = "<group>"; };
+		43E42A801EBE7C3B00F130D0 /* MockTests_Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTests_Call.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		43817AB21EBDE94100FB2BB1 /* InstantMockTests */ = {
 			isa = PBXGroup;
 			children = (
+				43E42A7F1EBE7C1B00F130D0 /* External */,
 				43817AE11EBE65A300FB2BB1 /* Types */,
 				43817AB51EBDE94100FB2BB1 /* Info.plist */,
 				43E42A7C1EBE72F300F130D0 /* ArgConfigurationTests.swift */,
@@ -181,6 +184,14 @@
 				43817AEE1EBE694D00FB2BB1 /* StringMockUsableTests.swift */,
 			);
 			name = Types;
+			sourceTree = "<group>";
+		};
+		43E42A7F1EBE7C1B00F130D0 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				43E42A801EBE7C3B00F130D0 /* MockTests_Call.swift */,
+			);
+			name = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				43817AE71EBE682900FB2BB1 /* DoubleMockUsableTests.swift in Sources */,
 				43817AC81EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift in Sources */,
 				43817AEF1EBE694D00FB2BB1 /* StringMockUsableTests.swift in Sources */,
+				43E42A811EBE7C3B00F130D0 /* MockTests_Call.swift in Sources */,
 				43817AD81EBE559800FB2BB1 /* CallInterceptorStorageTests.swift in Sources */,
 				43817AEB1EBE68CD00FB2BB1 /* BoolMockUsableTests.swift in Sources */,
 				43817AE31EBE65B600FB2BB1 /* IntMockUsableTests.swift in Sources */,

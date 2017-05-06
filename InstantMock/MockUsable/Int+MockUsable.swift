@@ -12,7 +12,7 @@ extension Int: MockUsable {
 
     public static let any = 42
 
-    public var anyValue: MockUsable {
+    public static var anyValue: MockUsable {
         return Int.any
     }
 

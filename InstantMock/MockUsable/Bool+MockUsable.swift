@@ -12,7 +12,7 @@ extension Bool: MockUsable {
 
     public static let any = false
 
-    public var anyValue: MockUsable {
+    public static var anyValue: MockUsable {
         return Bool.any
     }
 

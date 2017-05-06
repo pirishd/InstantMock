@@ -33,7 +33,7 @@ extension Collection {
         return self.map { arg in
             var isAny = false
             if let usable = arg as? MockUsable {
-                isAny = usable.equal(to: usable.anyValue)
+                isAny = usable.equal(to: type(of: usable).anyValue)
             }
             return ArgConfiguration(value: arg, isAny: isAny)
         }
