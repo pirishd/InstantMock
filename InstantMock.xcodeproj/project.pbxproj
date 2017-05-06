@@ -116,12 +116,12 @@
 		43817AB21EBDE94100FB2BB1 /* InstantMockTests */ = {
 			isa = PBXGroup;
 			children = (
-				43817AE11EBE65A300FB2BB1 /* Types */,
 				43817AB51EBDE94100FB2BB1 /* Info.plist */,
 				43817AC51EBDF8DE00FB2BB1 /* MockProtocolTests.swift */,
 				43817AC71EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift */,
 				43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */,
 				43817AD71EBE559800FB2BB1 /* CallInterceptorStorageTests.swift */,
+				43817AE11EBE65A300FB2BB1 /* Types */,
 			);
 			path = InstantMockTests;
 			sourceTree = "<group>";
