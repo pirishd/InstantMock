@@ -9,7 +9,12 @@
 import Foundation
 
 
-public class Expectation {
+public class Expectation: CallInterceptor {
 
+    private let stub: Stub
+
+    init(withStub stub: Stub) {
+        self.stub = stub
+    }
 
 }

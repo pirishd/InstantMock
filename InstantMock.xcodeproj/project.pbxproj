@@ -15,6 +15,7 @@
 		43817AC61EBDF8DE00FB2BB1 /* MockProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AC51EBDF8DE00FB2BB1 /* MockProtocolTests.swift */; };
 		43817AC81EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AC71EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift */; };
 		43817ACA1EBDFC5500FB2BB1 /* MockStubProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */; };
+		43817ACD1EBE40F900FB2BB1 /* CallInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ACC1EBE40F900FB2BB1 /* CallInterceptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		43817AC51EBDF8DE00FB2BB1 /* MockProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProtocolTests.swift; sourceTree = "<group>"; };
 		43817AC71EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockExpectationProtocolTests.swift; sourceTree = "<group>"; };
 		43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockStubProtocolTests.swift; sourceTree = "<group>"; };
+		43817ACC1EBE40F900FB2BB1 /* CallInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallInterceptor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +83,8 @@
 		43817AA71EBDE94100FB2BB1 /* InstantMock */ = {
 			isa = PBXGroup;
 			children = (
+				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
-				43817AC11EBDE98B00FB2BB1 /* Expectation.swift */,
-				43817AC31EBDE9A100FB2BB1 /* Stub.swift */,
 				43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */,
 			);
 			path = InstantMock;
@@ -107,6 +108,16 @@
 				43817AA81EBDE94100FB2BB1 /* InstantMock.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */ = {
+			isa = PBXGroup;
+			children = (
+				43817ACC1EBE40F900FB2BB1 /* CallInterceptor.swift */,
+				43817AC11EBDE98B00FB2BB1 /* Expectation.swift */,
+				43817AC31EBDE9A100FB2BB1 /* Stub.swift */,
+			);
+			name = "Call Interceptors";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +234,7 @@
 				43817AC21EBDE98B00FB2BB1 /* Expectation.swift in Sources */,
 				43817AC41EBDE9A100FB2BB1 /* Stub.swift in Sources */,
 				43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */,
+				43817ACD1EBE40F900FB2BB1 /* CallInterceptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

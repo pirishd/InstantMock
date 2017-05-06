@@ -58,6 +58,9 @@ public protocol MockStubProtocol {
  */
 public class Mock {
 
+    fileprivate var expectationBeingRegistered: Expectation?
+    fileprivate var stubBeingRegistered: Stub?
+
 }
 
 
@@ -66,7 +69,14 @@ extension Mock: MockExpectationProtocol {
 
     @discardableResult
     public func expect() -> Expectation {
-        return Expectation() // FIXME: just for now
+        let stub = Stub()
+        let expectation = Expectation(withStub: stub)
+
+        // mark instances as being ready for registration
+        self.expectationBeingRegistered = expectation
+        self.stubBeingRegistered = stub
+
+        return expectation
     }
 
 
@@ -82,7 +92,12 @@ extension Mock: MockStubProtocol {
 
     @discardableResult
     public func stub() -> Stub {
-        return Stub() // FIXME: just for now
+        let stub = Stub()
+
+        // mark instance as being ready for registration
+        self.stubBeingRegistered = stub
+
+        return stub
     }
 
 }

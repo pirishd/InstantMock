@@ -1,5 +1,5 @@
 //
-//  Stub.swift
+//  CallInterceptor.swift
 //  InstantMock
 //
 //  Created by Patrick on 06/05/2017.
@@ -9,6 +9,6 @@
 import Foundation
 
 
-public class Stub: CallInterceptor {
+public class CallInterceptor {
 
 }
