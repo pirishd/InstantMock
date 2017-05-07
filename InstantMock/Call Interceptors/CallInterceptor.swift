@@ -26,8 +26,19 @@ public class CallInterceptor {
 /** Extension for a list of interceptors */
 extension Collection where Iterator.Element: CallInterceptor {
 
-    func matching<T: CallInterceptor>(_ args: [Any?]) -> [T] {
-        return [T]()
+    /** Filter a list of interceptors if they match the provided arguments */
+    func matching(_ args: [Any?]) -> [CallInterceptor] {
+
+        return self.filter { interceptor in
+
+            var matching = false
+            if let config = interceptor.argsConfiguration {
+                matching = ArgsMatcher(args, with: config).match()
+            }
+
+            return matching
+        }
+
     }
 
 }

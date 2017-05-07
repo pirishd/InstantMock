@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		435CE4C41EBF79030019E2FA /* CallInterceptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4C31EBF79030019E2FA /* CallInterceptorTests.swift */; };
 		43817AAF1EBDE94100FB2BB1 /* InstantMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43817AA51EBDE94100FB2BB1 /* InstantMock.framework */; };
 		43817AB61EBDE94100FB2BB1 /* InstantMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 43817AA81EBDE94100FB2BB1 /* InstantMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ABF1EBDE96C00FB2BB1 /* Mock.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		435CE4C31EBF79030019E2FA /* CallInterceptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorTests.swift; path = "Call Interceptors/CallInterceptorTests.swift"; sourceTree = "<group>"; };
 		43817AA51EBDE94100FB2BB1 /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43817AA81EBDE94100FB2BB1 /* InstantMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMock.h; sourceTree = "<group>"; };
 		43817AA91EBDE94100FB2BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		43E42A851EBF344400F130D0 /* Call Interceptors */ = {
 			isa = PBXGroup;
 			children = (
+				435CE4C31EBF79030019E2FA /* CallInterceptorTests.swift */,
 				43E42A8B1EBF34BD00F130D0 /* CallInterceptorStorageTests.swift */,
 			);
 			name = "Call Interceptors";
@@ -372,6 +375,7 @@
 				43E42A931EBF34C800F130D0 /* IntMockUsableTests.swift in Sources */,
 				43817ACA1EBDFC5500FB2BB1 /* MockStubProtocolTests.swift in Sources */,
 				43817AC61EBDF8DE00FB2BB1 /* MockProtocolTests.swift in Sources */,
+				435CE4C41EBF79030019E2FA /* CallInterceptorTests.swift in Sources */,
 				43E42A881EBF34AB00F130D0 /* MockTests_Call.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
