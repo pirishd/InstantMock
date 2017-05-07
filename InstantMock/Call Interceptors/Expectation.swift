@@ -34,7 +34,7 @@ public class Expectation: CallInterceptor {
     @discardableResult
     override func handleCall(_ args: [Any?]) -> Any? {
         self.numberOfCalls = self.numberOfCalls + 1
-        return nil // expectations don't care about return values
+        return nil // don't care about return values
     }
 
 }
