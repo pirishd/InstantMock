@@ -35,7 +35,7 @@ class MockProtocol_Call: XCTestCase {
 
     func testExpect() {
         mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any))
-        // FIXME: to continue
+        mock.verify()
     }
 
 }

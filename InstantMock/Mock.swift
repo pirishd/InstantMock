@@ -16,13 +16,18 @@ public protocol MockDelegate {
 
 
 /** Protocol for mock expectations */
-public protocol MockExpectation {
-
-    /// Create new expectation for current instance
-    func expect() -> Expectation
+public protocol MockExpectation: MockExpectationFactory {
 
     /// Verify all expections on the current instance
     func verify()
+}
+
+
+/** Protocol for the creation of mock expectations */
+public protocol MockExpectationFactory {
+
+    /// Create new expectation for current instance
+    func expect() -> Expectation
 }
 
 
@@ -65,8 +70,8 @@ public class Mock {
 }
 
 
-/* Extension for handling mock expectations */
-extension Mock: MockExpectation {
+/* Extension for handling the creation of mock expectations */
+extension Mock: MockExpectationFactory {
 
     @discardableResult
     public func expect() -> Expectation {
@@ -79,10 +84,20 @@ extension Mock: MockExpectation {
 
         return expectation
     }
+}
 
 
-    public func verify() {
-        // FIXME: nothing for now
+/* Extension for handling mock expectations */
+extension Mock {
+
+
+    /**
+        Verify that all expectations are ok
+        - parameter file: optional string for the name of the file being verified, default takes caller file name
+        - parameter file: optional line for the line of the file being verified, default takes caller file line
+     */
+    public func verify(file: StaticString? = #file, line: UInt? = #line) {
+        // FIXME todo
     }
 
 

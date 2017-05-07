@@ -24,7 +24,7 @@ class DummyExpectationClass: MockDelegate, MockExpectation {
     }
 
     func verify() {
-        it.verify()
+        it.verify(file: #file, line: #line)
     }
 
 }
