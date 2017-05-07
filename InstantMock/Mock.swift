@@ -88,7 +88,13 @@ extension Mock: MockExpectation {
 
     /** Handle expectations */
     fileprivate func handleExpectations(_ args: [Any?], function: String) {
-        // FIXME: to do
+
+        // in registration context
+        if let expectation = self.expectationBeingRegistered {
+            expectation.argConfigurations = args.toArgConfigurations()
+            self.expectationStorage.store(interceptor: expectation, for: function)
+        }
+
     }
 
 
@@ -109,9 +115,15 @@ extension Mock: MockStub {
     }
 
 
-    /** handle stubs */
+    /** Handle stubs */
     fileprivate func handleStubs<T>(_ args: [Any?], function: String) -> T? {
         var ret: T?
+
+        // in registration context
+        if let stub = self.stubBeingRegistered {
+            stub.argConfigurations = args.toArgConfigurations()
+            self.stubStorage.store(interceptor: stub, for: function)
+        }
 
         // default value
         if let mockUsableType = T.self as? MockUsable.Type {
@@ -126,7 +138,7 @@ extension Mock: MockStub {
 }
 
 
-// MARK: Call
+/** Extension for handling calls to the mock */
 extension Mock {
 
 

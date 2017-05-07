@@ -27,20 +27,20 @@ class CallInterceptorStorageTests: XCTestCase {
         let interceptors = self.repository.interceptors(for: "")
         XCTAssertEqual(interceptors.count, 0)
 
-        self.repository.store(interceptor: self.stub, for: "someFunction", with: [])
+        self.repository.store(interceptor: self.stub, for: "someFunction")
         XCTAssertEqual(interceptors.count, 0)
     }
 
 
     func testRegisterInterceptors() {
-        self.repository.store(interceptor: self.stub, for: "someFunction", with: [])
+        self.repository.store(interceptor: self.stub, for: "someFunction")
         var interceptors = self.repository.interceptors(for: "someFunction")
 
         XCTAssertEqual(interceptors.count, 1)
         XCTAssertTrue(interceptors.first === self.stub)
 
         let stub2 = Stub()
-        self.repository.store(interceptor: stub2, for: "someFunction", with: [])
+        self.repository.store(interceptor: stub2, for: "someFunction")
         interceptors = self.repository.interceptors(for: "someFunction")
 
         XCTAssertEqual(interceptors.count, 2)

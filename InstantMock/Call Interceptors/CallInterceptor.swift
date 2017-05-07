@@ -10,4 +10,7 @@
 /** Base class for call interceptors */
 public class CallInterceptor {
 
+    /// list of argument configurations
+    var argConfigurations = [ArgConfiguration]()
+
 }
