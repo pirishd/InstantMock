@@ -29,13 +29,15 @@ extension Collection where Iterator.Element: CallInterceptor {
     /** Filter a list of interceptors if they match the provided arguments */
     func matching(_ args: [Any?]) -> [CallInterceptor] {
 
-        return self.filter { interceptor in
+        // create arg matcher
+        let argsMatcher = ArgsMatcher(args)
 
+        // return filtered list
+        return self.filter { interceptor in
             var matching = false
             if let config = interceptor.argsConfiguration {
-                matching = ArgsMatcher(args, with: config).match()
+                matching = argsMatcher.match(config)
             }
-
             return matching
         }
 

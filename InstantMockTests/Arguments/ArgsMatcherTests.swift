@@ -20,7 +20,7 @@ class ArgsMatcherTests: XCTestCase {
         let config = ArgsConfiguration(with: [Any?]())
         args.append("something")
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
@@ -33,7 +33,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append(String.any)
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
     }
 
@@ -46,7 +46,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append(nil)
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
     }
 
@@ -59,7 +59,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append(nil)
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
@@ -72,7 +72,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append("something")
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
@@ -85,7 +85,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append("something")
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
     }
 
@@ -98,7 +98,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append("something else")
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
@@ -113,7 +113,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append(instance)
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
     }
 
@@ -129,7 +129,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append(otherInstance)
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
@@ -144,7 +144,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append("string2")
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
     }
 
@@ -159,7 +159,7 @@ class ArgsMatcherTests: XCTestCase {
         otherArgs.append("another string2")
         let config = ArgsConfiguration(with: otherArgs)
 
-        let match = ArgsMatcher(args, with: config).match()
+        let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
