@@ -10,6 +10,15 @@
 /** This class represents a stub */
 public class Stub: CallInterceptor {
 
+
+    // MARK: Call
+
+    /** Method is being called */
+    @discardableResult
+    override func handleCall(_ args: [Any?]) -> Any? {
+        return nil // FIXME: just for now
+    }
+
 }
 
 

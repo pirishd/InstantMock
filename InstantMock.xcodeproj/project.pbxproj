@@ -30,6 +30,7 @@
 		43E42A921EBF34C800F130D0 /* DoubleMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A8E1EBF34C800F130D0 /* DoubleMockUsableTests.swift */; };
 		43E42A931EBF34C800F130D0 /* IntMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A8F1EBF34C800F130D0 /* IntMockUsableTests.swift */; };
 		43E42A941EBF34C800F130D0 /* StringMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A901EBF34C800F130D0 /* StringMockUsableTests.swift */; };
+		43E42A961EBF3C2800F130D0 /* ExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A951EBF3C2800F130D0 /* ExpectationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		43E42A8E1EBF34C800F130D0 /* DoubleMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleMockUsableTests.swift; path = MockUsable/DoubleMockUsableTests.swift; sourceTree = "<group>"; };
 		43E42A8F1EBF34C800F130D0 /* IntMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntMockUsableTests.swift; path = MockUsable/IntMockUsableTests.swift; sourceTree = "<group>"; };
 		43E42A901EBF34C800F130D0 /* StringMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringMockUsableTests.swift; path = MockUsable/StringMockUsableTests.swift; sourceTree = "<group>"; };
+		43E42A951EBF3C2800F130D0 /* ExpectationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				43817AC51EBDF8DE00FB2BB1 /* MockProtocolTests.swift */,
 				43817AC71EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift */,
 				43817AC91EBDFC5500FB2BB1 /* MockStubProtocolTests.swift */,
+				43E42A951EBF3C2800F130D0 /* ExpectationTests.swift */,
 			);
 			path = InstantMockTests;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				43E42A8C1EBF34BD00F130D0 /* CallInterceptorStorageTests.swift in Sources */,
 				43E42A941EBF34C800F130D0 /* StringMockUsableTests.swift in Sources */,
 				43E42A921EBF34C800F130D0 /* DoubleMockUsableTests.swift in Sources */,
+				43E42A961EBF3C2800F130D0 /* ExpectationTests.swift in Sources */,
 				43817AC81EBDFB7400FB2BB1 /* MockExpectationProtocolTests.swift in Sources */,
 				43E42A911EBF34C800F130D0 /* BoolMockUsableTests.swift in Sources */,
 				43E42A931EBF34C800F130D0 /* IntMockUsableTests.swift in Sources */,

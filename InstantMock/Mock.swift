@@ -86,17 +86,59 @@ extension Mock: MockExpectation {
     }
 
 
-    /** Handle expectations */
-    fileprivate func handleExpectations(_ args: [Any?], function: String) {
+    /**
+        Handle expectations
+        - parameter function: function for which expectations must be handled
+        - parameter args: list of arguments passed to the function
+     */
+    fileprivate func handleExpectations(for function: String, with args: [Any?]) {
 
         // in registration context
         if let expectation = self.expectationBeingRegistered {
-            expectation.argConfigurations = args.toArgConfigurations()
-            self.expectationStorage.store(interceptor: expectation, for: function)
+            self.register(expectation, for: function, with: args)
+        }
+        // in call context
+        else {
+            self.beingCalled(for: function, with: args)
+        }
+    }
+
+
+    /**
+        Register an expectation
+        - parameter expectation: expectation to be registered
+        - parameter function: function for which expectations must be handled
+        - parameter args: list of arguments passed to the function to be regsitered
+     */
+    private func register(_ expectation: Expectation, for function: String, with args: [Any?]) {
+
+        // compute configurations based on provided args
+        expectation.argConfigurations = args.toArgConfigurations()
+
+        // store the expectation for function
+        self.expectationStorage.store(interceptor: expectation, for: function)
+
+        // reset registration mode
+        self.expectationBeingRegistered = nil
+    }
+
+
+    /**
+        Mock is being called
+        - parameter function: function being called
+        - parameter args: list of arguments passed to the function being called
+     */
+    private func beingCalled(for function: String, with args: [Any?]) {
+
+        // retrieve expectations for the function
+        let expectations = self.expectationStorage.interceptors(for: function)
+
+        // notify expectations matching args that they are fullfilled
+        for expectation in expectations.matching(args) {
+            expectation.handleCall(args)
         }
 
     }
-
 
 }
 
@@ -123,6 +165,7 @@ extension Mock: MockStub {
         if let stub = self.stubBeingRegistered {
             stub.argConfigurations = args.toArgConfigurations()
             self.stubStorage.store(interceptor: stub, for: function)
+            self.stubBeingRegistered = nil // reset registration mode
         }
 
         // default value
@@ -158,7 +201,7 @@ extension Mock {
     /** Handle a call */
     @discardableResult
     private func handleCall<T>(_ args: [Any?], function: String) -> T? {
-        self.handleExpectations(args, function: function)
+        self.handleExpectations(for: function, with: args)
         return self.handleStubs(args, function: function)
     }
 
