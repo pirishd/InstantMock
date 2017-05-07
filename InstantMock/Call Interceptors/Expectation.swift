@@ -19,6 +19,31 @@ public class Expectation: CallInterceptor {
     /// Stub instance
     fileprivate let stub: Stub
 
+    /// Flag indicating if the expectation was verified
+    var verified: Bool {
+        if let expected = self.expectedNumberOfCalls {
+            return self.numberOfCalls == expected
+        }
+        return self.numberOfCalls > 0
+    }
+
+    /// Reason for a failure, nil if expectation verified
+    var reason: String? {
+        var ret: String?
+
+        if let expected = self.expectedNumberOfCalls {
+            ret = "Not called the expected number of times: \(self.numberOfCalls) out of \(expected)"
+        } else {
+            ret = "Never called"
+        }
+
+        if ret != nil, let argsConfiguration = self.argsConfiguration {
+            ret = ret ?? "" + " with expected args=\(argsConfiguration)"
+        }
+
+        return ret
+    }
+
 
     // MARK: Initializers
 

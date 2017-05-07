@@ -97,7 +97,11 @@ extension Mock {
         - parameter file: optional line for the line of the file being verified, default takes caller file line
      */
     public func verify(file: StaticString? = #file, line: UInt? = #line) {
-        
+        for expectation in self.expectationStorage.all() {
+            if !expectation.verified {
+                // FIXME: XCTFail("Expectation was not verified", file: file, line: line)
+            }
+        }
     }
 
 
