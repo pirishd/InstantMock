@@ -15,11 +15,11 @@ class ArgsMatcher {
     fileprivate let args: [Any?]
 
     // arguments configuration
-    fileprivate let argsConfig: [ArgConfiguration]
+    fileprivate let argsConfig: ArgsConfiguration
 
 
     /** Initialize new instance with arguments and configuration */
-    init(_ args: [Any?], with argsConfig: [ArgConfiguration]) {
+    init(_ args: [Any?], with argsConfig: ArgsConfiguration) {
         self.args = args
         self.argsConfig = argsConfig
     }
@@ -35,14 +35,14 @@ extension ArgsMatcher {
     func match() -> Bool {
 
         // make sure the number of arguments matches the number of expected
-        if args.count != argsConfig.count {
+        if args.count != argsConfig.values.count {
             return false
         }
 
         // match arguments one by one
-        if argsConfig.count > 0 {
-            for i in 0...argsConfig.count-1 {
-                if !self.match(args[i], with: argsConfig[i]) {
+        if argsConfig.values.count > 0 {
+            for i in 0...argsConfig.values.count-1 {
+                if !self.match(args[i], with: argsConfig.values[i]) {
                     return false
                 }
             }

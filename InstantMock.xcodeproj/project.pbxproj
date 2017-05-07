@@ -24,7 +24,7 @@
 		43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AEC1EBE690C00FB2BB1 /* String+MockUsable.swift */; };
 		43E42A841EBF343200F130D0 /* ArgConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A831EBF343200F130D0 /* ArgConfiguration.swift */; };
 		43E42A881EBF34AB00F130D0 /* MockTests_Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A871EBF34AB00F130D0 /* MockTests_Call.swift */; };
-		43E42A8A1EBF34B300F130D0 /* ArgConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A891EBF34B300F130D0 /* ArgConfigurationTests.swift */; };
+		43E42A8A1EBF34B300F130D0 /* ArgsConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A891EBF34B300F130D0 /* ArgsConfigurationTests.swift */; };
 		43E42A8C1EBF34BD00F130D0 /* CallInterceptorStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A8B1EBF34BD00F130D0 /* CallInterceptorStorageTests.swift */; };
 		43E42A911EBF34C800F130D0 /* BoolMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A8D1EBF34C800F130D0 /* BoolMockUsableTests.swift */; };
 		43E42A921EBF34C800F130D0 /* DoubleMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A8E1EBF34C800F130D0 /* DoubleMockUsableTests.swift */; };
@@ -33,6 +33,7 @@
 		43E42A961EBF3C2800F130D0 /* ExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A951EBF3C2800F130D0 /* ExpectationTests.swift */; };
 		43E42A991EBF651B00F130D0 /* ArgsMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A981EBF651B00F130D0 /* ArgsMatcher.swift */; };
 		43E42A9B1EBF696000F130D0 /* ArgsMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A9A1EBF696000F130D0 /* ArgsMatcherTests.swift */; };
+		43E42A9D1EBF6DEE00F130D0 /* ArgsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42A9C1EBF6DEE00F130D0 /* ArgsConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,7 @@
 		43817AEC1EBE690C00FB2BB1 /* String+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+MockUsable.swift"; path = "MockUsable/String+MockUsable.swift"; sourceTree = "<group>"; };
 		43E42A831EBF343200F130D0 /* ArgConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConfiguration.swift; path = Arguments/ArgConfiguration.swift; sourceTree = "<group>"; };
 		43E42A871EBF34AB00F130D0 /* MockTests_Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockTests_Call.swift; path = "External API/MockTests_Call.swift"; sourceTree = "<group>"; };
-		43E42A891EBF34B300F130D0 /* ArgConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConfigurationTests.swift; path = Arguments/ArgConfigurationTests.swift; sourceTree = "<group>"; };
+		43E42A891EBF34B300F130D0 /* ArgsConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsConfigurationTests.swift; path = Arguments/ArgsConfigurationTests.swift; sourceTree = "<group>"; };
 		43E42A8B1EBF34BD00F130D0 /* CallInterceptorStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorStorageTests.swift; path = "Call Interceptors/CallInterceptorStorageTests.swift"; sourceTree = "<group>"; };
 		43E42A8D1EBF34C800F130D0 /* BoolMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoolMockUsableTests.swift; path = MockUsable/BoolMockUsableTests.swift; sourceTree = "<group>"; };
 		43E42A8E1EBF34C800F130D0 /* DoubleMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleMockUsableTests.swift; path = MockUsable/DoubleMockUsableTests.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		43E42A951EBF3C2800F130D0 /* ExpectationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationTests.swift; sourceTree = "<group>"; };
 		43E42A981EBF651B00F130D0 /* ArgsMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsMatcher.swift; path = Arguments/ArgsMatcher.swift; sourceTree = "<group>"; };
 		43E42A9A1EBF696000F130D0 /* ArgsMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsMatcherTests.swift; path = Arguments/ArgsMatcherTests.swift; sourceTree = "<group>"; };
+		43E42A9C1EBF6DEE00F130D0 /* ArgsConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsConfiguration.swift; path = Arguments/ArgsConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		43E42A821EBF33E400F130D0 /* Arguments */ = {
 			isa = PBXGroup;
 			children = (
+				43E42A9C1EBF6DEE00F130D0 /* ArgsConfiguration.swift */,
 				43E42A831EBF343200F130D0 /* ArgConfiguration.swift */,
 				43E42A981EBF651B00F130D0 /* ArgsMatcher.swift */,
 			);
@@ -221,7 +224,7 @@
 		43E42A861EBF345100F130D0 /* Arguments */ = {
 			isa = PBXGroup;
 			children = (
-				43E42A891EBF34B300F130D0 /* ArgConfigurationTests.swift */,
+				43E42A891EBF34B300F130D0 /* ArgsConfigurationTests.swift */,
 				43E42A9A1EBF696000F130D0 /* ArgsMatcherTests.swift */,
 			);
 			name = Arguments;
@@ -342,6 +345,7 @@
 				43817AD31EBE525300FB2BB1 /* Expectation.swift in Sources */,
 				43817AD21EBE525300FB2BB1 /* CallInterceptor.swift in Sources */,
 				43817AE01EBE640600FB2BB1 /* Int+MockUsable.swift in Sources */,
+				43E42A9D1EBF6DEE00F130D0 /* ArgsConfiguration.swift in Sources */,
 				43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */,
 				43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */,
 				43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
@@ -357,7 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43E42A8A1EBF34B300F130D0 /* ArgConfigurationTests.swift in Sources */,
+				43E42A8A1EBF34B300F130D0 /* ArgsConfigurationTests.swift in Sources */,
 				43E42A8C1EBF34BD00F130D0 /* CallInterceptorStorageTests.swift in Sources */,
 				43E42A941EBF34C800F130D0 /* StringMockUsableTests.swift in Sources */,
 				43E42A921EBF34C800F130D0 /* DoubleMockUsableTests.swift in Sources */,

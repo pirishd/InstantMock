@@ -11,7 +11,7 @@
 public class CallInterceptor {
 
     /// list of argument configurations
-    var argConfigurations = [ArgConfiguration]()
+    var argsConfiguration: ArgsConfiguration?
 
 
     /** Method is being called */

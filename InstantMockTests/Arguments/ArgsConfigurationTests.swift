@@ -1,5 +1,5 @@
 //
-//  ArgConfigurationTests.swift
+//  ArgsConfigurationTests.swift
 //  InstantMock
 //
 //  Created by Patrick on 06/05/2017.
@@ -13,12 +13,13 @@ import XCTest
 class DummyArgConfiguration {}
 
 
-class ArgConfigurationTests: XCTestCase {
+class ArgsConfigurationTests: XCTestCase {
 
 
     func toArgConfigurations_empty() {
         let list = [Any]()
-        let ret = list.toArgConfigurations()
+
+        let ret = ArgsConfiguration(with: list).values
         XCTAssertEqual(ret.count, 0)
     }
 
@@ -26,7 +27,8 @@ class ArgConfigurationTests: XCTestCase {
     func toArgConfigurations_basicNonAny() {
         var list = [Any]()
         list.append(12)
-        let ret = list.toArgConfigurations()
+
+        let ret = ArgsConfiguration(with: list).values
         XCTAssertEqual(ret.count, 0)
     }
 
@@ -34,7 +36,8 @@ class ArgConfigurationTests: XCTestCase {
     func toArgConfigurations_basicIsAny() {
         var list = [Any]()
         list.append(Int.any)
-        let ret = list.toArgConfigurations()
+
+        let ret = ArgsConfiguration(with: list).values
         XCTAssertEqual(ret.count, 1)
     }
 
@@ -42,7 +45,8 @@ class ArgConfigurationTests: XCTestCase {
     func toArgConfigurations_wrongType() {
         var list = [Any]()
         list.append(DummyArgConfiguration())
-        let ret = list.toArgConfigurations()
+
+        let ret = ArgsConfiguration(with: list).values
         XCTAssertEqual(ret.count, 0)
     }
 

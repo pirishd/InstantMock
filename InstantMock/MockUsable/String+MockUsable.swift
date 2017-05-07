@@ -10,7 +10,7 @@
 /** Extension for making `String` easily usage in mocks */
 extension String: MockUsable {
 
-    public static let any = "something"
+    public static let any = "anyStringValue"
 
     public static var anyValue: MockUsable {
         return String.any

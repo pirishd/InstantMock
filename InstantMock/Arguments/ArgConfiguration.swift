@@ -23,20 +23,3 @@ class ArgConfiguration {
     }
 
 }
-
-
-/** Extension for a list of arguments */
-extension Collection {
-
-    /** Create list of argument configuration from registered arguments */
-    func toArgConfigurations() -> [ArgConfiguration] {
-        return self.map { arg in
-            var isAny = false
-            if let usable = arg as? MockUsable {
-                isAny = usable.equal(to: type(of: usable).anyValue)
-            }
-            return ArgConfiguration(value: arg, isAny: isAny)
-        }
-    }
-
-}
