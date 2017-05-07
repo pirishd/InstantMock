@@ -97,7 +97,7 @@ extension Mock {
         - parameter file: optional line for the line of the file being verified, default takes caller file line
      */
     public func verify(file: StaticString? = #file, line: UInt? = #line) {
-        // FIXME todo
+        
     }
 
 

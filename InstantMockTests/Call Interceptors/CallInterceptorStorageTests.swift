@@ -48,4 +48,20 @@ class CallInterceptorStorageTests: XCTestCase {
     }
 
 
+    func testAll() {
+        self.repository.store(interceptor: self.stub, for: "someFunction")
+
+        let stub2 = Stub()
+        self.repository.store(interceptor: stub2, for: "someFunction")
+
+        let stub3 = Stub()
+        self.repository.store(interceptor: stub3, for: "someOtherFunction")
+
+        let all = self.repository.all()
+        XCTAssertEqual(all.count, 3)
+        XCTAssertTrue(all.contains(where: { $0 === self.stub} ))
+        XCTAssertTrue(all.contains(where: { $0 === stub2} ))
+        XCTAssertTrue(all.contains(where: { $0 === stub3} ))
+    }
+
 }

@@ -37,4 +37,12 @@ class CallInterceptorStorage<T: CallInterceptor> {
         return self.repository[function] ?? [T]()
     }
 
+
+    /** Return the list of all the interceptors */
+    func all() -> [T] {
+        return self.repository.values.flatMap { (values: [T]) -> [T] in
+            return values
+        }
+    }
+
 }
