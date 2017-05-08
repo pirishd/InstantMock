@@ -53,4 +53,19 @@ class MockProtocol_Call: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+
+    func testExpect_numberOfTimes() {
+        mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any), numberOfTimes: 2)
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        let _ = mock.basic(arg1: "Hello", arg2: 2)
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        let _ = mock.basic(arg1: "Hello", arg2: 3)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
 }
