@@ -1,5 +1,5 @@
 //
-//  MockTests_Call.swift
+//  BasicMockTests.swift
 //  InstantMock
 //
 //  Created by Patrick on 06/05/2017.
@@ -29,7 +29,7 @@ class BasicMock: Mock, BasicProtocol {
 
 
 
-class MockProtocol_Call: XCTestCase {
+class BasicMockTests: XCTestCase {
 
     private var mock: BasicMock!
     private var assertionMock: AssertionMock!
