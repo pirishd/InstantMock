@@ -199,10 +199,11 @@ extension Mock: MockStub {
 
         // in registration context
         if let stub = self.stubBeingRegistered {
-            let argsConfig = ArgsConfiguration(with: args)
-            stub.configuration = CallConfiguration(for: function, with: argsConfig)
-            self.stubStorage.store(interceptor: stub, for: function)
-            self.stubBeingRegistered = nil // reset registration mode
+            self.register(stub, for: function, with: args)
+        }
+        // in call context
+        else {
+            //self.beingCalled(for: function, with: args)
         }
 
         // default value
@@ -214,6 +215,27 @@ extension Mock: MockStub {
 
         return ret
     }
+
+
+    /**
+        Register a stub
+        - parameter stub: stub to be registered
+        - parameter function: function for which stubs must be handled
+        - parameter args: list of arguments passed to the function to be regsitered
+     */
+    private func register(_ stub: Stub, for function: String, with args: [Any?]) {
+
+        // compute configurations based on provided args
+        let argsConfig = ArgsConfiguration(with: args)
+        stub.configuration = CallConfiguration(for: function, with: argsConfig)
+
+        // store the stub for function
+        self.stubStorage.store(interceptor: stub, for: function)
+
+        // reset registration mode
+        self.stubBeingRegistered = nil
+    }
+
 
 }
 
