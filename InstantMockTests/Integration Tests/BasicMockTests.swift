@@ -48,7 +48,7 @@ class BasicMockTests: XCTestCase {
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = mock.basic(arg1: "Hello", arg2: 2)
+        _ = mock.basic(arg1: "Hello", arg2: 2)
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
@@ -59,11 +59,11 @@ class BasicMockTests: XCTestCase {
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = mock.basic(arg1: "Hello", arg2: 2)
+        _ = mock.basic(arg1: "Hello", arg2: 2)
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = mock.basic(arg1: "Hello", arg2: 3)
+        _ = mock.basic(arg1: "Hello", arg2: 3)
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }

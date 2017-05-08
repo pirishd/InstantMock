@@ -26,6 +26,7 @@
 		435CE4F11EC07ECF0019E2FA /* ArgsMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4EE1EC07ECF0019E2FA /* ArgsMatcherTests.swift */; };
 		435CE4F31EC07F840019E2FA /* TypesMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F21EC07F840019E2FA /* TypesMockTests.swift */; };
 		435CE4F61EC082370019E2FA /* ExpectationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F51EC082370019E2FA /* ExpectationFactory.swift */; };
+		435CE4F81EC08DAE0019E2FA /* MockCreationModalityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */; };
 		43817AAF1EBDE94100FB2BB1 /* InstantMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43817AA51EBDE94100FB2BB1 /* InstantMock.framework */; };
 		43817AB61EBDE94100FB2BB1 /* InstantMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 43817AA81EBDE94100FB2BB1 /* InstantMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ABF1EBDE96C00FB2BB1 /* Mock.swift */; };
@@ -73,6 +74,7 @@
 		435CE4EE1EC07ECF0019E2FA /* ArgsMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsMatcherTests.swift; path = "Unit Tests/Arguments/ArgsMatcherTests.swift"; sourceTree = "<group>"; };
 		435CE4F21EC07F840019E2FA /* TypesMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypesMockTests.swift; path = "Integration Tests/TypesMockTests.swift"; sourceTree = "<group>"; };
 		435CE4F51EC082370019E2FA /* ExpectationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationFactory.swift; path = Factories/ExpectationFactory.swift; sourceTree = "<group>"; };
+		435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockCreationModalityTests.swift; path = "Integration Tests/MockCreationModalityTests.swift"; sourceTree = "<group>"; };
 		43817AA51EBDE94100FB2BB1 /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43817AA81EBDE94100FB2BB1 /* InstantMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMock.h; sourceTree = "<group>"; };
 		43817AA91EBDE94100FB2BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				435CE4D51EC07E450019E2FA /* BasicMockTests.swift */,
 				435CE4F21EC07F840019E2FA /* TypesMockTests.swift */,
+				435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				435CE4F01EC07ECF0019E2FA /* ArgsConfigurationTests.swift in Sources */,
 				435CE4E41EC07EBA0019E2FA /* IntMockUsableTests.swift in Sources */,
 				435CE4DD1EC07EAA0019E2FA /* MockStubProtocolTests.swift in Sources */,
+				435CE4F81EC08DAE0019E2FA /* MockCreationModalityTests.swift in Sources */,
 				435CE4DB1EC07EAA0019E2FA /* MockExpectationProtocolTests.swift in Sources */,
 				435CE4E51EC07EBA0019E2FA /* StringMockUsableTests.swift in Sources */,
 				435CE4F11EC07ECF0019E2FA /* ArgsMatcherTests.swift in Sources */,
