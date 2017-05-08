@@ -10,6 +10,8 @@
 		435CE4C41EBF79030019E2FA /* CallInterceptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4C31EBF79030019E2FA /* CallInterceptorTests.swift */; };
 		435CE4C81EBF90300019E2FA /* ExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4C71EBF90300019E2FA /* ExpectationTests.swift */; };
 		435CE4CA1EC0688C0019E2FA /* ArgConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4C91EC0688C0019E2FA /* ArgConfigurationTests.swift */; };
+		435CE4CD1EC06E720019E2FA /* Assertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CC1EC06E720019E2FA /* Assertion.swift */; };
+		435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */; };
 		43817AAF1EBDE94100FB2BB1 /* InstantMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43817AA51EBDE94100FB2BB1 /* InstantMock.framework */; };
 		43817AB61EBDE94100FB2BB1 /* InstantMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 43817AA81EBDE94100FB2BB1 /* InstantMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ABF1EBDE96C00FB2BB1 /* Mock.swift */; };
@@ -52,6 +54,8 @@
 		435CE4C31EBF79030019E2FA /* CallInterceptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorTests.swift; path = "Call Interceptors/CallInterceptorTests.swift"; sourceTree = "<group>"; };
 		435CE4C71EBF90300019E2FA /* ExpectationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationTests.swift; path = "Call Interceptors/ExpectationTests.swift"; sourceTree = "<group>"; };
 		435CE4C91EC0688C0019E2FA /* ArgConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConfigurationTests.swift; path = Arguments/ArgConfigurationTests.swift; sourceTree = "<group>"; };
+		435CE4CC1EC06E720019E2FA /* Assertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assertion.swift; path = Assertions/Assertion.swift; sourceTree = "<group>"; };
+		435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssertionMock.swift; path = Mocks/AssertionMock.swift; sourceTree = "<group>"; };
 		43817AA51EBDE94100FB2BB1 /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43817AA81EBDE94100FB2BB1 /* InstantMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMock.h; sourceTree = "<group>"; };
 		43817AA91EBDE94100FB2BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +106,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		435CE4CB1EC06E560019E2FA /* Assertions */ = {
+			isa = PBXGroup;
+			children = (
+				435CE4CC1EC06E720019E2FA /* Assertion.swift */,
+			);
+			name = Assertions;
+			sourceTree = "<group>";
+		};
+		435CE4CE1EC0721B0019E2FA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 		43817A9B1EBDE94100FB2BB1 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +143,7 @@
 		43817AA71EBDE94100FB2BB1 /* InstantMock */ = {
 			isa = PBXGroup;
 			children = (
+				435CE4CB1EC06E560019E2FA /* Assertions */,
 				43E42A821EBF33E400F130D0 /* Arguments */,
 				43817ADC1EBE62C800FB2BB1 /* MockUsable */,
 				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
@@ -135,6 +156,7 @@
 		43817AB21EBDE94100FB2BB1 /* InstantMockTests */ = {
 			isa = PBXGroup;
 			children = (
+				435CE4CE1EC0721B0019E2FA /* Mocks */,
 				43E42A7F1EBE7C1B00F130D0 /* External API */,
 				43E42A861EBF345100F130D0 /* Arguments */,
 				43E42A851EBF344400F130D0 /* Call Interceptors */,
@@ -357,6 +379,7 @@
 				43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
 				43817AE51EBE674100FB2BB1 /* Double+MockUsable.swift in Sources */,
 				43E42A841EBF343200F130D0 /* ArgConfiguration.swift in Sources */,
+				435CE4CD1EC06E720019E2FA /* Assertion.swift in Sources */,
 				43E42A991EBF651B00F130D0 /* ArgsMatcher.swift in Sources */,
 				43817AE91EBE688100FB2BB1 /* Bool+MockUsable.swift in Sources */,
 				43817ADE1EBE630000FB2BB1 /* MockUsable.swift in Sources */,
@@ -381,6 +404,7 @@
 				435CE4C81EBF90300019E2FA /* ExpectationTests.swift in Sources */,
 				435CE4C41EBF79030019E2FA /* CallInterceptorTests.swift in Sources */,
 				43E42A881EBF34AB00F130D0 /* MockTests_Call.swift in Sources */,
+				435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

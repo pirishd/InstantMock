@@ -10,6 +10,7 @@
 /** This class represents an expectation to be verified */
 public class Expectation: CallInterceptor {
 
+
     /// Expected number of calls
     fileprivate var expectedNumberOfCalls: Int?
 
@@ -18,6 +19,54 @@ public class Expectation: CallInterceptor {
 
     /// Stub instance
     fileprivate let stub: Stub
+
+    /// Assertion
+    fileprivate let assertion: Assertion
+
+
+    // MARK: Initializers
+
+    /** Initialize with provided stub */
+    convenience init(withStub stub: Stub) {
+        self.init(withStub: stub, assertion: AssertionImpl.instance)
+    }
+
+
+    /** Initialize with provided stub and assertion (for dependency injection) */
+    init(withStub stub: Stub, assertion: Assertion) {
+        self.stub = stub
+        self.assertion = assertion
+    }
+
+
+    // MARK: Call
+
+    /** Method is being called */
+    @discardableResult
+    override func handleCall(_ args: [Any?]) -> Any? {
+        self.numberOfCalls = self.numberOfCalls + 1
+        return nil // don't care about return values
+    }
+
+}
+
+
+
+// MARK: Registration
+extension Expectation {
+
+    /** register call */
+    @discardableResult
+    public func call<T>(_ value: T, numberOfTimes: Int? = nil) -> Stub {
+        self.expectedNumberOfCalls = numberOfTimes
+        return self.stub
+    }
+
+}
+
+
+// MARK: Verification
+extension Expectation {
 
 
     /// Flag indicating if the expectation was verified
@@ -51,35 +100,11 @@ public class Expectation: CallInterceptor {
     }
 
 
-    // MARK: Initializers
-
-    /** Initialize with provided stub */
-    init(withStub stub: Stub) {
-        self.stub = stub
-    }
-
-
-    // MARK: Call
-
-    /** Method is being called */
-    @discardableResult
-    override func handleCall(_ args: [Any?]) -> Any? {
-        self.numberOfCalls = self.numberOfCalls + 1
-        return nil // don't care about return values
-    }
-
-}
-
-
-
-// MARK: Registration
-extension Expectation {
-
-    /** register call */
-    @discardableResult
-    public func call<T>(_ value: T, numberOfTimes: Int? = nil) -> Stub {
-        self.expectedNumberOfCalls = numberOfTimes
-        return self.stub
+    /** Verify current expectation */
+    func verify(file: StaticString?, line: UInt?) {
+        if !self.verified {
+            self.assertion.fail(self.reason, file: file, line: line)
+        }
     }
 
 }

@@ -105,4 +105,16 @@ class ExpectationTests: XCTestCase {
     }
 
 
+    func testVerify() {
+        let assertion = AssertionMock()
+        let expectation = Expectation(withStub: Stub(), assertion: assertion)
+
+        let file: StaticString = "file"
+        expectation.verify(file: file, line: 28)
+        XCTAssertEqual(assertion.description, "Never called")
+        XCTAssertEqual(assertion.file?.description, file.description)
+        XCTAssertEqual(assertion.line, 28)
+    }
+
+
 }
