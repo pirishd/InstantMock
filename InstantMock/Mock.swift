@@ -196,6 +196,7 @@ extension Mock: MockStub {
     /** Handle stubs */
     fileprivate func handleStubs<T>(_ args: [Any?], function: String) -> T? {
         var ret: T?
+        var useDefaultValue = true
 
         // in registration context
         if let stub = self.stubBeingRegistered {
@@ -203,11 +204,11 @@ extension Mock: MockStub {
         }
         // in call context
         else {
-            ret = self.handleStubsWhileBeingCalled(for: function, with: args)
+            (ret, useDefaultValue) = self.handleStubsWhileBeingCalled(for: function, with: args)
         }
 
         // default value
-        if let mockUsableType = T.self as? MockUsable.Type {
+        if useDefaultValue, let mockUsableType = T.self as? MockUsable.Type {
             if let value = mockUsableType.anyValue as? T {
                 ret = value
             }
@@ -242,10 +243,11 @@ extension Mock: MockStub {
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    private func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> T? {
+    private func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> (T?, Bool) {
         var ret: T?
+        var useDefaultValue = true
 
-        // retrieve stubs for the function
+        // retrieve configured stubs for the function
         let stubs = self.stubStorage.interceptors(for: function)
 
         // find the best stub and apply it
@@ -256,9 +258,10 @@ extension Mock: MockStub {
             } else {
                 fatalError("Unexpected type of return value")
             }
+            if stub.returns { useDefaultValue = false }
         }
 
-        return ret
+        return (ret, useDefaultValue)
     }
 
 

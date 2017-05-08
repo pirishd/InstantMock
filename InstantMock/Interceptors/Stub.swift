@@ -22,6 +22,10 @@ public class Stub: CallInterceptor {
     /// Closure to be called before returning
     fileprivate var closure: (() -> Void)?
 
+    /// Flag indicating that the stub is configured to return something
+    var returns: Bool {
+        return self.hasReturnValue || self.returnValueClosure != nil
+    }
 
     /// Number of args configured to match any value
     fileprivate var numberOfAnyArgs: Int {

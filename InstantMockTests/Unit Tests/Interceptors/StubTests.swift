@@ -32,14 +32,14 @@ class StubTests: XCTestCase {
     }
 
 
-    func testHandleCall_andReturnValue() {
+    func testHandleCall_andReturnClosure() {
         self.stub.andReturn(closure: { return 12 })
         let ret = self.stub.handleCall()
         XCTAssertEqual(ret as! Int, 12)
     }
 
 
-    func testHandleCall_andReturn_andReturnValue() {
+    func testHandleCall_andReturn_andReturnClosure() {
         self.stub.andReturn(closure: { return 12 }).andReturn(36)
         let ret = self.stub.handleCall()
         XCTAssertEqual(ret as! Int, 36)
@@ -66,13 +66,33 @@ class StubTests: XCTestCase {
     }
 
 
-    func testHandleCall_andReturnValue_andDo() {
+    func testHandleCall_andReturnClosure_andDo() {
         var something = ""
         self.stub.andDo({ something = "not_empty" }).andReturn(closure: { return 12 })
 
         let ret = self.stub.handleCall()
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 12)
+    }
+
+
+    func testReturns_false() {
+        let returns = self.stub.returns
+        XCTAssertFalse(returns)
+    }
+
+
+    func testReturns_andReturn() {
+        self.stub.andReturn(12)
+        let returns = self.stub.returns
+        XCTAssertTrue(returns)
+    }
+
+
+    func testReturns_andReturnClosure() {
+        self.stub.andReturn(closure: { return 12} )
+        let returns = self.stub.returns
+        XCTAssertTrue(returns)
     }
 
 

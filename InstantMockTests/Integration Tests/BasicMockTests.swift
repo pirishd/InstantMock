@@ -68,4 +68,57 @@ class BasicMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+
+    func testStub() {
+
+        var callbackValue: String?
+        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string").andDo {
+            callbackValue = "something"
+        }
+
+        let ret = mock.basic(arg1: "Hello", arg2: 2)
+        XCTAssertEqual(ret, "string")
+        XCTAssertEqual(callbackValue, "something")
+    }
+
+
+    func testSeveralStubs() {
+
+        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string")
+        mock.stub().call(mock.basic(arg1: "Hello", arg2: 2)).andReturn("string2")
+
+        let ret = mock.basic(arg1: "Hello", arg2: 2)
+        XCTAssertEqual(ret, "string2")
+    }
+
+
+    func testExpectAndStub() {
+
+        var callbackValue: String?
+        mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string").andDo {
+            callbackValue = "something"
+        }
+
+        let ret = mock.basic(arg1: "Hello", arg2: 2)
+        XCTAssertEqual(ret, "string")
+        XCTAssertEqual(callbackValue, "something")
+    }
+
+
+    func testStub_returnAndDo() {
+
+        var ret = ""
+        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn(closure: {
+            ret = ret + "a"
+            return ret
+        })
+
+        var retValue = mock.basic(arg1: "Hello", arg2: 2)
+        XCTAssertEqual(retValue, "a")
+
+        retValue = mock.basic(arg1: "Hello", arg2: 2)
+        XCTAssertEqual(retValue, "aa")
+    }
+
+
 }
