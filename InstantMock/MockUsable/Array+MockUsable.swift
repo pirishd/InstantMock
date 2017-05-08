@@ -20,7 +20,7 @@ extension Array: MockUsable {
 
     public func equal(to value: MockUsable?) -> Bool {
         guard let arrayValue = value as? Array else { return false }
-        return Verifier().equalArray(self, to: arrayValue)
+        return Verifier.instance.equalArray(self, to: arrayValue)
     }
 
 }

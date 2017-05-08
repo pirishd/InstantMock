@@ -14,13 +14,13 @@ class SetMockUsableTests: XCTestCase {
 
 
     func testEqual_toNil() {
-        let ret = false.equal(to: nil)
+        let ret = Set<Int>().equal(to: nil)
         XCTAssertFalse(ret)
     }
 
 
     func testEqual_toWrongType() {
-        let ret = false.equal(to: 12.0)
+        let ret = Set<Int>().equal(to: 12.0)
         XCTAssertFalse(ret)
     }
 

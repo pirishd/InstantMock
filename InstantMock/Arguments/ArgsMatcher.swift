@@ -13,9 +13,6 @@ class ArgsMatcher {
     /// Provided arguments
     fileprivate let args: [Any?]
 
-    /// Verifier
-    fileprivate let verifier = Verifier()
-
     /** Initialize new instance with arguments and configuration */
     init(_ args: [Any?]) {
         self.args = args
@@ -56,7 +53,7 @@ extension ArgsMatcher {
         if argConfig.isAny { return true }
 
         // verify matching between values
-        return self.verifier.equal(arg, to: argConfig.value)
+        return Verifier.instance.equal(arg, to: argConfig.value)
     }
 
 }

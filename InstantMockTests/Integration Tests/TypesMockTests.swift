@@ -23,6 +23,7 @@ protocol TypesProtocol {
     func object(_ obj: SomeObject) -> SomeObject?
     func set(_ set: Set<Int>) -> Set<String>
     func array(_ array: Array<Int>) -> Array<String>
+    func dictionary(_ dictionary: Dictionary<String, Int>) -> Dictionary<String, Int>
 }
 
 
@@ -61,7 +62,11 @@ class TypesMock: Mock, TypesProtocol {
     }
 
     func array(_ array: Array<Int>) -> Array<String> {
-        return super.call(array) ?? Array<String>()
+        return super.call(array)!
+    }
+
+    func dictionary(_ dictionary: Dictionary<String, Int>) -> Dictionary<String, Int> {
+        return super.call(dictionary)!
     }
 
     override init(withExpectationFactory factory: ExpectationFactory) {
@@ -208,5 +213,20 @@ class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+
+    func testDictionary() {
+        var dict = Dictionary<String, Int>()
+        dict["key"] = 12
+
+        self.mock.expect().call(self.mock.dictionary(Dictionary.any))
+
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.dictionary(dict)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
 
 }

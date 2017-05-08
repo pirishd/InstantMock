@@ -11,6 +11,10 @@
 class Verifier {
 
 
+    /// Singleton
+    static let instance = Verifier()
+
+
     /**
         Make sure two optional values are equal
         - parameter arg: first argument
