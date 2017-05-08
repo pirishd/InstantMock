@@ -171,7 +171,7 @@ extension Mock {
 
         // notify expectations matching args that they are fullfilled
         for expectation in expectations.matching(args) {
-            expectation.handleCall(args)
+            expectation.handleCall(args) as Void?
         }
 
     }
@@ -243,14 +243,17 @@ extension Mock: MockStub {
         - parameter args: list of arguments passed to the function being called
      */
     private func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> T? {
+        var ret: T?
 
         // retrieve stubs for the function
         let stubs = self.stubStorage.interceptors(for: function)
 
         // find the best stub and apply it
-        return nil
-        //let stub = stubs.matching(args).best()
-        //return stub.handleCall(args) as T?
+        if let stub = stubs.matching(args).best() {
+            ret = stub.handleCall(args) as T?
+        }
+
+        return ret
     }
 
 

@@ -16,7 +16,7 @@ public class CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    func handleCall(_ args: [Any?]) -> Any? {
+    func handleCall<T>(_ args: [Any?]) -> T? {
         fatalError("[CallInterceptor] handleCall: virtual method, must be overloaded in subclasses")
     }
 
@@ -27,7 +27,7 @@ public class CallInterceptor {
 extension Collection where Iterator.Element: CallInterceptor {
 
     /** Filter a list of interceptors if they match the provided arguments */
-    func matching(_ args: [Any?]) -> [CallInterceptor] {
+    func matching(_ args: [Any?]) -> [Iterator.Element] {
 
         // create arg matcher
         let argsMatcher = ArgsMatcher(args)

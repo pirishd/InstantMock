@@ -28,7 +28,7 @@ public class Stub: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall(_ args: [Any?]) -> Any? {
+    override func handleCall<T>(_ args: [Any?]) -> T? {
         return nil // FIXME: just for now
     }
 
