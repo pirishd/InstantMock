@@ -134,7 +134,7 @@ extension Mock {
         }
         // in call context
         else {
-            self.beingCalled(for: function, with: args)
+            self.handleExpectationsWhileBeingCalled(for: function, with: args)
         }
     }
 
@@ -160,11 +160,11 @@ extension Mock {
 
 
     /**
-        Mock is being called
+        Handle expectations while mock is being called
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    private func beingCalled(for function: String, with args: [Any?]) {
+    private func handleExpectationsWhileBeingCalled(for function: String, with args: [Any?]) {
 
         // retrieve expectations for the function
         let expectations = self.expectationStorage.interceptors(for: function)
@@ -203,7 +203,7 @@ extension Mock: MockStub {
         }
         // in call context
         else {
-            //self.beingCalled(for: function, with: args)
+            ret = self.handleStubsWhileBeingCalled(for: function, with: args)
         }
 
         // default value
@@ -234,6 +234,23 @@ extension Mock: MockStub {
 
         // reset registration mode
         self.stubBeingRegistered = nil
+    }
+
+
+    /**
+        Handle stubs while mock is being called
+        - parameter function: function being called
+        - parameter args: list of arguments passed to the function being called
+     */
+    private func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> T? {
+
+        // retrieve stubs for the function
+        let stubs = self.stubStorage.interceptors(for: function)
+
+        // find the best stub and apply it
+        return nil
+        //let stub = stubs.matching(args).best()
+        //return stub.handleCall(args) as T?
     }
 
 
