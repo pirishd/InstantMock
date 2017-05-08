@@ -41,7 +41,7 @@ public class Stub: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall(_ args: [Any?]) -> Any? { // FIXME: args probably useless with args captor
+    override func handleCall() -> Any? {
         var ret: Any?
 
         // call closure if required
