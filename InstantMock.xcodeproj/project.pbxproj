@@ -11,9 +11,6 @@
 		435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */; };
 		435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */; };
 		435CE4D61EC07E450019E2FA /* BasicMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D51EC07E450019E2FA /* BasicMockTests.swift */; };
-		435CE4DB1EC07EAA0019E2FA /* MockExpectationProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D81EC07EAA0019E2FA /* MockExpectationProtocolTests.swift */; };
-		435CE4DC1EC07EAA0019E2FA /* MockProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D91EC07EAA0019E2FA /* MockProtocolTests.swift */; };
-		435CE4DD1EC07EAA0019E2FA /* MockStubProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4DA1EC07EAA0019E2FA /* MockStubProtocolTests.swift */; };
 		435CE4E21EC07EBA0019E2FA /* BoolMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4DE1EC07EBA0019E2FA /* BoolMockUsableTests.swift */; };
 		435CE4E31EC07EBA0019E2FA /* DoubleMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4DF1EC07EBA0019E2FA /* DoubleMockUsableTests.swift */; };
 		435CE4E41EC07EBA0019E2FA /* IntMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4E01EC07EBA0019E2FA /* IntMockUsableTests.swift */; };
@@ -61,9 +58,6 @@
 		435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssertionMock.swift; path = Mocks/AssertionMock.swift; sourceTree = "<group>"; };
 		435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationFactoryMock.swift; path = Mocks/ExpectationFactoryMock.swift; sourceTree = "<group>"; };
 		435CE4D51EC07E450019E2FA /* BasicMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicMockTests.swift; path = "Integration Tests/BasicMockTests.swift"; sourceTree = "<group>"; };
-		435CE4D81EC07EAA0019E2FA /* MockExpectationProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockExpectationProtocolTests.swift; path = "Unit Tests/MockExpectationProtocolTests.swift"; sourceTree = "<group>"; };
-		435CE4D91EC07EAA0019E2FA /* MockProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockProtocolTests.swift; path = "Unit Tests/MockProtocolTests.swift"; sourceTree = "<group>"; };
-		435CE4DA1EC07EAA0019E2FA /* MockStubProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockStubProtocolTests.swift; path = "Unit Tests/MockStubProtocolTests.swift"; sourceTree = "<group>"; };
 		435CE4DE1EC07EBA0019E2FA /* BoolMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoolMockUsableTests.swift; path = "Unit Tests/MockUsable/BoolMockUsableTests.swift"; sourceTree = "<group>"; };
 		435CE4DF1EC07EBA0019E2FA /* DoubleMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleMockUsableTests.swift; path = "Unit Tests/MockUsable/DoubleMockUsableTests.swift"; sourceTree = "<group>"; };
 		435CE4E01EC07EBA0019E2FA /* IntMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntMockUsableTests.swift; path = "Unit Tests/MockUsable/IntMockUsableTests.swift"; sourceTree = "<group>"; };
@@ -138,12 +132,9 @@
 		435CE4D71EC07E690019E2FA /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				435CE4D81EC07EAA0019E2FA /* MockExpectationProtocolTests.swift */,
-				435CE4D91EC07EAA0019E2FA /* MockProtocolTests.swift */,
-				435CE4DA1EC07EAA0019E2FA /* MockStubProtocolTests.swift */,
-				43817AE11EBE65A300FB2BB1 /* MockUsable */,
-				43E42A851EBF344400F130D0 /* Interceptors */,
 				43E42A861EBF345100F130D0 /* Arguments */,
+				43E42A851EBF344400F130D0 /* Interceptors */,
+				43817AE11EBE65A300FB2BB1 /* MockUsable */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -428,9 +419,7 @@
 			files = (
 				435CE4F01EC07ECF0019E2FA /* ArgsConfigurationTests.swift in Sources */,
 				435CE4E41EC07EBA0019E2FA /* IntMockUsableTests.swift in Sources */,
-				435CE4DD1EC07EAA0019E2FA /* MockStubProtocolTests.swift in Sources */,
 				435CE4F81EC08DAE0019E2FA /* MockCreationModalityTests.swift in Sources */,
-				435CE4DB1EC07EAA0019E2FA /* MockExpectationProtocolTests.swift in Sources */,
 				435CE50F1EC098360019E2FA /* CallInterceptorTests.swift in Sources */,
 				435CE4E51EC07EBA0019E2FA /* StringMockUsableTests.swift in Sources */,
 				435CE4F11EC07ECF0019E2FA /* ArgsMatcherTests.swift in Sources */,
@@ -441,7 +430,6 @@
 				435CE4EF1EC07ECF0019E2FA /* ArgConfigurationTests.swift in Sources */,
 				435CE4D61EC07E450019E2FA /* BasicMockTests.swift in Sources */,
 				435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */,
-				435CE4DC1EC07EAA0019E2FA /* MockProtocolTests.swift in Sources */,
 				435CE50E1EC098360019E2FA /* CallInterceptorStorageTests.swift in Sources */,
 				435CE4E31EC07EBA0019E2FA /* DoubleMockUsableTests.swift in Sources */,
 				435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */,
