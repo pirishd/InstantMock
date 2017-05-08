@@ -50,4 +50,31 @@ class ArgsConfigurationTests: XCTestCase {
         XCTAssertEqual(ret.count, 0)
     }
 
+
+    func testDescription_empty() {
+        let list = [Any]()
+
+        let ret = ArgsConfiguration(with: list).description
+        XCTAssertEqual(ret, "none")
+    }
+
+
+    func testDescription_oneValue() {
+        var list = [Any]()
+        list.append(Int.any)
+
+        let ret = ArgsConfiguration(with: list).description
+        XCTAssertEqual(ret, "any")
+    }
+
+
+    func testDescription_severalValues() {
+        var list = [Any]()
+        list.append(12)
+        list.append(String.any)
+
+        let ret = ArgsConfiguration(with: list).description
+        XCTAssertEqual(ret, "12, any")
+    }
+
 }

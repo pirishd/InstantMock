@@ -23,3 +23,28 @@ class ArgConfiguration {
     }
 
 }
+
+
+/** Extension that returns a description of a configuration */
+extension ArgConfiguration: CustomStringConvertible {
+
+    var description: String {
+        var ret = ""
+
+        // any value
+        if self.isAny {
+            ret = "any"
+        }
+        // non nil value
+        else if let value = self.value {
+            ret = "\(value)"
+        }
+        // nil value
+        else {
+            ret = "nil"
+        }
+
+        return ret
+    }
+
+}

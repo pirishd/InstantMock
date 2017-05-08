@@ -10,18 +10,22 @@
 /** Class representing a configuration of arguments */
 class ArgsConfiguration {
 
+
     /// Actual expected arguments
-    private let args: [Any?]
+    fileprivate let args: [Any?]
+
 
     /// Configuration of the arguments
     lazy var values: [ArgConfiguration] = {
         return self.toConfig()
     }()
 
+
     /** Initialize with expected arguments */
     init(with args: [Any?]) {
         self.args = args
     }
+
 
     /** Create list of argument configurations from registered arguments */
     private func toConfig() -> [ArgConfiguration] {
@@ -32,6 +36,25 @@ class ArgsConfiguration {
             }
             return ArgConfiguration(value: arg, isAny: isAny)
         }
+    }
+
+}
+
+
+/** Extension that returns a description of a configuration */
+extension ArgsConfiguration: CustomStringConvertible {
+
+    var description: String {
+        var value = ""
+
+        if self.args.count > 0 {
+            let valuesDescriptions = self.values.map { $0.description }
+            value = valuesDescriptions.joined(separator: ", ")
+        } else {
+            value = "none"
+        }
+
+        return value
     }
 
 }
