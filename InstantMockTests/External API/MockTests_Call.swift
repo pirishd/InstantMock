@@ -46,7 +46,11 @@ class MockProtocol_Call: XCTestCase {
     func testExpect() {
         mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any))
         mock.verify()
-        XCTAssertTrue(self.assertionMock.failed)
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        let _ = mock.basic(arg1: "Hello", arg2: 2)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
     }
 
 }

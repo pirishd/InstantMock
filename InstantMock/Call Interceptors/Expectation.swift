@@ -102,7 +102,9 @@ extension Expectation {
 
     /** Verify current expectation */
     func verify(file: StaticString?, line: UInt?) {
-        if !self.verified {
+        if self.verified {
+            self.assertion.success(file: file, line: line)
+        } else {
             self.assertion.fail(self.reason, file: file, line: line)
         }
     }

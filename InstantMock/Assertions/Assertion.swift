@@ -13,6 +13,13 @@ import XCTest
 public protocol Assertion {
 
     /**
+     Successful assertion
+     - parameter file: file where the failure occured
+     - parameter line: line in the file where the failure occured
+     */
+    func success(file: StaticString?, line: UInt?)
+
+    /**
      Failed assertion
      - parameter description: description of the failure
      - parameter file: file where the failure occured
@@ -27,6 +34,11 @@ class AssertionImpl: Assertion {
 
     /// Singleton
     static let instance = AssertionImpl()
+
+
+    func success(file: StaticString?, line: UInt?) {
+        // nothing to do
+    }
 
 
     func fail(_ description: String?, file: StaticString?, line: UInt?) {
