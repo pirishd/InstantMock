@@ -80,6 +80,12 @@ extension ArgsMatcher {
             return true
         }
 
+        // closure detection (ugly test using description of the type…)
+        if "\(type(of: value))".hasPrefix("(") {
+             // just make sure types match, there is no other way to compare functions in swift
+            return type(of: arg) == type(of: value)
+        }
+
         // default case
         return false
     }

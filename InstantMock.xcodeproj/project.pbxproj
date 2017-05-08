@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		433C3C4D1EC0CD1E00367656 /* ClosureMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */; };
+		433C3C4F1EC0D16600367656 /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C4E1EC0D16600367656 /* Closure.swift */; };
 		435CE4CD1EC06E720019E2FA /* Assertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CC1EC06E720019E2FA /* Assertion.swift */; };
 		435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */; };
 		435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureMockTests.swift; path = "Integration Tests/ClosureMockTests.swift"; sourceTree = "<group>"; };
+		433C3C4E1EC0D16600367656 /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Closure.swift; path = Arguments/Closure.swift; sourceTree = "<group>"; };
 		435CE4CC1EC06E720019E2FA /* Assertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assertion.swift; path = Assertions/Assertion.swift; sourceTree = "<group>"; };
 		435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssertionMock.swift; path = Mocks/AssertionMock.swift; sourceTree = "<group>"; };
 		435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationFactoryMock.swift; path = Mocks/ExpectationFactoryMock.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				435CE4D51EC07E450019E2FA /* BasicMockTests.swift */,
 				435CE4F21EC07F840019E2FA /* TypesMockTests.swift */,
 				435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */,
+				433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				43E42A831EBF343200F130D0 /* ArgConfiguration.swift */,
 				43E42A9C1EBF6DEE00F130D0 /* ArgsConfiguration.swift */,
 				43E42A981EBF651B00F130D0 /* ArgsMatcher.swift */,
+				433C3C4E1EC0D16600367656 /* Closure.swift */,
 			);
 			name = Arguments;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 				43817AE01EBE640600FB2BB1 /* Int+MockUsable.swift in Sources */,
 				43E42A9D1EBF6DEE00F130D0 /* ArgsConfiguration.swift in Sources */,
 				435CE5041EC097D60019E2FA /* Stub.swift in Sources */,
+				433C3C4F1EC0D16600367656 /* Closure.swift in Sources */,
 				43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */,
 				435CE5031EC097D60019E2FA /* Expectation.swift in Sources */,
 				435CE4FE1EC097C60019E2FA /* CallInterceptorStorage.swift in Sources */,
@@ -429,6 +436,7 @@
 				435CE5121EC0B33F0019E2FA /* StubTests.swift in Sources */,
 				435CE4EF1EC07ECF0019E2FA /* ArgConfigurationTests.swift in Sources */,
 				435CE4D61EC07E450019E2FA /* BasicMockTests.swift in Sources */,
+				433C3C4D1EC0CD1E00367656 /* ClosureMockTests.swift in Sources */,
 				435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */,
 				435CE50E1EC098360019E2FA /* CallInterceptorStorageTests.swift in Sources */,
 				435CE4E31EC07EBA0019E2FA /* DoubleMockUsableTests.swift in Sources */,

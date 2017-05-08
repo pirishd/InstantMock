@@ -164,4 +164,34 @@ class ArgsMatcherTests: XCTestCase {
     }
 
 
+    func testMatch_closure_success() {
+        let closure: (() -> Void) = {}
+
+        var args = [Any?]()
+        args.append(closure)
+
+        var otherArgs = [Any?]()
+        otherArgs.append(closure)
+        let config = ArgsConfiguration(with: otherArgs)
+
+        let match = ArgsMatcher(args).match(config)
+        XCTAssertTrue(match)
+    }
+
+
+    func testMatch_closure_failure() {
+        let closure: (() -> Void) = {}
+        let closure2: ((String) -> Void) = { str in }
+
+        var args = [Any?]()
+        args.append(closure)
+
+        var otherArgs = [Any?]()
+        otherArgs.append(closure2)
+        let config = ArgsConfiguration(with: otherArgs)
+
+        let match = ArgsMatcher(args).match(config)
+        XCTAssertFalse(match)
+    }
+
 }
