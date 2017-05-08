@@ -10,8 +10,8 @@
 /** Base class for call interceptors */
 public class CallInterceptor {
 
-    /// list of argument configurations
-    var argsConfiguration: ArgsConfiguration?
+    /// Configuration for the call
+    var configuration: CallConfiguration?
 
 
     /** Method is being called */
@@ -35,8 +35,8 @@ extension Collection where Iterator.Element: CallInterceptor {
         // return filtered list
         return self.filter { interceptor in
             var matching = false
-            if let config = interceptor.argsConfiguration {
-                matching = argsMatcher.match(config)
+            if let config = interceptor.configuration {
+                matching = argsMatcher.match(config.args)
             }
             return matching
         }

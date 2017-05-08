@@ -25,9 +25,12 @@ class CallInterceptorTests: XCTestCase {
 
     func testMatching_oneMatching() {
         let interceptor1 = CallInterceptor()
-        interceptor1.argsConfiguration = ArgsConfiguration(with: [String.any])
+        let config1 = CallConfiguration(for: "", with: ArgsConfiguration(with: [String.any]))
+        interceptor1.configuration = config1
+
         let interceptor2 = CallInterceptor()
-        interceptor2.argsConfiguration = ArgsConfiguration(with: ["another string"])
+        let config2 = CallConfiguration(for: "", with: ArgsConfiguration(with: ["another string"]))
+        interceptor2.configuration = config2
 
         let list = [interceptor1, interceptor2]
         let ret = list.matching(["string"])
@@ -39,9 +42,12 @@ class CallInterceptorTests: XCTestCase {
 
     func testMatching_success() {
         let interceptor1 = CallInterceptor()
-        interceptor1.argsConfiguration = ArgsConfiguration(with: [String.any])
+        let config1 = CallConfiguration(for: "", with: ArgsConfiguration(with: [String.any]))
+        interceptor1.configuration = config1
+
         let interceptor2 = CallInterceptor()
-        interceptor2.argsConfiguration = ArgsConfiguration(with: ["string"])
+        let config2 = CallConfiguration(for: "", with: ArgsConfiguration(with: ["string"]))
+        interceptor2.configuration = config2
 
         let list = [interceptor1, interceptor2]
         let ret = list.matching(["string"])

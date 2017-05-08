@@ -63,15 +63,20 @@ class ExpectationTests: XCTestCase {
 
     func testReason_basic() {
         var reason = self.expectation.reason
-        XCTAssertEqual(reason, "Never called")
+        XCTAssertNil(reason)
 
-        self.expectation.argsConfiguration = self.argsConfig
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        self.expectation.configuration = config
+
         reason = self.expectation.reason
-        XCTAssertTrue(reason!.hasPrefix("Never called with expected args"))
+        XCTAssertEqual(reason, "Func never called with expected args (none)")
     }
 
 
     func testReason_called() {
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        self.expectation.configuration = config
+
         self.expectation.handleCall([])
         var reason = self.expectation.reason
         XCTAssertNil(reason)
@@ -80,23 +85,18 @@ class ExpectationTests: XCTestCase {
         self.expectation.handleCall([])
         reason = self.expectation.reason
         XCTAssertNil(reason)
-
-        self.expectation.argsConfiguration = self.argsConfig
-        reason = self.expectation.reason
-        XCTAssertNil(reason)
     }
 
 
     func testReason_withExpectedNumberOfCalls() {
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        self.expectation.configuration = config
+
         self.expectation.call(Int.any, numberOfTimes: 2)
 
         self.expectation.handleCall([])
         var reason = self.expectation.reason
-        XCTAssertEqual(reason, "Not called the expected number of times (1 out of 2)")
-
-        self.expectation.argsConfiguration = self.argsConfig
-        reason = self.expectation.reason
-        XCTAssertTrue(reason!.hasPrefix("Not called the expected number of times (1 out of 2) with expected args"))
+        XCTAssertEqual(reason, "Func not called the expected number of times (1 out of 2) with expected args (none)")
 
         // call a second time
         self.expectation.handleCall([])
@@ -108,10 +108,12 @@ class ExpectationTests: XCTestCase {
     func testVerify() {
         let assertion = AssertionMock()
         let expectation = Expectation(withStub: Stub(), assertion: assertion)
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        expectation.configuration = config
 
         let file: StaticString = "file"
         expectation.verify(file: file, line: 28)
-        XCTAssertEqual(assertion.description, "Never called")
+        XCTAssertEqual(assertion.description, "Func never called with expected args (none)")
         XCTAssertEqual(assertion.file?.description, file.description)
         XCTAssertEqual(assertion.line, 28)
     }

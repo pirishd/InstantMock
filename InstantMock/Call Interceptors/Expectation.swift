@@ -82,18 +82,17 @@ extension Expectation {
     var reason: String? {
         var value: String?
 
-        if let expected = self.expectedNumberOfCalls {
-            if self.numberOfCalls != expected {
-                value = "Not called the expected number of times (\(self.numberOfCalls) out of \(expected))"
-            }
-        } else {
-            if self.numberOfCalls == 0 {
-                value = "Never called"
-            }
-        }
+        if !self.verified, let configuration = self.configuration {
+            var details = configuration.function + " "
 
-        if let valueNotNil = value, let argsConfiguration = self.argsConfiguration {
-            value = valueNotNil + " with expected args (\(argsConfiguration))"
+            if let expected = self.expectedNumberOfCalls {
+                details = details + "not called the expected number of times (\(self.numberOfCalls) out of \(expected))"
+            } else {
+                details = details + "never called"
+            }
+
+            details = details + " with expected args (\(configuration.args))"
+            value = details
         }
 
         return value
