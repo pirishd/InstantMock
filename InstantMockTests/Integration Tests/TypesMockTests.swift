@@ -10,6 +10,9 @@ import XCTest
 @testable import InstantMock
 
 
+class SomeObject: NSObject { }
+
+
 protocol TypesProtocol {
     func empty()
     func boolean(_ bool: Bool) -> Bool
@@ -17,6 +20,7 @@ protocol TypesProtocol {
     func double(_ double: Double) -> Double
     func string(_ str: String) -> String
     func stringOpt(_ str: String) -> String?
+    func object(obj: SomeObject) -> SomeObject?
 }
 
 
@@ -44,6 +48,10 @@ class TypesMock: Mock, TypesProtocol {
 
     func stringOpt(_ str: String) -> String? {
         return super.call(str)
+    }
+
+    func object(obj: SomeObject) -> SomeObject? {
+        return super.call(obj)
     }
 
     override init(withExpectationFactory factory: ExpectationFactory) {
@@ -86,7 +94,7 @@ class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = self.mock.boolean(true)
+        _ = self.mock.boolean(true)
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
@@ -99,7 +107,7 @@ class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = self.mock.integer(12)
+        _ = self.mock.integer(12)
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
@@ -112,7 +120,7 @@ class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = self.mock.double(12.0)
+        _ = self.mock.double(12.0)
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
@@ -125,7 +133,7 @@ class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = self.mock.string("arg")
+        _ = self.mock.string("arg")
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
@@ -138,7 +146,21 @@ class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        let _ = self.mock.stringOpt("arg")
+        _ = self.mock.stringOpt("arg")
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testObject() {
+        let object = SomeObject()
+        self.mock.expect().call(self.mock.object(obj: object))
+
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = mock.object(obj: object)
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
