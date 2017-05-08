@@ -13,11 +13,13 @@ import XCTest
 class ExpectationTests: XCTestCase {
 
     private var expectation: Expectation!
+    private var argsConfig: ArgsConfiguration!
 
 
     override func setUp() {
         super.setUp()
         self.expectation = Expectation(withStub: Stub())
+        self.argsConfig = ArgsConfiguration(with: [Any?]())
     }
 
 
@@ -60,8 +62,47 @@ class ExpectationTests: XCTestCase {
 
 
     func testReason_basic() {
-        let reason = self.expectation.reason
-        XCTAssertNotNil(reason) // FIXME continue
+        var reason = self.expectation.reason
+        XCTAssertEqual(reason, "Never called")
+
+        self.expectation.argsConfiguration = self.argsConfig
+        reason = self.expectation.reason
+        XCTAssertTrue(reason!.hasPrefix("Never called with expected args="))
     }
+
+
+    func testReason_called() {
+        self.expectation.handleCall([])
+        var reason = self.expectation.reason
+        XCTAssertNil(reason)
+
+        // call a second time
+        self.expectation.handleCall([])
+        reason = self.expectation.reason
+        XCTAssertNil(reason)
+
+        self.expectation.argsConfiguration = self.argsConfig
+        reason = self.expectation.reason
+        XCTAssertNil(reason)
+    }
+
+
+    func testReason_withExpectedNumberOfCalls() {
+        self.expectation.call(Int.any, numberOfTimes: 2)
+
+        self.expectation.handleCall([])
+        var reason = self.expectation.reason
+        XCTAssertEqual(reason, "Not called the expected number of times (1 out of 2)")
+
+        self.expectation.argsConfiguration = self.argsConfig
+        reason = self.expectation.reason
+        XCTAssertTrue(reason!.hasPrefix("Not called the expected number of times (1 out of 2) with expected args="))
+
+        // call a second time
+        self.expectation.handleCall([])
+        reason = self.expectation.reason
+        XCTAssertNil(reason)
+    }
+
 
 }
