@@ -20,7 +20,8 @@ protocol TypesProtocol {
     func double(_ double: Double) -> Double
     func string(_ str: String) -> String
     func stringOpt(_ str: String) -> String?
-    func object(obj: SomeObject) -> SomeObject?
+    func object(_ obj: SomeObject) -> SomeObject?
+    func set(_ set: Set<Int>) -> Set<String>
 }
 
 
@@ -50,8 +51,12 @@ class TypesMock: Mock, TypesProtocol {
         return super.call(str)
     }
 
-    func object(obj: SomeObject) -> SomeObject? {
+    func object(_ obj: SomeObject) -> SomeObject? {
         return super.call(obj)
+    }
+
+    func set(_ set: Set<Int>) -> Set<String> {
+        return super.call(set)!
     }
 
     override init(withExpectationFactory factory: ExpectationFactory) {
@@ -155,15 +160,32 @@ class TypesMockTests: XCTestCase {
 
     func testObject() {
         let object = SomeObject()
-        self.mock.expect().call(self.mock.object(obj: object))
+        self.mock.expect().call(self.mock.object(object))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
-        _ = mock.object(obj: object)
+        _ = mock.object(object)
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
+
+
+    func testSet() {
+        var set = Set<Int>()
+        set.insert(1)
+
+        self.mock.expect().call(self.mock.set(Set.any))
+
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.set(set)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
 
 }
