@@ -24,7 +24,7 @@ class ExpectationTests: XCTestCase {
 
 
     func testHandleCall() {
-        let ret = self.expectation.handleCall()
+        let ret = self.expectation.handleCall([])
         XCTAssertNil(ret)
     }
 
@@ -36,12 +36,12 @@ class ExpectationTests: XCTestCase {
 
 
     func testVerified_called() {
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         var verified = self.expectation.verified
         XCTAssertTrue(verified)
 
         // call a second time
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         verified = self.expectation.verified
         XCTAssertTrue(verified)
     }
@@ -50,12 +50,12 @@ class ExpectationTests: XCTestCase {
     func testVerified_withExpectedNumberOfCalls() {
         self.expectation.call(Int.any, numberOfTimes: 2)
 
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         var verified = self.expectation.verified
         XCTAssertFalse(verified)
 
         // call a second time
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         verified = self.expectation.verified
         XCTAssertTrue(verified)
     }
@@ -77,12 +77,12 @@ class ExpectationTests: XCTestCase {
         let config = CallConfiguration(for: "Func", with: self.argsConfig)
         self.expectation.configuration = config
 
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         var reason = self.expectation.reason
         XCTAssertNil(reason)
 
         // call a second time
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         reason = self.expectation.reason
         XCTAssertNil(reason)
     }
@@ -94,12 +94,12 @@ class ExpectationTests: XCTestCase {
 
         self.expectation.call(Int.any, numberOfTimes: 2)
 
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         var reason = self.expectation.reason
         XCTAssertEqual(reason, "Func not called the expected number of times (1 out of 2) with expected args (none)")
 
         // call a second time
-        self.expectation.handleCall()
+        self.expectation.handleCall([])
         reason = self.expectation.reason
         XCTAssertNil(reason)
     }

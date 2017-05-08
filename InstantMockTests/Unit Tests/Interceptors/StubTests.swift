@@ -20,28 +20,28 @@ class StubTests: XCTestCase {
     }
 
     func testHandleCall_nil() {
-        let ret = self.stub.handleCall()
+        let ret = self.stub.handleCall([])
         XCTAssertNil(ret)
     }
 
 
     func testHandleCall_andReturn() {
         self.stub.andReturn(36)
-        let ret = self.stub.handleCall()
+        let ret = self.stub.handleCall([])
         XCTAssertEqual(ret as! Int, 36)
     }
 
 
     func testHandleCall_andReturnClosure() {
-        self.stub.andReturn(closure: { return 12 })
-        let ret = self.stub.handleCall()
+        self.stub.andReturn(closure: { _ in return 12 })
+        let ret = self.stub.handleCall([])
         XCTAssertEqual(ret as! Int, 12)
     }
 
 
     func testHandleCall_andReturn_andReturnClosure() {
-        self.stub.andReturn(closure: { return 12 }).andReturn(36)
-        let ret = self.stub.handleCall()
+        self.stub.andReturn(closure: { _ in return 12 }).andReturn(36)
+        let ret = self.stub.handleCall([])
         XCTAssertEqual(ret as! Int, 36)
     }
 
@@ -49,18 +49,18 @@ class StubTests: XCTestCase {
     func testHandleCall_andDo() {
 
         var something = ""
-        self.stub.andDo { something = "not_empty" }
+        self.stub.andDo { _ in something = "not_empty" }
 
-        _ = self.stub.handleCall()
+        _ = self.stub.handleCall([])
         XCTAssertEqual(something, "not_empty")
     }
 
 
     func testHandleCall_andReturn_andDo() {
         var something = ""
-        self.stub.andDo({ something = "not_empty" }).andReturn(36)
+        self.stub.andDo({ _ in something = "not_empty" }).andReturn(36)
 
-        let ret = self.stub.handleCall()
+        let ret = self.stub.handleCall([])
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 36)
     }
@@ -68,9 +68,9 @@ class StubTests: XCTestCase {
 
     func testHandleCall_andReturnClosure_andDo() {
         var something = ""
-        self.stub.andDo({ something = "not_empty" }).andReturn(closure: { return 12 })
+        self.stub.andDo({ _ in something = "not_empty" }).andReturn(closure: { _ in return 12 })
 
-        let ret = self.stub.handleCall()
+        let ret = self.stub.handleCall([])
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 12)
     }
@@ -90,7 +90,7 @@ class StubTests: XCTestCase {
 
 
     func testReturns_andReturnClosure() {
-        self.stub.andReturn(closure: { return 12} )
+        self.stub.andReturn(closure: { _ in return 12} )
         let returns = self.stub.returns
         XCTAssertTrue(returns)
     }

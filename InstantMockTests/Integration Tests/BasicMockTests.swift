@@ -72,7 +72,7 @@ class BasicMockTests: XCTestCase {
     func testStub() {
 
         var callbackValue: String?
-        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string").andDo {
+        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string").andDo { _ in
             callbackValue = "something"
         }
 
@@ -95,7 +95,7 @@ class BasicMockTests: XCTestCase {
     func testExpectAndStub() {
 
         var callbackValue: String?
-        mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string").andDo {
+        mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn("string").andDo {_ in
             callbackValue = "something"
         }
 
@@ -108,7 +108,7 @@ class BasicMockTests: XCTestCase {
     func testStub_returnAndDo() {
 
         var ret = ""
-        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn(closure: {
+        mock.stub().call(mock.basic(arg1: "Hello", arg2: Int.any)).andReturn(closure: { _ in
             ret = ret + "a"
             return ret
         })
