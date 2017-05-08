@@ -7,7 +7,7 @@
 //
 
 
-/** Extension for making `Bool` easily usage in mocks */
+/** Extension for making `Set` easily usage in mocks */
 extension Set: MockUsable {
 
     public static var any: Set {
