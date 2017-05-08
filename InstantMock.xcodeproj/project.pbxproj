@@ -12,6 +12,8 @@
 		435CE4CA1EC0688C0019E2FA /* ArgConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4C91EC0688C0019E2FA /* ArgConfigurationTests.swift */; };
 		435CE4CD1EC06E720019E2FA /* Assertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CC1EC06E720019E2FA /* Assertion.swift */; };
 		435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */; };
+		435CE4D21EC075810019E2FA /* ExpectationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D11EC075810019E2FA /* ExpectationFactory.swift */; };
+		435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */; };
 		43817AAF1EBDE94100FB2BB1 /* InstantMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43817AA51EBDE94100FB2BB1 /* InstantMock.framework */; };
 		43817AB61EBDE94100FB2BB1 /* InstantMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 43817AA81EBDE94100FB2BB1 /* InstantMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ABF1EBDE96C00FB2BB1 /* Mock.swift */; };
@@ -56,6 +58,8 @@
 		435CE4C91EC0688C0019E2FA /* ArgConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConfigurationTests.swift; path = Arguments/ArgConfigurationTests.swift; sourceTree = "<group>"; };
 		435CE4CC1EC06E720019E2FA /* Assertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assertion.swift; path = Assertions/Assertion.swift; sourceTree = "<group>"; };
 		435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssertionMock.swift; path = Mocks/AssertionMock.swift; sourceTree = "<group>"; };
+		435CE4D11EC075810019E2FA /* ExpectationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationFactory.swift; sourceTree = "<group>"; };
+		435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationFactoryMock.swift; path = Mocks/ExpectationFactoryMock.swift; sourceTree = "<group>"; };
 		43817AA51EBDE94100FB2BB1 /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43817AA81EBDE94100FB2BB1 /* InstantMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMock.h; sourceTree = "<group>"; };
 		43817AA91EBDE94100FB2BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				435CE4CF1EC0722F0019E2FA /* AssertionMock.swift */,
+				435CE4D31EC076A70019E2FA /* ExpectationFactoryMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
 				43817ACB1EBE3FBE00FB2BB1 /* Supporting Files */,
+				435CE4D11EC075810019E2FA /* ExpectationFactory.swift */,
 			);
 			path = InstantMock;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				43E42A9D1EBF6DEE00F130D0 /* ArgsConfiguration.swift in Sources */,
 				43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */,
 				43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */,
+				435CE4D21EC075810019E2FA /* ExpectationFactory.swift in Sources */,
 				43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
 				43817AE51EBE674100FB2BB1 /* Double+MockUsable.swift in Sources */,
 				43E42A841EBF343200F130D0 /* ArgConfiguration.swift in Sources */,
@@ -403,6 +410,7 @@
 				43817AC61EBDF8DE00FB2BB1 /* MockProtocolTests.swift in Sources */,
 				435CE4C81EBF90300019E2FA /* ExpectationTests.swift in Sources */,
 				435CE4C41EBF79030019E2FA /* CallInterceptorTests.swift in Sources */,
+				435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */,
 				43E42A881EBF34AB00F130D0 /* MockTests_Call.swift in Sources */,
 				435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */,
 			);

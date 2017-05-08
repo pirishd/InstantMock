@@ -15,11 +15,14 @@ class AssertionMock: Assertion {
     var description: String?
     var file: StaticString?
     var line: UInt?
+    var failed = false
+
 
     func fail(_ description: String?, file: StaticString?, line: UInt?) {
         self.description = description
         self.file = file
         self.line = line
+        self.failed = true
     }
 
 }

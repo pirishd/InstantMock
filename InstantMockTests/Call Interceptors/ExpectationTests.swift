@@ -67,7 +67,7 @@ class ExpectationTests: XCTestCase {
 
         self.expectation.argsConfiguration = self.argsConfig
         reason = self.expectation.reason
-        XCTAssertTrue(reason!.hasPrefix("Never called with expected args="))
+        XCTAssertTrue(reason!.hasPrefix("Never called with expected args"))
     }
 
 
@@ -96,7 +96,7 @@ class ExpectationTests: XCTestCase {
 
         self.expectation.argsConfiguration = self.argsConfig
         reason = self.expectation.reason
-        XCTAssertTrue(reason!.hasPrefix("Not called the expected number of times (1 out of 2) with expected args="))
+        XCTAssertTrue(reason!.hasPrefix("Not called the expected number of times (1 out of 2) with expected args"))
 
         // call a second time
         self.expectation.handleCall([])

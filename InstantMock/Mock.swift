@@ -61,11 +61,29 @@ public protocol MockStub {
  */
 public class Mock {
 
+    // interceptors defined in registration mode
     fileprivate var expectationBeingRegistered: Expectation?
     fileprivate var stubBeingRegistered: Stub?
 
+    // interceptors storage
     fileprivate let expectationStorage = CallInterceptorStorage<Expectation>()
     fileprivate let stubStorage = CallInterceptorStorage<Stub>()
+
+    // interceptors factories
+    fileprivate let expectationFactory: ExpectationFactory
+
+
+    // MARK: Initializers
+
+    convenience init() {
+        self.init(withExpectationFactory: ExpectationFactoryImpl.instance)
+    }
+
+
+    /** Initialize instance with provided `ExpectationFactory` (dependency injection) */
+    init(withExpectationFactory factory: ExpectationFactory) {
+        self.expectationFactory = factory
+    }
 
 }
 
@@ -76,7 +94,7 @@ extension Mock: MockExpectationFactory {
     @discardableResult
     public func expect() -> Expectation {
         let stub = Stub()
-        let expectation = Expectation(withStub: stub)
+        let expectation = self.expectationFactory.expectation(withStub: stub)
 
         // mark instances as being ready for registration
         self.expectationBeingRegistered = expectation

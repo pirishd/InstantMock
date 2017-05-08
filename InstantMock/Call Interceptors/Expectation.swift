@@ -33,7 +33,7 @@ public class Expectation: CallInterceptor {
 
 
     /** Initialize with provided stub and assertion (for dependency injection) */
-    init(withStub stub: Stub, assertion: Assertion) {
+    public init(withStub stub: Stub, assertion: Assertion) {
         self.stub = stub
         self.assertion = assertion
     }
@@ -93,7 +93,7 @@ extension Expectation {
         }
 
         if let valueNotNil = value, let argsConfiguration = self.argsConfiguration {
-            value = valueNotNil + " with expected args=\(argsConfiguration)"
+            value = valueNotNil + " with expected args (\(argsConfiguration))"
         }
 
         return value

@@ -16,9 +16,15 @@ protocol BasicProtocol {
 
 
 class BasicMock: Mock, BasicProtocol {
+
     func basic(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
     }
+
+    override init(withExpectationFactory factory: ExpectationFactory) {
+        super.init(withExpectationFactory: factory)
+    }
+
 }
 
 
@@ -26,16 +32,21 @@ class BasicMock: Mock, BasicProtocol {
 class MockProtocol_Call: XCTestCase {
 
     private var mock: BasicMock!
+    private var assertionMock: AssertionMock!
+
 
     override func setUp() {
         super.setUp()
-        self.mock = BasicMock()
+        self.assertionMock = AssertionMock()
+        let expectationFactory = ExpectationFactoryMock(withAssertionMock: self.assertionMock)
+        self.mock = BasicMock(withExpectationFactory: expectationFactory)
     }
 
 
     func testExpect() {
         mock.expect().call(mock.basic(arg1: "Hello", arg2: Int.any))
-        //mock.verify()
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.failed)
     }
 
 }
