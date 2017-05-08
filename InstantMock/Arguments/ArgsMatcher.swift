@@ -10,8 +10,11 @@
 /** Class designed to match some arguments against an argument configuration */
 class ArgsMatcher {
 
-    /// provided arguments
+    /// Provided arguments
     fileprivate let args: [Any?]
+
+    /// Verifier
+    fileprivate let verifier = Verifier()
 
     /** Initialize new instance with arguments and configuration */
     init(_ args: [Any?]) {
@@ -52,42 +55,8 @@ extension ArgsMatcher {
         // any value
         if argConfig.isAny { return true }
 
-        // compare nil values
-        if arg == nil && argConfig.value == nil { return true }
-        if arg != nil && argConfig.value == nil { return false }
-        if arg == nil && argConfig.value != nil { return false }
-
-        // otherwise, perform advanced verifications
-        if let arg = arg, let value = argConfig.value {
-            return self.match(arg, with: value)
-        }
-
-        // default case
-        return false
-    }
-
-
-    /** Perform match between between two non-nil arguments */
-    private func match(_ arg: Any, with value: Any) -> Bool {
-
-        // MockUsable values
-        if let mockArg = arg as? MockUsable, let mockValue = value as? MockUsable {
-            return mockArg.equal(to: mockValue)
-        }
-
-        // try to compare by reference
-        if (arg as AnyObject) === (value as AnyObject) {
-            return true
-        }
-
-        // closure detection (ugly test using description of the type…)
-        if "\(type(of: value))".hasPrefix("(") {
-             // just make sure types match, there is no other way to compare functions in swift
-            return type(of: arg) == type(of: value)
-        }
-
-        // default case
-        return false
+        // verify matching between values
+        return self.verifier.equal(arg, to: argConfig.value)
     }
 
 }
