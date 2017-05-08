@@ -18,23 +18,23 @@
 		435CE4E31EC07EBA0019E2FA /* DoubleMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4DF1EC07EBA0019E2FA /* DoubleMockUsableTests.swift */; };
 		435CE4E41EC07EBA0019E2FA /* IntMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4E01EC07EBA0019E2FA /* IntMockUsableTests.swift */; };
 		435CE4E51EC07EBA0019E2FA /* StringMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4E11EC07EBA0019E2FA /* StringMockUsableTests.swift */; };
-		435CE4E91EC07EC50019E2FA /* CallInterceptorStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4E61EC07EC50019E2FA /* CallInterceptorStorageTests.swift */; };
-		435CE4EA1EC07EC50019E2FA /* CallInterceptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4E71EC07EC50019E2FA /* CallInterceptorTests.swift */; };
-		435CE4EB1EC07EC50019E2FA /* ExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4E81EC07EC50019E2FA /* ExpectationTests.swift */; };
 		435CE4EF1EC07ECF0019E2FA /* ArgConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4EC1EC07ECF0019E2FA /* ArgConfigurationTests.swift */; };
 		435CE4F01EC07ECF0019E2FA /* ArgsConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4ED1EC07ECF0019E2FA /* ArgsConfigurationTests.swift */; };
 		435CE4F11EC07ECF0019E2FA /* ArgsMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4EE1EC07ECF0019E2FA /* ArgsMatcherTests.swift */; };
 		435CE4F31EC07F840019E2FA /* TypesMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F21EC07F840019E2FA /* TypesMockTests.swift */; };
 		435CE4F61EC082370019E2FA /* ExpectationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F51EC082370019E2FA /* ExpectationFactory.swift */; };
 		435CE4F81EC08DAE0019E2FA /* MockCreationModalityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */; };
-		435CE4FA1EC0923C0019E2FA /* CallConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4F91EC0923C0019E2FA /* CallConfiguration.swift */; };
+		435CE4FD1EC097C60019E2FA /* CallConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4FB1EC097C60019E2FA /* CallConfiguration.swift */; };
+		435CE4FE1EC097C60019E2FA /* CallInterceptorStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4FC1EC097C60019E2FA /* CallInterceptorStorage.swift */; };
+		435CE5021EC097D60019E2FA /* CallInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE4FF1EC097D60019E2FA /* CallInterceptor.swift */; };
+		435CE5031EC097D60019E2FA /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE5001EC097D60019E2FA /* Expectation.swift */; };
+		435CE5041EC097D60019E2FA /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE5011EC097D60019E2FA /* Stub.swift */; };
+		435CE50E1EC098360019E2FA /* CallInterceptorStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE50B1EC098360019E2FA /* CallInterceptorStorageTests.swift */; };
+		435CE50F1EC098360019E2FA /* CallInterceptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE50C1EC098360019E2FA /* CallInterceptorTests.swift */; };
+		435CE5101EC098360019E2FA /* ExpectationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CE50D1EC098360019E2FA /* ExpectationTests.swift */; };
 		43817AAF1EBDE94100FB2BB1 /* InstantMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43817AA51EBDE94100FB2BB1 /* InstantMock.framework */; };
 		43817AB61EBDE94100FB2BB1 /* InstantMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 43817AA81EBDE94100FB2BB1 /* InstantMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ABF1EBDE96C00FB2BB1 /* Mock.swift */; };
-		43817AD21EBE525300FB2BB1 /* CallInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ACF1EBE525300FB2BB1 /* CallInterceptor.swift */; };
-		43817AD31EBE525300FB2BB1 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD01EBE525300FB2BB1 /* Expectation.swift */; };
-		43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AD11EBE525300FB2BB1 /* Stub.swift */; };
-		43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ADA1EBE623E00FB2BB1 /* CallInterceptorStorage.swift */; };
 		43817ADE1EBE630000FB2BB1 /* MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ADD1EBE630000FB2BB1 /* MockUsable.swift */; };
 		43817AE01EBE640600FB2BB1 /* Int+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817ADF1EBE640600FB2BB1 /* Int+MockUsable.swift */; };
 		43817AE51EBE674100FB2BB1 /* Double+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43817AE41EBE674100FB2BB1 /* Double+MockUsable.swift */; };
@@ -67,26 +67,26 @@
 		435CE4DF1EC07EBA0019E2FA /* DoubleMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleMockUsableTests.swift; path = "Unit Tests/MockUsable/DoubleMockUsableTests.swift"; sourceTree = "<group>"; };
 		435CE4E01EC07EBA0019E2FA /* IntMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntMockUsableTests.swift; path = "Unit Tests/MockUsable/IntMockUsableTests.swift"; sourceTree = "<group>"; };
 		435CE4E11EC07EBA0019E2FA /* StringMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringMockUsableTests.swift; path = "Unit Tests/MockUsable/StringMockUsableTests.swift"; sourceTree = "<group>"; };
-		435CE4E61EC07EC50019E2FA /* CallInterceptorStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorStorageTests.swift; path = "Unit Tests/Call Interceptors/CallInterceptorStorageTests.swift"; sourceTree = "<group>"; };
-		435CE4E71EC07EC50019E2FA /* CallInterceptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorTests.swift; path = "Unit Tests/Call Interceptors/CallInterceptorTests.swift"; sourceTree = "<group>"; };
-		435CE4E81EC07EC50019E2FA /* ExpectationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationTests.swift; path = "Unit Tests/Call Interceptors/ExpectationTests.swift"; sourceTree = "<group>"; };
 		435CE4EC1EC07ECF0019E2FA /* ArgConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConfigurationTests.swift; path = "Unit Tests/Arguments/ArgConfigurationTests.swift"; sourceTree = "<group>"; };
 		435CE4ED1EC07ECF0019E2FA /* ArgsConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsConfigurationTests.swift; path = "Unit Tests/Arguments/ArgsConfigurationTests.swift"; sourceTree = "<group>"; };
 		435CE4EE1EC07ECF0019E2FA /* ArgsMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsMatcherTests.swift; path = "Unit Tests/Arguments/ArgsMatcherTests.swift"; sourceTree = "<group>"; };
 		435CE4F21EC07F840019E2FA /* TypesMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypesMockTests.swift; path = "Integration Tests/TypesMockTests.swift"; sourceTree = "<group>"; };
 		435CE4F51EC082370019E2FA /* ExpectationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationFactory.swift; path = Factories/ExpectationFactory.swift; sourceTree = "<group>"; };
 		435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockCreationModalityTests.swift; path = "Integration Tests/MockCreationModalityTests.swift"; sourceTree = "<group>"; };
-		435CE4F91EC0923C0019E2FA /* CallConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallConfiguration.swift; path = "Call Interceptors/Helpers/CallConfiguration.swift"; sourceTree = "<group>"; };
+		435CE4FB1EC097C60019E2FA /* CallConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallConfiguration.swift; path = Interceptors/Helpers/CallConfiguration.swift; sourceTree = "<group>"; };
+		435CE4FC1EC097C60019E2FA /* CallInterceptorStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorStorage.swift; path = Interceptors/Helpers/CallInterceptorStorage.swift; sourceTree = "<group>"; };
+		435CE4FF1EC097D60019E2FA /* CallInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptor.swift; path = Interceptors/CallInterceptor.swift; sourceTree = "<group>"; };
+		435CE5001EC097D60019E2FA /* Expectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Interceptors/Expectation.swift; sourceTree = "<group>"; };
+		435CE5011EC097D60019E2FA /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stub.swift; path = Interceptors/Stub.swift; sourceTree = "<group>"; };
+		435CE50B1EC098360019E2FA /* CallInterceptorStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorStorageTests.swift; path = "Unit Tests/Interceptors/CallInterceptorStorageTests.swift"; sourceTree = "<group>"; };
+		435CE50C1EC098360019E2FA /* CallInterceptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorTests.swift; path = "Unit Tests/Interceptors/CallInterceptorTests.swift"; sourceTree = "<group>"; };
+		435CE50D1EC098360019E2FA /* ExpectationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectationTests.swift; path = "Unit Tests/Interceptors/ExpectationTests.swift"; sourceTree = "<group>"; };
 		43817AA51EBDE94100FB2BB1 /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43817AA81EBDE94100FB2BB1 /* InstantMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMock.h; sourceTree = "<group>"; };
 		43817AA91EBDE94100FB2BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43817AAE1EBDE94100FB2BB1 /* InstantMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstantMockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43817AB51EBDE94100FB2BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43817ABF1EBDE96C00FB2BB1 /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
-		43817ACF1EBE525300FB2BB1 /* CallInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptor.swift; path = "Call Interceptors/CallInterceptor.swift"; sourceTree = "<group>"; };
-		43817AD01EBE525300FB2BB1 /* Expectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = "Call Interceptors/Expectation.swift"; sourceTree = "<group>"; };
-		43817AD11EBE525300FB2BB1 /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stub.swift; path = "Call Interceptors/Stub.swift"; sourceTree = "<group>"; };
-		43817ADA1EBE623E00FB2BB1 /* CallInterceptorStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallInterceptorStorage.swift; path = "Call Interceptors/Helpers/CallInterceptorStorage.swift"; sourceTree = "<group>"; };
 		43817ADD1EBE630000FB2BB1 /* MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockUsable.swift; path = MockUsable/MockUsable.swift; sourceTree = "<group>"; };
 		43817ADF1EBE640600FB2BB1 /* Int+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+MockUsable.swift"; path = "MockUsable/Int+MockUsable.swift"; sourceTree = "<group>"; };
 		43817AE41EBE674100FB2BB1 /* Double+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double+MockUsable.swift"; path = "MockUsable/Double+MockUsable.swift"; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				435CE4D91EC07EAA0019E2FA /* MockProtocolTests.swift */,
 				435CE4DA1EC07EAA0019E2FA /* MockStubProtocolTests.swift */,
 				43817AE11EBE65A300FB2BB1 /* MockUsable */,
-				43E42A851EBF344400F130D0 /* Call Interceptors */,
+				43E42A851EBF344400F130D0 /* Interceptors */,
 				43E42A861EBF345100F130D0 /* Arguments */,
 			);
 			name = "Unit Tests";
@@ -177,7 +177,7 @@
 			children = (
 				43E42A821EBF33E400F130D0 /* Arguments */,
 				435CE4CB1EC06E560019E2FA /* Assertions */,
-				43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */,
+				43817ACE1EBE40FC00FB2BB1 /* Interceptors */,
 				435CE4F41EC082140019E2FA /* Factories */,
 				43817ADC1EBE62C800FB2BB1 /* MockUsable */,
 				43817ABF1EBDE96C00FB2BB1 /* Mock.swift */,
@@ -206,22 +206,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		43817ACE1EBE40FC00FB2BB1 /* Call Interceptors */ = {
+		43817ACE1EBE40FC00FB2BB1 /* Interceptors */ = {
 			isa = PBXGroup;
 			children = (
 				43817AD91EBE620500FB2BB1 /* Helpers */,
-				43817ACF1EBE525300FB2BB1 /* CallInterceptor.swift */,
-				43817AD01EBE525300FB2BB1 /* Expectation.swift */,
-				43817AD11EBE525300FB2BB1 /* Stub.swift */,
+				435CE4FF1EC097D60019E2FA /* CallInterceptor.swift */,
+				435CE5001EC097D60019E2FA /* Expectation.swift */,
+				435CE5011EC097D60019E2FA /* Stub.swift */,
 			);
-			name = "Call Interceptors";
+			name = Interceptors;
 			sourceTree = "<group>";
 		};
 		43817AD91EBE620500FB2BB1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				43817ADA1EBE623E00FB2BB1 /* CallInterceptorStorage.swift */,
-				435CE4F91EC0923C0019E2FA /* CallConfiguration.swift */,
+				435CE4FB1EC097C60019E2FA /* CallConfiguration.swift */,
+				435CE4FC1EC097C60019E2FA /* CallInterceptorStorage.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -269,14 +269,14 @@
 			name = Arguments;
 			sourceTree = "<group>";
 		};
-		43E42A851EBF344400F130D0 /* Call Interceptors */ = {
+		43E42A851EBF344400F130D0 /* Interceptors */ = {
 			isa = PBXGroup;
 			children = (
-				435CE4E61EC07EC50019E2FA /* CallInterceptorStorageTests.swift */,
-				435CE4E71EC07EC50019E2FA /* CallInterceptorTests.swift */,
-				435CE4E81EC07EC50019E2FA /* ExpectationTests.swift */,
+				435CE50B1EC098360019E2FA /* CallInterceptorStorageTests.swift */,
+				435CE50C1EC098360019E2FA /* CallInterceptorTests.swift */,
+				435CE50D1EC098360019E2FA /* ExpectationTests.swift */,
 			);
-			name = "Call Interceptors";
+			name = Interceptors;
 			sourceTree = "<group>";
 		};
 		43E42A861EBF345100F130D0 /* Arguments */ = {
@@ -401,18 +401,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */,
-				43817AD31EBE525300FB2BB1 /* Expectation.swift in Sources */,
-				43817AD21EBE525300FB2BB1 /* CallInterceptor.swift in Sources */,
 				43817AE01EBE640600FB2BB1 /* Int+MockUsable.swift in Sources */,
 				43E42A9D1EBF6DEE00F130D0 /* ArgsConfiguration.swift in Sources */,
+				435CE5041EC097D60019E2FA /* Stub.swift in Sources */,
 				43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */,
-				435CE4FA1EC0923C0019E2FA /* CallConfiguration.swift in Sources */,
-				43817AD41EBE525300FB2BB1 /* Stub.swift in Sources */,
+				435CE5031EC097D60019E2FA /* Expectation.swift in Sources */,
+				435CE4FE1EC097C60019E2FA /* CallInterceptorStorage.swift in Sources */,
 				435CE4F61EC082370019E2FA /* ExpectationFactory.swift in Sources */,
-				43817ADB1EBE623E00FB2BB1 /* CallInterceptorStorage.swift in Sources */,
 				43817AE51EBE674100FB2BB1 /* Double+MockUsable.swift in Sources */,
 				43E42A841EBF343200F130D0 /* ArgConfiguration.swift in Sources */,
 				435CE4CD1EC06E720019E2FA /* Assertion.swift in Sources */,
+				435CE5021EC097D60019E2FA /* CallInterceptor.swift in Sources */,
+				435CE4FD1EC097C60019E2FA /* CallConfiguration.swift in Sources */,
 				43E42A991EBF651B00F130D0 /* ArgsMatcher.swift in Sources */,
 				43817AE91EBE688100FB2BB1 /* Bool+MockUsable.swift in Sources */,
 				43817ADE1EBE630000FB2BB1 /* MockUsable.swift in Sources */,
@@ -428,18 +428,18 @@
 				435CE4DD1EC07EAA0019E2FA /* MockStubProtocolTests.swift in Sources */,
 				435CE4F81EC08DAE0019E2FA /* MockCreationModalityTests.swift in Sources */,
 				435CE4DB1EC07EAA0019E2FA /* MockExpectationProtocolTests.swift in Sources */,
+				435CE50F1EC098360019E2FA /* CallInterceptorTests.swift in Sources */,
 				435CE4E51EC07EBA0019E2FA /* StringMockUsableTests.swift in Sources */,
 				435CE4F11EC07ECF0019E2FA /* ArgsMatcherTests.swift in Sources */,
 				435CE4E21EC07EBA0019E2FA /* BoolMockUsableTests.swift in Sources */,
 				435CE4F31EC07F840019E2FA /* TypesMockTests.swift in Sources */,
+				435CE5101EC098360019E2FA /* ExpectationTests.swift in Sources */,
 				435CE4EF1EC07ECF0019E2FA /* ArgConfigurationTests.swift in Sources */,
-				435CE4EB1EC07EC50019E2FA /* ExpectationTests.swift in Sources */,
 				435CE4D61EC07E450019E2FA /* BasicMockTests.swift in Sources */,
-				435CE4E91EC07EC50019E2FA /* CallInterceptorStorageTests.swift in Sources */,
 				435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */,
 				435CE4DC1EC07EAA0019E2FA /* MockProtocolTests.swift in Sources */,
+				435CE50E1EC098360019E2FA /* CallInterceptorStorageTests.swift in Sources */,
 				435CE4E31EC07EBA0019E2FA /* DoubleMockUsableTests.swift in Sources */,
-				435CE4EA1EC07EC50019E2FA /* CallInterceptorTests.swift in Sources */,
 				435CE4D01EC0722F0019E2FA /* AssertionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
