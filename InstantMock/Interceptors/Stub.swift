@@ -10,6 +10,19 @@
 /** This class represents a stub */
 public class Stub: CallInterceptor {
 
+    /// Flag indicating that a return value is expected
+    fileprivate var hasReturnValue = false
+
+    /// The actual return value
+    fileprivate var returnValue: Any?
+
+    /// Closure determining the return value
+    fileprivate var returnValueClosure: (() -> Any?)?
+
+    /// Closure to be called before returning
+    fileprivate var closure: (() -> Void)?
+
+
     /// Number of args configured to match any value
     fileprivate var numberOfAnyArgs: Int {
         var number = 0
@@ -28,8 +41,22 @@ public class Stub: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall<T>(_ args: [Any?]) -> T? {
-        return nil // FIXME: just for now
+    override func handleCall(_ args: [Any?]) -> Any? { // FIXME: args probably useless with args captor
+        var ret: Any?
+
+        // call closure if required
+        if let closure = self.closure { closure() }
+
+        // return value if one specified
+        if self.hasReturnValue {
+            ret = self.returnValue
+        }
+        // otherwise, compute from closure
+        else if let returnValueClosure = self.returnValueClosure {
+            ret = returnValueClosure()
+        }
+
+        return ret
     }
 
 }
@@ -49,7 +76,39 @@ extension Stub {
 }
 
 
-/** Extension for a list of interceptors */
+
+// MARK: Actions
+extension Stub {
+
+
+    /** Register return value */
+    @discardableResult
+    public func andReturn(_ value: Any?) -> Stub {
+        self.returnValue = value
+        self.hasReturnValue = true
+        return self
+    }
+
+
+    /** Register return value closure */
+    @discardableResult
+    public func andReturn(closure: @escaping () -> Any?) -> Stub {
+        self.returnValueClosure = closure
+        return self
+    }
+
+
+    /** register closure to be called at the end */
+    @discardableResult
+    public func andDo(_ closure: @escaping () -> Void) -> Stub {
+        self.closure = closure
+        return self
+    }
+
+}
+
+
+/** Extension for a list of stubs */
 extension Collection where Iterator.Element: Stub {
 
 

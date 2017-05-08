@@ -171,7 +171,7 @@ extension Mock {
 
         // notify expectations matching args that they are fullfilled
         for expectation in expectations.matching(args) {
-            expectation.handleCall(args) as Void?
+            expectation.handleCall(args)
         }
 
     }
@@ -250,7 +250,12 @@ extension Mock: MockStub {
 
         // find the best stub and apply it
         if let stub = stubs.matching(args).best() {
-            ret = stub.handleCall(args) as T?
+            let retVal = stub.handleCall(args)
+            if retVal is T? {
+                ret = retVal as? T
+            } else {
+                fatalError("Unexpected type of return value")
+            }
         }
 
         return ret
