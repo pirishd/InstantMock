@@ -7,6 +7,12 @@
 //
 
 
+/** Protocol for capturing arguments */
+protocol ArgumentCapture {
+    func setValue(_ value: Any?)
+}
+
+
 /** This class represents the configuration of an argument that captures passed values */
 class ArgCapture<T>: Argument  {
 
@@ -53,7 +59,7 @@ extension ArgCapture: ArgumentMatching {
 
 
 /** Extension that sets a captured value */
-extension ArgCapture {
+extension ArgCapture: ArgumentCapture {
 
     func setValue(_ value: Any?) {
         if value == nil {

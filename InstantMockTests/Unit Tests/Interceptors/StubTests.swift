@@ -13,35 +13,39 @@ import XCTest
 class StubTests: XCTestCase {
 
     private var stub: Stub!
+    private var argsConfig: ArgsConfiguration!
+
 
     override func setUp() {
         super.setUp()
         self.stub = Stub()
+        self.argsConfig = ArgsConfiguration([Argument]())
     }
 
+
     func testHandleCall_nil() {
-        let ret = self.stub.handleCall([])
+        let ret = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertNil(ret)
     }
 
 
     func testHandleCall_andReturn() {
         self.stub.andReturn(36)
-        let ret = self.stub.handleCall([])
+        let ret = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertEqual(ret as! Int, 36)
     }
 
 
     func testHandleCall_andReturnClosure() {
         self.stub.andReturn(closure: { _ in return 12 })
-        let ret = self.stub.handleCall([])
+        let ret = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertEqual(ret as! Int, 12)
     }
 
 
     func testHandleCall_andReturn_andReturnClosure() {
         self.stub.andReturn(closure: { _ in return 12 }).andReturn(36)
-        let ret = self.stub.handleCall([])
+        let ret = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertEqual(ret as! Int, 36)
     }
 
@@ -51,7 +55,7 @@ class StubTests: XCTestCase {
         var something = ""
         self.stub.andDo { _ in something = "not_empty" }
 
-        _ = self.stub.handleCall([])
+        _ = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertEqual(something, "not_empty")
     }
 
@@ -60,7 +64,7 @@ class StubTests: XCTestCase {
         var something = ""
         self.stub.andDo({ _ in something = "not_empty" }).andReturn(36)
 
-        let ret = self.stub.handleCall([])
+        let ret = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 36)
     }
@@ -70,7 +74,7 @@ class StubTests: XCTestCase {
         var something = ""
         self.stub.andDo({ _ in something = "not_empty" }).andReturn(closure: { _ in return 12 })
 
-        let ret = self.stub.handleCall([])
+        let ret = self.stub.handleCall([], configArgs: self.argsConfig)
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 12)
     }

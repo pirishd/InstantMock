@@ -178,7 +178,7 @@ extension Mock {
 
         // notify expectations matching args that they are fullfilled
         for expectation in expectations.matching(args) {
-            expectation.handleCall(args)
+            expectation.handleCall(args, configArgs: self.argsConfiguration)
         }
 
     }
@@ -262,7 +262,7 @@ extension Mock: MockStub {
 
         // find the best stub and apply it
         if let stub = stubs.matching(args).best() {
-            let retVal = stub.handleCall(args)
+            let retVal = stub.handleCall(args, configArgs: self.argsConfiguration)
             if retVal is T? {
                 ret = retVal as? T
             } else {

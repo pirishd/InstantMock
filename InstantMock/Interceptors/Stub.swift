@@ -46,32 +46,11 @@ public class Stub: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall(_ args: [Any?]) -> Any? {
+    override func handleCall(_ args: [Any?], configArgs: ArgsConfiguration) -> Any? {
         var ret: Any?
 
-        /*if let captors = self.captors {
-            if args.count > 0 {
-                for i in 0...args.count-1 {
-                    let arg = args[i]
-                    if let captor = captors[i] {
-                        captor.setVal(val: arg)
-                    }
-                }
-            }
-        }*/
-
-       /* if let configuration = self.configuration {
-            if let captors = configuration.captors {
-                if args.count > 0 {
-                    for i in 0...args.count-1 {
-                        let arg = args[i]
-                        if let captor = captors[i] {
-                            captor.setVal(val: arg)
-                        }
-                    }
-                }
-            }
-        }*/
+        // capture args
+        self.capture(args, configArgs: configArgs)
 
         // call closure if required
         if let closure = self.closure { closure(args) }
@@ -86,6 +65,21 @@ public class Stub: CallInterceptor {
         }
 
         return ret
+    }
+
+
+    /** Capture arguments */
+    private func capture(_ args: [Any?], configArgs: ArgsConfiguration) {
+        guard args.count > 0 else { return }
+
+        for i in 0...args.count-1 {
+            let arg = args[i]
+            let configArg = configArgs.args[i]
+
+            if let config = configArg as? ArgumentCapture {
+                config.setValue(arg)
+            }
+        }
     }
 
 }
