@@ -43,7 +43,7 @@ extension ArgVerify: ArgumentMatching {
 extension ArgVerify: CustomStringConvertible {
 
     var description: String {
-        return "conditoned<\(type(of: self.condition))>"
+        return "conditioned<\(type(of: self.condition))>"
     }
 
 }

@@ -20,6 +20,12 @@ class ArgVerifyTests: XCTestCase {
     }
 
 
+    func testDescription() {
+        let desc = self.arg.description
+        XCTAssertEqual(desc, "conditioned<(String) -> Bool>")
+    }
+
+
     func testMatch_wrongType() {
         let match = self.arg.match(12)
         XCTAssertFalse(match)

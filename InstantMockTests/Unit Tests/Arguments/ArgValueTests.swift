@@ -21,6 +21,17 @@ class ArgValueTests: XCTestCase {
     }
 
 
+    func testDescription() {
+        var value = ArgValue("Hello", verifier: self.verifier)
+        var desc = value.description
+        XCTAssertEqual(desc, "Hello")
+
+        value = ArgValue(nil, verifier: self.verifier)
+        desc = value.description
+        XCTAssertEqual(desc, "nil")
+    }
+
+
     func testMatch() {
         let value = ArgValue("Hello", verifier: self.verifier)
         let match = value.match("Hello2")
