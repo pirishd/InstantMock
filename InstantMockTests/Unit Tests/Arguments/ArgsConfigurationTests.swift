@@ -15,66 +15,27 @@ class DummyArgConfiguration {}
 
 class ArgsConfigurationTests: XCTestCase {
 
-
-    func toArgConfigurations_empty() {
-        let list = [Any]()
-
-        let ret = ArgsConfiguration(with: list).values
-        XCTAssertEqual(ret.count, 0)
-    }
-
-
-    func toArgConfigurations_basicNonAny() {
-        var list = [Any]()
-        list.append(12)
-
-        let ret = ArgsConfiguration(with: list).values
-        XCTAssertEqual(ret.count, 0)
-    }
-
-
-    func toArgConfigurations_basicIsAny() {
-        var list = [Any]()
-        list.append(Int.any)
-
-        let ret = ArgsConfiguration(with: list).values
-        XCTAssertEqual(ret.count, 1)
-    }
-
-
-    func toArgConfigurations_wrongType() {
-        var list = [Any]()
-        list.append(DummyArgConfiguration())
-
-        let ret = ArgsConfiguration(with: list).values
-        XCTAssertEqual(ret.count, 0)
-    }
-
-
     func testDescription_empty() {
-        let list = [Any]()
-
-        let ret = ArgsConfiguration(with: list).description
+        let list = [Argument]()
+        let ret = ArgsConfiguration(list).description
         XCTAssertEqual(ret, "none")
     }
 
 
     func testDescription_oneValue() {
-        var list = [Any]()
-        list.append(Int.any)
-
-        let ret = ArgsConfiguration(with: list).description
-        XCTAssertEqual(ret, "any")
+        let list = [ArgAny("Int")]
+        let ret = ArgsConfiguration(list).description
+        XCTAssertEqual(ret, "any<Int>")
     }
 
 
     func testDescription_severalValues() {
-        var list = [Any]()
-        list.append(12)
-        list.append(String.any)
+        var list = [Argument]()
+        list.append(ArgValue(12))
+        list.append(ArgAny("String"))
 
-        let ret = ArgsConfiguration(with: list).description
-        XCTAssertEqual(ret, "12, any")
+        let ret = ArgsConfiguration(list).description
+        XCTAssertEqual(ret, "12, any<String>")
     }
 
 }

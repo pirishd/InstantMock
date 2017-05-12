@@ -72,6 +72,13 @@ public class Mock {
     // interceptors factories
     fileprivate let expectationFactory: ExpectationFactory
 
+    // arguments configuration
+    fileprivate lazy var argsConfiguration: ArgsConfiguration = {
+        let args = ArgsConfiguration(ArgStorage.instance.all())
+        ArgStorage.instance.flush()
+        return args
+    }()
+
 
     // MARK: Initializers
 
@@ -148,8 +155,10 @@ extension Mock {
     private func register(_ expectation: Expectation, for function: String, with args: [Any?]) {
 
         // compute configurations based on provided args
-        let argsConfig = ArgsConfiguration(with: args)
-        expectation.configuration = CallConfiguration(for: function, with: argsConfig)
+        //let argsConfig = ArgsConfiguration(with: args)
+        //expectation.configuration = CallConfiguration(for: function, with: argsConfig)
+        let configuration = CallConfiguration(for: function, with: self.argsConfiguration)
+        expectation.configuration = configuration
 
         // store the expectation for function
         self.expectationStorage.store(interceptor: expectation, for: function)
@@ -194,7 +203,7 @@ extension Mock: MockStub {
 
 
     /** Handle stubs */
-    fileprivate func handleStubs<T>(_ args: [Any?], function: String) -> T? {
+    fileprivate func handleStubs<T>(for function: String, with args: [Any?]) -> T? {
         var ret: T?
         var useDefaultValue = true
 
@@ -226,9 +235,16 @@ extension Mock: MockStub {
      */
     private func register(_ stub: Stub, for function: String, with args: [Any?]) {
 
+        // make sure the number of arguments passed matches the number of configured
+        if self.argsConfiguration.args.count != args.count {
+            fatalError("Invalid argument configuration, see Arg class for more information")
+        }
+
         // compute configurations based on provided args
-        let argsConfig = ArgsConfiguration(with: args)
-        stub.configuration = CallConfiguration(for: function, with: argsConfig)
+        //let argsConfig = ArgsConfiguration(with: args)
+        //let configuration = CallConfiguration(for: function, with: argsConfig)
+        let configuration = CallConfiguration(for: function, with: self.argsConfiguration)
+        stub.configuration = configuration
 
         // store the stub for function
         self.stubStorage.store(interceptor: stub, for: function)
@@ -289,7 +305,7 @@ extension Mock {
     @discardableResult
     private func handleCall<T>(_ args: [Any?], function: String) -> T? {
         self.handleExpectations(for: function, with: args)
-        return self.handleStubs(args, function: function)
+        return self.handleStubs(for: function, with: args)
     }
 
 }

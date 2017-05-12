@@ -21,8 +21,8 @@ extension Dictionary: MockUsable {
     public func equal(to value: MockUsable?) -> Bool {
         guard let arrayValue = value as? Dictionary else { return false }
 
-        return Verifier.instance.equalArray(Array(self.keys), to: Array(arrayValue.keys))
-            && Verifier.instance.equalArray(Array(self.values), to: Array(arrayValue.values))
+        return VerifierImpl.instance.equalArray(Array(self.keys), to: Array(arrayValue.keys))
+            && VerifierImpl.instance.equalArray(Array(self.values), to: Array(arrayValue.values))
     }
 
 }

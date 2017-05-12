@@ -49,8 +49,8 @@ class ClosureMockTests: XCTestCase {
     func testExpect() {
 
         self.mock.expect().call(self.mock.someFunc(
-            arg: String.any,
-            closure: Closure.any() as ((String, SomeClosureObject) -> Int)
+            arg: Arg<String>.any,
+            closure: Arg<Closure>.any.withSignature() as ((String, SomeClosureObject) -> Int)
         ))
 
         self.mock.someFunc(arg: "Hello", closure: { (str, obj) -> Int in
@@ -59,6 +59,7 @@ class ClosureMockTests: XCTestCase {
 
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
+
     }
 }
 

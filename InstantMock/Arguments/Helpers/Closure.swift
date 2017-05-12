@@ -11,11 +11,12 @@
     Helper that provides a simple way to create closure arguments
     with any argument and return value types
  */
-public class Closure {
+class Closure {
 
+    required init() {}
 
-    /** Provide a dummy closure */
-    static func any<ARGS, RET>() -> ((ARGS) -> RET) {
+    /** Provide a dummy closure with provided signature */
+    func withSignature<ARGS, RET>() -> ((ARGS) -> RET) {
         let closure: (ARGS) -> RET = { args in return Void() as! RET }
         return closure
     }

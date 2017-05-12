@@ -16,8 +16,9 @@ class ArgsMatcherTests: XCTestCase {
 
 
     func testMatch_wrongNumberOfArgs() {
+        let config = ArgsConfiguration([Argument]())
+
         var args = [Any?]()
-        let config = ArgsConfiguration(with: [Any?]())
         args.append("something")
 
         let match = ArgsMatcher(args).match(config)
@@ -29,9 +30,7 @@ class ArgsMatcherTests: XCTestCase {
         var args = [Any?]()
         args.append(nil)
 
-        var otherArgs = [String?]()
-        otherArgs.append(String.any)
-        let config = ArgsConfiguration(with: otherArgs)
+        let config = ArgsConfiguration([ArgAny("string")])
 
         let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
@@ -43,10 +42,7 @@ class ArgsMatcherTests: XCTestCase {
         args.append("string1")
         args.append("string2")
 
-        var otherArgs = [String?]()
-        otherArgs.append("string1")
-        otherArgs.append("string2")
-        let config = ArgsConfiguration(with: otherArgs)
+        let config = ArgsConfiguration([ArgValue("string1"), ArgValue("string2")])
 
         let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
@@ -58,10 +54,7 @@ class ArgsMatcherTests: XCTestCase {
         args.append("string1")
         args.append("string2")
 
-        var otherArgs = [String?]()
-        otherArgs.append("string1")
-        otherArgs.append("another string2")
-        let config = ArgsConfiguration(with: otherArgs)
+        let config = ArgsConfiguration([ArgValue("string1"), ArgValue("another string2")])
 
         let match = ArgsMatcher(args).match(config)
         XCTAssertFalse(match)

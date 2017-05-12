@@ -12,12 +12,12 @@ import XCTest
 
 class VerifierTests: XCTestCase {
 
-    private var verifier: Verifier!
+    private var verifier: VerifierImpl!
 
 
     override func setUp() {
         super.setUp()
-        self.verifier = Verifier()
+        self.verifier = VerifierImpl()
     }
 
 

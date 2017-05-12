@@ -19,7 +19,7 @@ class ExpectationTests: XCTestCase {
     override func setUp() {
         super.setUp()
         self.expectation = Expectation(withStub: Stub())
-        self.argsConfig = ArgsConfiguration(with: [Any?]())
+        self.argsConfig = ArgsConfiguration([Argument]())
     }
 
 

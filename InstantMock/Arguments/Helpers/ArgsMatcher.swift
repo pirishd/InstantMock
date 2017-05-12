@@ -29,31 +29,23 @@ extension ArgsMatcher {
     func match(_ argsConfig: ArgsConfiguration) -> Bool {
 
         // make sure the number of arguments matches the number of expected
-        if args.count != argsConfig.values.count {
+        if self.args.count != argsConfig.args.count {
             return false
         }
 
         // match arguments one by one
-        if argsConfig.values.count > 0 {
-            for i in 0...argsConfig.values.count-1 {
-                if !self.match(args[i], with: argsConfig.values[i]) {
+        if argsConfig.args.count > 0 {
+            for i in 0...argsConfig.args.count-1 {
+                let arg = args[i]
+                let argConfig = argsConfig.args[i]
+
+                if !argConfig.match(arg) {
                     return false
                 }
             }
         }
 
         return true
-    }
-
-
-    /** Perform match between two arguments */
-    private func match(_ arg: Any?, with argConfig: ArgConfiguration) -> Bool {
-
-        // any value
-        if argConfig.isAny { return true }
-
-        // verify matching between values
-        return Verifier.instance.equal(arg, to: argConfig.value)
     }
 
 }

@@ -116,10 +116,10 @@ class StubTests: XCTestCase {
 
     func testBest_several() {
         let stub1 = Stub()
-        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration(with: [12, 37, 42]))
+        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgValue(12), ArgValue(37), ArgValue(42)]))
 
         let stub2 = Stub()
-        stub2.configuration = CallConfiguration(for: "func", with: ArgsConfiguration(with: [Int.any, 37, 42]))
+        stub2.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgAny("Int"), ArgValue(37), ArgValue(42)]))
 
         var list = [Stub]()
         list.append(stub1)

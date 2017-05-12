@@ -16,9 +16,11 @@ class CallConfiguration {
     /// Arguments configuration
     let args: ArgsConfiguration
 
+
+    /** Initialize with function and args configuration */
     init(for function: String, with args: ArgsConfiguration) {
         self.function = function
         self.args = args
     }
-
+    
 }

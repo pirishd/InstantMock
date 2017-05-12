@@ -29,24 +29,57 @@ public class Stub: CallInterceptor {
 
     /// Number of args configured to match any value
     fileprivate var numberOfAnyArgs: Int {
-        var number = 0
+        /*var number = 0
 
         if let configuration = self.configuration {
-            for arg in configuration.args.values {
+            for arg in configuration.args {
                 if arg.isAny { number = number + 1 }
             }
-        }
+        }*/
 
-        return number
+        // FIXME
+        return 0 //number
     }
 
 
     // MARK: Call
 
+  /*  func capt<T>(_ captor: AnyObject?, t: T.Type, arg: Any?) {
+        if let capt = captor as? ArgumentCaptor<T> {
+            if let val = arg as? T {
+                var i = 0
+            }
+        }
+    }*/
+
     /** Method is being called */
     @discardableResult
     override func handleCall(_ args: [Any?]) -> Any? {
         var ret: Any?
+
+        /*if let captors = self.captors {
+            if args.count > 0 {
+                for i in 0...args.count-1 {
+                    let arg = args[i]
+                    if let captor = captors[i] {
+                        captor.setVal(val: arg)
+                    }
+                }
+            }
+        }*/
+
+       /* if let configuration = self.configuration {
+            if let captors = configuration.captors {
+                if args.count > 0 {
+                    for i in 0...args.count-1 {
+                        let arg = args[i]
+                        if let captor = captors[i] {
+                            captor.setVal(val: arg)
+                        }
+                    }
+                }
+            }
+        }*/
 
         // call closure if required
         if let closure = self.closure { closure(args) }

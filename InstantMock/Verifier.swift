@@ -7,12 +7,18 @@
 //
 
 
-/** Class dedicated to verify equality between values */
-class Verifier {
+/** Protoocl dedicated to verify equality between values */
+public protocol Verifier {
+    func equal(_ arg: Any?, to value: Any?) -> Bool
+}
+
+
+/** Main verifier implementation */
+class VerifierImpl: Verifier {
 
 
     /// Singleton
-    static let instance = Verifier()
+    static let instance = VerifierImpl()
 
 
     /**
