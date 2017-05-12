@@ -16,7 +16,7 @@ public class CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    func handleCall(_ args: [Any?], configArgs: ArgsConfiguration) -> Any? {
+    func handleCall(_ args: [Any?]) -> Any? {
         fatalError("[CallInterceptor] handleCall: virtual method, must be overloaded in subclasses")
     }
 

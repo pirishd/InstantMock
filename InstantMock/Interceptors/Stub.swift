@@ -46,11 +46,13 @@ public class Stub: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall(_ args: [Any?], configArgs: ArgsConfiguration) -> Any? {
+    override func handleCall(_ args: [Any?]) -> Any? {
         var ret: Any?
 
         // capture args
-        self.capture(args, configArgs: configArgs)
+        if let configuration = self.configuration {
+            self.capture(args, configArgs: configuration.args)
+        }
 
         // call closure if required
         if let closure = self.closure { closure(args) }
