@@ -13,6 +13,7 @@ protocol Argument: CustomStringConvertible, ArgumentMatching {}
 
 /** Protocol for argument mattching */
 protocol ArgumentMatching {
+
+    /// Matches an argument against a value
     func match(_ value: Any?) -> Bool
 }
-
