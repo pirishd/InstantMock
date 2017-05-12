@@ -80,6 +80,15 @@ class StubTests: XCTestCase {
     }
 
 
+    func testHandleCall_capture() {
+        let capture = ArgCapture<String>("String")
+        let argConfig = ArgsConfiguration([capture])
+
+        _ = self.stub.handleCall(["Hello"], configArgs: argConfig)
+        XCTAssertEqual(capture.value, "Hello")
+    }
+
+
     func testReturns_false() {
         let returns = self.stub.returns
         XCTAssertFalse(returns)
