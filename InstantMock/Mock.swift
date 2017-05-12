@@ -155,8 +155,6 @@ extension Mock {
     private func register(_ expectation: Expectation, for function: String, with args: [Any?]) {
 
         // compute configurations based on provided args
-        //let argsConfig = ArgsConfiguration(with: args)
-        //expectation.configuration = CallConfiguration(for: function, with: argsConfig)
         let configuration = CallConfiguration(for: function, with: self.argsConfiguration)
         expectation.configuration = configuration
 
@@ -239,8 +237,6 @@ extension Mock: MockStub {
         }
 
         // compute configurations based on provided args
-        //let argsConfig = ArgsConfiguration(with: args)
-        //let configuration = CallConfiguration(for: function, with: argsConfig)
         let configuration = CallConfiguration(for: function, with: self.argsConfiguration)
         stub.configuration = configuration
 
