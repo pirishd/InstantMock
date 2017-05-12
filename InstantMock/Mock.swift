@@ -217,10 +217,8 @@ extension Mock: MockStub {
         }
 
         // default value
-        if useDefaultValue, let mockUsableType = T.self as? MockUsable.Type {
-            if let value = mockUsableType.anyValue as? T {
-                ret = value
-            }
+        if useDefaultValue, let value = DefaultValueHandler<T>().it {
+            ret = value
         }
 
         return ret

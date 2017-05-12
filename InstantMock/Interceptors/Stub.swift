@@ -44,14 +44,6 @@ public class Stub: CallInterceptor {
 
     // MARK: Call
 
-  /*  func capt<T>(_ captor: AnyObject?, t: T.Type, arg: Any?) {
-        if let capt = captor as? ArgumentCaptor<T> {
-            if let val = arg as? T {
-                var i = 0
-            }
-        }
-    }*/
-
     /** Method is being called */
     @discardableResult
     override func handleCall(_ args: [Any?]) -> Any? {
