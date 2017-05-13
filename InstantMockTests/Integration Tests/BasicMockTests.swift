@@ -119,6 +119,4 @@ class BasicMockTests: XCTestCase {
         XCTAssertEqual(retValue, "aa")
     }
 
-    // FIXME: add tests with captors, with verify in args
-
 }
