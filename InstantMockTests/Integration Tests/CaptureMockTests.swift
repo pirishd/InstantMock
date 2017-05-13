@@ -10,8 +10,11 @@ import XCTest
 @testable import InstantMock
 
 
+class SomeCaptureObject {}
+
 protocol CaptureProtocol {
     func someFunc(arg1: String, arg2: Int) -> String
+    func someFunc(arg: String, closure: ((Int, SomeCaptureObject) -> String))
 }
 
 
@@ -19,6 +22,10 @@ class CaptureMock: Mock, CaptureProtocol {
 
     func someFunc(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
+    }
+
+    func someFunc(arg: String, closure: ((Int, SomeCaptureObject) -> String)) {
+        super.call(arg, closure)
     }
 
     override init(withExpectationFactory factory: ExpectationFactory) {
@@ -65,6 +72,24 @@ class CaptureMockTests: XCTestCase {
 
         XCTAssertEqual(captureStr.allValues.flatMap {$0}, ["Paris", "London"])
         XCTAssertEqual(captureInt.allValues.flatMap {$0}, [32, 42])
+    }
+
+
+    func testExpect_capture_closure() {
+
+        let captor = ArgumentCaptor<(Int, SomeCaptureObject) -> String>(Closure.cast())
+        mock.expect().call(mock.someFunc(arg: Arg<String>.any, closure: captor.capture()))
+
+        mock.someFunc(arg: "Hello") { (num, obj) -> String in
+            return "\(num)"
+        }
+
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        let ret = captor.value!(2, SomeCaptureObject())
+        XCTAssertEqual(ret, "2")
     }
 
 }

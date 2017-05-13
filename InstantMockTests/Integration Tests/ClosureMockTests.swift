@@ -50,7 +50,7 @@ class ClosureMockTests: XCTestCase {
 
         self.mock.expect().call(self.mock.someFunc(
             arg: Arg<String>.any,
-            closure: Arg<Closure>.any.withSignature() as ((String, SomeClosureObject) -> Int)
+            closure: Arg<Closure>.any.cast() as (String, SomeClosureObject) -> Int
         ))
 
         self.mock.someFunc(arg: "Hello", closure: { (str, obj) -> Int in
