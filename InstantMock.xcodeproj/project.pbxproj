@@ -177,6 +177,7 @@
 		432D491B1EC64DB9003A6A30 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				432D49451EC6F4F5003A6A30 /* ArgumentFactory.swift */,
 				432D491D1EC64FDC003A6A30 /* ArgsConfiguration.swift */,
 				432D491E1EC64FDC003A6A30 /* ArgsMatcher.swift */,
 				432D491F1EC64FDC003A6A30 /* ArgStorage.swift */,
@@ -405,7 +406,6 @@
 				432D491B1EC64DB9003A6A30 /* Helpers */,
 				4396BE951EC5FB8300657281 /* Arg.swift */,
 				4396BE9F1EC5FD8600657281 /* ArgumentCaptor.swift */,
-				432D49451EC6F4F5003A6A30 /* ArgumentFactory.swift */,
 			);
 			name = Arguments;
 			sourceTree = "<group>";
