@@ -186,7 +186,7 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		432D491C1EC64F64003A6A30 /* Arg */ = {
+		432D491C1EC64F64003A6A30 /* Argument */ = {
 			isa = PBXGroup;
 			children = (
 				432D492D1EC65045003A6A30 /* Argument.swift */,
@@ -195,10 +195,10 @@
 				432D49281EC64FE6003A6A30 /* ArgumentVerify.swift */,
 				432D49261EC64FE6003A6A30 /* ArgumentCapture.swift */,
 			);
-			name = Arg;
+			name = Argument;
 			sourceTree = "<group>";
 		};
-		432D492F1EC664C4003A6A30 /* Arg */ = {
+		432D492F1EC664C4003A6A30 /* Argument */ = {
 			isa = PBXGroup;
 			children = (
 				432D49311EC66538003A6A30 /* ArgumentAnyTests.swift */,
@@ -206,7 +206,7 @@
 				432D49331EC66538003A6A30 /* ArgumentValueTests.swift */,
 				432D49341EC66538003A6A30 /* ArgumentVerifyTests.swift */,
 			);
-			name = Arg;
+			name = Argument;
 			sourceTree = "<group>";
 		};
 		432D49301EC664E3003A6A30 /* Helpers */ = {
@@ -402,7 +402,7 @@
 		43E42A821EBF33E400F130D0 /* Arguments */ = {
 			isa = PBXGroup;
 			children = (
-				432D491C1EC64F64003A6A30 /* Arg */,
+				432D491C1EC64F64003A6A30 /* Argument */,
 				432D491B1EC64DB9003A6A30 /* Helpers */,
 				4396BE951EC5FB8300657281 /* Arg.swift */,
 				4396BE9F1EC5FD8600657281 /* ArgumentCaptor.swift */,
@@ -424,7 +424,7 @@
 		43E42A861EBF345100F130D0 /* Arguments */ = {
 			isa = PBXGroup;
 			children = (
-				432D492F1EC664C4003A6A30 /* Arg */,
+				432D492F1EC664C4003A6A30 /* Argument */,
 				432D49301EC664E3003A6A30 /* Helpers */,
 				4396BEA31EC6067300657281 /* ArgTests.swift */,
 				4396BEB11EC620D000657281 /* ArgumentCaptorTests.swift */,
