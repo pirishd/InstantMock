@@ -15,4 +15,8 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
         return ArgumentValueMock<T>(value)
     }
 
+    func argumentAny(_ typeDescription: String) -> ArgumentAny {
+        return ArgumentAnyMock()
+    }
+
 }

@@ -18,7 +18,7 @@ class Arg<T> {
     }
 
 
-    /** Register a value */
+    /** Register a value with factory (for dependency injection) */
     static func eq<F>(_ val: T, argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
         let arg = argFactory.argument(value: val)
         ArgStorage.instance.store(arg)
@@ -41,11 +41,19 @@ class Arg<T> {
     }
 
 
-    /** Register Any value */
+    /** Register any value */
     static var any: T {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.any(argFactory: factory)
+    }
 
-        // store instance
-        let arg = ArgAny("\(T.self)")
+
+    /** Register any value (for dependency injection) */
+    static func any<F>(argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
+
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentAny(typeDescription)
         ArgStorage.instance.store(arg)
 
         // return default value

@@ -68,19 +68,29 @@ class ArgTests: XCTestCase {
 
 
     func testAny_string() {
-        let any = Arg<String>.any
+        let factory = ArgumentFactoryMock<String>()
+        let any = Arg<String>.any(argFactory: factory)
         XCTAssertEqual(any, String.any)
         XCTAssertEqual(ArgStorage.instance.all().count, 1)
 
-        _ = Arg<String>.any
+        var argumentAny = ArgStorage.instance.all().last as? ArgumentAnyMock
+        XCTAssertNotNil(argumentAny)
+
+        _ = Arg<String>.any(argFactory: factory)
         XCTAssertEqual(ArgStorage.instance.all().count, 2)
+        argumentAny = ArgStorage.instance.all().last as? ArgumentAnyMock
+        XCTAssertNotNil(argumentAny)
     }
 
 
     func testAny_int() {
-        let any = Arg<Int>.any
+        let factory = ArgumentFactoryMock<Int>()
+        let any = Arg<Int>.any(argFactory: factory)
         XCTAssertEqual(any, Int.any)
         XCTAssertEqual(ArgStorage.instance.all().count, 1)
+
+        let argumentAny = ArgStorage.instance.all().last as? ArgumentAnyMock
+        XCTAssertNotNil(argumentAny)
     }
 
 

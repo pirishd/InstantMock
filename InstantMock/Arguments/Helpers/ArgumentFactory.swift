@@ -13,6 +13,9 @@ public protocol ArgumentFactory {
 
     /// Create a new argument value
     func argument(value: Value?) -> ArgumentValue
+
+    func argumentAny(_ typeDescription: String) -> ArgumentAny
+
 }
 
 
@@ -21,6 +24,10 @@ class ArgumentFactoryImpl<T>: ArgumentFactory {
 
     func argument(value: T?) -> ArgumentValue {
         return ArgumentValueImpl<T>(value)
+    }
+
+    func argumentAny(_ typeDescription: String) -> ArgumentAny {
+        return ArgumentAnyImpl(typeDescription)
     }
     
 }

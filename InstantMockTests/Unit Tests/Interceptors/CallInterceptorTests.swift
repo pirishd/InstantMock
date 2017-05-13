@@ -25,7 +25,7 @@ class CallInterceptorTests: XCTestCase {
 
     func testMatching_oneMatching() {
         let interceptor1 = CallInterceptor()
-        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgAny("")]))
+        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgumentAnyMock()]))
         interceptor1.configuration = config1
 
         let interceptor2 = CallInterceptor()
@@ -44,7 +44,7 @@ class CallInterceptorTests: XCTestCase {
 
     func testMatching_success() {
         let interceptor1 = CallInterceptor()
-        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgAny("")]))
+        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgumentAnyMock()]))
         interceptor1.configuration = config1
 
         let interceptor2 = CallInterceptor()

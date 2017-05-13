@@ -23,19 +23,19 @@ class ArgsConfigurationTests: XCTestCase {
 
 
     func testDescription_oneValue() {
-        let list = [ArgAny("Int")]
+        let list = [ArgumentAnyMock()]
         let ret = ArgsConfiguration(list).description
-        XCTAssertEqual(ret, "any<Int>")
+        XCTAssertEqual(ret, "argument_any_mock")
     }
 
 
     func testDescription_severalValues() {
         var list = [Argument]()
         list.append(ArgumentValueMock(12))
-        list.append(ArgAny("String"))
+        list.append(ArgumentAnyMock())
 
         let ret = ArgsConfiguration(list).description
-        XCTAssertEqual(ret, "argument_value_mock, any<String>")
+        XCTAssertEqual(ret, "argument_value_mock, argument_any_mock")
     }
 
 }

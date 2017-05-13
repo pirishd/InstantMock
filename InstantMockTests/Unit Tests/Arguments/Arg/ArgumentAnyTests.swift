@@ -1,5 +1,5 @@
 //
-//  ArgAnyTests.swift
+//  ArgumentAnyTests.swift
 //  InstantMock
 //
 //  Created by Patrick on 12/05/2017.
@@ -10,18 +10,18 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgAnyTests: XCTestCase {
+class ArgumentAnyTests: XCTestCase {
 
 
     func testDescription() {
-        let value = ArgAny("String")
+        let value = ArgumentAnyImpl("String")
         let desc = value.description
         XCTAssertEqual(desc, "any<String>")
     }
 
 
     func testMatch() {
-        let any = ArgAny("")
+        let any = ArgumentAnyImpl("")
         let match = any.match("Anything")
         XCTAssertTrue(match)
     }

@@ -135,7 +135,7 @@ class StubTests: XCTestCase {
         let valueMock42 = ArgumentValueMock(42)
 
         let stub1 = Stub()
-        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgAny("Int"), valueMock37, valueMock42]))
+        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgumentAnyMock(), valueMock37, valueMock42]))
 
         let stub2 = Stub()
         stub2.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([valueMock12, valueMock37, valueMock42]))

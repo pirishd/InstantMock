@@ -30,7 +30,7 @@ class ArgsMatcherTests: XCTestCase {
         var args = [Any?]()
         args.append(nil)
 
-        let config = ArgsConfiguration([ArgAny("string")])
+        let config = ArgsConfiguration([ArgumentAnyMock()])
 
         let match = ArgsMatcher(args).match(config)
         XCTAssertTrue(match)
