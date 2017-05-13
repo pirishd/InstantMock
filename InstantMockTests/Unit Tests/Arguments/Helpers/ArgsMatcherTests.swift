@@ -36,28 +36,28 @@ class ArgsMatcherTests: XCTestCase {
         XCTAssertTrue(match)
     }
 
-
-    func testMatch_severalValues() {
-        var args = [Any?]()
-        args.append("string1")
-        args.append("string2")
-
-        let config = ArgsConfiguration([ArgValue("string1"), ArgValue("string2")])
-
-        let match = ArgsMatcher(args).match(config)
-        XCTAssertTrue(match)
-    }
-
-
-    func testMatch_severalDifferentValues() {
-        var args = [Any?]()
-        args.append("string1")
-        args.append("string2")
-
-        let config = ArgsConfiguration([ArgValue("string1"), ArgValue("another string2")])
-
-        let match = ArgsMatcher(args).match(config)
-        XCTAssertFalse(match)
-    }
+//
+//    func testMatch_severalValues() {
+//        var args = [Any?]()
+//        args.append("string1")
+//        args.append("string2")
+//
+//        let config = ArgsConfiguration([ArgValue("string1"), ArgValue("string2")])
+//
+//        let match = ArgsMatcher(args).match(config)
+//        XCTAssertTrue(match)
+//    }
+//
+//
+//    func testMatch_severalDifferentValues() {
+//        var args = [Any?]()
+//        args.append("string1")
+//        args.append("string2")
+//
+//        let config = ArgsConfiguration([ArgValue("string1"), ArgValue("another string2")])
+//
+//        let match = ArgsMatcher(args).match(config)
+//        XCTAssertFalse(match)
+//    }
 
 }

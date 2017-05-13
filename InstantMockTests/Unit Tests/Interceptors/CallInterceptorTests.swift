@@ -23,37 +23,37 @@ class CallInterceptorTests: XCTestCase {
     }
 
 
-    func testMatching_oneMatching() {
-        let interceptor1 = CallInterceptor()
-        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgAny("")]))
-        interceptor1.configuration = config1
-
-        let interceptor2 = CallInterceptor()
-        let config2 = CallConfiguration(for: "", with: ArgsConfiguration([ArgValue("another string")]))
-        interceptor2.configuration = config2
-
-        let list = [interceptor1, interceptor2]
-        let ret = list.matching(["string"])
-
-        XCTAssertEqual(ret.count, 1)
-        XCTAssertTrue(ret.first === interceptor1)
-    }
-
-
-    func testMatching_success() {
-        let interceptor1 = CallInterceptor()
-        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgAny("")]))
-        interceptor1.configuration = config1
-
-        let interceptor2 = CallInterceptor()
-        let config2 = CallConfiguration(for: "", with: ArgsConfiguration([ArgValue("string")]))
-        interceptor2.configuration = config2
-
-        let list = [interceptor1, interceptor2]
-        let ret = list.matching(["string"])
-
-        XCTAssertEqual(ret.count, 2)
-    }
+//    func testMatching_oneMatching() {
+//        let interceptor1 = CallInterceptor()
+//        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgAny("")]))
+//        interceptor1.configuration = config1
+//
+//        let interceptor2 = CallInterceptor()
+//        let config2 = CallConfiguration(for: "", with: ArgsConfiguration([ArgValue("another string")]))
+//        interceptor2.configuration = config2
+//
+//        let list = [interceptor1, interceptor2]
+//        let ret = list.matching(["string"])
+//
+//        XCTAssertEqual(ret.count, 1)
+//        XCTAssertTrue(ret.first === interceptor1)
+//    }
+//
+//
+//    func testMatching_success() {
+//        let interceptor1 = CallInterceptor()
+//        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgAny("")]))
+//        interceptor1.configuration = config1
+//
+//        let interceptor2 = CallInterceptor()
+//        let config2 = CallConfiguration(for: "", with: ArgsConfiguration([ArgValue("string")]))
+//        interceptor2.configuration = config2
+//
+//        let list = [interceptor1, interceptor2]
+//        let ret = list.matching(["string"])
+//
+//        XCTAssertEqual(ret.count, 2)
+//    }
 
 
 }

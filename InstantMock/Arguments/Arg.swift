@@ -12,8 +12,15 @@ class Arg<T> {
 
 
     /** Register a value */
-    static func eq(_ val: T) -> T {
-        let arg = ArgValue<T>(val)
+    static func eq(_ val: T) ->T {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.eq(val, argFactory: factory)
+    }
+
+
+    /** Register a value */
+    static func eq<F>(_ val: T, argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
+        let arg = argFactory.argValue(val)
         ArgStorage.instance.store(arg)
         return val
     }

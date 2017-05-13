@@ -7,14 +7,21 @@
 //
 
 
-protocol ArgumentValue {}
+public protocol ArgumentValue: Argument {}
+
+
+public protocol ArgumentValueTyped: ArgumentValue {
+    associatedtype Value
+    var value: Value? { get }
+    init(_ value: Value?)
+}
 
 
 /** This class represents the configuration of an argument that must verify a precise value */
-class ArgValue<T>: ArgumentValue, Argument {
+class ArgumentValueImpl<T>: ArgumentValueTyped {
 
     /// Value that must match
-    fileprivate let value: T?
+    let value: T?
 
     /// Verifier to be used for the match
     fileprivate let verifier: Verifier
@@ -23,7 +30,7 @@ class ArgValue<T>: ArgumentValue, Argument {
     // MARK: Initializers
 
     /** Initialize new instance with provided value */
-    convenience init(_ value: T?) {
+    convenience required init(_ value: T?) {
         self.init(value, verifier: VerifierImpl.instance)
     }
 
@@ -37,7 +44,7 @@ class ArgValue<T>: ArgumentValue, Argument {
 
 
 /** Extension that performs matching */
-extension ArgValue: ArgumentMatching {
+extension ArgumentValueImpl: ArgumentMatching {
 
     func match(_ value: Any?) -> Bool {
         return self.verifier.equal(value, to: self.value)
@@ -47,7 +54,7 @@ extension ArgValue: ArgumentMatching {
 
 
 /** Extension to return a description */
-extension ArgValue: CustomStringConvertible {
+extension ArgumentValueImpl: CustomStringConvertible {
 
     var description: String {
         var ret = ""

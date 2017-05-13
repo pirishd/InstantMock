@@ -20,26 +20,26 @@ class ArgValueTests: XCTestCase {
         self.verifier = VerifierMock()
     }
 
-
-    func testDescription() {
-        var value = ArgValue("Hello", verifier: self.verifier)
-        var desc = value.description
-        XCTAssertEqual(desc, "Hello")
-
-        value = ArgValue(nil, verifier: self.verifier)
-        desc = value.description
-        XCTAssertEqual(desc, "nil")
-    }
-
-
-    func testMatch() {
-        let value = ArgValue("Hello", verifier: self.verifier)
-        let match = value.match("Hello2")
-
-        XCTAssertFalse(match)
-        XCTAssertTrue(self.verifier.called)
-        XCTAssertEqual(self.verifier.value as! String, "Hello")
-        XCTAssertEqual(self.verifier.arg as! String, "Hello2")
-    }
+//
+//    func testDescription() {
+//        var value = ArgValue("Hello", verifier: self.verifier)
+//        var desc = value.description
+//        XCTAssertEqual(desc, "Hello")
+//
+//        value = ArgValue(nil, verifier: self.verifier)
+//        desc = value.description
+//        XCTAssertEqual(desc, "nil")
+//    }
+//
+//
+//    func testMatch() {
+//        let value = ArgValue("Hello", verifier: self.verifier)
+//        let match = value.match("Hello2")
+//
+//        XCTAssertFalse(match)
+//        XCTAssertTrue(self.verifier.called)
+//        XCTAssertEqual(self.verifier.value as! String, "Hello")
+//        XCTAssertEqual(self.verifier.arg as! String, "Hello2")
+//    }
 
 }

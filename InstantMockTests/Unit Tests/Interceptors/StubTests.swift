@@ -128,20 +128,20 @@ class StubTests: XCTestCase {
     }
 
 
-    func testBest_several() {
-        let stub1 = Stub()
-        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgValue(12), ArgValue(37), ArgValue(42)]))
-
-        let stub2 = Stub()
-        stub2.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgAny("Int"), ArgValue(37), ArgValue(42)]))
-
-        var list = [Stub]()
-        list.append(stub1)
-        list.append(stub2)
-
-        let best = list.best()
-        XCTAssertTrue(stub1 === best)
-    }
-
+//    func testBest_several() {
+//        let stub1 = Stub()
+//        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgValue(12), ArgValue(37), ArgValue(42)]))
+//
+//        let stub2 = Stub()
+//        stub2.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgAny("Int"), ArgValue(37), ArgValue(42)]))
+//
+//        var list = [Stub]()
+//        list.append(stub1)
+//        list.append(stub2)
+//
+//        let best = list.best()
+//        XCTAssertTrue(stub1 === best)
+//    }
+//
 }
 

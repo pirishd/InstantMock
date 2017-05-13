@@ -24,27 +24,46 @@ class ArgTests: XCTestCase {
 
 
     func testEq_string() {
-        let val = Arg.eq("Hello")
+        let factory = ArgumentFactoryMock<String>()
+        let val = Arg.eq("Hello", argFactory: factory)
         XCTAssertEqual(val, "Hello")
         XCTAssertEqual(ArgStorage.instance.all().count, 1)
 
-        _ = Arg.eq("HelloDelu")
+        var argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<String>
+        XCTAssertNotNil(argumentValue)
+        XCTAssertEqual(argumentValue!.value, "Hello")
+
+        _ = Arg.eq("HelloDelu", argFactory: factory)
         XCTAssertEqual(ArgStorage.instance.all().count, 2)
+
+        argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<String>
+        XCTAssertNotNil(argumentValue)
+        XCTAssertEqual(argumentValue!.value, "HelloDelu")
     }
 
 
     func testEq_int() {
-        let val = Arg.eq(42)
+        let factory = ArgumentFactoryMock<Int>()
+        let val = Arg.eq(42, argFactory: factory)
         XCTAssertEqual(val, 42)
         XCTAssertEqual(ArgStorage.instance.all().count, 1)
+
+        let argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<Int>
+        XCTAssertNotNil(argumentValue)
+        XCTAssertEqual(argumentValue!.value, 42)
     }
 
 
     func testEq_object() {
+        let factory = ArgumentFactoryMock<DummyArg>()
         let dummyArg = DummyArg()
-        let val = Arg.eq(dummyArg)
+        let val = Arg.eq(dummyArg, argFactory: factory)
         XCTAssertTrue(dummyArg === val)
         XCTAssertEqual(ArgStorage.instance.all().count, 1)
+
+        let argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<DummyArg>
+        XCTAssertNotNil(argumentValue)
+        XCTAssertTrue(dummyArg === argumentValue!.value)
     }
 
 
