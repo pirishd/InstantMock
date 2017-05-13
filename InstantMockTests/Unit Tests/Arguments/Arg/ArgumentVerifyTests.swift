@@ -1,5 +1,5 @@
 //
-//  ArgVerifyTests.swift
+//  ArgumentVerifyTests.swift
 //  InstantMock
 //
 //  Created by Patrick on 12/05/2017.
@@ -10,13 +10,13 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgVerifyTests: XCTestCase {
+class ArgumentVerifyTests: XCTestCase {
 
-    private var arg: ArgVerify<String>!
+    private var arg: ArgumentVerifyImpl<String>!
 
     override func setUp() {
         super.setUp()
-        self.arg = ArgVerify({ str in true })
+        self.arg = ArgumentVerifyImpl({ str in true })
     }
 
 

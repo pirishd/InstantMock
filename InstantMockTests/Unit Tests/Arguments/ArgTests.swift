@@ -95,8 +95,8 @@ class ArgTests: XCTestCase {
 
 
     func testClosure_string() {
-
-        let val = Arg.verify { str in true } as String
+        let factory = ArgumentFactoryMock<String>()
+        let val = Arg.verify({ str in true }, argFactory: factory) as String
 
         XCTAssertEqual(val, String.any)
         XCTAssertEqual(ArgStorage.instance.all().count, 1)

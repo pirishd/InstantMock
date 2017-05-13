@@ -19,4 +19,8 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
         return ArgumentAnyMock()
     }
 
+    func argument(condition: @escaping (T) -> Bool) -> ArgumentVerify {
+        return ArgumentVerifyMock<T>(condition)
+    }
+
 }

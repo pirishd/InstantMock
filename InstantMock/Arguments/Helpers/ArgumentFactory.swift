@@ -14,8 +14,11 @@ public protocol ArgumentFactory {
     /// Create a new argument value
     func argument(value: Value?) -> ArgumentValue
 
+    /// Create a new any argument
     func argumentAny(_ typeDescription: String) -> ArgumentAny
 
+    // Create a new argument that must verify provided condition
+    func argument(condition: @escaping (Value) -> Bool) -> ArgumentVerify
 }
 
 
@@ -29,5 +32,9 @@ class ArgumentFactoryImpl<T>: ArgumentFactory {
     func argumentAny(_ typeDescription: String) -> ArgumentAny {
         return ArgumentAnyImpl(typeDescription)
     }
-    
+
+    func argument(condition: @escaping (T) -> Bool) -> ArgumentVerify {
+        return ArgumentVerifyImpl<T>(condition)
+    }
+
 }

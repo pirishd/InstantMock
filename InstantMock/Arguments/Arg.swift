@@ -19,7 +19,7 @@ class Arg<T> {
 
 
     /** Register a value with factory (for dependency injection) */
-    static func eq<F>(_ val: T, argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
+    static func eq<F>(_ val: T, argFactory: F) -> T where F: ArgumentFactory, F.Value == T {
         let arg = argFactory.argument(value: val)
         ArgStorage.instance.store(arg)
         return val
@@ -27,10 +27,17 @@ class Arg<T> {
 
 
     /** Register a closure to be verified */
-    static func verify(_ closure: @escaping (T) -> Bool) -> T {
+    static func verify(_ condition: @escaping (T) -> Bool) -> T {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.verify(condition, argFactory: factory)
+    }
 
-        // store instance
-        let arg = ArgVerify<T>(closure)
+
+    /** Register a closure to be verified */
+    static func verify<F>(_ condition: @escaping (T) -> Bool, argFactory: F) -> T where F: ArgumentFactory, F.Value == T {
+
+        // create and store instance
+        let arg = argFactory.argument(condition: condition)
         ArgStorage.instance.store(arg)
 
         // return default value
