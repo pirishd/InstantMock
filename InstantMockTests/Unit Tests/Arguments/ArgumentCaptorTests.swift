@@ -20,11 +20,15 @@ class ArgumentCaptorTests: XCTestCase {
 
     
     func testCapture() {
+        let factory = ArgumentFactoryMock<String>()
         let captor = ArgumentCaptor<String>()
-        let val = captor.capture()
+        let val = captor.capture(argFactory: factory)
 
         XCTAssertEqual(val, String.any)
         XCTAssertEqual(ArgStorage.instance.all().count, 1)
+
+        let argumentCapture = ArgStorage.instance.all().last as? ArgumentCapture
+        XCTAssertNotNil(argumentCapture)
 
         _ = captor.capture()
         XCTAssertEqual(ArgStorage.instance.all().count, 2)

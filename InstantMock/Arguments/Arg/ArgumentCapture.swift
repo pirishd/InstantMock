@@ -8,7 +8,7 @@
 
 
 /** Protocol for capturing arguments */
-protocol ArgumentCapture: Argument {
+public protocol ArgumentCapture: Argument {
     func setValue(_ value: Any?)
 }
 

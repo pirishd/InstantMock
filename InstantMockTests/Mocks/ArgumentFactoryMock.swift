@@ -23,4 +23,8 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
         return ArgumentVerifyMock<T>(condition)
     }
 
+    func argumentCapture(_ typeDescription: String) -> ArgumentCapture {
+        return ArgumentCaptureMock()
+    }
+
 }

@@ -19,6 +19,10 @@ public protocol ArgumentFactory {
 
     // Create a new argument that must verify provided condition
     func argument(condition: @escaping (Value) -> Bool) -> ArgumentVerify
+
+    // Create a new argument capture
+    func argumentCapture(_ typeDescription: String) -> ArgumentCapture
+
 }
 
 
@@ -35,6 +39,10 @@ class ArgumentFactoryImpl<T>: ArgumentFactory {
 
     func argument(condition: @escaping (T) -> Bool) -> ArgumentVerify {
         return ArgumentVerifyImpl<T>(condition)
+    }
+
+    func argumentCapture(_ typeDescription: String) -> ArgumentCapture {
+        return ArgumentCaptureImpl<T>(typeDescription)
     }
 
 }

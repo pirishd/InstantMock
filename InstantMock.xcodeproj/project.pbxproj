@@ -29,6 +29,7 @@
 		432D494A1EC6FFF5003A6A30 /* ArgumentFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49491EC6FFF5003A6A30 /* ArgumentFactoryMock.swift */; };
 		432D494C1EC70C90003A6A30 /* ArgumentAnyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D494B1EC70C90003A6A30 /* ArgumentAnyMock.swift */; };
 		432D494E1EC71102003A6A30 /* ArgumentVerifyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D494D1EC71102003A6A30 /* ArgumentVerifyMock.swift */; };
+		432D49501EC714B6003A6A30 /* ArgumentCaptureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D494F1EC714B6003A6A30 /* ArgumentCaptureMock.swift */; };
 		433C3C4D1EC0CD1E00367656 /* ClosureMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */; };
 		433C3C511EC0D97000367656 /* Set+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C501EC0D97000367656 /* Set+MockUsable.swift */; };
 		433C3C551EC0E0CD00367656 /* SetMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C541EC0E0CD00367656 /* SetMockUsableTests.swift */; };
@@ -106,6 +107,7 @@
 		432D49491EC6FFF5003A6A30 /* ArgumentFactoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentFactoryMock.swift; path = Mocks/ArgumentFactoryMock.swift; sourceTree = "<group>"; };
 		432D494B1EC70C90003A6A30 /* ArgumentAnyMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentAnyMock.swift; path = Mocks/ArgumentAnyMock.swift; sourceTree = "<group>"; };
 		432D494D1EC71102003A6A30 /* ArgumentVerifyMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentVerifyMock.swift; path = Mocks/ArgumentVerifyMock.swift; sourceTree = "<group>"; };
+		432D494F1EC714B6003A6A30 /* ArgumentCaptureMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentCaptureMock.swift; path = Mocks/ArgumentCaptureMock.swift; sourceTree = "<group>"; };
 		433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureMockTests.swift; path = "Integration Tests/ClosureMockTests.swift"; sourceTree = "<group>"; };
 		433C3C501EC0D97000367656 /* Set+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+MockUsable.swift"; path = "MockUsable/Set+MockUsable.swift"; sourceTree = "<group>"; };
 		433C3C541EC0E0CD00367656 /* SetMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetMockUsableTests.swift; path = "Unit Tests/MockUsable/SetMockUsableTests.swift"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				432D49471EC6FF20003A6A30 /* ArgumentValueMock.swift */,
 				432D494B1EC70C90003A6A30 /* ArgumentAnyMock.swift */,
 				432D494D1EC71102003A6A30 /* ArgumentVerifyMock.swift */,
+				432D494F1EC714B6003A6A30 /* ArgumentCaptureMock.swift */,
 				432D49491EC6FFF5003A6A30 /* ArgumentFactoryMock.swift */,
 			);
 			name = Mocks;
@@ -578,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				435CE4E41EC07EBA0019E2FA /* IntMockUsableTests.swift in Sources */,
+				432D49501EC714B6003A6A30 /* ArgumentCaptureMock.swift in Sources */,
 				435CE4F81EC08DAE0019E2FA /* MockCreationModalityTests.swift in Sources */,
 				435CE50F1EC098360019E2FA /* CallInterceptorTests.swift in Sources */,
 				432D49381EC66538003A6A30 /* ArgumentVerifyTests.swift in Sources */,

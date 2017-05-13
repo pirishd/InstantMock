@@ -13,9 +13,17 @@ class ArgumentCaptor<T> {
 
     /** Capture an argument of expected type */
     func capture() -> T {
+        let factory = ArgumentFactoryImpl<T>()
+        return self.capture(argFactory: factory)
+    }
+
+
+    /** Capture an argument of expected type with factory (dependency injection) */
+    func capture<F>(argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
 
         // store instance
-        let arg = ArgumentCaptureImpl<T>("\(T.self)")
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentCapture(typeDescription)
         ArgStorage.instance.store(arg)
 
         // return default value
@@ -23,6 +31,7 @@ class ArgumentCaptor<T> {
             fatalError("Unexpected type, only `MockUsable` types can be used with `captors`")
         }
         return ret
+
     }
 
 }
