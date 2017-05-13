@@ -15,8 +15,13 @@ class Closure {
 
     required init() {}
 
-    /** Provide a dummy closure with provided signature */
-    func withSignature<ARGS, RET>() -> ((ARGS) -> RET) {
+    /** Provide a default closure with provided signature */
+    func cast<ARGS, RET>() -> (ARGS) -> RET {
+        return Closure.cast()
+    }
+
+    /** Provide a default closure with provided signature */
+    static func cast<ARGS, RET>() -> (ARGS) -> RET {
         let closure: (ARGS) -> RET = { args in return Void() as! RET }
         return closure
     }
