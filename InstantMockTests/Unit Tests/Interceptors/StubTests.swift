@@ -81,7 +81,7 @@ class StubTests: XCTestCase {
 
 
     func testHandleCall_capture() {
-        let capture = ArgCapture<String>("String")
+        let capture = ArgumentCaptureImpl<String>("String")
         let argsConfig = ArgsConfiguration([capture])
         self.stub.configuration = CallConfiguration(for: "func", with: argsConfig)
 

@@ -1,5 +1,5 @@
 //
-//  ArgCaptureTests.swift
+//  ArgumentCaptureTests.swift
 //  InstantMock
 //
 //  Created by Patrick on 12/05/2017.
@@ -11,13 +11,13 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgCaptureTests: XCTestCase {
+class ArgumentCaptureTests: XCTestCase {
 
-    private var capture: ArgCapture<String>!
+    private var capture: ArgumentCaptureImpl<String>!
 
     override func setUp() {
         super.setUp()
-        self.capture = ArgCapture<String>("String")
+        self.capture = ArgumentCaptureImpl<String>("String")
     }
 
 

@@ -1,5 +1,5 @@
 //
-//  ArgCapture.swift
+//  ArgumentCapture.swift
 //  InstantMock
 //
 //  Created by Patrick on 12/05/2017.
@@ -8,13 +8,13 @@
 
 
 /** Protocol for capturing arguments */
-protocol ArgumentCapture {
+protocol ArgumentCapture: Argument {
     func setValue(_ value: Any?)
 }
 
 
 /** This class represents the configuration of an argument that captures passed values */
-class ArgCapture<T>: Argument  {
+class ArgumentCaptureImpl<T>: ArgumentCapture  {
 
     /// Type description for the arg
     fileprivate let typeDescription: String
@@ -48,7 +48,7 @@ class ArgCapture<T>: Argument  {
 
 
 /** Extension that performs matching */
-extension ArgCapture: ArgumentMatching {
+extension ArgumentCaptureImpl: ArgumentMatching {
 
     func match(_ value: Any?) -> Bool {
         // all capture objects match anything
@@ -59,7 +59,7 @@ extension ArgCapture: ArgumentMatching {
 
 
 /** Extension that sets a captured value */
-extension ArgCapture: ArgumentCapture {
+extension ArgumentCaptureImpl {
 
     func setValue(_ value: Any?) {
         if value == nil {
@@ -73,7 +73,7 @@ extension ArgCapture: ArgumentCapture {
 
 
 /** Extension to return a description */
-extension ArgCapture: CustomStringConvertible {
+extension ArgumentCaptureImpl: CustomStringConvertible {
 
     var description: String {
         return "captured<\(typeDescription)>"

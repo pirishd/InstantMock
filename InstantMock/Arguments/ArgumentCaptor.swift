@@ -15,7 +15,7 @@ class ArgumentCaptor<T> {
     func capture() -> T {
 
         // store instance
-        let arg = ArgCapture<T>("\(T.self)")
+        let arg = ArgumentCaptureImpl<T>("\(T.self)")
         ArgStorage.instance.store(arg)
 
         // return default value
