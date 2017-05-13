@@ -13,13 +13,13 @@ import XCTest
 class StubTests: XCTestCase {
 
     private var stub: Stub!
-    private var argsConfig: ArgsConfiguration!
+    private var argsConfig: ArgumentsConfiguration!
 
 
     override func setUp() {
         super.setUp()
         self.stub = Stub()
-        self.argsConfig = ArgsConfiguration([Argument]())
+        self.argsConfig = ArgumentsConfiguration([Argument]())
     }
 
 
@@ -82,7 +82,7 @@ class StubTests: XCTestCase {
 
     func testHandleCall_capture() {
         let captureMock = ArgumentCaptureMock()
-        let argsConfig = ArgsConfiguration([captureMock])
+        let argsConfig = ArgumentsConfiguration([captureMock])
         self.stub.configuration = CallConfiguration(for: "func", with: argsConfig)
 
         _ = self.stub.handleCall(["Hello"])
@@ -135,10 +135,10 @@ class StubTests: XCTestCase {
         let valueMock42 = ArgumentValueMock(42)
 
         let stub1 = Stub()
-        stub1.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([ArgumentAnyMock(), valueMock37, valueMock42]))
+        stub1.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentAnyMock(), valueMock37, valueMock42]))
 
         let stub2 = Stub()
-        stub2.configuration = CallConfiguration(for: "func", with: ArgsConfiguration([valueMock12, valueMock37, valueMock42]))
+        stub2.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([valueMock12, valueMock37, valueMock42]))
 
         var list = [Stub]()
         list.append(stub1)

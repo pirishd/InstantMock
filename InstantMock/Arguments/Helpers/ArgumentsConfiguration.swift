@@ -1,5 +1,5 @@
 //
-//  ArgsConfiguration.swift
+//  ArgumentsConfiguration.swift
 //  InstantMock
 //
 //  Created by Patrick on 12/05/2017.
@@ -8,7 +8,7 @@
 
 
 /** Class representing a configuration of arguments */
-class ArgsConfiguration {
+class ArgumentsConfiguration {
 
     /// Actual expected arguments
     let args: [Argument]
@@ -23,7 +23,7 @@ class ArgsConfiguration {
 
 
 /** Extension that returns a description of a configuration */
-extension ArgsConfiguration: CustomStringConvertible {
+extension ArgumentsConfiguration: CustomStringConvertible {
 
     var description: String {
         var value = ""
@@ -40,7 +40,7 @@ extension ArgsConfiguration: CustomStringConvertible {
     
 }
 
-extension ArgsConfiguration {
+extension ArgumentsConfiguration {
 
     func numberOfArgValues() -> Int {
         return self.args.filter { $0 is ArgumentValue }.count
@@ -54,15 +54,15 @@ extension ArgsConfiguration {
 }
 
 
-extension ArgsConfiguration: Comparable {}
+extension ArgumentsConfiguration: Comparable {}
 
 
-func ==(lhs: ArgsConfiguration, rhs: ArgsConfiguration) -> Bool {
+func ==(lhs: ArgumentsConfiguration, rhs: ArgumentsConfiguration) -> Bool {
     return lhs.numberOfArgValues() == rhs.numberOfArgValues() && lhs.numberOfArgVerify() == rhs.numberOfArgVerify()
 }
 
 
-func <(lhs: ArgsConfiguration, rhs: ArgsConfiguration) -> Bool {
+func <(lhs: ArgumentsConfiguration, rhs: ArgumentsConfiguration) -> Bool {
 
     if lhs.numberOfArgValues() == rhs.numberOfArgValues() {
         return lhs.numberOfArgVerify() < rhs.numberOfArgVerify()

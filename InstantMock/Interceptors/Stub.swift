@@ -57,7 +57,7 @@ public class Stub: CallInterceptor {
 
 
     /** Capture arguments */
-    private func capture(_ args: [Any?], configArgs: ArgsConfiguration) {
+    private func capture(_ args: [Any?], configArgs: ArgumentsConfiguration) {
         guard args.count > 0 else { return }
 
         for i in 0...args.count-1 {

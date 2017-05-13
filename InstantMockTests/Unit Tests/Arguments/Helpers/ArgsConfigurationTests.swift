@@ -17,14 +17,14 @@ class ArgsConfigurationTests: XCTestCase {
 
     func testDescription_empty() {
         let list = [Argument]()
-        let ret = ArgsConfiguration(list).description
+        let ret = ArgumentsConfiguration(list).description
         XCTAssertEqual(ret, "none")
     }
 
 
     func testDescription_oneValue() {
         let list = [ArgumentAnyMock()]
-        let ret = ArgsConfiguration(list).description
+        let ret = ArgumentsConfiguration(list).description
         XCTAssertEqual(ret, "argument_any_mock")
     }
 
@@ -34,7 +34,7 @@ class ArgsConfigurationTests: XCTestCase {
         list.append(ArgumentValueMock(12))
         list.append(ArgumentAnyMock())
 
-        let ret = ArgsConfiguration(list).description
+        let ret = ArgumentsConfiguration(list).description
         XCTAssertEqual(ret, "argument_value_mock, argument_any_mock")
     }
 

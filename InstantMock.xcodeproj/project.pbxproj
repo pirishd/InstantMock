@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		432D49211EC64FDC003A6A30 /* ArgsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D491D1EC64FDC003A6A30 /* ArgsConfiguration.swift */; };
+		432D49211EC64FDC003A6A30 /* ArgumentsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D491D1EC64FDC003A6A30 /* ArgumentsConfiguration.swift */; };
 		432D49221EC64FDC003A6A30 /* ArgumentsMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D491E1EC64FDC003A6A30 /* ArgumentsMatcher.swift */; };
 		432D49231EC64FDC003A6A30 /* ArgumentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D491F1EC64FDC003A6A30 /* ArgumentStorage.swift */; };
 		432D49241EC64FDC003A6A30 /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49201EC64FDC003A6A30 /* Closure.swift */; };
@@ -87,7 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		432D491D1EC64FDC003A6A30 /* ArgsConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsConfiguration.swift; path = Arguments/Helpers/ArgsConfiguration.swift; sourceTree = "<group>"; };
+		432D491D1EC64FDC003A6A30 /* ArgumentsConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentsConfiguration.swift; path = Arguments/Helpers/ArgumentsConfiguration.swift; sourceTree = "<group>"; };
 		432D491E1EC64FDC003A6A30 /* ArgumentsMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentsMatcher.swift; path = Arguments/Helpers/ArgumentsMatcher.swift; sourceTree = "<group>"; };
 		432D491F1EC64FDC003A6A30 /* ArgumentStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentStorage.swift; path = Arguments/Helpers/ArgumentStorage.swift; sourceTree = "<group>"; };
 		432D49201EC64FDC003A6A30 /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Closure.swift; path = Arguments/Helpers/Closure.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				432D49451EC6F4F5003A6A30 /* ArgumentFactory.swift */,
-				432D491D1EC64FDC003A6A30 /* ArgsConfiguration.swift */,
+				432D491D1EC64FDC003A6A30 /* ArgumentsConfiguration.swift */,
 				432D491E1EC64FDC003A6A30 /* ArgumentsMatcher.swift */,
 				432D491F1EC64FDC003A6A30 /* ArgumentStorage.swift */,
 				432D49201EC64FDC003A6A30 /* Closure.swift */,
@@ -549,7 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				432D49211EC64FDC003A6A30 /* ArgsConfiguration.swift in Sources */,
+				432D49211EC64FDC003A6A30 /* ArgumentsConfiguration.swift in Sources */,
 				43817AC01EBDE96C00FB2BB1 /* Mock.swift in Sources */,
 				4396BE961EC5FB8300657281 /* Arg.swift in Sources */,
 				432D49231EC64FDC003A6A30 /* ArgumentStorage.swift in Sources */,

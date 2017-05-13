@@ -13,13 +13,13 @@ import XCTest
 class ExpectationTests: XCTestCase {
 
     private var expectation: Expectation!
-    private var argsConfig: ArgsConfiguration!
+    private var argsConfig: ArgumentsConfiguration!
 
 
     override func setUp() {
         super.setUp()
         self.expectation = Expectation(withStub: Stub())
-        self.argsConfig = ArgsConfiguration([Argument]())
+        self.argsConfig = ArgumentsConfiguration([Argument]())
     }
 
 

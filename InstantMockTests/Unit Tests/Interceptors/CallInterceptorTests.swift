@@ -25,13 +25,13 @@ class CallInterceptorTests: XCTestCase {
 
     func testMatching_oneMatching() {
         let interceptor1 = CallInterceptor()
-        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgumentAnyMock()]))
+        let config1 = CallConfiguration(for: "", with: ArgumentsConfiguration([ArgumentAnyMock()]))
         interceptor1.configuration = config1
 
         let interceptor2 = CallInterceptor()
         let argumentValueMock = ArgumentValueMock("another string")
         argumentValueMock.shouldMatch = false
-        let config2 = CallConfiguration(for: "", with: ArgsConfiguration([argumentValueMock]))
+        let config2 = CallConfiguration(for: "", with: ArgumentsConfiguration([argumentValueMock]))
         interceptor2.configuration = config2
 
         let list = [interceptor1, interceptor2]
@@ -44,12 +44,12 @@ class CallInterceptorTests: XCTestCase {
 
     func testMatching_success() {
         let interceptor1 = CallInterceptor()
-        let config1 = CallConfiguration(for: "", with: ArgsConfiguration([ArgumentAnyMock()]))
+        let config1 = CallConfiguration(for: "", with: ArgumentsConfiguration([ArgumentAnyMock()]))
         interceptor1.configuration = config1
 
         let interceptor2 = CallInterceptor()
         let argumentValueMock = ArgumentValueMock("string")
-        let config2 = CallConfiguration(for: "", with: ArgsConfiguration([argumentValueMock]))
+        let config2 = CallConfiguration(for: "", with: ArgumentsConfiguration([argumentValueMock]))
         interceptor2.configuration = config2
 
         let list = [interceptor1, interceptor2]

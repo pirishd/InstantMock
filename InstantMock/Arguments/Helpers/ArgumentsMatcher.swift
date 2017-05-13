@@ -26,7 +26,7 @@ extension ArgumentsMatcher {
 
 
     /** Perform actual match */
-    func match(_ argsConfig: ArgsConfiguration) -> Bool {
+    func match(_ argsConfig: ArgumentsConfiguration) -> Bool {
 
         // make sure the number of arguments matches the number of expected
         if self.args.count != argsConfig.args.count {

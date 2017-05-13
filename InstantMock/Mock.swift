@@ -73,8 +73,8 @@ public class Mock {
     fileprivate let expectationFactory: ExpectationFactory
 
     // arguments configuration
-    fileprivate lazy var argsConfiguration: ArgsConfiguration = {
-        let args = ArgsConfiguration(ArgumentStorageImpl.instance.all())
+    fileprivate lazy var argsConfiguration: ArgumentsConfiguration = {
+        let args = ArgumentsConfiguration(ArgumentStorageImpl.instance.all())
         ArgumentStorageImpl.instance.flush()
         return args
     }()

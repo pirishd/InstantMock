@@ -16,7 +16,7 @@ class ArgumentsMatcherTests: XCTestCase {
 
 
     func testMatch_wrongNumberOfArgs() {
-        let config = ArgsConfiguration([Argument]())
+        let config = ArgumentsConfiguration([Argument]())
 
         var args = [Any?]()
         args.append("something")
@@ -30,7 +30,7 @@ class ArgumentsMatcherTests: XCTestCase {
         var args = [Any?]()
         args.append(nil)
 
-        let config = ArgsConfiguration([ArgumentAnyMock()])
+        let config = ArgumentsConfiguration([ArgumentAnyMock()])
 
         let match = ArgumentsMatcher(args).match(config)
         XCTAssertTrue(match)
@@ -45,7 +45,7 @@ class ArgumentsMatcherTests: XCTestCase {
         let argMock1 = ArgumentValueMock("string1")
         let argMock2 = ArgumentValueMock("string2")
 
-        let config = ArgsConfiguration([argMock1, argMock2])
+        let config = ArgumentsConfiguration([argMock1, argMock2])
 
         let match = ArgumentsMatcher(args).match(config)
         XCTAssertTrue(match)
