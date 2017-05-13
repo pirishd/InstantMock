@@ -148,5 +148,25 @@ class StubTests: XCTestCase {
         XCTAssertTrue(best === stub2)
     }
 
+
+    func testEqual() {
+        let stub1 = Stub()
+        stub1.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentValueMock(12)]))
+        let stub2 = Stub()
+        stub2.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentValueMock(13)]))
+
+        XCTAssertEqual(stub1, stub2)
+    }
+
+
+    func testGreaterThan() {
+        let stub1 = Stub()
+        stub1.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentValueMock(12), ArgumentValueMock(13)]))
+        let stub2 = Stub()
+        stub2.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentValueMock(12), ArgumentAnyMock()]))
+
+        XCTAssertGreaterThan(stub1, stub2)
+    }
+
 }
 
