@@ -70,7 +70,7 @@ class ArgumentCaptureTests: XCTestCase {
     func testValue_setValue_simple() {
         self.capture.setValue("azerty")
 
-        let value = self.capture.value
+        let value = self.capture.valueTyped
         XCTAssertEqual("azerty", value)
 
         let values = self.capture.allValues
@@ -82,10 +82,10 @@ class ArgumentCaptureTests: XCTestCase {
         self.capture.setValue("azerty")
         self.capture.setValue("qwerty")
 
-        let value = self.capture.value
+        let value = self.capture.valueTyped
         XCTAssertEqual("qwerty", value)
 
-        let values = self.capture.allValues
+        let values = self.capture.allValuesTyped
         XCTAssertEqual(values.count, 2)
         XCTAssertEqual(values[0], "azerty")
         XCTAssertEqual(values[1], "qwerty")

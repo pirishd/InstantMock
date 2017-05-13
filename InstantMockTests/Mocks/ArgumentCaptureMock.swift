@@ -22,4 +22,8 @@ class ArgumentCaptureMock: ArgumentCapture {
         self.value = value
     }
 
+    var allValues: [Any?] {
+        return [value]
+    }
+
 }

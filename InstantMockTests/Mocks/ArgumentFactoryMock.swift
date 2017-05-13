@@ -11,20 +11,37 @@ import InstantMock
 
 class ArgumentFactoryMock<T>: ArgumentFactory {
 
+    var argumentValue: ArgumentValue?
+    var argumentAny: ArgumentAny?
+    var argumentVerify: ArgumentVerify?
+    var argumentCapture: ArgumentCapture?
+
+
     func argument(value: T?) -> ArgumentValue {
-        return ArgumentValueMock<T>(value)
+        let argValue = ArgumentValueMock<T>(value)
+        self.argumentValue = argValue
+        return argValue
     }
+
 
     func argumentAny(_ typeDescription: String) -> ArgumentAny {
-        return ArgumentAnyMock()
+        let argAny = ArgumentAnyMock()
+        self.argumentAny = argAny
+        return argAny
     }
+
 
     func argument(condition: @escaping (T) -> Bool) -> ArgumentVerify {
-        return ArgumentVerifyMock<T>(condition)
+        let argVerify = ArgumentVerifyMock<T>(condition)
+        self.argumentVerify = argVerify
+        return argVerify
     }
 
+
     func argumentCapture(_ typeDescription: String) -> ArgumentCapture {
-        return ArgumentCaptureMock()
+        let argCapture = ArgumentCaptureMock()
+        self.argumentCapture = argCapture
+        return argCapture
     }
 
 }

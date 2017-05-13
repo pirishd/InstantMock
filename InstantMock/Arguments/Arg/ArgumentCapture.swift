@@ -10,11 +10,14 @@
 /** Protocol for capturing arguments */
 public protocol ArgumentCapture: Argument {
     func setValue(_ value: Any?)
+    var allValues: [Any?] { get }
+    var value: Any? { get }
 }
 
 
 /** This class represents the configuration of an argument that captures passed values */
 class ArgumentCaptureImpl<T>: ArgumentCapture  {
+
 
     /// Type description for the arg
     fileprivate let typeDescription: String
@@ -23,7 +26,12 @@ class ArgumentCaptureImpl<T>: ArgumentCapture  {
     fileprivate var values = [T?]()
 
     /// Last captured value
-    var value: T? {
+    var value: Any? {
+        return self.valueTyped
+    }
+
+    /// Last captured value (typed)
+    var valueTyped: T? {
         var ret: T? = nil
         if let val = self.values.last as? T {
             ret = val
@@ -32,7 +40,12 @@ class ArgumentCaptureImpl<T>: ArgumentCapture  {
     }
 
     /// All captured values
-    var allValues: [T?] {
+    var allValues: [Any?] {
+        return self.allValuesTyped
+    }
+
+    /// All captured values (typed)
+    var allValuesTyped: [T?] {
         return values
     }
 
