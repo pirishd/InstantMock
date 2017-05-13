@@ -75,6 +75,7 @@
 		4396BEA41EC6067300657281 /* ArgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396BEA31EC6067300657281 /* ArgTests.swift */; };
 		4396BEA61EC617E300657281 /* VerifierMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396BEA51EC617E300657281 /* VerifierMock.swift */; };
 		4396BEB21EC620D000657281 /* ArgumentCaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396BEB11EC620D000657281 /* ArgumentCaptorTests.swift */; };
+		43D4AA061EC7733A00AC0C93 /* VerifyMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4AA051EC7733A00AC0C93 /* VerifyMockTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		4396BEA31EC6067300657281 /* ArgTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgTests.swift; path = "Unit Tests/Arguments/ArgTests.swift"; sourceTree = "<group>"; };
 		4396BEA51EC617E300657281 /* VerifierMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifierMock.swift; path = Mocks/VerifierMock.swift; sourceTree = "<group>"; };
 		4396BEB11EC620D000657281 /* ArgumentCaptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentCaptorTests.swift; path = "Unit Tests/Arguments/ArgumentCaptorTests.swift"; sourceTree = "<group>"; };
+		43D4AA051EC7733A00AC0C93 /* VerifyMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyMockTests.swift; path = "Integration Tests/VerifyMockTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +413,7 @@
 				435CE4F21EC07F840019E2FA /* TypesMockTests.swift */,
 				435CE4F71EC08DAE0019E2FA /* MockCreationModalityTests.swift */,
 				433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */,
+				43D4AA051EC7733A00AC0C93 /* VerifyMockTests.swift */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				435CE5101EC098360019E2FA /* ExpectationTests.swift in Sources */,
 				435CE5121EC0B33F0019E2FA /* StubTests.swift in Sources */,
 				432D49541EC71C72003A6A30 /* ArgumentStorageTests.swift in Sources */,
+				43D4AA061EC7733A00AC0C93 /* VerifyMockTests.swift in Sources */,
 				432D494A1EC6FFF5003A6A30 /* ArgumentFactoryMock.swift in Sources */,
 				435CE4D61EC07E450019E2FA /* BasicMockTests.swift in Sources */,
 				433C3C4D1EC0CD1E00367656 /* ClosureMockTests.swift in Sources */,
