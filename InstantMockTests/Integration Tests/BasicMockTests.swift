@@ -80,15 +80,15 @@ class BasicMockTests: XCTestCase {
         XCTAssertEqual(callbackValue, "something")
     }
 
-/* FIXME!
+
     func testSeveralStubs() {
 
-        mock.stub().call(mock.basic(arg1: Arg4.eq("Hello"), arg2: Arg4<Int>.any)).andReturn("string")
-        mock.stub().call(mock.basic(arg1: Arg4.eq("Hello"), arg2: Arg4.eq(2))).andReturn("string2")
+        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any)).andReturn("string")
+        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.eq(2))).andReturn("string2")
 
         let ret = mock.basic(arg1: "Hello", arg2: 2)
         XCTAssertEqual(ret, "string2")
-    }*/
+    }
 
 
     func testExpectAndStub() {

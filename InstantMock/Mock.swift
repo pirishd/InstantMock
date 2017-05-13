@@ -72,13 +72,6 @@ public class Mock {
     // interceptors factories
     fileprivate let expectationFactory: ExpectationFactory
 
-    // arguments configuration
-    fileprivate lazy var argsConfiguration: ArgumentsConfiguration = {
-        let args = ArgumentsConfiguration(ArgumentStorageImpl.instance.all())
-        ArgumentStorageImpl.instance.flush()
-        return args
-    }()
-
 
     // MARK: Initializers
 
@@ -129,33 +122,15 @@ extension Mock {
 
 
     /**
-        Handle expectations
-        - parameter function: function for which expectations must be handled
-        - parameter args: list of arguments passed to the function
-     */
-    fileprivate func handleExpectations(for function: String, with args: [Any?]) {
-
-        // in registration context
-        if let expectation = self.expectationBeingRegistered {
-            self.register(expectation, for: function, with: args)
-        }
-        // in call context
-        else {
-            self.handleExpectationsWhileBeingCalled(for: function, with: args)
-        }
-    }
-
-
-    /**
         Register an expectation
         - parameter expectation: expectation to be registered
         - parameter function: function for which expectations must be handled
-        - parameter args: list of arguments passed to the function to be regsitered
+        - parameter argsConfig: arguments configuration passed to the function being regsitered
      */
-    private func register(_ expectation: Expectation, for function: String, with args: [Any?]) {
+   fileprivate func register(expectation: Expectation, for function: String, with argsConfig: ArgumentsConfiguration) {
 
         // compute configurations based on provided args
-        let configuration = CallConfiguration(for: function, with: self.argsConfiguration)
+        let configuration = CallConfiguration(for: function, with: argsConfig)
         expectation.configuration = configuration
 
         // store the expectation for function
@@ -171,7 +146,7 @@ extension Mock {
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    private func handleExpectationsWhileBeingCalled(for function: String, with args: [Any?]) {
+    fileprivate func handleExpectationsWhileBeingCalled(for function: String, with args: [Any?]) {
 
         // retrieve expectations for the function
         let expectations = self.expectationStorage.interceptors(for: function)
@@ -200,44 +175,17 @@ extension Mock: MockStub {
     }
 
 
-    /** Handle stubs */
-    fileprivate func handleStubs<T>(for function: String, with args: [Any?]) -> T? {
-        var ret: T?
-        var useDefaultValue = true
-
-        // in registration context
-        if let stub = self.stubBeingRegistered {
-            self.register(stub, for: function, with: args)
-        }
-        // in call context
-        else {
-            (ret, useDefaultValue) = self.handleStubsWhileBeingCalled(for: function, with: args)
-        }
-
-        // default value
-        if useDefaultValue, let value = DefaultValueHandler<T>().it {
-            ret = value
-        }
-
-        return ret
-    }
-
-
     /**
         Register a stub
         - parameter stub: stub to be registered
         - parameter function: function for which stubs must be handled
-        - parameter args: list of arguments passed to the function to be regsitered
+        - parameter argsConfig: arguments configuration passed to the function being regsitered
      */
-    private func register(_ stub: Stub, for function: String, with args: [Any?]) {
+    fileprivate func register(stub: Stub, for function: String, with argsConfig: ArgumentsConfiguration) {
 
-        // make sure the number of arguments passed matches the number of configured
-        if self.argsConfiguration.args.count != args.count {
-            fatalError("Invalid argument configuration, see Arg class for more information")
-        }
 
         // compute configurations based on provided args
-        let configuration = CallConfiguration(for: function, with: self.argsConfiguration)
+        let configuration = CallConfiguration(for: function, with: argsConfig)
         stub.configuration = configuration
 
         // store the stub for function
@@ -253,7 +201,7 @@ extension Mock: MockStub {
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    private func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> (T?, Bool) {
+    fileprivate func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> (T?, Bool) {
         var ret: T?
         var useDefaultValue = true
 
@@ -284,22 +232,107 @@ extension Mock {
 
     /** Call with no return value */
     public func call(_ args: Any?..., function: String = #function) -> Void {
-        let ret: Void? = self.handleCall(args, function: function)
+        let ret: Void? = self.doCall(args, function: function)
         return ret ?? Void()
     }
 
 
     /** Call with return type object */
     public func call<T>(_ args: Any?..., function: String = #function) -> T? {
-        return self.handleCall(args, function: function) as T?
+        return self.doCall(args, function: function) as T?
     }
 
 
     /** Handle a call */
     @discardableResult
-    private func handleCall<T>(_ args: [Any?], function: String) -> T? {
-        self.handleExpectations(for: function, with: args)
-        return self.handleStubs(for: function, with: args)
+    private func doCall<T>(_ args: [Any?], function: String) -> T? {
+        var ret: T?
+
+        if self.expectationBeingRegistered != nil || self.stubBeingRegistered != nil {
+            ret = self.handleRegistration(of: function, with: args)
+        } else {
+            ret = self.handleCall(of: function, with: args)
+        }
+
+        return ret
     }
+
+
+    /**
+        Handle the registration
+        - parameter function: function being registered
+        - parameter args: args for the function being registered
+        - returns: return value for that function
+     */
+    private func handleRegistration<T>(of function: String, with args: [Any?]) -> T? {
+
+        // create a new arguments configuration
+        let argsConfig = ArgumentsConfiguration(ArgumentStorageImpl.instance.all())
+
+        // make sure the number of arguments passed matches the number of configured
+        if argsConfig.args.count != args.count {
+            fatalError("Invalid argument configuration, see Arg class for more information")
+        }
+
+        // perform actual registration
+        let ret: T? = self.register(function, with: argsConfig)
+
+        // and flush the arguments storage
+        ArgumentStorageImpl.instance.flush()
+
+        return ret
+    }
+
+
+    /**
+        Register function
+        - parameter function: function being registered
+        - parameter argsConfig: arguments configuration passed to the function being regsitered
+        - returns: return value for that function
+     */
+    private func register<T>(_ function: String, with argsConfig: ArgumentsConfiguration) -> T? {
+        var ret: T?
+
+        // register expectation if necessary
+        if let expectation = self.expectationBeingRegistered {
+            self.register(expectation: expectation, for: function, with: argsConfig)
+        }
+
+        // register stub if necessary
+        if let stub = self.stubBeingRegistered {
+            self.register(stub: stub, for: function, with: argsConfig)
+        }
+
+        // default value
+        if let value = DefaultValueHandler<T>().it {
+            ret = value
+        }
+
+        return ret
+    }
+
+
+    /**
+        Handle actual call to the function
+        - parameter function: function being called
+        - parameter args: arguments of the function
+        - returns: return value for that function
+     */
+    private func handleCall<T>(of function: String, with args: [Any?]) -> T? {
+        var ret: T?
+        var useDefaultValue = true
+
+        // notify interceptors they are being called
+        self.handleExpectationsWhileBeingCalled(for: function, with: args)
+        (ret, useDefaultValue) = self.handleStubsWhileBeingCalled(for: function, with: args)
+
+        // default value
+        if useDefaultValue, let value = DefaultValueHandler<T>().it {
+            ret = value
+        }
+
+        return ret
+    }
+
 
 }
