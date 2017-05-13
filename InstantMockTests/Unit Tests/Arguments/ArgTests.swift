@@ -18,7 +18,7 @@ class ArgTests: XCTestCase {
 
 
     override func tearDown() {
-        ArgStorage.instance.flush()
+        ArgumentStorageImpl.instance.flush()
         super.tearDown()
     }
 
@@ -27,16 +27,16 @@ class ArgTests: XCTestCase {
         let factory = ArgumentFactoryMock<String>()
         let val = Arg.eq("Hello", argFactory: factory)
         XCTAssertEqual(val, "Hello")
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
-        var argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<String>
+        var argumentValue = ArgumentStorageImpl.instance.all().last as? ArgumentValueMock<String>
         XCTAssertNotNil(argumentValue)
         XCTAssertEqual(argumentValue!.value, "Hello")
 
         _ = Arg.eq("HelloDelu", argFactory: factory)
-        XCTAssertEqual(ArgStorage.instance.all().count, 2)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 2)
 
-        argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<String>
+        argumentValue = ArgumentStorageImpl.instance.all().last as? ArgumentValueMock<String>
         XCTAssertNotNil(argumentValue)
         XCTAssertEqual(argumentValue!.value, "HelloDelu")
     }
@@ -46,9 +46,9 @@ class ArgTests: XCTestCase {
         let factory = ArgumentFactoryMock<Int>()
         let val = Arg.eq(42, argFactory: factory)
         XCTAssertEqual(val, 42)
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
-        let argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<Int>
+        let argumentValue = ArgumentStorageImpl.instance.all().last as? ArgumentValueMock<Int>
         XCTAssertNotNil(argumentValue)
         XCTAssertEqual(argumentValue!.value, 42)
     }
@@ -59,9 +59,9 @@ class ArgTests: XCTestCase {
         let dummyArg = DummyArg()
         let val = Arg.eq(dummyArg, argFactory: factory)
         XCTAssertTrue(dummyArg === val)
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
-        let argumentValue = ArgStorage.instance.all().last as? ArgumentValueMock<DummyArg>
+        let argumentValue = ArgumentStorageImpl.instance.all().last as? ArgumentValueMock<DummyArg>
         XCTAssertNotNil(argumentValue)
         XCTAssertTrue(dummyArg === argumentValue!.value)
     }
@@ -71,14 +71,14 @@ class ArgTests: XCTestCase {
         let factory = ArgumentFactoryMock<String>()
         let any = Arg<String>.any(argFactory: factory)
         XCTAssertEqual(any, String.any)
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
-        var argumentAny = ArgStorage.instance.all().last as? ArgumentAnyMock
+        var argumentAny = ArgumentStorageImpl.instance.all().last as? ArgumentAnyMock
         XCTAssertNotNil(argumentAny)
 
         _ = Arg<String>.any(argFactory: factory)
-        XCTAssertEqual(ArgStorage.instance.all().count, 2)
-        argumentAny = ArgStorage.instance.all().last as? ArgumentAnyMock
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 2)
+        argumentAny = ArgumentStorageImpl.instance.all().last as? ArgumentAnyMock
         XCTAssertNotNil(argumentAny)
     }
 
@@ -87,9 +87,9 @@ class ArgTests: XCTestCase {
         let factory = ArgumentFactoryMock<Int>()
         let any = Arg<Int>.any(argFactory: factory)
         XCTAssertEqual(any, Int.any)
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
-        let argumentAny = ArgStorage.instance.all().last as? ArgumentAnyMock
+        let argumentAny = ArgumentStorageImpl.instance.all().last as? ArgumentAnyMock
         XCTAssertNotNil(argumentAny)
     }
 
@@ -99,10 +99,10 @@ class ArgTests: XCTestCase {
         let val = Arg.verify({ str in true }, argFactory: factory) as String
 
         XCTAssertEqual(val, String.any)
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
         _ = Arg.verify { str in false } as String
-        XCTAssertEqual(ArgStorage.instance.all().count, 2)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 2)
     }
 
 }

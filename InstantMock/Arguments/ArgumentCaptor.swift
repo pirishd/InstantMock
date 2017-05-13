@@ -24,7 +24,7 @@ class ArgumentCaptor<T> {
         // store instance
         let typeDescription = "\(T.self)"
         let arg = argFactory.argumentCapture(typeDescription)
-        ArgStorage.instance.store(arg)
+        ArgumentStorageImpl.instance.store(arg)
 
         // return default value
         guard let ret = DefaultValueHandler<T>().it else {

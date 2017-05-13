@@ -14,7 +14,7 @@ import XCTest
 class ArgumentCaptorTests: XCTestCase {
 
     override func tearDown() {
-        ArgStorage.instance.flush()
+        ArgumentStorageImpl.instance.flush()
         super.tearDown()
     }
 
@@ -25,13 +25,13 @@ class ArgumentCaptorTests: XCTestCase {
         let val = captor.capture(argFactory: factory)
 
         XCTAssertEqual(val, String.any)
-        XCTAssertEqual(ArgStorage.instance.all().count, 1)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
 
-        let argumentCapture = ArgStorage.instance.all().last as? ArgumentCapture
+        let argumentCapture = ArgumentStorageImpl.instance.all().last as? ArgumentCapture
         XCTAssertNotNil(argumentCapture)
 
         _ = captor.capture()
-        XCTAssertEqual(ArgStorage.instance.all().count, 2)
+        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 2)
     }
 
 }

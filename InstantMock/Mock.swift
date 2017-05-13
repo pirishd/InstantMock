@@ -74,8 +74,8 @@ public class Mock {
 
     // arguments configuration
     fileprivate lazy var argsConfiguration: ArgsConfiguration = {
-        let args = ArgsConfiguration(ArgStorage.instance.all())
-        ArgStorage.instance.flush()
+        let args = ArgsConfiguration(ArgumentStorageImpl.instance.all())
+        ArgumentStorageImpl.instance.flush()
         return args
     }()
 
