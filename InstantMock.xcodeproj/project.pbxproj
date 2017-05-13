@@ -32,6 +32,7 @@
 		432D49501EC714B6003A6A30 /* ArgumentCaptureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D494F1EC714B6003A6A30 /* ArgumentCaptureMock.swift */; };
 		432D49521EC71875003A6A30 /* ArgumentStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49511EC71875003A6A30 /* ArgumentStorageMock.swift */; };
 		432D49541EC71C72003A6A30 /* ArgumentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49531EC71C72003A6A30 /* ArgumentStorageTests.swift */; };
+		432D49561EC7316E003A6A30 /* CallConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49551EC7316E003A6A30 /* CallConfigurationTests.swift */; };
 		433C3C4D1EC0CD1E00367656 /* ClosureMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */; };
 		433C3C511EC0D97000367656 /* Set+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C501EC0D97000367656 /* Set+MockUsable.swift */; };
 		433C3C551EC0E0CD00367656 /* SetMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C3C541EC0E0CD00367656 /* SetMockUsableTests.swift */; };
@@ -112,6 +113,7 @@
 		432D494F1EC714B6003A6A30 /* ArgumentCaptureMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentCaptureMock.swift; path = Mocks/ArgumentCaptureMock.swift; sourceTree = "<group>"; };
 		432D49511EC71875003A6A30 /* ArgumentStorageMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentStorageMock.swift; path = Mocks/ArgumentStorageMock.swift; sourceTree = "<group>"; };
 		432D49531EC71C72003A6A30 /* ArgumentStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentStorageTests.swift; path = "Unit Tests/Arguments/Helpers/ArgumentStorageTests.swift"; sourceTree = "<group>"; };
+		432D49551EC7316E003A6A30 /* CallConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallConfigurationTests.swift; path = "Unit Tests/Interceptors/Helpers/CallConfigurationTests.swift"; sourceTree = "<group>"; };
 		433C3C4C1EC0CD1E00367656 /* ClosureMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureMockTests.swift; path = "Integration Tests/ClosureMockTests.swift"; sourceTree = "<group>"; };
 		433C3C501EC0D97000367656 /* Set+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+MockUsable.swift"; path = "MockUsable/Set+MockUsable.swift"; sourceTree = "<group>"; };
 		433C3C541EC0E0CD00367656 /* SetMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetMockUsableTests.swift; path = "Unit Tests/MockUsable/SetMockUsableTests.swift"; sourceTree = "<group>"; };
@@ -237,6 +239,14 @@
 				432D493F1EC666AE003A6A30 /* DefaultValueHandlerTests.swift */,
 			);
 			name = DefaultValue;
+			sourceTree = "<group>";
+		};
+		432D49571EC73172003A6A30 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				432D49551EC7316E003A6A30 /* CallConfigurationTests.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		433C3C5E1EC1043A00367656 /* Verifications */ = {
@@ -419,6 +429,7 @@
 		43E42A851EBF344400F130D0 /* Interceptors */ = {
 			isa = PBXGroup;
 			children = (
+				432D49571EC73172003A6A30 /* Helpers */,
 				435CE50B1EC098360019E2FA /* CallInterceptorStorageTests.swift */,
 				435CE50C1EC098360019E2FA /* CallInterceptorTests.swift */,
 				435CE50D1EC098360019E2FA /* ExpectationTests.swift */,
@@ -592,6 +603,7 @@
 				435CE50F1EC098360019E2FA /* CallInterceptorTests.swift in Sources */,
 				432D49381EC66538003A6A30 /* ArgumentVerifyTests.swift in Sources */,
 				435CE4E51EC07EBA0019E2FA /* StringMockUsableTests.swift in Sources */,
+				432D49561EC7316E003A6A30 /* CallConfigurationTests.swift in Sources */,
 				433C3C601EC1044E00367656 /* VerifierTests.swift in Sources */,
 				4396BEA61EC617E300657281 /* VerifierMock.swift in Sources */,
 				432D49351EC66538003A6A30 /* ArgumentAnyTests.swift in Sources */,
