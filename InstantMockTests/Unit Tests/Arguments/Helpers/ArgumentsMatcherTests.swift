@@ -1,5 +1,5 @@
 //
-//  ArgsMatcherTests.swift
+//  ArgumentsMatcherTests.swift
 //  InstantMock
 //
 //  Created by Patrick on 07/05/2017.
@@ -12,7 +12,7 @@ import XCTest
 class DummyArgsMatcher {}
 
 
-class ArgsMatcherTests: XCTestCase {
+class ArgumentsMatcherTests: XCTestCase {
 
 
     func testMatch_wrongNumberOfArgs() {
@@ -21,7 +21,7 @@ class ArgsMatcherTests: XCTestCase {
         var args = [Any?]()
         args.append("something")
 
-        let match = ArgsMatcher(args).match(config)
+        let match = ArgumentsMatcher(args).match(config)
         XCTAssertFalse(match)
     }
 
@@ -32,7 +32,7 @@ class ArgsMatcherTests: XCTestCase {
 
         let config = ArgsConfiguration([ArgumentAnyMock()])
 
-        let match = ArgsMatcher(args).match(config)
+        let match = ArgumentsMatcher(args).match(config)
         XCTAssertTrue(match)
     }
 
@@ -47,7 +47,7 @@ class ArgsMatcherTests: XCTestCase {
 
         let config = ArgsConfiguration([argMock1, argMock2])
 
-        let match = ArgsMatcher(args).match(config)
+        let match = ArgumentsMatcher(args).match(config)
         XCTAssertTrue(match)
 
         XCTAssertEqual(argMock1.matchValue, "some_string1")

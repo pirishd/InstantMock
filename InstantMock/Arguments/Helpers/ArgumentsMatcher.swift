@@ -8,7 +8,7 @@
 
 
 /** Class designed to match some arguments against an argument configuration */
-class ArgsMatcher {
+class ArgumentsMatcher {
 
     /// Provided arguments
     fileprivate let args: [Any?]
@@ -22,7 +22,7 @@ class ArgsMatcher {
 
 
 /** Extension for performing the actual matching */
-extension ArgsMatcher {
+extension ArgumentsMatcher {
 
 
     /** Perform actual match */

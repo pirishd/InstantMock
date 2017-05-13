@@ -30,7 +30,7 @@ extension Collection where Iterator.Element: CallInterceptor {
     func matching(_ args: [Any?]) -> [Iterator.Element] {
 
         // create arg matcher
-        let argsMatcher = ArgsMatcher(args)
+        let argsMatcher = ArgumentsMatcher(args)
 
         // return filtered list
         return self.filter { interceptor in
