@@ -18,7 +18,13 @@ class ArgumentValueMock<T>: ArgumentValueTyped {
 
     var description: String { return "argument_value_mock" }
 
+    var matchValue: T?
+    var shouldMatch = true
     func match(_ value: Any?) -> Bool {
-        return true
+        if let tValue = value as? T {
+            self.matchValue = tValue
+        }
+        return shouldMatch
     }
+
 }

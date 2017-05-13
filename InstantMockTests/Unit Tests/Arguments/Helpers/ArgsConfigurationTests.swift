@@ -28,14 +28,14 @@ class ArgsConfigurationTests: XCTestCase {
         XCTAssertEqual(ret, "any<Int>")
     }
 
-//
-//    func testDescription_severalValues() {
-//        var list = [Argument]()
-//        list.append(ArgValue(12))
-//        list.append(ArgAny("String"))
-//
-//        let ret = ArgsConfiguration(list).description
-//        XCTAssertEqual(ret, "12, any<String>")
-//    }
+
+    func testDescription_severalValues() {
+        var list = [Argument]()
+        list.append(ArgumentValueMock(12))
+        list.append(ArgAny("String"))
+
+        let ret = ArgsConfiguration(list).description
+        XCTAssertEqual(ret, "argument_value_mock, any<String>")
+    }
 
 }

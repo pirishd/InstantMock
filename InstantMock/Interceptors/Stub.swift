@@ -132,7 +132,7 @@ extension Collection where Iterator.Element: Stub {
     /** Return list of stubs sorted by precision */
     private func sorted() -> [Stub] {
         return self.sorted(by: { (stub1, stub2) -> Bool in
-            return stub1 < stub2
+            return stub2 < stub1
         })
     }
 

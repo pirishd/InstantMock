@@ -18,7 +18,7 @@
 		432D492E1EC65045003A6A30 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D492D1EC65045003A6A30 /* Argument.swift */; };
 		432D49351EC66538003A6A30 /* ArgAnyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49311EC66538003A6A30 /* ArgAnyTests.swift */; };
 		432D49361EC66538003A6A30 /* ArgCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49321EC66538003A6A30 /* ArgCaptureTests.swift */; };
-		432D49371EC66538003A6A30 /* ArgValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49331EC66538003A6A30 /* ArgValueTests.swift */; };
+		432D49371EC66538003A6A30 /* ArgumentValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49331EC66538003A6A30 /* ArgumentValueTests.swift */; };
 		432D49381EC66538003A6A30 /* ArgVerifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49341EC66538003A6A30 /* ArgVerifyTests.swift */; };
 		432D493B1EC6653F003A6A30 /* ArgsConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49391EC6653F003A6A30 /* ArgsConfigurationTests.swift */; };
 		432D493C1EC6653F003A6A30 /* ArgsMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D493A1EC6653F003A6A30 /* ArgsMatcherTests.swift */; };
@@ -93,7 +93,7 @@
 		432D492D1EC65045003A6A30 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path = Arguments/Argument.swift; sourceTree = "<group>"; };
 		432D49311EC66538003A6A30 /* ArgAnyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgAnyTests.swift; path = "Unit Tests/Arguments/Arg/ArgAnyTests.swift"; sourceTree = "<group>"; };
 		432D49321EC66538003A6A30 /* ArgCaptureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgCaptureTests.swift; path = "Unit Tests/Arguments/Arg/ArgCaptureTests.swift"; sourceTree = "<group>"; };
-		432D49331EC66538003A6A30 /* ArgValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgValueTests.swift; path = "Unit Tests/Arguments/Arg/ArgValueTests.swift"; sourceTree = "<group>"; };
+		432D49331EC66538003A6A30 /* ArgumentValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentValueTests.swift; path = "Unit Tests/Arguments/Arg/ArgumentValueTests.swift"; sourceTree = "<group>"; };
 		432D49341EC66538003A6A30 /* ArgVerifyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgVerifyTests.swift; path = "Unit Tests/Arguments/Arg/ArgVerifyTests.swift"; sourceTree = "<group>"; };
 		432D49391EC6653F003A6A30 /* ArgsConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsConfigurationTests.swift; path = "Unit Tests/Arguments/Helpers/ArgsConfigurationTests.swift"; sourceTree = "<group>"; };
 		432D493A1EC6653F003A6A30 /* ArgsMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsMatcherTests.swift; path = "Unit Tests/Arguments/Helpers/ArgsMatcherTests.swift"; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			children = (
 				432D49311EC66538003A6A30 /* ArgAnyTests.swift */,
 				432D49321EC66538003A6A30 /* ArgCaptureTests.swift */,
-				432D49331EC66538003A6A30 /* ArgValueTests.swift */,
+				432D49331EC66538003A6A30 /* ArgumentValueTests.swift */,
 				432D49341EC66538003A6A30 /* ArgVerifyTests.swift */,
 			);
 			name = Arg;
@@ -590,7 +590,7 @@
 				435CE4D61EC07E450019E2FA /* BasicMockTests.swift in Sources */,
 				433C3C4D1EC0CD1E00367656 /* ClosureMockTests.swift in Sources */,
 				435CE4D41EC076A70019E2FA /* ExpectationFactoryMock.swift in Sources */,
-				432D49371EC66538003A6A30 /* ArgValueTests.swift in Sources */,
+				432D49371EC66538003A6A30 /* ArgumentValueTests.swift in Sources */,
 				435CE50E1EC098360019E2FA /* CallInterceptorStorageTests.swift in Sources */,
 				433C3C641EC1098800367656 /* ArrayMockUsableTests.swift in Sources */,
 				4396BEA41EC6067300657281 /* ArgTests.swift in Sources */,
