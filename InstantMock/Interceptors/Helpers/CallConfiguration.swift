@@ -25,18 +25,13 @@ class CallConfiguration {
     
 }
 
-
+/** Two configurations are comparable, in terms of arguments */
 extension CallConfiguration: Comparable {}
-
 
 func ==(lhs: CallConfiguration, rhs: CallConfiguration) -> Bool {
     return lhs.args == rhs.args
 }
 
-
 func <(lhs: CallConfiguration, rhs: CallConfiguration) -> Bool {
     return lhs.args < rhs.args
 }
-
-
-

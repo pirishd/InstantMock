@@ -139,25 +139,21 @@ extension Collection where Iterator.Element: Stub {
 }
 
 
+/** Two stubs are comparable, in terms of argument configuration */
 extension Stub: Comparable {}
 
 
 public func ==(lhs: Stub, rhs: Stub) -> Bool {
-
     if let configuration1 = lhs.configuration, let configuration2 = rhs.configuration {
         return configuration1 == configuration2
     }
-
     return false
 }
 
 
 public func <(lhs: Stub, rhs: Stub) -> Bool {
-
     if let configuration1 = lhs.configuration, let configuration2 = rhs.configuration {
         return configuration1 < configuration2
     }
-
     return false
 }
-

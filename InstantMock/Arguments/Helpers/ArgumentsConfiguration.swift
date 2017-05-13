@@ -40,13 +40,15 @@ extension ArgumentsConfiguration: CustomStringConvertible {
     
 }
 
+/** Extension that returns the number of args of any kinds */
 extension ArgumentsConfiguration {
 
+    /** Returns the number of arguments that must verify a certain value */
     func numberOfArgValues() -> Int {
         return self.args.filter { $0 is ArgumentValue }.count
     }
 
-
+    /** Returns the number of arguments that must verify a certain condition */
     func numberOfArgVerify() -> Int {
         return self.args.filter { $0 is ArgumentVerify }.count
     }
@@ -54,21 +56,19 @@ extension ArgumentsConfiguration {
 }
 
 
+/** Configurations are comparable depending on how the args must be verified */
 extension ArgumentsConfiguration: Comparable {}
 
-
 func ==(lhs: ArgumentsConfiguration, rhs: ArgumentsConfiguration) -> Bool {
+    // configurations are equal if they have the same number of args that must verify a precise value or condition
     return lhs.numberOfArgValues() == rhs.numberOfArgValues() && lhs.numberOfArgVerify() == rhs.numberOfArgVerify()
 }
 
 
 func <(lhs: ArgumentsConfiguration, rhs: ArgumentsConfiguration) -> Bool {
-
+    // when the number of args that must verify a certain value precisely is the same, look for conditions
     if lhs.numberOfArgValues() == rhs.numberOfArgValues() {
         return lhs.numberOfArgVerify() < rhs.numberOfArgVerify()
     }
-
     return lhs.numberOfArgValues() < rhs.numberOfArgValues()
 }
-
-
