@@ -12,15 +12,16 @@ import InstantMock
 class ArgumentStorageMock: ArgumentStorage {
 
     func store(_ arg: Argument) {
-
+        args.append(arg)
     }
 
+    var args = [Argument]()
     func all() -> [Argument] {
-        return [Argument]()
+        return args
     }
 
     func flush() {
-
+        args.removeAll()
     }
 
 }

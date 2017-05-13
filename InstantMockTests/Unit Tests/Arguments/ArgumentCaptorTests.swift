@@ -12,26 +12,21 @@ import XCTest
 
 
 class ArgumentCaptorTests: XCTestCase {
-
-    override func tearDown() {
-        ArgumentStorageImpl.instance.flush()
-        super.tearDown()
-    }
-
     
     func testCapture() {
+        let argStorage = ArgumentStorageMock()
         let factory = ArgumentFactoryMock<String>()
         let captor = ArgumentCaptor<String>()
-        let val = captor.capture(argFactory: factory)
+        let val = captor.capture(argFactory: factory, argStorage: argStorage)
 
         XCTAssertEqual(val, String.any)
-        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 1)
+        XCTAssertEqual(argStorage.args.count, 1)
 
-        let argumentCapture = ArgumentStorageImpl.instance.all().last as? ArgumentCapture
+        let argumentCapture = argStorage.args.last as? ArgumentCapture
         XCTAssertNotNil(argumentCapture)
 
-        _ = captor.capture()
-        XCTAssertEqual(ArgumentStorageImpl.instance.all().count, 2)
+        _ = captor.capture(argFactory: factory, argStorage: argStorage)
+        XCTAssertEqual(argStorage.args.count, 2)
     }
 
 }

@@ -14,17 +14,17 @@ class ArgumentCaptor<T> {
     /** Capture an argument of expected type */
     func capture() -> T {
         let factory = ArgumentFactoryImpl<T>()
-        return self.capture(argFactory: factory)
+        return self.capture(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
 
 
-    /** Capture an argument of expected type with factory (dependency injection) */
-    func capture<F>(argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
+    /** Capture an argument of expected type (for dependency injection) */
+    func capture<F>(argFactory: F, argStorage: ArgumentStorage) ->T where F: ArgumentFactory, F.Value == T {
 
         // store instance
         let typeDescription = "\(T.self)"
         let arg = argFactory.argumentCapture(typeDescription)
-        ArgumentStorageImpl.instance.store(arg)
+        argStorage.store(arg)
 
         // return default value
         guard let ret = DefaultValueHandler<T>().it else {
