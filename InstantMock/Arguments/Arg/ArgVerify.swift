@@ -6,9 +6,11 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
+protocol ArgumentVerify {}
+
 
 /** This class represents the configuration of an argument that must verify a certain condition */
-class ArgVerify<T>: Argument {
+class ArgVerify<T>: ArgumentVerify, Argument {
 
     /// Condition that must be verified
     fileprivate let condition: ((T) -> Bool)

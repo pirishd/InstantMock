@@ -24,3 +24,19 @@ class CallConfiguration {
     }
     
 }
+
+
+extension CallConfiguration: Comparable {}
+
+
+func ==(lhs: CallConfiguration, rhs: CallConfiguration) -> Bool {
+    return lhs.args == rhs.args
+}
+
+
+func <(lhs: CallConfiguration, rhs: CallConfiguration) -> Bool {
+    return lhs.args < rhs.args
+}
+
+
+

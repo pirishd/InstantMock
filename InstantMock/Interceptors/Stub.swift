@@ -27,20 +27,6 @@ public class Stub: CallInterceptor {
         return self.hasReturnValue || self.returnValueClosure != nil
     }
 
-    /// Number of args configured to match any value
-    fileprivate var numberOfAnyArgs: Int {
-        /*var number = 0
-
-        if let configuration = self.configuration {
-            for arg in configuration.args {
-                if arg.isAny { number = number + 1 }
-            }
-        }*/
-
-        // FIXME
-        return 0 //number
-    }
-
 
     // MARK: Call
 
@@ -139,15 +125,39 @@ extension Collection where Iterator.Element: Stub {
 
     /** Return the best stub (the most precise one) */
     func best() -> Stub? {
-        return self.sortedByPrecision().first
+        return self.sorted().first
     }
 
 
     /** Return list of stubs sorted by precision */
-    private func sortedByPrecision() -> [Stub] {
+    private func sorted() -> [Stub] {
         return self.sorted(by: { (stub1, stub2) -> Bool in
-            return stub1.numberOfAnyArgs < stub2.numberOfAnyArgs
+            return stub1 < stub2
         })
     }
 
 }
+
+
+extension Stub: Comparable {}
+
+
+public func ==(lhs: Stub, rhs: Stub) -> Bool {
+
+    if let configuration1 = lhs.configuration, let configuration2 = rhs.configuration {
+        return configuration1 == configuration2
+    }
+
+    return false
+}
+
+
+public func <(lhs: Stub, rhs: Stub) -> Bool {
+
+    if let configuration1 = lhs.configuration, let configuration2 = rhs.configuration {
+        return configuration1 < configuration2
+    }
+
+    return false
+}
+

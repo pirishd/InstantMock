@@ -7,8 +7,11 @@
 //
 
 
+protocol ArgumentValue {}
+
+
 /** This class represents the configuration of an argument that must verify a precise value */
-class ArgValue<T>: Argument {
+class ArgValue<T>: ArgumentValue, Argument {
 
     /// Value that must match
     fileprivate let value: T?

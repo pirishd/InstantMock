@@ -39,3 +39,36 @@ extension ArgsConfiguration: CustomStringConvertible {
     }
     
 }
+
+extension ArgsConfiguration {
+
+    func numberOfArgValues() -> Int {
+        return self.args.filter { $0 is ArgumentValue }.count
+    }
+
+
+    func numberOfArgVerify() -> Int {
+        return self.args.filter { $0 is ArgumentVerify }.count
+    }
+
+}
+
+
+extension ArgsConfiguration: Comparable {}
+
+
+func ==(lhs: ArgsConfiguration, rhs: ArgsConfiguration) -> Bool {
+    return lhs.numberOfArgValues() == rhs.numberOfArgValues() && lhs.numberOfArgVerify() == rhs.numberOfArgVerify()
+}
+
+
+func <(lhs: ArgsConfiguration, rhs: ArgsConfiguration) -> Bool {
+
+    if lhs.numberOfArgValues() == rhs.numberOfArgValues() {
+        return lhs.numberOfArgVerify() < rhs.numberOfArgVerify()
+    }
+
+    return lhs.numberOfArgValues() < rhs.numberOfArgValues()
+}
+
+
