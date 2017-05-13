@@ -13,7 +13,7 @@
 		432D49241EC64FDC003A6A30 /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49201EC64FDC003A6A30 /* Closure.swift */; };
 		432D49291EC64FE6003A6A30 /* ArgAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49251EC64FE6003A6A30 /* ArgAny.swift */; };
 		432D492A1EC64FE6003A6A30 /* ArgCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49261EC64FE6003A6A30 /* ArgCapture.swift */; };
-		432D492B1EC64FE6003A6A30 /* ArgValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49271EC64FE6003A6A30 /* ArgValue.swift */; };
+		432D492B1EC64FE6003A6A30 /* ArgumentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49271EC64FE6003A6A30 /* ArgumentValue.swift */; };
 		432D492C1EC64FE6003A6A30 /* ArgVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49281EC64FE6003A6A30 /* ArgVerify.swift */; };
 		432D492E1EC65045003A6A30 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D492D1EC65045003A6A30 /* Argument.swift */; };
 		432D49351EC66538003A6A30 /* ArgAnyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D49311EC66538003A6A30 /* ArgAnyTests.swift */; };
@@ -88,7 +88,7 @@
 		432D49201EC64FDC003A6A30 /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Closure.swift; path = Arguments/Helpers/Closure.swift; sourceTree = "<group>"; };
 		432D49251EC64FE6003A6A30 /* ArgAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgAny.swift; path = Arguments/Arg/ArgAny.swift; sourceTree = "<group>"; };
 		432D49261EC64FE6003A6A30 /* ArgCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgCapture.swift; path = Arguments/Arg/ArgCapture.swift; sourceTree = "<group>"; };
-		432D49271EC64FE6003A6A30 /* ArgValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgValue.swift; path = Arguments/Arg/ArgValue.swift; sourceTree = "<group>"; };
+		432D49271EC64FE6003A6A30 /* ArgumentValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgumentValue.swift; path = Arguments/Arg/ArgumentValue.swift; sourceTree = "<group>"; };
 		432D49281EC64FE6003A6A30 /* ArgVerify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgVerify.swift; path = Arguments/Arg/ArgVerify.swift; sourceTree = "<group>"; };
 		432D492D1EC65045003A6A30 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path = Arguments/Argument.swift; sourceTree = "<group>"; };
 		432D49311EC66538003A6A30 /* ArgAnyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgAnyTests.swift; path = "Unit Tests/Arguments/Arg/ArgAnyTests.swift"; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				432D492D1EC65045003A6A30 /* Argument.swift */,
-				432D49271EC64FE6003A6A30 /* ArgValue.swift */,
+				432D49271EC64FE6003A6A30 /* ArgumentValue.swift */,
 				432D49251EC64FE6003A6A30 /* ArgAny.swift */,
 				432D49281EC64FE6003A6A30 /* ArgVerify.swift */,
 				432D49261EC64FE6003A6A30 /* ArgCapture.swift */,
@@ -549,7 +549,7 @@
 				43817AED1EBE690C00FB2BB1 /* String+MockUsable.swift in Sources */,
 				435CE5031EC097D60019E2FA /* Expectation.swift in Sources */,
 				4396BEA01EC5FD8600657281 /* ArgumentCaptor.swift in Sources */,
-				432D492B1EC64FE6003A6A30 /* ArgValue.swift in Sources */,
+				432D492B1EC64FE6003A6A30 /* ArgumentValue.swift in Sources */,
 				435CE4FE1EC097C60019E2FA /* CallInterceptorStorage.swift in Sources */,
 				435CE4F61EC082370019E2FA /* ExpectationFactory.swift in Sources */,
 				433C3C591EC0EBB900367656 /* Array+MockUsable.swift in Sources */,

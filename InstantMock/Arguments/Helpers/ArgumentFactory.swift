@@ -7,15 +7,19 @@
 //
 
 
+/** Protocol for argument factory that aims at creating arguments */
 public protocol ArgumentFactory {
     associatedtype Value
-    func argValue(_ value: Value?) -> ArgumentValue
+
+    /// Create a new argument value
+    func argument(value: Value?) -> ArgumentValue
 }
 
 
+/** Implementation of argument factory */
 class ArgumentFactoryImpl<T>: ArgumentFactory {
 
-    func argValue(_ value: T?) -> ArgumentValue {
+    func argument(value: T?) -> ArgumentValue {
         return ArgumentValueImpl<T>(value)
     }
     

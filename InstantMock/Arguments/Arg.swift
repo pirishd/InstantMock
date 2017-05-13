@@ -20,7 +20,7 @@ class Arg<T> {
 
     /** Register a value */
     static func eq<F>(_ val: T, argFactory: F) ->T where F: ArgumentFactory, F.Value == T {
-        let arg = argFactory.argValue(val)
+        let arg = argFactory.argument(value: val)
         ArgStorage.instance.store(arg)
         return val
     }

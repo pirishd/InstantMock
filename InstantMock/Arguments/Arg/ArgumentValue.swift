@@ -1,5 +1,5 @@
 //
-//  ArgValue.swift
+//  ArgumentValue.swift
 //  InstantMock
 //
 //  Created by Patrick on 12/05/2017.
@@ -7,9 +7,11 @@
 //
 
 
+/** Main protocol for an argument that must verify a precise value */
 public protocol ArgumentValue: Argument {}
 
 
+/** Protocol for an argument that must verify a precise value of given type */
 public protocol ArgumentValueTyped: ArgumentValue {
     associatedtype Value
     var value: Value? { get }
@@ -17,7 +19,7 @@ public protocol ArgumentValueTyped: ArgumentValue {
 }
 
 
-/** This class represents the configuration of an argument that must verify a precise value */
+/** Main implementation of the configuration of an argument that must verify a precise value */
 class ArgumentValueImpl<T>: ArgumentValueTyped {
 
     /// Value that must match

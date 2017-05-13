@@ -11,7 +11,7 @@ import InstantMock
 
 class ArgumentFactoryMock<T>: ArgumentFactory {
 
-    func argValue(_ value: T?) -> ArgumentValue {
+    func argument(value: T?) -> ArgumentValue {
         return ArgumentValueMock<T>(value)
     }
 
