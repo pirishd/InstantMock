@@ -59,7 +59,7 @@ public protocol MockStub {
         mock.stub().call(mock.someMethod()).andReturn(someValue)
 
  */
-public class Mock {
+open class Mock {
 
     // interceptors defined in registration mode
     fileprivate var expectationBeingRegistered: Expectation?
@@ -75,14 +75,9 @@ public class Mock {
 
     // MARK: Initializers
 
-    convenience init() {
-        self.init(withExpectationFactory: ExpectationFactoryImpl.instance)
-    }
-
-
-    /** Initialize instance with provided `ExpectationFactory` (dependency injection) */
-    init(withExpectationFactory factory: ExpectationFactory) {
-        self.expectationFactory = factory
+    /** Initialize instance with optional provided `ExpectationFactory` for dependency injection */
+    public init(_ expectationFactory: ExpectationFactory = ExpectationFactoryImpl.instance) {
+        self.expectationFactory = expectationFactory
     }
 
 }

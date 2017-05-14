@@ -11,17 +11,17 @@
     Helper that provides a simple way to create closure arguments
     with any argument and return value types
  */
-class Closure {
+public class Closure {
 
-    required init() {}
+    required public init() {}
 
     /** Provide a default closure with provided signature */
-    func cast<ARGS, RET>() -> (ARGS) -> RET {
+    public func cast<ARGS, RET>() -> (ARGS) -> RET {
         return Closure.cast()
     }
 
     /** Provide a default closure with provided signature */
-    static func cast<ARGS, RET>() -> (ARGS) -> RET {
+    public static func cast<ARGS, RET>() -> (ARGS) -> RET {
         let closure: (ARGS) -> RET = { args in return Void() as! RET }
         return closure
     }

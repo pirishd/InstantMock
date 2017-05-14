@@ -21,10 +21,6 @@ class VerifyMock: Mock, VerifyProtocol {
         return super.call(arg1, arg2)!
     }
 
-    override init(withExpectationFactory factory: ExpectationFactory) {
-        super.init(withExpectationFactory: factory)
-    }
-
 }
 
 
@@ -39,7 +35,7 @@ class VerifyMockTests: XCTestCase {
         super.setUp()
         self.assertionMock = AssertionMock()
         let expectationFactory = ExpectationFactoryMock(withAssertionMock: self.assertionMock)
-        self.mock = VerifyMock(withExpectationFactory: expectationFactory)
+        self.mock = VerifyMock(expectationFactory)
     }
 
 

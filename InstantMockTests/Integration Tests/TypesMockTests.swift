@@ -69,10 +69,6 @@ class TypesMock: Mock, TypesProtocol {
         return super.call(dictionary)!
     }
 
-    override init(withExpectationFactory factory: ExpectationFactory) {
-        super.init(withExpectationFactory: factory)
-    }
-
 }
 
 
@@ -86,7 +82,7 @@ class TypesMockTests: XCTestCase {
         super.setUp()
         self.assertionMock = AssertionMock()
         let expectationFactory = ExpectationFactoryMock(withAssertionMock: self.assertionMock)
-        self.mock = TypesMock(withExpectationFactory: expectationFactory)
+        self.mock = TypesMock(expectationFactory)
     }
 
 

@@ -6,14 +6,4 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-//! Project version number for InstantMock.
-FOUNDATION_EXPORT double InstantMockVersionNumber;
-
-//! Project version string for InstantMock.
-FOUNDATION_EXPORT const unsigned char InstantMockVersionString[];
-
 // In this header, you should import all the public headers of your framework using statements like #import <InstantMock/PublicHeader.h>
-
-

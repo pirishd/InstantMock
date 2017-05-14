@@ -8,7 +8,7 @@
 
 
 /** This class enables to capture arguments of any types */
-class ArgumentCaptor<T> {
+public class ArgumentCaptor<T> {
 
     /// Default value for construction
     fileprivate var defaultValue: T?
@@ -17,7 +17,7 @@ class ArgumentCaptor<T> {
     fileprivate var arg: ArgumentCapture?
 
     /// Captured value
-    var value: T? {
+    public var value: T? {
         var ret: T?
         if let captureArg = self.arg {
             ret = captureArg.value as? T
@@ -26,7 +26,7 @@ class ArgumentCaptor<T> {
     }
 
     /// All captured values
-    var allValues: [T?] {
+    public var allValues: [T?] {
         var ret = [T?]()
         if let captureArg = self.arg {
             ret = captureArg.allValues.map { $0 as? T }.flatMap { $0 }
@@ -36,7 +36,7 @@ class ArgumentCaptor<T> {
 
 
     /** Initialize captor with default value */
-    init(_ defaultValue: T? = nil) {
+    public init(_ defaultValue: T? = nil) {
         self.defaultValue = defaultValue
     }
 }
@@ -46,7 +46,7 @@ class ArgumentCaptor<T> {
 extension ArgumentCaptor {
 
     /** Capture an argument of expected type */
-    func capture() -> T {
+    public func capture() -> T {
         let factory = ArgumentFactoryImpl<T>()
         return self.capture(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
