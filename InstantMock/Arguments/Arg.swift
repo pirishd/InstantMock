@@ -8,11 +8,11 @@
 
 
 /** This class represents a generic Argument being registered */
-class Arg<T> {
+public class Arg<T> {
 
 
     /** Register a value */
-    static func eq(_ val: T) ->T {
+    public static func eq(_ val: T) ->T {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.eq(val, argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
@@ -29,7 +29,7 @@ class Arg<T> {
 
 
     /** Register a closure to be verified */
-    static func verify(_ condition: @escaping (T) -> Bool) -> T {
+    public static func verify(_ condition: @escaping (T) -> Bool) -> T {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.verify(condition, argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
@@ -52,7 +52,7 @@ class Arg<T> {
 
 
     /** Register any value */
-    static var any: T {
+    public static var any: T {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.any(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
