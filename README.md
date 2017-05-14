@@ -79,16 +79,16 @@ Expectations aim at verifying that a call is done with some arguments.
 They are set using the syntax like in the following example:
 ```Swift
 let mock = FooMock()
-mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42)))
+mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any))
 ```
-Here, we expect `bar` to be called with "hello" and 42 as arguments.
+Here, we expect `bar` to be called with "hello" and any Int, as arguments.
 
 ##### Number of calls
 In addition, expectations can be set on the number of calls:
 ```Swift
-mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42)), numberOfTimes: 2)
+mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any), numberOfTimes: 2)
 ```
-Here, we expect `bar` to be called twice with "hello" and 42 as arguments.
+Here, we expect `bar` to be called twice with "hello" and any Int, as arguments.
 
 ##### Verifications
 Verifying expectations is done this way:
@@ -118,30 +118,32 @@ This is done with `andReturn(closure: { _ in return …})` on a stub instance. T
 This is done with `andDo( { _ in … } )` on a stub instance.
 
 ### Chaining
-Chaining several actions on the same stub is possible, given they don't confict. For example, it is possible to return a value and call another function, like `andReturn(true).andDo({ _ in print("something") })`.
+Chaining several actions on the same stub is possible, given they don't confict. For example, it is possible to return a value and call another function, like in `andReturn(true).andDo({ _ in print("something") })`.
 
-Rules:
+*Rules:*
 * the last closure registered by `andDo` is called first
 * the last return value registered by `andReturn` is returned
-* otherwise the last return value computation method, registered by `andReturn(closure:)` is called
+* otherwise the last return value computation method, registered by `andReturn(closure:)`, is called
 
 ### Argument Matching
 
 Registering expectations and stubs is based on arguments matching. They are executed only if arguments match what was configured.
 
-#### Matching value
+#### Matching a certain value
 This is done with `Arg.eq(…)`.
 
 #### Matching any value of a given type
-This is done with a syntax like `Arg<String>.any`.
+This is done with `Arg<Type>.any`.
+
 **Note:** only `MockUsable` types can match any values, see [here](#mockusable).
 
 #### Matching a certain condition
-This is done with a syntax like `Arg.verify({ _  in return …})`.
+This is done with `Arg.verify({ _  in return …})`.
 
 #### Matching a closure
-Matching a closure is a special case. Use the following syntax:
-`Arg<Closure>.any.cast as (…) -> …`
+Matching a closure is a special case.
+
+Use the following syntax: `Arg<Closure>.any.cast as (…) -> …`
 
 ### Argument Capturing
 
@@ -155,7 +157,7 @@ mock.stub().call(mock.bar(arg1: captor.capture(), arg2: Arg.eq(42))).andReturn(t
 let value = captor.value
 let values = captor.allValues
 ```
-Here, we create an argument captor for type `String`. When call in done values are registered, and can be accessible for later use using the `value` or `allValues` properties.
+Here, we create an argument captor for type `String`. Values are registered, and are accessible for later use with `value` and `allValues` properties.
 
 #### Capturing a closure
 
@@ -170,10 +172,11 @@ Here, we create an argument captor of type `(Int) -> Bool`. After having capture
 
 ### MockUsable
 
-`MockUsable` is a protocol dedicated to facilitating the use of a given type in mocks.
-For a given type, it enables returning non-null values in mocks and catching any values.
+`MockUsable` is a protocol that makes easy the use of a type in mocks.
+For a given type, it enables returning non-null values and catching any values in mocks.
 
-Adding `MockUsable` to an existing type, just create an extension that adopts the protocol like in the following example:
+Adding `MockUsable` on an existing type is done by creating an extension that adopts the protocol. For example:
+
 
 ```Swift
 extension SomeClass: MockUsable {
@@ -196,7 +199,7 @@ extension SomeClass: MockUsable {
 
 #### MockUsable types
 
-For now, the following type are `MockUsable`:
+For now, the following types are `MockUsable`:
 * Bool
 * Int
 * Double
@@ -211,11 +214,11 @@ List of changes can be found [here](CHANGELOG.md).
 ## Requirements
 * Xcode 8.2
 * iOS 9
-* os 10.10
+* osX 10.10
 
 ## Installation
 ### Cocoapods
-*InstantMock* is available using [CocoaPods](http://cocoapods.org). Just add the following file to your Podfile:
+*InstantMock* is available using [CocoaPods](http://cocoapods.org). Just add the following line to your Podfile:
 ```
 pod 'InstantMock'
 ```
