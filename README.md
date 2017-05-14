@@ -70,7 +70,7 @@ class FooMock: Mock, Foo {
 
 Using `call` on `Mock` instances requires to follow certain rules for handling non-optional return values:
 * use `!` after the call
-* make sure the return type follows the `MockUsable` protocol (see [below](###MockUsable)).
+* make sure the return type follows the `MockUsable` protocol (see [below](#mockusable)).
 
 ### Expectations
 
@@ -134,7 +134,7 @@ This is done with `Arg.eq(…)`.
 
 #### Matching any value of a given type
 This is done with a syntax like `Arg<String>.any`.
-**Note:** only `MockUsable` types can match any values, see [here](###MockUsable).
+**Note:** only `MockUsable` types can match any values, see [here](#mockusable).
 
 #### Matching a certain condition
 This is done with a syntax like `Arg.verify({ _  in return …})`.
