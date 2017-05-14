@@ -210,16 +210,24 @@ For now, the following type are `MockUsable`:
 List of changes can be found [here](CHANGELOG.md).
 
 ## Requirements
-Todo
+* Xcode 8.2
+* iOS 9
+* os 10.10
 
 ## Installation
-Todo
+### Cocoapods
+*InstantMock* is available using [CocoaPods](http://cocoapods.org). Just add the following file to your Podfile:
+```
+pod 'InstantMock'
+```
 
 ## Inspiration
-Todo
+
+* Argument Capture: [Mockito](http://mockito.org/)
+* Registration API: [SwiftMock](https://github.com/mflint/SwiftMock)
 
 ## Author
-Todo
+Patrick Irlande - pirishd@users.noreply.github.com
 
 ## License
-Todo
+*InstantMock* is available under the [MIT License](LICENSE).
