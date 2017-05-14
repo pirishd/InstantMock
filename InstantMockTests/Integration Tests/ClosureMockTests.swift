@@ -25,10 +25,6 @@ class ClosureMock: Mock, ClosureProtocol {
         super.call(arg, closure)
     }
 
-    override init(withExpectationFactory factory: ExpectationFactory) {
-        super.init(withExpectationFactory: factory)
-    }
-
 }
 
 
@@ -42,7 +38,7 @@ class ClosureMockTests: XCTestCase {
         super.setUp()
         self.assertionMock = AssertionMock()
         let expectationFactory = ExpectationFactoryMock(withAssertionMock: self.assertionMock)
-        self.mock = ClosureMock(withExpectationFactory: expectationFactory)
+        self.mock = ClosureMock(expectationFactory)
     }
 
 

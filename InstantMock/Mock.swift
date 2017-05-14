@@ -75,14 +75,9 @@ open class Mock {
 
     // MARK: Initializers
 
-    public convenience init() {
-        self.init(withExpectationFactory: ExpectationFactoryImpl.instance)
-    }
-
-
-    /** Initialize instance with provided `ExpectationFactory` (dependency injection) */
-    init(withExpectationFactory factory: ExpectationFactory) {
-        self.expectationFactory = factory
+    /** Initialize instance with optional provided `ExpectationFactory` for dependency injection */
+    public init(_ expectationFactory: ExpectationFactory = ExpectationFactoryImpl.instance) {
+        self.expectationFactory = expectationFactory
     }
 
 }

@@ -21,10 +21,6 @@ class InheritanceMock: Mock, SomeProtocol {
         return super.call(arg1, arg2)!
     }
 
-    override init(withExpectationFactory factory: ExpectationFactory) {
-        super.init(withExpectationFactory: factory)
-    }
-
 }
 
 
@@ -35,7 +31,7 @@ class DelegateItMock: Any, MockDelegate, SomeProtocol {
 
     init(withExpectationFactory factory: ExpectationFactory) {
         self.expectationFactory = factory
-        self.mock = Mock(withExpectationFactory: expectationFactory)
+        self.mock = Mock(expectationFactory)
     }
 
     var it: Mock {
@@ -56,7 +52,7 @@ class DelegateFullMock: Any, MockDelegate, MockExpectation, MockStub, SomeProtoc
 
     init(withExpectationFactory factory: ExpectationFactory) {
         self.expectationFactory = factory
-        self.mock = Mock(withExpectationFactory: expectationFactory)
+        self.mock = Mock(expectationFactory)
     }
 
 
@@ -97,7 +93,7 @@ class MockCreationModalityTests: XCTestCase {
 
 
     func testExpect_inheritanceMock() {
-        let mock = InheritanceMock(withExpectationFactory: self.expectationFactory)
+        let mock = InheritanceMock(self.expectationFactory)
         mock.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
 
         _ = mock.someFunc(arg1: "Hello", arg2: 2)

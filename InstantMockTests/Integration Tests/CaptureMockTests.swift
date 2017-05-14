@@ -28,10 +28,6 @@ class CaptureMock: Mock, CaptureProtocol {
         super.call(arg, closure)
     }
 
-    override init(withExpectationFactory factory: ExpectationFactory) {
-        super.init(withExpectationFactory: factory)
-    }
-
 }
 
 
@@ -46,7 +42,7 @@ class CaptureMockTests: XCTestCase {
         super.setUp()
         self.assertionMock = AssertionMock()
         let expectationFactory = ExpectationFactoryMock(withAssertionMock: self.assertionMock)
-        self.mock = CaptureMock(withExpectationFactory: expectationFactory)
+        self.mock = CaptureMock(expectationFactory)
     }
 
 

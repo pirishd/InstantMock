@@ -21,10 +21,6 @@ class BasicMock: Mock, BasicProtocol {
         return super.call(arg1, arg2)!
     }
 
-    override init(withExpectationFactory factory: ExpectationFactory) {
-        super.init(withExpectationFactory: factory)
-    }
-
 }
 
 
@@ -39,7 +35,7 @@ class BasicMockTests: XCTestCase {
         super.setUp()
         self.assertionMock = AssertionMock()
         let expectationFactory = ExpectationFactoryMock(withAssertionMock: self.assertionMock)
-        self.mock = BasicMock(withExpectationFactory: expectationFactory)
+        self.mock = BasicMock(expectationFactory)
     }
 
 
