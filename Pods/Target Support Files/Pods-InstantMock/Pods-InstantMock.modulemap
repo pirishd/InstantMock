@@ -1,0 +1,6 @@
+framework module Pods_InstantMock {
+  umbrella header "Pods-InstantMock-umbrella.h"
+
+  export *
+  module * { export * }
+}
