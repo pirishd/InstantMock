@@ -15,7 +15,7 @@ This project is in beta for now. Suggestions and issue reports are welcome :)
 ### Mocking
 
 ### Using delegation
-Mocks can be simply created by implementing the `MockDelegate` protocol. It aims at providing a delegate instance that actually does all the work of registering and handling calls.
+Mocks are simply created by implementing the `MockDelegate` protocol. It aims at providing a delegate instance that actually does all the work of registering and handling calls.
 
 The example below assumes we want to mock this protocol:
 ```Swift
@@ -24,7 +24,7 @@ protocol Foo {
 }
 ```
 
-In your test project, create a new class `FooMock` that adopts the `Foo` and `MockDelegate` protocols. In the `Foo` implementation, just call the `call` function on the delegate instance and provides the arguments received. 
+In your test project, create a new class `FooMock` that adopts the `Foo` and `MockDelegate` protocols. In the `Foo` implementation, just call the `call` function on the delegate instance and provide the arguments just received. 
 
 ```Swift
 class FooMock: MockDelegate {
@@ -32,7 +32,7 @@ class FooMock: MockDelegate {
     // create delegate instance
     private let delegate = Mock()
     
-    // only getter to be implemented
+    // the only getter to be implemented
     var it: Mock {
         return delegate
     }
@@ -41,8 +41,7 @@ class FooMock: MockDelegate {
 // Extension for the `Foo` protocol
 extension FooMock: Foo {
 
-    // implement `bar` function, by calling `call` to the delegate
-    // and provides the args
+    // implement `bar` function, by calling `call` to the delegate and provides the args
     func bar(arg1: String, arg2: Int) -> Bool {
         return delegate.call(arg1, arg2)!
     }
@@ -59,8 +58,7 @@ The example below uses the same `Foo` protocol as above. In your test project, c
 ```Swift
 class FooMock: Mock, Foo {
 
-    // implement `bar` function, by calling `call` to `super`
-    // and provides the args
+    // implement `bar` function, by calling `call` to `super` and provides the args
     func bar(arg1: String, arg2: Int) -> Bool {
         return super.call(arg1, arg2)!
     }
@@ -72,7 +70,7 @@ class FooMock: Mock, Foo {
 
 Using `call` on `Mock` instances requires to follow certain rules for handling non-optional return values:
 * use `!` after the call
-* make sure the return type follows the `MockUsable` protocol (see [below](FIXME)).
+* make sure the return type follows the `MockUsable` protocol (see [below](#MockUsable)).
 
 ### Expectations
 
@@ -136,7 +134,7 @@ This is done with `Arg.eq(…)`.
 
 #### Matching any value of a given type
 This is done with a syntax like `Arg<String>.any`.
-**Note:** only `MockUsable` types can match any values, see [here]().
+**Note:** only `MockUsable` types can match any values, see [here](#MockUsable).
 
 #### Matching a certain condition
 This is done with a syntax like `Arg.verify({ _  in return …})`.
