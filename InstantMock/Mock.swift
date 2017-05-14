@@ -59,7 +59,7 @@ public protocol MockStub {
         mock.stub().call(mock.someMethod()).andReturn(someValue)
 
  */
-public class Mock {
+open class Mock {
 
     // interceptors defined in registration mode
     fileprivate var expectationBeingRegistered: Expectation?
