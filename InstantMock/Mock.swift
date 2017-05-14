@@ -75,7 +75,7 @@ public class Mock {
 
     // MARK: Initializers
 
-    convenience init() {
+    public convenience init() {
         self.init(withExpectationFactory: ExpectationFactoryImpl.instance)
     }
 
