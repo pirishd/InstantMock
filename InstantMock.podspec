@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
 
   # Description used to generate tags and improve search results.
   s.description  = <<-DESC
-  					InstantMock aims at creating mocks easily in Swift 3. It provides a simple
-  					way to mock, stub and verify expectations.
+                   InstantMock aims at creating mocks easily in Swift 3. It provides a simple
+                   way to mock, stub and verify expectations.
                    DESC
 
   s.homepage     = "https://github.com/pirishd/InstantMock"
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
   # Author Metadata
-  s.author       = { "pirishd (Patrick Irlande)" => "pirishd@users.noreply.github.com" }
+  s.author       = { "Patrick Irlande (pirishd)" => "pirishd@users.noreply.github.com" }
 
   # Source Location
   s.source       = { :git => "https://github.com/pirishd/InstantMock", :tag => "#{s.version}" }
