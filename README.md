@@ -3,7 +3,8 @@
 
 ## Introduction
 *InstantMock* aims at creating mocks easily in Swift 3. It provides a simple way to mock, stub and verify expectations.
-This project is in beta for now. Suggestions and issue reports are welcome.
+
+This project is in beta for now. Suggestions and issue reports are welcome :)
 
 ## Usage
 
@@ -14,10 +15,10 @@ This project is in beta for now. Suggestions and issue reports are welcome.
 ### Mocking
 
 ### Using delegation
-Mocks can be created by just implementing the protocol `MockDelegate`. It aims at providing a delegate instance that actually does all the work of registering and handling calls.
+Mocks can be simply created by implementing the `MockDelegate` protocol. It aims at providing a delegate instance that actually does all the work of registering and handling calls.
 
 The example below assumes we want to mock this protocol:
-```
+```Swift
 protocol Foo {
     func bar(arg1: String, arg2: Int) -> Bool
 }
@@ -25,7 +26,7 @@ protocol Foo {
 
 In your test project, create a new class `FooMock` that adopts the `Foo` and `MockDelegate` protocols. In the `Foo` implementation, just call the `call` function on the delegate instance and provides the arguments received. 
 
-```
+```Swift
 class FooMock: MockDelegate {
 
     // create delegate instance
@@ -55,7 +56,7 @@ When possible, mocks can also be created by inheriting the `Mock` class.
 
 The example below uses the same `Foo` protocol as above. In your test project, create a new class `FooMock` that adopts the `Foo` protocol, and inherits from `Mock`:
 
-```
+```Swift
 class FooMock: Mock, Foo {
 
     // implement `bar` function, by calling `call` to `super`
@@ -78,7 +79,7 @@ Using `call` on `Mock` instances requires to follow certain rules for handling n
 Expectations aim at verifying that a call is done with some arguments.
 
 They are set using the syntax like in the following example:
-```
+```Swift
 let mock = FooMock()
 mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42)))
 ```
@@ -86,14 +87,14 @@ Here, we expect `bar` to be called with "hello" and 42 as arguments.
 
 ##### Number of calls
 In addition, expectations can be set on the number of calls:
-```
+```Swift
 mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42)), numberOfTimes: 2)
 ```
 Here, we expect `bar` to be called twice with "hello" and 42 as arguments.
 
 ##### Verifications
 Verifying expectations is done this way:
-```
+```Swift
 mock.verify()
 ```
 
@@ -103,7 +104,7 @@ Stubs aim at performing some actions when a function is called with some argumen
 
 They are set using a syntax like in the following example:
 
-```
+```Swift
 // set stub with return value
 mock.stub().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42))).andReturn(true)
 ````
@@ -149,7 +150,7 @@ Matching a closure is a special case. Use the following syntax:
 Arguments can be captured for later use using the `ArgumentCaptor` class.
 
 For example:
-```
+```Swift
 let captor = ArgumentCaptor<String>()
 mock.stub().call(mock.bar(arg1: captor.capture(), arg2: Arg.eq(42))).andReturn(true)
 …
@@ -162,7 +163,7 @@ Here, we create an argument captor for type `String`. When call in done values a
 
 Capturing a closure is a special case. Use the following syntax:
 
-```
+```Swift
 let captor = ArgumentCaptor<(Int) -> Bool>(Closure.cast())
 …
 let ret = captor.value!(42)
@@ -176,7 +177,7 @@ For a given type, it enables returning non-null values in mocks and catching any
 
 Adding `MockUsable` to an existing type, just create an extension that adopts the protocol like in the following example:
 
-```
+```Swift
 extension SomeClass: MockUsable {
     
     static any = SomeClass() // any value
