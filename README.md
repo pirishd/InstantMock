@@ -229,7 +229,7 @@ pod 'InstantMock'
 * Registration API: [SwiftMock](https://github.com/mflint/SwiftMock)
 
 ## Author
-Patrick Irlande - pirishd@users.noreply.github.com
+Patrick Irlande - pirishd@yahoo.com
 
 ## License
 *InstantMock* is available under the [MIT License](LICENSE).

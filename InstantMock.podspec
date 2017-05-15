@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
   # Author Metadata
-  s.author       = { "Patrick Irlande (pirishd)" => "pirishd@users.noreply.github.com" }
+  s.author       = { "Patrick Irlande (pirishd)" => "pirishd@yahoo.com" }
 
   # Source Location
   s.source       = { :git => "https://github.com/pirishd/InstantMock", :tag => "#{s.version}" }
