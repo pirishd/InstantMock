@@ -64,8 +64,8 @@ class DelegateFullMock: Any, MockDelegate, MockExpectation, MockStub, SomeProtoc
         return self.mock.expect()
     }
 
-    func verify() {
-        self.mock.verify(file: #file, line: #line)
+    func verify(file: StaticString? = #file, line: UInt? = #line) {
+        self.mock.verify(file: file, line: line)
     }
 
     func stub() -> Stub {
