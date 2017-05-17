@@ -9,13 +9,15 @@ This project is in beta for now. Suggestions and issue reports are welcome :)
 ## Usage
 
 *InstantMock* works in two parts:
-* **Mock creation**: this part aims at creating mocks implementing a protocol, or using inheritance.
-* **Settings expectations and stubs**: this part is where mocks are used in your actual tests.
+* **Mock Creation**: this is where you create your mocks.
+* **Settings expectations and stubs**: this is where mocks are used in your actual tests.
 
-### Mocking
 
-### Using delegation
-Mocks are simply created by implementing the `MockDelegate` protocol. It aims at providing a delegate instance that actually does all the work of registering and handling calls.
+### Mock Creation
+
+#### Using inheritance
+
+The easiest way to create a mock, is by inheriting the `Mock` class.
 
 The example below assumes we want to mock this protocol:
 ```Swift
@@ -24,43 +26,42 @@ protocol Foo {
 }
 ```
 
-In your test project, create a new class `FooMock` that adopts the `Foo` and `MockDelegate` protocols. In the `Foo` implementation, just call the `call` function on the delegate instance and provide the arguments just received. 
+In your test project, create a new class `FooMock` that inherits from `Mock` and adopts the `Foo` protocol: 
 
 ```Swift
-class FooMock: MockDelegate {
+class FooMock: Mock, Foo {
 
-    // create delegate instance
-    private let delegate = Mock()
-    
-    // the only getter to be implemented
-    var it: Mock {
-        return delegate
-    }
-}
-
-// Extension for the `Foo` protocol
-extension FooMock: Foo {
-
-    // implement `bar` function, by calling `call` to the delegate and provides the args
+    // implement `bar`
     func bar(arg1: String, arg2: Int) -> Bool {
-        return delegate.call(arg1, arg2)!
+        return super.call(arg1, arg2)! // provide values to `super`
     }
     
 }
 ```
 
-#### Using inheritance
+### Using delegation
 
-When possible, mocks can also be created by inheriting the `Mock` class.
+Often, inheritance cannot be used, for example when your mock must already inherit from another class. In this case, mocks are simply created by implementing the `MockDelegate` protocol.
 
-The example below uses the same `Foo` protocol as above. In your test project, create a new class `FooMock` that adopts the `Foo` protocol, and inherits from `Mock`:
+The example below uses the same `Foo` protocol as above. 
+
+In your test project, create a new class `FooMock` that adopts the `MockDelegate` and `Foo` protocols:
 
 ```Swift
-class FooMock: Mock, Foo {
+class FooMock: MockDelegate, Foo {
 
-    // implement `bar` function, by calling `call` to `super` and provides the args
+    // create `Mock` instance
+    private let mock = Mock()
+    
+    // only one getter must be added to conform to the `MockDelegate` protocol
+    // for providing the `Mock` delegate
+    var it: Mock {
+        return mock
+    }
+
+    // implement `bar` to conform to the `Foo` protocol
     func bar(arg1: String, arg2: Int) -> Bool {
-        return super.call(arg1, arg2)!
+        return it.call(arg1, arg2)! // provide values to the `Mock` delegate
     }
     
 }
