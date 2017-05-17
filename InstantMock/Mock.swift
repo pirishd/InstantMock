@@ -19,7 +19,7 @@ public protocol MockDelegate {
 public protocol MockExpectation: MockExpectationFactory {
 
     /// Verify all expections on the current instance
-    func verify()
+    func verify(file: StaticString?, line: UInt?)
 }
 
 

@@ -55,6 +55,28 @@ class ArgTests: XCTestCase {
     }
 
 
+    func testEq_intOptional() {
+        let factory = ArgumentFactoryMock<Int>()
+        var arg: Int? = nil
+        var val = Arg.eq(arg, argFactory: factory, argStorage: self.argStorage)
+        XCTAssertNil(val)
+        XCTAssertEqual(self.argStorage.args.count, 1)
+
+        var argumentValue = self.argStorage.args.last as? ArgumentValueMock<Int>
+        XCTAssertNotNil(argumentValue)
+        XCTAssertEqual(argumentValue!.value, nil)
+
+        arg = 42
+        val = Arg.eq(arg, argFactory: factory, argStorage: self.argStorage)
+        XCTAssertEqual(val, 42)
+        XCTAssertEqual(self.argStorage.args.count, 2)
+
+        argumentValue = self.argStorage.args.last as? ArgumentValueMock<Int>
+        XCTAssertNotNil(argumentValue)
+        XCTAssertEqual(argumentValue!.value, 42)
+    }
+
+
     func testEq_object() {
         let factory = ArgumentFactoryMock<DummyArg>()
         let dummyArg = DummyArg()
