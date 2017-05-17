@@ -11,15 +11,32 @@
 public class Arg<T> {
 
 
-    /** Register a value */
-    public static func eq(_ val: T) ->T {
+    /** Register a mandatory value */
+    public static func eq(_ val: T) -> T {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.eq(val, argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
 
 
-    /** Register a value with factory (for dependency injection) */
+    /** Register an optional value */
+    public static func eq(_ val: T?) -> T? {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.eq(val, argFactory: factory, argStorage: ArgumentStorageImpl.instance)
+    }
+
+
+    /** Register a mandatory value with factory (for dependency injection) */
     static func eq<F>(_ val: T, argFactory: F, argStorage: ArgumentStorage) -> T
+        where F: ArgumentFactory, F.Value == T {
+
+        let arg = argFactory.argument(value: val)
+        argStorage.store(arg)
+        return val
+    }
+
+
+    /** Register an optional value with factory (for dependency injection) */
+    static func eq<F>(_ val: T?, argFactory: F, argStorage: ArgumentStorage) -> T?
         where F: ArgumentFactory, F.Value == T {
 
         let arg = argFactory.argument(value: val)

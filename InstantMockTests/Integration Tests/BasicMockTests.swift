@@ -12,6 +12,7 @@ import XCTest
 
 protocol BasicProtocol {
     func basic(arg1: String, arg2: Int) -> String
+    func basicOpt(arg1: String?, arg2: Int?) -> String?
 }
 
 
@@ -19,6 +20,10 @@ class BasicMock: Mock, BasicProtocol {
 
     func basic(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
+    }
+
+    func basicOpt(arg1: String?, arg2: Int?) -> String? {
+        return super.call(arg1, arg2)
     }
 
 }
@@ -45,6 +50,24 @@ class BasicMockTests: XCTestCase {
         XCTAssertFalse(self.assertionMock.succeeded)
 
         _ = mock.basic(arg1: "Hello", arg2: 2)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpect_optional_nil() {
+        mock.expect().call(mock.basicOpt(arg1: Arg.eq(nil), arg2: Arg<Int>.any))
+
+        _ = mock.basicOpt(arg1: nil, arg2: nil)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpect_optional_nonnil() {
+        mock.expect().call(mock.basicOpt(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
+
+        _ = mock.basicOpt(arg1: "Hello", arg2: 12)
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
