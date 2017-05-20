@@ -12,6 +12,7 @@ import XCTest
 
 protocol VerifyProtocol {
     func someFunc(arg1: String, arg2: Int) -> String
+    func someFuncOpt(arg1: String?, arg2: Int?) -> String?
 }
 
 
@@ -19,6 +20,10 @@ class VerifyMock: Mock, VerifyProtocol {
 
     func someFunc(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
+    }
+
+    func someFuncOpt(arg1: String?, arg2: Int?) -> String? {
+        return super.call(arg1, arg2)
     }
 
 }
@@ -66,6 +71,19 @@ class VerifyMockTests: XCTestCase {
         ret = mock.someFunc(arg1: "anything", arg2: 13)
         XCTAssertEqual(ret, "second")
 
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpect_stringOpt() {
+        mock.expect().call(mock.someFuncOpt(arg1: Arg.verify({ str in str == nil }),
+                                            arg2: Arg.verify({ val in val == nil })))
+        _ = mock.someFuncOpt(arg1: nil, arg2: 12)
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = mock.someFuncOpt(arg1: nil, arg2: nil)
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }

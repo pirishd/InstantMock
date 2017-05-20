@@ -14,6 +14,7 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
     var argumentValue: ArgumentValue?
     var argumentAny: ArgumentAny?
     var argumentVerify: ArgumentVerify?
+    var argumentVerifyOpt: ArgumentVerify?
     var argumentCapture: ArgumentCapture?
 
 
@@ -32,7 +33,13 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
 
 
     func argument(condition: @escaping (T) -> Bool) -> ArgumentVerify {
-        let argVerify = ArgumentVerifyMock<T>(condition)
+        let argVerify = ArgumentVerifyMandatoryMock<T>(condition)
+        self.argumentVerify = argVerify
+        return argVerify
+    }
+
+    func argument(condition: @escaping (T?) -> Bool) -> ArgumentVerify {
+        let argVerify = ArgumentVerifyOptionalMock<T>(condition)
         self.argumentVerify = argVerify
         return argVerify
     }

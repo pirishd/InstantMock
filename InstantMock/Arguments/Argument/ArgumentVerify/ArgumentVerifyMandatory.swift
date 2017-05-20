@@ -1,18 +1,14 @@
 //
-//  ArgumentVerify.swift
+//  ArgumentVerifyMandatory.swift
 //  InstantMock
 //
-//  Created by Patrick on 12/05/2017.
+//  Created by Patrick on 20/05/2017.
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
 
-/** Main protocol for an argument that must verify a precise condition */
-public protocol ArgumentVerify: Argument {}
-
-
-/** Protocol for an argument that must verify a precise condition of given type */
-public protocol ArgumentVerifyTyped: ArgumentVerify {
+/** Protocol for an argument that must verify a precise condition of given mandatory type */
+public protocol ArgumentVerifyMandatoryTyped: ArgumentVerify {
     associatedtype Value
     var condition: ((Value) -> Bool) { get }
     init(_ condition: @escaping ((Value) -> Bool))
@@ -20,7 +16,7 @@ public protocol ArgumentVerifyTyped: ArgumentVerify {
 
 
 /** Main implementation of the configuration of an argument that must verify a precise condition */
-class ArgumentVerifyImpl<T>: ArgumentVerifyTyped {
+class ArgumentVerifyMandatoryImpl<T>: ArgumentVerifyMandatoryTyped {
 
     /// Condition that must be verified
     let condition: ((T) -> Bool)
@@ -35,7 +31,7 @@ class ArgumentVerifyImpl<T>: ArgumentVerifyTyped {
 
 
 /** Extension that performs matching */
-extension ArgumentVerifyImpl: ArgumentMatching {
+extension ArgumentVerifyMandatoryImpl: ArgumentMatching {
 
     func match(_ value: Any?) -> Bool {
         var ret = false
@@ -52,11 +48,10 @@ extension ArgumentVerifyImpl: ArgumentMatching {
 
 
 /** Extension to return a description */
-extension ArgumentVerifyImpl: CustomStringConvertible {
+extension ArgumentVerifyMandatoryImpl: CustomStringConvertible {
 
     var description: String {
         return "conditioned<\(type(of: self.condition))>"
     }
 
 }
-

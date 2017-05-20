@@ -2,6 +2,8 @@
 
 ## 0.0.4
 
+* Fix optional values in `Arg.verify`
+
 
 ## 0.0.3
 
