@@ -88,6 +88,10 @@ extension Mock: MockExpectationFactory {
 
     @discardableResult
     public func expect() -> Expectation {
+
+        // flush all the argument configurations from the storage
+        ArgumentStorageImpl.instance.flush()
+
         let stub = Stub()
         let expectation = self.expectationFactory.expectation(withStub: stub)
 
@@ -162,6 +166,9 @@ extension Mock: MockStub {
     @discardableResult
     public func stub() -> Stub {
         let stub = Stub()
+
+        // flush all the argument configurations from the storage
+        ArgumentStorageImpl.instance.flush()
 
         // mark instance as being ready for registration
         self.stubBeingRegistered = stub
@@ -272,8 +279,6 @@ extension Mock {
         // perform actual registration
         let ret: T? = self.register(function, with: argsConfig)
 
-        // and flush the arguments storage
-        ArgumentStorageImpl.instance.flush()
 
         return ret
     }
