@@ -15,9 +15,9 @@ This project is in beta for now. Suggestions and issue reports are welcome :)
 
 ### Mock Creation
 
-#### Using inheritance
+#### Using Inheritance
 
-The easiest way to create a mock, is by inheriting the `Mock` class.
+The easiest way to create a mock, is to inherit from the `Mock` class.
 
 The example below assumes we want to mock this protocol:
 ```Swift
@@ -33,15 +33,15 @@ class FooMock: Mock, Foo {
 
     // implement `bar`
     func bar(arg1: String, arg2: Int) -> Bool {
-        return super.call(arg1, arg2)! // provide values to `super`
+        return super.call(arg1, arg2)! // provide values to parent class
     }
     
 }
 ```
 
-### Using delegation
+#### Using Delegation
 
-Often, inheritance cannot be used, for example when your mock must already inherit from another class. In this case, mocks are simply created by implementing the `MockDelegate` protocol.
+Often, inheritance cannot be used (for example when your mock must already inherit from another class). In this case, mocks are simply created by implementing the `MockDelegate` protocol.
 
 The example below uses the same `Foo` protocol as above. 
 
@@ -50,46 +50,61 @@ In your test project, create a new class `FooMock` that adopts the `MockDelegate
 ```Swift
 class FooMock: MockDelegate, Foo {
 
-    // create `Mock` instance
+    // create `Mock` delegate instance
     private let mock = Mock()
     
-    // only one getter must be added to conform to the `MockDelegate` protocol
-    // for providing the `Mock` delegate
+    // conform to the `MockDelegate` protocol by providing the `Mock` instance
     var it: Mock {
         return mock
     }
 
     // implement `bar` to conform to the `Foo` protocol
     func bar(arg1: String, arg2: Int) -> Bool {
-        return it.call(arg1, arg2)! // provide values to the `Mock` delegate
+        return mock.call(arg1, arg2)! // provide values to the delegate
     }
     
 }
 ```
 
-#### Pre-requisites
+#### Return Values
+Return values are handled in different ways if optional or not.
 
-Using `call` on `Mock` instances requires to follow certain rules for handling non-optional return values:
-* use `!` after the call
-* make sure the return type follows the `MockUsable` protocol (see [below](#mockusable)).
+Optional Value:
+```Swift
+func returnsOptional() -> Bool? {
+    return mock.call()
+}
+```
+Non-Optional Value of Common Type, see [MockUsable](#mockusable):
+```Swift
+func returnsMockUsable() -> Bool { // `Bool` implements `MockUsable`
+    return mock.call()! // force unwrapping the return value
+}
+```
+Non-Optional Value of Custom Type:
+```Swift
+func returnsCustom() -> CustomType {
+    return mock.call() ?? CustomType() // make sure to return a `CustomType` instance
+}
+```
 
 ### Expectations
 
 Expectations aim at verifying that a call is done with some arguments.
 
-They are set using the syntax like in the following example:
+They are set using syntax like in the following example:
 ```Swift
 let mock = FooMock()
 mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any))
 ```
-Here, we expect `bar` to be called with "hello" and any Int, as arguments.
+Here, we expect `bar` to be called with "hello" and any Int as arguments.
 
 ##### Number of calls
 In addition, expectations can be set on the number of calls:
 ```Swift
-mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any), numberOfTimes: 2)
+mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any), count: 2)
 ```
-Here, we expect `bar` to be called twice with "hello" and any Int, as arguments.
+Here, we expect `bar` to be called twice with "hello" and any Int as arguments.
 
 ##### Verifications
 Verifying expectations is done this way:
@@ -109,13 +124,13 @@ mock.stub().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42))).andReturn(tr
 ````
 Here, we stub `bar` to return `true` when called with "hello" and 42 as arguments.
 
-#### Returning values
+#### Returning Values
 This is done with `andReturn(…)` on a stub instance.
 
-#### Computing a return value
-This is done with `andReturn(closure: { _ in return …})` on a stub instance. That enables to return different values on the same stub, depending on some conditions.
+#### Computing a Return Value
+This is done with `andReturn(closure: { _ in return … })` on a stub instance. That enables to return different values on the same stub, depending on some conditions.
 
-#### Calling a function
+#### Calling a Function
 This is done with `andDo( { _ in … } )` on a stub instance.
 
 ### Chaining
@@ -130,18 +145,18 @@ Chaining several actions on the same stub is possible, given they don't confict.
 
 Registering expectations and stubs is based on arguments matching. They are executed only if arguments match what was configured.
 
-#### Matching a certain value
+#### Matching a Certain Value
 This is done with `Arg.eq(…)`.
 
-#### Matching any value of a given type
+#### Matching any Values of a Given Type
 This is done with `Arg<Type>.any`.
 
 **Note:** only `MockUsable` types can match any values, see [here](#mockusable).
 
-#### Matching a certain condition
-This is done with `Arg.verify({ _  in return …})`.
+#### Matching a Certain Condition
+This is done with `Arg.verify({ _  in return … })`.
 
-#### Matching a closure
+#### Matching a Closure
 Matching a closure is a special case.
 
 Use the following syntax: `Arg.closure()`
@@ -153,7 +168,7 @@ Arguments can be captured for later use using the `ArgumentCaptor` class.
 For example:
 ```Swift
 let captor = ArgumentCaptor<String>()
-mock.stub().call(mock.bar(arg1: captor.capture(), arg2: Arg.eq(42))).andReturn(true)
+mock.expect().call(mock.bar(arg1: captor.capture(), arg2: Arg.eq(42)))
 …
 let value = captor.value
 let values = captor.allValues
@@ -169,12 +184,12 @@ let captor = ArgumentClosureCaptor<(Int) -> Bool>()
 …
 let ret = captor.value!(42)
 ````
-Here, we create an argument captor for type `(Int) -> Bool`. After having captured the argument, closure can be called.
+Here, we create an argument captor for type `(Int) -> Bool`. After having captured the closure, it can be called.
 
 ### MockUsable
 
 `MockUsable` is a protocol that makes easy the use of a type in mocks.
-For a given type, it enables returning non-null values and catching any values in mocks.
+For a given type, it enables returning non-nil values and catching any values in mocks.
 
 Adding `MockUsable` on an existing type is done by creating an extension that adopts the protocol. For example:
 
@@ -182,7 +197,7 @@ Adding `MockUsable` on an existing type is done by creating an extension that ad
 ```Swift
 extension SomeClass: MockUsable {
     
-    static any = SomeClass() // any value
+    static var any = SomeClass() // any value
     
     // return any value
     static var anyValue: MockUsable {
