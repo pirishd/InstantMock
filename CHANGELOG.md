@@ -4,6 +4,7 @@
 
 * Fix optional values in `Arg.verify`
 * Make syntax for handling closures simpler
+* Make syntax for number of expected calls simpler
 
 
 ## 0.0.3
