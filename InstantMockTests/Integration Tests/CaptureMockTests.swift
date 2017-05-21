@@ -73,7 +73,7 @@ class CaptureMockTests: XCTestCase {
 
     func testExpect_capture_closure() {
 
-        let captor = ArgumentCaptor<(Int, SomeCaptureObject) -> String>(Closure.cast())
+        let captor = ArgumentClosureCaptor<(Int, SomeCaptureObject) -> String>()
         mock.expect().call(mock.someFunc(arg: Arg<String>.any, closure: captor.capture()))
 
         mock.someFunc(arg: "Hello") { (num, obj) -> String in
@@ -86,6 +86,7 @@ class CaptureMockTests: XCTestCase {
         XCTAssertNotNil(captor.value)
         let ret = captor.value!(2, SomeCaptureObject())
         XCTAssertEqual(ret, "2")
+        XCTAssertEqual(captor.allValues.count, 1)
     }
 
 }

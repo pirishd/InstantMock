@@ -27,9 +27,4 @@ class DefaultValueHandlerTests: XCTestCase {
         XCTAssertEqual(defaultValueHandler.it, String.any)
     }
 
-    func testIt_closure() {
-        let defaultValueHandler = DefaultValueHandler<Closure>()
-        XCTAssertNotNil(defaultValueHandler.it)
-    }
-
 }

@@ -21,10 +21,6 @@ class DefaultValueHandler<T> {
                 ret = value
             }
         }
-        // or try to handle closures
-        else if let closureType = T.self as? Closure.Type {
-            ret = closureType.init() as? T
-        }
 
         return ret
     }

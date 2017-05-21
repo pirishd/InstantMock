@@ -15,13 +15,18 @@ class SomeClosureObject {}
 
 
 protocol ClosureProtocol {
-    func someFunc(arg: String, closure: ((_ arg1: String, _ arg2: SomeClosureObject) -> Int))
+    func someFunc(arg: String, closure: (_ arg1: String, _ arg2: SomeClosureObject) -> Int)
+    func someFuncOpt(arg: String?, closure: ((_ arg1: String, _ arg2: SomeClosureObject) -> Int)?)
 }
 
 
 class ClosureMock: Mock, ClosureProtocol {
 
-    func someFunc(arg: String, closure: ((String, SomeClosureObject) -> Int)) {
+    func someFunc(arg: String, closure: (String, SomeClosureObject) -> Int) {
+        super.call(arg, closure)
+    }
+
+    func someFuncOpt(arg: String?, closure: ((String, SomeClosureObject) -> Int)?) {
         super.call(arg, closure)
     }
 
@@ -46,7 +51,7 @@ class ClosureMockTests: XCTestCase {
 
         self.mock.expect().call(self.mock.someFunc(
             arg: Arg<String>.any,
-            closure: Arg<Closure>.any.cast() as (String, SomeClosureObject) -> Int
+            closure: Arg.closure()
         ))
 
         self.mock.someFunc(arg: "Hello", closure: { (str, obj) -> Int in
@@ -57,5 +62,37 @@ class ClosureMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
 
     }
+
+
+    func testExpect_optionalNil() {
+
+        self.mock.expect().call(self.mock.someFuncOpt(
+            arg: Arg<String>.any,
+            closure: Arg.closure()
+        ))
+
+        self.mock.someFuncOpt(arg: "Hello", closure: nil)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+    }
+
+
+    func testExpect_optionalNotNil() {
+
+        self.mock.expect().call(self.mock.someFuncOpt(
+            arg: Arg<String>.any,
+            closure: Arg.closure()
+        ))
+
+        self.mock.someFuncOpt(arg: "Hello", closure: { (str, obj) -> Int in
+            return 42
+        })
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
 }
 
