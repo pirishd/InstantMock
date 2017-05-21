@@ -15,16 +15,18 @@ class ArgumentCaptorTests: XCTestCase {
 
     private var storageMock: ArgumentStorageMock!
     private var factoryMock: ArgumentFactoryMock<String>!
+    private var captor: ArgumentCaptor<String>!
+
 
     override func setUp() {
         super.setUp()
         self.storageMock = ArgumentStorageMock()
         self.factoryMock = ArgumentFactoryMock<String>()
+        self.captor = ArgumentCaptor<String>()
     }
 
 
     func testCapture() {
-        let captor = ArgumentCaptor<String>()
         let val = captor.capture(argFactory: self.factoryMock, argStorage: self.storageMock)
 
         XCTAssertEqual(val, String.any)
@@ -39,7 +41,6 @@ class ArgumentCaptorTests: XCTestCase {
 
 
     func testValue() {
-        let captor = ArgumentCaptor<String>()
         _ = captor.capture(argFactory: self.factoryMock, argStorage: self.storageMock)
 
         let capture = self.factoryMock.argumentCapture
@@ -51,14 +52,13 @@ class ArgumentCaptorTests: XCTestCase {
 
 
     func testAllValues() {
-        let captor = ArgumentCaptor<String>()
         _ = captor.capture(argFactory: self.factoryMock, argStorage: self.storageMock)
 
         let capture = self.factoryMock.argumentCapture
         capture?.setValue("SomeValue")
 
-        let value = captor.allValues
-        XCTAssertEqual(value.first as? String, "SomeValue")
+        let values = captor.allValues
+        XCTAssertEqual(values.first as? String, "SomeValue")
     }
 
 }

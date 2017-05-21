@@ -67,14 +67,14 @@ public class Arg<T> {
     static func verify<F>(_ condition: @escaping (T) -> Bool, argFactory: F, argStorage: ArgumentStorage) -> T
         where F: ArgumentFactory, F.Value == T {
 
-            let arg = argFactory.argument(condition: condition)
-            argStorage.store(arg)
+        let arg = argFactory.argument(condition: condition)
+        argStorage.store(arg)
 
-            // return default value
-            guard let ret = DefaultValueHandler<T>().it else {
-                fatalError("Unexpected type, only `MockUsable` types can be used with `verify`")
-            }
-            return ret
+        // return default value
+        guard let ret = DefaultValueHandler<T>().it else {
+            fatalError("Unexpected type, only `MockUsable` types can be used with `verify`")
+        }
+        return ret
     }
 
 
@@ -82,12 +82,12 @@ public class Arg<T> {
     static func verify<F>(_ condition: @escaping (T?) -> Bool, argFactory: F, argStorage: ArgumentStorage) -> T?
         where F: ArgumentFactory, F.Value == T {
 
-            // create and store instance
-            let arg = argFactory.argument(condition: condition)
-            argStorage.store(arg)
+        // create and store instance
+        let arg = argFactory.argument(condition: condition)
+        argStorage.store(arg)
 
-            // return default nil value
-            return nil
+        // return default nil value
+        return nil
     }
 
 
@@ -101,7 +101,7 @@ public class Arg<T> {
 
 
     /** Register any value (for dependency injection) */
-    static func any<F>(argFactory: F, argStorage: ArgumentStorage) ->T where F: ArgumentFactory, F.Value == T {
+    static func any<F>(argFactory: F, argStorage: ArgumentStorage) -> T where F: ArgumentFactory, F.Value == T {
 
         // create and store instance
         let typeDescription = "\(T.self)"
@@ -115,4 +115,26 @@ public class Arg<T> {
         return ret
     }
 
+
+    // MARK: Arguments matching a closure
+
+    /** Register a closure */
+    public static func closure<Args, Ret>() -> T where T == (Args) -> Ret {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
+    }
+
+
+    /** Register a closure (for dependency injection) */
+    static func closure<Args, Ret, F>(argFactory: F, argStorage: ArgumentStorage) -> T
+        where T == (Args) -> Ret, F: ArgumentFactory, F.Value == T {
+
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
+
+        // return default value
+        return DefaultClosureHandler.it()
+    }
 }
