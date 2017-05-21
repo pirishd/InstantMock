@@ -48,7 +48,7 @@ class ExpectationTests: XCTestCase {
 
 
     func testVerified_withExpectedNumberOfCalls() {
-        self.expectation.call(Int.any, numberOfTimes: 2)
+        self.expectation.call(Int.any, count: 2)
 
         self.expectation.handleCall([])
         var verified = self.expectation.verified
@@ -92,7 +92,7 @@ class ExpectationTests: XCTestCase {
         let config = CallConfiguration(for: "Func", with: self.argsConfig)
         self.expectation.configuration = config
 
-        self.expectation.call(Int.any, numberOfTimes: 2)
+        self.expectation.call(Int.any, count: 2)
 
         self.expectation.handleCall([])
         var reason = self.expectation.reason

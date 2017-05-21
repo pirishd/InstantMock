@@ -73,8 +73,8 @@ class BasicMockTests: XCTestCase {
     }
 
 
-    func testExpect_numberOfTimes() {
-        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any), numberOfTimes: 2)
+    func testExpect_count() {
+        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any), count: 2)
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 

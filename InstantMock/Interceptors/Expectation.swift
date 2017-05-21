@@ -57,8 +57,8 @@ extension Expectation {
 
     /** register call */
     @discardableResult
-    public func call<T>(_ value: T, numberOfTimes: Int? = nil) -> Stub {
-        self.expectedNumberOfCalls = numberOfTimes
+    public func call<T>(_ value: T, count: Int? = nil) -> Stub {
+        self.expectedNumberOfCalls = count
         return self.stub
     }
 
