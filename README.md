@@ -144,7 +144,7 @@ This is done with `Arg.verify({ _  in return …})`.
 #### Matching a closure
 Matching a closure is a special case.
 
-Use the following syntax: `Arg<Closure>.any.cast as (…) -> …`
+Use the following syntax: `Arg.closure()`
 
 ### Argument Capturing
 
@@ -165,11 +165,11 @@ Here, we create an argument captor for type `String`. Values are registered, and
 Capturing a closure is a special case. Use the following syntax:
 
 ```Swift
-let captor = ArgumentCaptor<(Int) -> Bool>(Closure.cast())
+let captor = ArgumentClosureCaptor<(Int) -> Bool>()
 …
 let ret = captor.value!(42)
 ````
-Here, we create an argument captor of type `(Int) -> Bool`. After having captured the argument, closure can be called.
+Here, we create an argument captor for type `(Int) -> Bool`. After having captured the argument, closure can be called.
 
 ### MockUsable
 

@@ -3,6 +3,7 @@
 ## 0.0.4
 
 * Fix optional values in `Arg.verify`
+* Make syntax for handling closures simpler
 
 
 ## 0.0.3
