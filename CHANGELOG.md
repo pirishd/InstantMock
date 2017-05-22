@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 0.2.0
+
+* Simplify syntax for `Arg.any()`
+
+
 ## 0.1.0
 
 * Add `andThrow` to stubs
