@@ -1,5 +1,11 @@
 # Changelog
 
+
+## 0.0.5
+
+* Fix public visibility of initializers for `ArgumentCaptor` and `ArgumentClosureCaptor`
+
+
 ## 0.0.4
 
 * Fix optional values in `Arg.verify`

@@ -19,6 +19,9 @@ public class ArgumentClosureCaptor<T> {
         return ArgumentCaptorValuesImpl<T>(self.arg)
     }()
 
+    /** Main initializer */
+    public init() {}
+
 }
 
 
