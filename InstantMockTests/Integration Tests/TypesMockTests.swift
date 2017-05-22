@@ -100,7 +100,7 @@ class TypesMockTests: XCTestCase {
 
 
     func testBool() {
-        self.mock.expect().call(self.mock.boolean(Arg<Bool>.any))
+        self.mock.expect().call(self.mock.boolean(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -113,7 +113,7 @@ class TypesMockTests: XCTestCase {
 
 
     func testInt() {
-        self.mock.expect().call(self.mock.integer(Arg<Int>.any))
+        self.mock.expect().call(self.mock.integer(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -126,7 +126,7 @@ class TypesMockTests: XCTestCase {
 
 
     func testDouble() {
-        self.mock.expect().call(self.mock.double(Arg<Double>.any))
+        self.mock.expect().call(self.mock.double(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -140,7 +140,7 @@ class TypesMockTests: XCTestCase {
 
     func testString() {
 
-        self.mock.expect().call(self.mock.string(Arg<String>.any))
+        self.mock.expect().call(self.mock.string(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -153,7 +153,7 @@ class TypesMockTests: XCTestCase {
 
 
     func testString_nil() {
-        self.mock.expect().call(self.mock.stringOpt(Arg<String>.any))
+        self.mock.expect().call(self.mock.stringOpt(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -183,7 +183,7 @@ class TypesMockTests: XCTestCase {
         var set = Set<Int>()
         set.insert(1)
 
-        self.mock.expect().call(self.mock.set(Arg<Set<Int>>.any))
+        self.mock.expect().call(self.mock.set(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -199,7 +199,7 @@ class TypesMockTests: XCTestCase {
         var array = Array<Int>()
         array.append(12)
 
-        self.mock.expect().call(self.mock.array(Arg<Array<Int>>.any))
+        self.mock.expect().call(self.mock.array(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -215,7 +215,7 @@ class TypesMockTests: XCTestCase {
         var dict = Dictionary<String, Int>()
         dict["key"] = 12
 
-        self.mock.expect().call(self.mock.dictionary(Arg<Dictionary<String, Int>>.any))
+        self.mock.expect().call(self.mock.dictionary(Arg.any()))
 
         self.mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)

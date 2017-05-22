@@ -7,42 +7,24 @@
 //
 
 
-/** This class enables to capture arguments of any types */
+/** This class enables to capture arguments of any types (except closures) */
 public class ArgumentCaptor<T> {
 
-    /// Default value for construction
-    fileprivate var defaultValue: T?
-
-    /// Argument capture instance
+    /// Argument that captures values
     fileprivate var arg: ArgumentCapture?
 
-    /// Captured value
-    public var value: T? {
-        var ret: T?
-        if let captureArg = self.arg {
-            ret = captureArg.value as? T
-        }
-        return ret
-    }
+    /// Delegate for returning captured values
+    fileprivate lazy var delegate: ArgumentCaptorValuesImpl<T> = {
+        return ArgumentCaptorValuesImpl<T>(self.arg)
+    }()
 
-    /// All captured values
-    public var allValues: [T?] {
-        var ret = [T?]()
-        if let captureArg = self.arg {
-            ret = captureArg.allValues.map { $0 as? T }.flatMap { $0 }
-        }
-        return ret
-    }
+    /** Main initializer */
+    public init() {}
 
-
-    /** Initialize captor with default value */
-    public init(_ defaultValue: T? = nil) {
-        self.defaultValue = defaultValue
-    }
 }
 
 
-/** Extension for capturing values */
+/** Extension that performs the actual capture */
 extension ArgumentCaptor {
 
     /** Capture an argument of expected type */
@@ -61,16 +43,25 @@ extension ArgumentCaptor {
         self.arg = arg
         argStorage.store(arg)
 
-        // return default value directly if set
-        if let defaultValue = self.defaultValue {
-            return defaultValue
-        }
-
         // otherwise, try to guess the default value from required type
         guard let ret = DefaultValueHandler<T>().it else {
             fatalError("Unexpected type, only `MockUsable` types can be used with `captors`")
         }
         return ret
+    }
+
+}
+
+
+/** Extension for returning captured valued */
+extension ArgumentCaptor: ArgumentCaptorValues {
+
+    public var value: T? {
+        return self.delegate.value
+    }
+
+    public var allValues: [T?] {
+        return self.delegate.allValues
     }
 
 }

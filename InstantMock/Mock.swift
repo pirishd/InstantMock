@@ -88,6 +88,10 @@ extension Mock: MockExpectationFactory {
 
     @discardableResult
     public func expect() -> Expectation {
+
+        // flush all the argument configurations from the storage
+        ArgumentStorageImpl.instance.flush()
+
         let stub = Stub()
         let expectation = self.expectationFactory.expectation(withStub: stub)
 
@@ -148,7 +152,11 @@ extension Mock {
 
         // notify expectations matching args that they are fullfilled
         for expectation in expectations.matching(args) {
-            expectation.handleCall(args)
+            do {
+                try expectation.handleCall(args)
+            } catch {
+                fatalError("Expectation threw unexpected error=\(error)")
+            }
         }
 
     }
@@ -162,6 +170,9 @@ extension Mock: MockStub {
     @discardableResult
     public func stub() -> Stub {
         let stub = Stub()
+
+        // flush all the argument configurations from the storage
+        ArgumentStorageImpl.instance.flush()
 
         // mark instance as being ready for registration
         self.stubBeingRegistered = stub
@@ -196,7 +207,7 @@ extension Mock: MockStub {
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    fileprivate func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) -> (T?, Bool) {
+    fileprivate func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) throws -> (T?, Bool) {
         var ret: T?
         var useDefaultValue = true
 
@@ -205,7 +216,7 @@ extension Mock: MockStub {
 
         // find the best stub and apply it
         if let stub = stubs.matching(args).best() {
-            let retVal = stub.handleCall(args)
+            let retVal = try stub.handleCall(args)
             if retVal is T? {
                 ret = retVal as? T
             } else {
@@ -227,26 +238,50 @@ extension Mock {
 
     /** Call with no return value */
     public func call(_ args: Any?..., function: String = #function) -> Void {
-        let ret: Void? = self.doCall(args, function: function)
+        var ret: Void?
+        do {
+            try ret = self.doCall(args, function: function)
+        } catch {
+            // no error to be caught
+        }
         return ret ?? Void()
     }
 
 
     /** Call with return type object */
     public func call<T>(_ args: Any?..., function: String = #function) -> T? {
-        return self.doCall(args, function: function) as T?
+        var ret: T?
+        do {
+            try ret = self.doCall(args, function: function) as T?
+        } catch {
+            // no error to be caught
+        }
+        return ret
+    }
+
+
+    /** Throwing call with no return value */
+    public func callThrowing(_ args: Any?..., function: String = #function) throws -> Void {
+        let ret: Void? = try self.doCall(args, function: function)
+        return ret ?? Void()
+    }
+
+
+    /** Throwing call with return type object */
+    public func callThrowing<T>(_ args: Any?..., function: String = #function) throws -> T? {
+        return try self.doCall(args, function: function) as T?
     }
 
 
     /** Handle a call */
     @discardableResult
-    private func doCall<T>(_ args: [Any?], function: String) -> T? {
+    private func doCall<T>(_ args: [Any?], function: String) throws -> T? {
         var ret: T?
 
         if self.expectationBeingRegistered != nil || self.stubBeingRegistered != nil {
             ret = self.handleRegistration(of: function, with: args)
         } else {
-            ret = self.handleCall(of: function, with: args)
+            ret = try self.handleCall(of: function, with: args)
         }
 
         return ret
@@ -272,8 +307,6 @@ extension Mock {
         // perform actual registration
         let ret: T? = self.register(function, with: argsConfig)
 
-        // and flush the arguments storage
-        ArgumentStorageImpl.instance.flush()
 
         return ret
     }
@@ -313,13 +346,13 @@ extension Mock {
         - parameter args: arguments of the function
         - returns: return value for that function
      */
-    private func handleCall<T>(of function: String, with args: [Any?]) -> T? {
+    private func handleCall<T>(of function: String, with args: [Any?]) throws -> T? {
         var ret: T?
         var useDefaultValue = true
 
         // notify interceptors they are being called
         self.handleExpectationsWhileBeingCalled(for: function, with: args)
-        (ret, useDefaultValue) = self.handleStubsWhileBeingCalled(for: function, with: args)
+        (ret, useDefaultValue) = try self.handleStubsWhileBeingCalled(for: function, with: args)
 
         // default value
         if useDefaultValue, let value = DefaultValueHandler<T>().it {

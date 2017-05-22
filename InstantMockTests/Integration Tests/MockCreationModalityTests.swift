@@ -94,7 +94,7 @@ class MockCreationModalityTests: XCTestCase {
 
     func testExpect_inheritanceMock() {
         let mock = InheritanceMock(self.expectationFactory)
-        mock.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
+        mock.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg.any()))
 
         _ = mock.someFunc(arg1: "Hello", arg2: 2)
 
@@ -105,7 +105,7 @@ class MockCreationModalityTests: XCTestCase {
 
     func testExpect_delegateItMock() {
         let mock = DelegateItMock(withExpectationFactory: self.expectationFactory)
-        mock.it.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
+        mock.it.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg.any()))
 
         _ = mock.someFunc(arg1: "Hello", arg2: 2)
 
@@ -116,7 +116,7 @@ class MockCreationModalityTests: XCTestCase {
 
     func testExpect_delegateFullMock() {
         let mock = DelegateFullMock(withExpectationFactory: self.expectationFactory)
-        mock.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
+        mock.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg.any()))
 
         _ = mock.someFunc(arg1: "Hello", arg2: 2)
 

@@ -92,7 +92,7 @@ class ArgTests: XCTestCase {
 
     func testAny_string() {
         let factory = ArgumentFactoryMock<String>()
-        let any = Arg<String>.any(argFactory: factory, argStorage: self.argStorage)
+        let any: String = Arg.any(argFactory: factory, argStorage: self.argStorage)
         XCTAssertEqual(any, String.any)
         XCTAssertEqual(self.argStorage.args.count, 1)
 
@@ -108,7 +108,7 @@ class ArgTests: XCTestCase {
 
     func testAny_int() {
         let factory = ArgumentFactoryMock<Int>()
-        let any = Arg<Int>.any(argFactory: factory, argStorage: self.argStorage)
+        let any: Int = Arg.any(argFactory: factory, argStorage: self.argStorage)
         XCTAssertEqual(any, Int.any)
         XCTAssertEqual(self.argStorage.args.count, 1)
 

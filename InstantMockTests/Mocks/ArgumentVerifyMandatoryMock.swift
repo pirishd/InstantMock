@@ -1,5 +1,5 @@
 //
-//  ArgumentVerifyMock.swift
+//  ArgumentVerifyMandatoryMock.swift
 //  InstantMock
 //
 //  Created by Patrick on 13/05/2017.
@@ -9,7 +9,7 @@
 import InstantMock
 
 
-class ArgumentVerifyMock<T>: ArgumentVerifyTyped {
+class ArgumentVerifyMandatoryMock<T>: ArgumentVerifyMandatoryTyped {
 
     var condition: (T) -> Bool
     required init(_ condition: @escaping ((T) -> Bool)) {

@@ -67,13 +67,6 @@ class VerifierTests: XCTestCase {
     }
 
 
-    func testMatch_closure_success() {
-        let closure: (() -> Void) = {}
-        let ret = self.verifier.equal(closure, to: closure)
-        XCTAssertTrue(ret)
-    }
-
-
     func testMatch_closure_failure() {
         let closure: (() -> Void) = {}
         let closure2: ((String) -> Void) = { str in }
