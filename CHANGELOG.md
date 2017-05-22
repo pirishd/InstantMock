@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 0.1.0
+
+* Add `andThrow` to stubs
+
+
 ## 0.0.5
 
 * Fix public visibility of initializers for `ArgumentCaptor` and `ArgumentClosureCaptor`
