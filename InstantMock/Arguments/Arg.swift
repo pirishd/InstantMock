@@ -91,31 +91,6 @@ public class Arg<T> {
     }
 
 
-    // MARK: Arguments matching any values
-
-    /** Register any value */
-    public static var any: T {
-        let factory = ArgumentFactoryImpl<T>()
-        return Arg.any(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
-    }
-
-
-    /** Register any value (for dependency injection) */
-    static func any<F>(argFactory: F, argStorage: ArgumentStorage) -> T where F: ArgumentFactory, F.Value == T {
-
-        // create and store instance
-        let typeDescription = "\(T.self)"
-        let arg = argFactory.argumentAny(typeDescription)
-        argStorage.store(arg)
-
-        // return default value
-        guard let ret = DefaultValueHandler<T>().it else {
-            fatalError("Unexpected type, only `MockUsable` types can be used with `any`")
-        }
-        return ret
-    }
-
-
     // MARK: Arguments matching a closure
 
     /** Register a closure */
@@ -137,4 +112,42 @@ public class Arg<T> {
         // return default value
         return DefaultClosureHandler.it()
     }
+}
+
+
+/** Extension for `MockUsable` args */
+extension Arg where T: MockUsable {
+
+
+    // MARK: Arguments matching any values
+
+    /** Register any value returning mandatory value */
+    public static func any() -> T {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.any(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
+    }
+
+
+    /** Register any value returning optional value */
+    public static func any() -> T? {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.any(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
+    }
+
+
+    /** Register any value (for dependency injection) */
+    static func any<F>(argFactory: F, argStorage: ArgumentStorage) -> T where F: ArgumentFactory, F.Value == T {
+
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentAny(typeDescription)
+        argStorage.store(arg)
+
+        // return default value
+        guard let ret = DefaultValueHandler<T>().it else {
+            fatalError("Unexpected type, only `MockUsable` types can be used with `any`")
+        }
+        return ret
+    }
+
 }

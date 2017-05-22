@@ -46,7 +46,7 @@ class VerifyMockTests: XCTestCase {
 
     func testExpect_stringVerify() {
 
-        mock.expect().call(mock.someFunc(arg1: Arg.verify({ str in str.hasPrefix("hello")}), arg2: Arg<Int>.any))
+        mock.expect().call(mock.someFunc(arg1: Arg.verify({ str in str.hasPrefix("hello")}), arg2: Arg.any()))
         _ = mock.someFunc(arg1: "salut", arg2: 12)
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
@@ -60,8 +60,8 @@ class VerifyMockTests: XCTestCase {
     func testStub_intVerify() {
 
         // configure two verifiers that are totally unjoined
-        mock.expect().call(mock.someFunc(arg1: Arg<String>.any, arg2: Arg.verify( { val in val % 2 == 0 }))).andReturn("first")
-        mock.expect().call(mock.someFunc(arg1: Arg<String>.any, arg2: Arg.verify( { val in val % 2 == 1 }))).andReturn("second")
+        mock.expect().call(mock.someFunc(arg1: Arg.any(), arg2: Arg.verify( { val in val % 2 == 0 }))).andReturn("first")
+        mock.expect().call(mock.someFunc(arg1: Arg.any(), arg2: Arg.verify( { val in val % 2 == 1 }))).andReturn("second")
 
         var ret = mock.someFunc(arg1: "anything", arg2: 12)
         XCTAssertEqual(ret, "first")

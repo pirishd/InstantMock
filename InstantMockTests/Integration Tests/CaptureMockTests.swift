@@ -74,7 +74,7 @@ class CaptureMockTests: XCTestCase {
     func testExpect_capture_closure() {
 
         let captor = ArgumentClosureCaptor<(Int, SomeCaptureObject) -> String>()
-        mock.expect().call(mock.someFunc(arg: Arg<String>.any, closure: captor.capture()))
+        mock.expect().call(mock.someFunc(arg: Arg.any(), closure: captor.capture()))
 
         mock.someFunc(arg: "Hello") { (num, obj) -> String in
             return "\(num)"

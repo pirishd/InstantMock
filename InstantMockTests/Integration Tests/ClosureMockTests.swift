@@ -50,7 +50,7 @@ class ClosureMockTests: XCTestCase {
     func testExpect() {
 
         self.mock.expect().call(self.mock.someFunc(
-            arg: Arg<String>.any,
+            arg: Arg.any(),
             closure: Arg.closure()
         ))
 
@@ -67,7 +67,7 @@ class ClosureMockTests: XCTestCase {
     func testExpect_optionalNil() {
 
         self.mock.expect().call(self.mock.someFuncOpt(
-            arg: Arg<String>.any,
+            arg: Arg.any(),
             closure: Arg.closure()
         ))
 
@@ -82,7 +82,7 @@ class ClosureMockTests: XCTestCase {
     func testExpect_optionalNotNil() {
 
         self.mock.expect().call(self.mock.someFuncOpt(
-            arg: Arg<String>.any,
+            arg: Arg.any(),
             closure: Arg.closure()
         ))
 

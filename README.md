@@ -102,14 +102,14 @@ Expectations aim at verifying that a call is done with some arguments.
 They are set using syntax like in the following example:
 ```Swift
 let mock = FooMock()
-mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any))
+mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.any()))
 ```
 Here, we expect `bar` to be called with "hello" and any Int as arguments.
 
 ##### Number of calls
 In addition, expectations can be set on the number of calls:
 ```Swift
-mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg<Int>.any), count: 2)
+mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.any()), count: 2)
 ```
 Here, we expect `bar` to be called twice with "hello" and any Int as arguments.
 
@@ -159,10 +159,8 @@ Registering expectations and stubs is based on arguments matching. They are exec
 #### Matching a Certain Value
 This is done with `Arg.eq(…)`.
 
-#### Matching any Values of a Given Type
-This is done with `Arg<Type>.any`.
-
-**Note:** only `MockUsable` types can match any values, see [here](#mockusable).
+#### Matching any Values of a MockUsable Type
+This is done with `Arg.any()`.
 
 #### Matching a Certain Condition
 This is done with `Arg.verify({ _  in return … })`.
@@ -224,7 +222,7 @@ extension SomeClass: MockUsable {
 }
 ```
 
-#### MockUsable types
+#### MockUsable Types
 
 For now, the following types are `MockUsable`:
 * Bool

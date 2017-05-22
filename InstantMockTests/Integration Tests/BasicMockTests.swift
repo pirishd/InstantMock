@@ -45,7 +45,7 @@ class BasicMockTests: XCTestCase {
 
 
     func testExpect() {
-        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
+        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any()))
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
@@ -56,7 +56,7 @@ class BasicMockTests: XCTestCase {
 
 
     func testExpect_optional_nil() {
-        mock.expect().call(mock.basicOpt(arg1: Arg.eq(nil), arg2: Arg<Int>.any))
+        mock.expect().call(mock.basicOpt(arg1: Arg.eq(nil), arg2: Arg.any()))
 
         _ = mock.basicOpt(arg1: nil, arg2: nil)
         mock.verify()
@@ -65,7 +65,7 @@ class BasicMockTests: XCTestCase {
 
 
     func testExpect_optional_nonnil() {
-        mock.expect().call(mock.basicOpt(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any))
+        mock.expect().call(mock.basicOpt(arg1: Arg.eq("Hello"), arg2: Arg.any()))
 
         _ = mock.basicOpt(arg1: "Hello", arg2: 12)
         mock.verify()
@@ -74,7 +74,7 @@ class BasicMockTests: XCTestCase {
 
 
     func testExpect_count() {
-        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any), count: 2)
+        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any()), count: 2)
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
@@ -90,7 +90,7 @@ class BasicMockTests: XCTestCase {
 
     func testStub() {
         var callbackValue: String?
-        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any)).andReturn("string").andDo { _ in
+        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any())).andReturn("string").andDo { _ in
             callbackValue = "something"
         }
 
@@ -102,7 +102,7 @@ class BasicMockTests: XCTestCase {
 
     func testSeveralStubs() {
 
-        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any)).andReturn("string")
+        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any())).andReturn("string")
         mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.eq(2))).andReturn("string2")
 
         let ret = mock.basic(arg1: "Hello", arg2: 2)
@@ -113,7 +113,7 @@ class BasicMockTests: XCTestCase {
     func testExpectAndStub() {
 
         var callbackValue: String?
-        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any)).andReturn("string").andDo {_ in
+        mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any())).andReturn("string").andDo {_ in
             callbackValue = "something"
         }
 
@@ -126,7 +126,7 @@ class BasicMockTests: XCTestCase {
     func testStub_returnAndDo() {
 
         var ret = ""
-        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg<Int>.any)).andReturn(closure: { _ in
+        mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any())).andReturn(closure: { _ in
             ret = ret + "a"
             return ret
         })
