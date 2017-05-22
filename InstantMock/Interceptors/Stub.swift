@@ -22,6 +22,9 @@ public class Stub: CallInterceptor {
     /// Closure to be called before returning
     fileprivate var closure: ((_ args: [Any?]) -> Void)?
 
+    /// Error to be thrown
+    fileprivate var error: Error?
+
     /// Flag indicating that the stub is configured to return something
     var returns: Bool {
         return self.hasReturnValue || self.returnValueClosure != nil
@@ -32,7 +35,7 @@ public class Stub: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall(_ args: [Any?]) -> Any? {
+    override func handleCall(_ args: [Any?]) throws -> Any? {
         var ret: Any?
 
         // capture args
@@ -42,6 +45,11 @@ public class Stub: CallInterceptor {
 
         // call closure if required
         if let closure = self.closure { closure(args) }
+
+        // throw error if required
+        if let error = self.error {
+            throw error
+        }
 
         // return value if one specified
         if self.hasReturnValue {
@@ -109,10 +117,18 @@ extension Stub {
     }
 
 
-    /** register closure to be called at the end */
+    /** Register closure to be called at the end */
     @discardableResult
     public func andDo(_ closure: @escaping (_ args: [Any?]) -> Void) -> Stub {
         self.closure = closure
+        return self
+    }
+
+
+    /** Register error to be thrown */
+    @discardableResult
+    public func andThrow(_ error: Error) -> Stub {
+        self.error = error
         return self
     }
 

@@ -67,7 +67,7 @@ class FooMock: MockDelegate, Foo {
 ```
 
 #### Return Values
-Return values are handled in different ways if optional or not.
+Return values are handled in different ways, if optional or not.
 
 Optional Value:
 ```Swift
@@ -77,7 +77,7 @@ func returnsOptional() -> Bool? {
 ```
 Non-Optional Value of Common Type, see [MockUsable](#mockusable):
 ```Swift
-func returnsMockUsable() -> Bool { // `Bool` implements `MockUsable`
+func returnsMockUsable() -> Bool { // `Bool` adopts `MockUsable`
     return mock.call()! // force unwrapping the return value
 }
 ```
@@ -85,6 +85,13 @@ Non-Optional Value of Custom Type:
 ```Swift
 func returnsCustom() -> CustomType {
     return mock.call() ?? CustomType() // make sure to return a `CustomType` instance
+}
+```
+#### Throwing
+For catching errors on throwing methods in mocks, just use `callThrowable` instead of `call`. For example:
+```Swift
+func baz() throws -> Bool {
+    return try mock.callThrowable()!
 }
 ```
 
@@ -133,11 +140,15 @@ This is done with `andReturn(closure: { _ in return … })` on a stub instance. 
 #### Calling a Function
 This is done with `andDo( { _ in … } )` on a stub instance.
 
+#### Throwing an Error
+This is done with `andThrow(…)` on a stub instance.
+
 ### Chaining
 Chaining several actions on the same stub is possible, given they don't confict. For example, it is possible to return a value and call another function, like in `andReturn(true).andDo({ _ in print("something") })`.
 
 *Rules:*
 * the last closure registered by `andDo` is called first
+* the last error registered by `andThrow` is thrown
 * the last return value registered by `andReturn` is returned
 * otherwise the last return value computation method, registered by `andReturn(closure:)`, is called
 

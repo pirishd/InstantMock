@@ -43,7 +43,7 @@ public class Expectation: CallInterceptor {
 
     /** Method is being called */
     @discardableResult
-    override func handleCall(_ args: [Any?]) -> Any? {
+    override func handleCall(_ args: [Any?]) throws -> Any? {
         self.numberOfCalls = self.numberOfCalls + 1
         return nil // don't care about return values
     }
