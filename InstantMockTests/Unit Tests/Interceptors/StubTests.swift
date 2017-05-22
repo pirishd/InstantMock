@@ -24,28 +24,40 @@ class StubTests: XCTestCase {
 
 
     func testHandleCall_nil() {
-        let ret = self.stub.handleCall([])
+        let ret = try! self.stub.handleCall([])
         XCTAssertNil(ret)
     }
 
 
     func testHandleCall_andReturn() {
         self.stub.andReturn(36)
-        let ret = self.stub.handleCall([])
+        let ret = try! self.stub.handleCall([])
         XCTAssertEqual(ret as! Int, 36)
+    }
+
+
+    func testReturns_andThrow() {
+        enum SomeError: Error {
+            case some
+        }
+        self.stub.andThrow(SomeError.some)
+
+        XCTAssertThrowsError(try self.stub.handleCall([])) { (error) -> Void in
+            XCTAssertEqual(error as? SomeError, SomeError.some)
+        }
     }
 
 
     func testHandleCall_andReturnClosure() {
         self.stub.andReturn(closure: { _ in return 12 })
-        let ret = self.stub.handleCall([])
+        let ret = try! self.stub.handleCall([])
         XCTAssertEqual(ret as! Int, 12)
     }
 
 
     func testHandleCall_andReturn_andReturnClosure() {
         self.stub.andReturn(closure: { _ in return 12 }).andReturn(36)
-        let ret = self.stub.handleCall([])
+        let ret = try! self.stub.handleCall([])
         XCTAssertEqual(ret as! Int, 36)
     }
 
@@ -55,7 +67,7 @@ class StubTests: XCTestCase {
         var something = ""
         self.stub.andDo { _ in something = "not_empty" }
 
-        _ = self.stub.handleCall([])
+        _ = try! self.stub.handleCall([])
         XCTAssertEqual(something, "not_empty")
     }
 
@@ -64,7 +76,7 @@ class StubTests: XCTestCase {
         var something = ""
         self.stub.andDo({ _ in something = "not_empty" }).andReturn(36)
 
-        let ret = self.stub.handleCall([])
+        let ret = try! self.stub.handleCall([])
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 36)
     }
@@ -74,7 +86,7 @@ class StubTests: XCTestCase {
         var something = ""
         self.stub.andDo({ _ in something = "not_empty" }).andReturn(closure: { _ in return 12 })
 
-        let ret = self.stub.handleCall([])
+        let ret = try! self.stub.handleCall([])
         XCTAssertEqual(something, "not_empty")
         XCTAssertEqual(ret as! Int, 12)
     }
@@ -85,7 +97,7 @@ class StubTests: XCTestCase {
         let argsConfig = ArgumentsConfiguration([captureMock])
         self.stub.configuration = CallConfiguration(for: "func", with: argsConfig)
 
-        _ = self.stub.handleCall(["Hello"])
+        _ = try! self.stub.handleCall(["Hello"])
         XCTAssertEqual(captureMock.value as! String, "Hello")
     }
 
