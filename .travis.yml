@@ -1,4 +1,4 @@
 language: swift
 osx_image: xcode8.3
 script:
-  - xcodebuild -scheme InstantMockTests -workspace InstantMock.xcworkspace -sdk iphonesimulator10.3 build test
+  - xcodebuild -scheme InstantMockTests -workspace InstantMock.xcworkspace -sdk iphonesimulator10.3 -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' build test
