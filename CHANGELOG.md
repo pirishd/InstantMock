@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 0.2.1
+
+* Add Travis for continous integration
+
+
 ## 0.2.0
 
 * Simplify syntax for `Arg.any()`
