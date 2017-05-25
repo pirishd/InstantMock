@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/pirishd/InstantMock", :tag => "#{s.version}" }
 
   # Source Code
-  s.source_files = "InstantMock/**/*.{h,m,swift}"
+  s.source_files = "Sources/**/*.{h,m,swift}"
   s.requires_arc = true
   s.ios.deployment_target = "9.0"
   s.osx.deployment_target = "10.10"
