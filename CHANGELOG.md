@@ -1,5 +1,11 @@
 # Changelog
 
+
+## 1.1.0
+
+* Add rejection of expectations with `mock.reject()`
+
+
 ## 1.0.0
 
 * Add support to Swift Package Manager
