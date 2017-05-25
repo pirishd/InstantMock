@@ -246,9 +246,19 @@ List of changes can be found [here](CHANGELOG.md).
 
 ## Installation
 ### Cocoapods
-*InstantMock* is available using [CocoaPods](http://cocoapods.org). Just add the following line to your Podfile:
+*InstantMock* is available using [CocoaPods](http://cocoapods.org). Just add the following line to your `Podfile`:
 ```
 pod 'InstantMock'
+```
+
+### Swift Package Manager
+*InstantMock* is available using Swift Package Manager. Just add the following line to your `Package.swift` file:
+```Swift
+let package = Package(
+    name: "example",
+    dependencies: [
+        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 1)
+    ])
 ```
 
 ## Inspiration
