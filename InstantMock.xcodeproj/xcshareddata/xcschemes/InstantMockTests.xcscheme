@@ -14,24 +14,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43817AAD1EBDE94100FB2BB1"
+               BlueprintIdentifier = "OBJ_26"
                BuildableName = "InstantMockTests.xctest"
                BlueprintName = "InstantMockTests"
                ReferencedContainer = "container:InstantMock.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE4739949724C733A54E4C82D71DEBE0"
-               BuildableName = "Pods_InstantMockTests.framework"
-               BlueprintName = "Pods-InstantMockTests"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,29 +26,19 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43817AAD1EBDE94100FB2BB1"
+               BlueprintIdentifier = "OBJ_26"
                BuildableName = "InstantMockTests.xctest"
                BlueprintName = "InstantMockTests"
                ReferencedContainer = "container:InstantMock.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43817AAD1EBDE94100FB2BB1"
-            BuildableName = "InstantMockTests.xctest"
-            BlueprintName = "InstantMockTests"
-            ReferencedContainer = "container:InstantMock.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -79,7 +55,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43817AAD1EBDE94100FB2BB1"
+            BlueprintIdentifier = "OBJ_26"
             BuildableName = "InstantMockTests.xctest"
             BlueprintName = "InstantMockTests"
             ReferencedContainer = "container:InstantMock.xcodeproj">
@@ -94,6 +70,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "OBJ_26"
+            BuildableName = "InstantMockTests.xctest"
+            BlueprintName = "InstantMockTests"
+            ReferencedContainer = "container:InstantMock.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

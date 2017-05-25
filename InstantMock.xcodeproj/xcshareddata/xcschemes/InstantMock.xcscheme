@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43817AA41EBDE94100FB2BB1"
+               BlueprintIdentifier = "OBJ_19"
                BuildableName = "InstantMock.framework"
                BlueprintName = "InstantMock"
                ReferencedContainer = "container:InstantMock.xcodeproj">
@@ -26,28 +26,20 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43817AAD1EBDE94100FB2BB1"
+               BlueprintIdentifier = "OBJ_26"
                BuildableName = "InstantMockTests.xctest"
                BlueprintName = "InstantMockTests"
                ReferencedContainer = "container:InstantMock.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43817AA41EBDE94100FB2BB1"
-            BuildableName = "InstantMock.framework"
-            BlueprintName = "InstantMock"
-            ReferencedContainer = "container:InstantMock.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43817AA41EBDE94100FB2BB1"
+            BlueprintIdentifier = "OBJ_19"
             BuildableName = "InstantMock.framework"
             BlueprintName = "InstantMock"
             ReferencedContainer = "container:InstantMock.xcodeproj">
@@ -79,15 +71,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43817AA41EBDE94100FB2BB1"
-            BuildableName = "InstantMock.framework"
-            BlueprintName = "InstantMock"
-            ReferencedContainer = "container:InstantMock.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
