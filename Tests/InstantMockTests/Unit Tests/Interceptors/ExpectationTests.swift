@@ -31,7 +31,11 @@ class ExpectationTests: XCTestCase {
         ("testReason_basic", testReason_basic),
         ("testReason_called", testReason_called),
         ("testReason_withExpectedNumberOfCalls", testReason_withExpectedNumberOfCalls),
-        ("testVerify", testVerify),
+        ("testReason_rejected_basic", testReason_rejected_basic),
+        ("testReason_rejected_notCalled", testReason_rejected_notCalled),
+        ("testReason_rejected_withExpectedNumberOfCalls", testReason_rejected_withExpectedNumberOfCalls),
+        ("testVerify_accepted", testVerify_accepted),
+        ("testVerify_rejected", testVerify_rejected),
     ]
 
 
@@ -117,7 +121,54 @@ class ExpectationTests: XCTestCase {
     }
 
 
-    func testVerify() {
+    func testReason_rejected_basic() {
+        let rejection = Expectation(withStub: Stub(), reject: true)
+        var reason = rejection.reason
+        XCTAssertNil(reason)
+
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        rejection.configuration = config
+
+        try! rejection.handleCall([])
+
+        reason = rejection.reason
+        XCTAssertEqual(reason, "Func called with unexpected args (none)")
+    }
+
+
+    func testReason_rejected_notCalled() {
+        let rejection = Expectation(withStub: Stub(), reject: true)
+        var reason = rejection.reason
+        XCTAssertNil(reason)
+
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        rejection.configuration = config
+
+        reason = rejection.reason
+        XCTAssertNil(reason)
+    }
+
+
+    func testReason_rejected_withExpectedNumberOfCalls() {
+        let rejection = Expectation(withStub: Stub(), reject: true)
+
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        rejection.configuration = config
+
+        rejection.call(Int.any, count: 2)
+
+        try! rejection.handleCall([])
+        var reason = rejection.reason
+        XCTAssertNil(reason)
+
+        // call a second time
+        try! rejection.handleCall([])
+        reason = rejection.reason
+        XCTAssertEqual(reason, "Func called a wrong number of times (2) with unexpected args (none)")
+    }
+
+
+    func testVerify_accepted() {
         let assertion = AssertionMock()
         let expectation = Expectation(withStub: Stub(), assertion: assertion)
         let config = CallConfiguration(for: "Func", with: self.argsConfig)
@@ -126,6 +177,22 @@ class ExpectationTests: XCTestCase {
         let file: StaticString = "file"
         expectation.verify(file: file, line: 28)
         XCTAssertEqual(assertion.description, "Func never called with expected args (none)")
+        XCTAssertEqual(assertion.file?.description, file.description)
+        XCTAssertEqual(assertion.line, 28)
+    }
+
+
+    func testVerify_rejected() {
+        let assertion = AssertionMock()
+        let rejection = Expectation(withStub: Stub(), reject: true, assertion: assertion)
+        let config = CallConfiguration(for: "Func", with: self.argsConfig)
+        rejection.configuration = config
+
+        try! rejection.handleCall([])
+
+        let file: StaticString = "file"
+        rejection.verify(file: file, line: 28)
+        XCTAssertEqual(assertion.description, "Func called with unexpected args (none)")
         XCTAssertEqual(assertion.file?.description, file.description)
         XCTAssertEqual(assertion.line, 28)
     }

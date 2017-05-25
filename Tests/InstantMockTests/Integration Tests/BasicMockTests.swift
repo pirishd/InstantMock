@@ -99,6 +99,32 @@ class BasicMockTests: XCTestCase {
     }
 
 
+    func testReject() {
+        mock.reject().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any()))
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        _ = mock.basic(arg1: "Hello", arg2: 2)
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+    }
+
+
+    func testReject_count() {
+        mock.reject().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any()), count: 2)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        _ = mock.basic(arg1: "Hello", arg2: 2)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        _ = mock.basic(arg1: "Hello", arg2: 3)
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+    }
+
+
     func testStub() {
         var callbackValue: String?
         mock.stub().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any())).andReturn("string").andDo { _ in
