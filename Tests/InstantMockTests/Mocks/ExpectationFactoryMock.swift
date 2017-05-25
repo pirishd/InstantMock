@@ -21,4 +21,8 @@ class ExpectationFactoryMock: ExpectationFactory {
         return Expectation(withStub: stub, assertion: assertionMock)
     }
 
+    func rejection(withStub stub: Stub) -> Expectation {
+        return Expectation(withStub: stub, reject: true, assertion: assertionMock)
+    }
+
 }

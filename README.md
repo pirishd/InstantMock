@@ -109,6 +109,9 @@ mock.expect().call(mock.bar(arg1: Arg.eq("hello"), arg2: Arg.any()))
 ```
 Here, we expect `bar` to be called with "hello" and any Int as arguments.
 
+##### Reject
+To make sure no call is being done with some arguments, use `reject()` instead of `expect()`.
+
 ##### Number of calls
 In addition, expectations can be set on the number of calls:
 ```Swift
@@ -258,7 +261,8 @@ let package = Package(
     name: "example",
     dependencies: [
         .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 1)
-    ])
+    ]
+)
 ```
 
 ## Inspiration
@@ -267,7 +271,7 @@ let package = Package(
 * Registration API: [SwiftMock](https://github.com/mflint/SwiftMock)
 
 ## Author
-Patrick Irlande - pirishd@yahoo.com
+Patrick Irlande - pirishd@icloud.com
 
 ## License
 *InstantMock* is available under the [MIT License](LICENSE).

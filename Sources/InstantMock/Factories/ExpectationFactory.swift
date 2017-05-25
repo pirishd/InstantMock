@@ -10,8 +10,11 @@
 /** Protocol for creating new `Expectation` instances */
 public protocol ExpectationFactory {
 
-    /// Create new `Expectation` instance with provided `Stub`
+    /// Create new `Expectation` instance that must be fulfilled, with provided `Stub`
     func expectation(withStub stub: Stub) -> Expectation
+
+    /// Create new `Expectation` instantce that must be rejected, with provided `Stub`
+    func rejection(withStub stub: Stub) -> Expectation
 }
 
 
@@ -23,6 +26,10 @@ class ExpectationFactoryImpl: ExpectationFactory {
 
     func expectation(withStub stub: Stub) -> Expectation {
         return Expectation(withStub: stub)
+    }
+
+    func rejection(withStub stub: Stub) -> Expectation {
+        return Expectation(withStub: stub, reject: true)
     }
 
 }

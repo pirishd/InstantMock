@@ -17,6 +17,9 @@ public class Expectation: CallInterceptor {
     /// Actual number of calls
     fileprivate var numberOfCalls: Int = 0
 
+    /// Expectation must be rejected
+    fileprivate var reject: Bool
+
     /// Stub instance
     fileprivate let stub: Stub
 
@@ -27,15 +30,16 @@ public class Expectation: CallInterceptor {
     // MARK: Initializers
 
     /** Initialize with provided stub */
-    convenience init(withStub stub: Stub) {
-        self.init(withStub: stub, assertion: AssertionImpl.instance)
+    convenience init(withStub stub: Stub, reject: Bool = false) {
+        self.init(withStub: stub, reject: reject, assertion: AssertionImpl.instance)
     }
 
 
     /** Initialize with provided stub and assertion (for dependency injection) */
-    public init(withStub stub: Stub, assertion: Assertion) {
+    public init(withStub stub: Stub, reject: Bool = false, assertion: Assertion) {
         self.stub = stub
         self.assertion = assertion
+        self.reject = reject
     }
 
 
@@ -80,6 +84,15 @@ extension Expectation {
 
     /// Reason for a failure, nil if expectation verified
     var reason: String? {
+        if self.reject {
+            return self.rejectedReason
+        }
+        return self.acceptedReason
+    }
+
+
+    /// Reason for an unfulfilled expectation
+    private var acceptedReason: String? {
         var value: String?
 
         if !self.verified, let configuration = self.configuration {
@@ -99,9 +112,32 @@ extension Expectation {
     }
 
 
+    /// Reason for an expectation that should have been rejected
+    private var rejectedReason: String? {
+        var value: String?
+
+        if self.verified, let configuration = self.configuration {
+            var details = configuration.function + " "
+
+            if let expected = self.expectedNumberOfCalls {
+                details = details + "called a wrong number of times (\(expected))"
+            } else {
+                details = details + "called"
+            }
+
+            details = details + " with unexpected args (\(configuration.args))"
+            value = details
+        }
+
+        return value
+    }
+
+
     /** Verify current expectation */
     func verify(file: StaticString?, line: UInt?) {
-        if self.verified {
+        let success = (!self.reject && self.verified) || (self.reject && !self.verified)
+
+        if success {
             self.assertion.success(file: file, line: line)
         } else {
             self.assertion.fail(self.reason, file: file, line: line)

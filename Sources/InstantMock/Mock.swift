@@ -28,6 +28,7 @@ public protocol MockExpectationFactory {
 
     /// Create new expectation for current instance
     func expect() -> Expectation
+    func reject() -> Expectation
 }
 
 
@@ -101,6 +102,24 @@ extension Mock: MockExpectationFactory {
 
         return expectation
     }
+
+
+    @discardableResult
+    public func reject() -> Expectation {
+
+        // flush all the argument configurations from the storage
+        ArgumentStorageImpl.instance.flush()
+
+        let stub = Stub()
+        let rejection = self.expectationFactory.rejection(withStub: stub)
+
+        // mark instances as being ready for registration
+        self.expectationBeingRegistered = rejection
+        self.stubBeingRegistered = stub
+
+        return rejection
+    }
+
 }
 
 
