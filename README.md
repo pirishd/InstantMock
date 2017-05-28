@@ -8,13 +8,13 @@
 
 [![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
 
-*InstantMock* aims at creating mocks easily in Swift 3, and to configure them with expectations or stubbed implementations.
+*InstantMock* aims at creating mocks easily in Swift 3, and configuring them with expectations or stubbed implementations.
 
 This project is in beta for now, feedbacks are welcome :)
 
 ## How to Create a Mock?
 
-*InstantMock* allows to create a single mock usable in many tests, for a protocol or a class.
+*InstantMock* allows to create a single mock that can be used in many tests, for a protocol or a class.
 
 ### For a Protocol
 
@@ -25,10 +25,10 @@ protocol Foo {
     func bar(arg1: String, arg2: Int) -> Bool
 }
 
-// MARK: Mock class inherits from `Mock` and adopts the `Foo` protocol: 
+// MARK: Mock class inherits from `Mock` and adopts the `Foo` protocol
 class FooMock: Mock, Foo {
 
-    // implement `bar`
+    // implement `bar` of the `Foo` protocol
     func bar(arg1: String, arg2: Int) -> Bool {
         return super.call(arg1, arg2)! // provide values to parent class
     }
@@ -45,7 +45,7 @@ class Foo {
     func bar(arg1: String, arg2: Int) -> Bool
 }
 
-// MARK: Mock class inherits from `Foo` and adopts the `MockDelegate` protocol: 
+// MARK: Mock class inherits from `Foo` and adopts the `MockDelegate` protocol 
 class FooMock: Foo, MockDelegate {
 
     // create `Mock` delegate instance
@@ -56,7 +56,7 @@ class FooMock: Foo, MockDelegate {
         return mock
     }
 
-    // implement `bar` of the `Baz` class
+    // implement `bar` of the `Foo` class
     override func bar(arg1: String, arg2: Int) -> Bool {
         return mock.call(arg1, arg2)! // provide values to the delegate
     }
@@ -79,7 +79,7 @@ Here, `call()` returns `nil` or `Void`.
 
 #### Non-Optional Return Value
 
-For some methods, mocks must return non-optional values. If a return value type adopts the [MockUsable](#mockusable) protocol (which is the case for the most common types like `Bool`, `Int`…), just force the unwrapping of the result to `call()`, like in the following example:
+For some methods, mocks must return non-optional values. If a return value type adopts the [MockUsable](#mockusable) protocol (which is the case for the most common types like `Bool`, `Int`…), just force unwrapping the result to `call()`, like in the following example:
 ```Swift
 func returnsMockUsable() -> Bool { // `Bool` adopts `MockUsable`
     return mock.call()! // force unwrapping
@@ -92,7 +92,7 @@ func returnsCustom() -> CustomType {
 }
 ```
 #### Throwing
-For catching errors on throwing methods in mocks, simply use `callThrowable` instead of `call`. For example:
+For catching errors on throwing methods, simply use `callThrowable()` instead of `call()`. For example:
 ```Swift
 func baz() throws -> Bool {
     return try mock.callThrowable()!
@@ -131,7 +131,7 @@ mock.expect().call(
 ### Verifications
 Verifying expectations and rejections is done this way:
 ```Swift
-// makes the test fail when any of the expectations or rejections set on `mock` is not verified
+// test fails when any of the expectations or rejections set on `mock` is not verified
 mock.verify()
 ```
 
@@ -146,7 +146,7 @@ let mock = FooMock()
 // create stubbed implementation of the `bar` method, which returns `true` when called
 // with "hello" for `arg1` and any value of the type of `arg2`
 mock.stub().call(
-    mock.bar(arg1: Arg.eq("hello"), arg2: Arg.eq(42))
+    mock.bar(arg1: Arg.eq("hello"), arg2: Arg.any())
 ).andReturn(true)
 ````
 
@@ -173,7 +173,7 @@ Rules:
 
 ## Argument Matching
 
-Expectations are verified only if arguments match what was registered. Same goes for calling stubbed implementations.
+Expectations are verified only if arguments match what is registered. Same goes for calling stubbed implementations.
 
 ### Precise Value
 Matching a precise value is done with `Arg.eq(…)`.
@@ -197,7 +197,7 @@ For example:
 let captor = ArgumentCaptor<String>()
 
 // create expectation on `mock`, that is verified when `bar` is called
-// with 42 for `arg2`. All the values for `arg1` are captured.
+// with 42 for `arg2`. All values for `arg1` are captured.
 mock.expect().call(mock.bar(arg1: captor.capture(), arg2: Arg.eq(42)))
 ...
 
