@@ -1,6 +1,6 @@
 # InstantMock
 
-![InstantMock](doc/images/logo.png?raw=true "InstantMock")
+![InstantMock](doc/images/logo.png?raw=true "InstantMock"){:height="50%" width="50%"}
 
 [![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
 
