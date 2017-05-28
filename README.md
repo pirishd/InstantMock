@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/pirishd/InstantMock/review/doc/doc/images/logo.png" width="212" />
+    <img src="https://raw.githubusercontent.com/pirishd/InstantMock/master/doc/images/logo.png" width="212" />
 </p>
 
 # InstantMock
