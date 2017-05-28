@@ -1,12 +1,12 @@
-# InstantMock
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/pirishd/InstantMock/review/doc/doc/images/logo.png" width="212" />
 </p>
 
-[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
+# InstantMock
 
 ## Create Mocks Easily in Swift 3
+
+[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
 
 *InstantMock* aims at creating mocks easily in Swift 3, and to configure them with expectations or stubbed implementations.
 
