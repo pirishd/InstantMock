@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 1.1.1
+
+* Review README, add a logo
+
+
 ## 1.1.0
 
 * Add rejection of expectations with `mock.reject()`
