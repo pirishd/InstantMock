@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 1.1.2
+
+* Fix logo path
+
+
 ## 1.1.1
 
 * Review README, add a logo
