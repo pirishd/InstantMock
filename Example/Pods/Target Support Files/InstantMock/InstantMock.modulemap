@@ -1,0 +1,6 @@
+framework module InstantMock {
+  umbrella header "InstantMock-umbrella.h"
+
+  export *
+  module * { export * }
+}
