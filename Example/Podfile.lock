@@ -1,5 +1,5 @@
 PODS:
-  - InstantMock (1.1.2)
+  - InstantMock (1.1.3)
 
 DEPENDENCIES:
   - InstantMock (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  InstantMock: 3904c82a28a1c2fcb3106bfc74f62fcb2e5645cb
+  InstantMock: 3c4a178603f2cdd136f0d57c2c57185810fe09d1
 
 PODFILE CHECKSUM: f63493d391ce913ddc268f817adaf4b43688e649
 
