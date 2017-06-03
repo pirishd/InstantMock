@@ -53,6 +53,7 @@
 		43D6B6711EE2CA0F005785D7 /* SetMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6B66A1EE2CA0F005785D7 /* SetMockUsableTests.swift */; };
 		43D6B6721EE2CA0F005785D7 /* StringMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6B66B1EE2CA0F005785D7 /* StringMockUsableTests.swift */; };
 		43D6B6751EE2CA25005785D7 /* VerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6B6741EE2CA25005785D7 /* VerifierTests.swift */; };
+		43D6B6801EE2D3AD005785D7 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 43D6B67F1EE2D3AD005785D7 /* CHANGELOG.md */; };
 		E483A23A0DBC78B67EFC16B1 /* Pods_InstantMock_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C164FDF63354884F239629 /* Pods_InstantMock_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		43D6B66A1EE2CA0F005785D7 /* SetMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetMockUsableTests.swift; path = "../../Tests/InstantMockTests/Unit Tests/MockUsable/SetMockUsableTests.swift"; sourceTree = "<group>"; };
 		43D6B66B1EE2CA0F005785D7 /* StringMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringMockUsableTests.swift; path = "../../Tests/InstantMockTests/Unit Tests/MockUsable/StringMockUsableTests.swift"; sourceTree = "<group>"; };
 		43D6B6741EE2CA25005785D7 /* VerifierTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifierTests.swift; path = "../../Tests/InstantMockTests/Unit Tests/Verifications/VerifierTests.swift"; sourceTree = "<group>"; };
+		43D6B67F1EE2D3AD005785D7 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		46C1FF58A2334B7665BF0A8C /* Pods-InstantMock_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstantMock_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstantMock_Tests/Pods-InstantMock_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		56726C0DE3E6E34E9117ED72 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5DDE618DBFD9ED7D3CD280CA /* Pods-InstantMock_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstantMock_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstantMock_Tests/Pods-InstantMock_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				A537F040E1F8B3B061F86394 /* InstantMock.podspec */,
 				56726C0DE3E6E34E9117ED72 /* README.md */,
+				43D6B67F1EE2D3AD005785D7 /* CHANGELOG.md */,
 				BE071E4ACC4BF3B4001871E2 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -463,6 +466,7 @@
 				43D6B66C1EE2CA0F005785D7 /* ArrayMockUsableTests.swift in Sources */,
 				43D6B6171EE2C959005785D7 /* CaptureMockTests.swift in Sources */,
 				43D6B6711EE2CA0F005785D7 /* SetMockUsableTests.swift in Sources */,
+				43D6B6801EE2D3AD005785D7 /* CHANGELOG.md in Sources */,
 				43D6B66F1EE2CA0F005785D7 /* DoubleMockUsableTests.swift in Sources */,
 				43D6B6631EE2C9F7005785D7 /* CallConfigurationTests.swift in Sources */,
 				43D6B6321EE2C96D005785D7 /* ExpectationFactoryMock.swift in Sources */,
