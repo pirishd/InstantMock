@@ -1,0 +1,5 @@
+use_frameworks!
+platform :ios, '9.0'
+target 'InstantMock_Tests' do
+  pod 'InstantMock', :path => '../'
+end

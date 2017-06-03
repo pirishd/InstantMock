@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   # Spec Metadata
   s.name         = "InstantMock"
-  s.version      = "1.1.2"
+  s.version      = "1.1.3"
   s.summary      = "InstantMock makes it easy to create and use mocks in Swift 3"
 
   # Description used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
   # Author Metadata
-  s.author       = { "Patrick Irlande (pirishd)" => "pirishd@yahoo.com" }
+  s.author       = { "Patrick Irlande (pirishd)" => "pirishd@icloud.com" }
 
   # Source Location
   s.source       = { :git => "https://github.com/pirishd/InstantMock", :tag => "#{s.version}" }
