@@ -1,0 +1,16 @@
+PODS:
+  - InstantMock (1.1.3)
+
+DEPENDENCIES:
+  - InstantMock (from `../`)
+
+EXTERNAL SOURCES:
+  InstantMock:
+    :path: ../
+
+SPEC CHECKSUMS:
+  InstantMock: 3c4a178603f2cdd136f0d57c2c57185810fe09d1
+
+PODFILE CHECKSUM: f63493d391ce913ddc268f817adaf4b43688e649
+
+COCOAPODS: 1.2.1

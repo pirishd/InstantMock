@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 1.1.3
+
+* Review project structure to make sure Cocoapods finds tests
+
+
 ## 1.1.2
 
 * Fix logo path

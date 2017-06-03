@@ -6,7 +6,7 @@
 
 ## Create Mocks Easily in Swift 3
 
-[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
+[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master) [![Version](https://img.shields.io/cocoapods/v/InstantMock.svg?style=flat)](http://cocoapods.org/pods/InstantMock) [![License](https://img.shields.io/cocoapods/l/InstantMock.svg?style=flat)](http://cocoapods.org/pods/InstantMock)
 
 *InstantMock* aims at creating mocks easily in Swift 3, and configuring them with expectations or stubbed implementations.
 
