@@ -6,11 +6,11 @@
 
 ## Create Mocks Easily in Swift 3
 
-[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master) [![Version](https://img.shields.io/cocoapods/v/InstantMock.svg?style=flat)](http://cocoapods.org/pods/InstantMock) [![License](https://img.shields.io/cocoapods/l/InstantMock.svg?style=flat)](http://cocoapods.org/pods/InstantMock)
+[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
 
 *InstantMock* aims at creating mocks easily in Swift 3, and configuring them with expectations or stubbed implementations.
 
-This project is in beta for now, feedbacks are welcome :)
+For examples, see `InstantMockExample.playground` in `Example/InstantMock.xcworkspace`.
 
 ## How to Create a Mock?
 
