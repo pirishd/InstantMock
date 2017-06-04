@@ -58,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		436CE5761EE346CA007D1847 /* InstantMockExample.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = InstantMockExample.playground; sourceTree = "<group>"; };
 		43D6B60F1EE2C959005785D7 /* BasicMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicMockTests.swift; path = "../../Tests/InstantMockTests/Integration Tests/BasicMockTests.swift"; sourceTree = "<group>"; };
 		43D6B6101EE2C959005785D7 /* CaptureMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaptureMockTests.swift; path = "../../Tests/InstantMockTests/Integration Tests/CaptureMockTests.swift"; sourceTree = "<group>"; };
 		43D6B6111EE2C959005785D7 /* ClosureMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosureMockTests.swift; path = "../../Tests/InstantMockTests/Integration Tests/ClosureMockTests.swift"; sourceTree = "<group>"; };
@@ -278,6 +279,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				436CE5761EE346CA007D1847 /* InstantMockExample.playground */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
