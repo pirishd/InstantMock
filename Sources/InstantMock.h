@@ -6,7 +6,7 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import Foundation;
 
 //! Project version number for InstantMock.
 FOUNDATION_EXPORT double InstantMockVersionNumber;
