@@ -544,9 +544,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		43D363F41EE73C96007C90CC /* InstantMock */ = {
+		43D363F41EE73C96007C90CC /* InstantMock iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43D364091EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMock" */;
+			buildConfigurationList = 43D364091EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMock iOS" */;
 			buildPhases = (
 				43D363F01EE73C96007C90CC /* Sources */,
 				43D363F11EE73C96007C90CC /* Frameworks */,
@@ -557,7 +557,7 @@
 			);
 			dependencies = (
 			);
-			name = InstantMock;
+			name = "InstantMock iOS";
 			productName = InstantMock;
 			productReference = 43D363F51EE73C96007C90CC /* InstantMock.framework */;
 			productType = "com.apple.product-type.framework";
@@ -613,7 +613,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43D363F41EE73C96007C90CC /* InstantMock */,
+				43D363F41EE73C96007C90CC /* InstantMock iOS */,
 				43D363FD1EE73C96007C90CC /* InstantMockTests */,
 			);
 		};
@@ -739,7 +739,7 @@
 /* Begin PBXTargetDependency section */
 		43D364011EE73C96007C90CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43D363F41EE73C96007C90CC /* InstantMock */;
+			target = 43D363F41EE73C96007C90CC /* InstantMock iOS */;
 			targetProxy = 43D364001EE73C96007C90CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -860,7 +860,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = InstantMock;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -881,7 +881,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = InstantMock;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -923,7 +923,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43D364091EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMock" */ = {
+		43D364091EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMock iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43D3640A1EE73C96007C90CC /* Debug */,

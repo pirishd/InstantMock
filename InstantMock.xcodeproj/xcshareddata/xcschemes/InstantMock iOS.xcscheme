@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43D363F41EE73C96007C90CC"
-               BuildableName = "InstantMock.framework"
-               BlueprintName = "InstantMock"
+               BuildableName = "InstantMock iOS.framework"
+               BlueprintName = "InstantMock iOS"
                ReferencedContainer = "container:InstantMock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43D363F41EE73C96007C90CC"
-            BuildableName = "InstantMock.framework"
-            BlueprintName = "InstantMock"
+            BuildableName = "InstantMock iOS.framework"
+            BlueprintName = "InstantMock iOS"
             ReferencedContainer = "container:InstantMock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43D363F41EE73C96007C90CC"
-            BuildableName = "InstantMock.framework"
-            BlueprintName = "InstantMock"
+            BuildableName = "InstantMock iOS.framework"
+            BlueprintName = "InstantMock iOS"
             ReferencedContainer = "container:InstantMock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,8 +84,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43D363F41EE73C96007C90CC"
-            BuildableName = "InstantMock.framework"
-            BlueprintName = "InstantMock"
+            BuildableName = "InstantMock iOS.framework"
+            BlueprintName = "InstantMock iOS"
             ReferencedContainer = "container:InstantMock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
