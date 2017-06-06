@@ -106,7 +106,7 @@
 
 /* Begin PBXFileReference section */
 		43D363F51EE73C96007C90CC /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43D363FE1EE73C96007C90CC /* InstantMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstantMockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43D363FE1EE73C96007C90CC /* InstantMockTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "InstantMockTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E6EDD81EE73DAA00FFC9E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
 		43E6EDD91EE73DAA00FFC9E0 /* InstantMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstantMock.h; path = Sources/InstantMock.h; sourceTree = SOURCE_ROOT; };
 		43E6EDDC1EE73DB300FFC9E0 /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mock.swift; path = Sources/InstantMock/Mock.swift; sourceTree = SOURCE_ROOT; };
@@ -225,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				43D363F51EE73C96007C90CC /* InstantMock.framework */,
-				43D363FE1EE73C96007C90CC /* InstantMockTests.xctest */,
+				43D363FE1EE73C96007C90CC /* InstantMockTests iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -562,9 +562,9 @@
 			productReference = 43D363F51EE73C96007C90CC /* InstantMock.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		43D363FD1EE73C96007C90CC /* InstantMockTests */ = {
+		43D363FD1EE73C96007C90CC /* InstantMockTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43D3640C1EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMockTests" */;
+			buildConfigurationList = 43D3640C1EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMockTests iOS" */;
 			buildPhases = (
 				43D363FA1EE73C96007C90CC /* Sources */,
 				43D363FB1EE73C96007C90CC /* Frameworks */,
@@ -575,9 +575,9 @@
 			dependencies = (
 				43D364011EE73C96007C90CC /* PBXTargetDependency */,
 			);
-			name = InstantMockTests;
+			name = "InstantMockTests iOS";
 			productName = InstantMockTests;
-			productReference = 43D363FE1EE73C96007C90CC /* InstantMockTests.xctest */;
+			productReference = 43D363FE1EE73C96007C90CC /* InstantMockTests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -614,7 +614,7 @@
 			projectRoot = "";
 			targets = (
 				43D363F41EE73C96007C90CC /* InstantMock iOS */,
-				43D363FD1EE73C96007C90CC /* InstantMockTests */,
+				43D363FD1EE73C96007C90CC /* InstantMockTests iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -932,7 +932,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43D3640C1EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMockTests" */ = {
+		43D3640C1EE73C96007C90CC /* Build configuration list for PBXNativeTarget "InstantMockTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43D3640D1EE73C96007C90CC /* Debug */,

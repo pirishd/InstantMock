@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43D363FD1EE73C96007C90CC"
-               BuildableName = "InstantMockTests.xctest"
-               BlueprintName = "InstantMockTests"
+               BuildableName = "InstantMockTests iOS.xctest"
+               BlueprintName = "InstantMockTests iOS"
                ReferencedContainer = "container:InstantMock.xcodeproj">
             </BuildableReference>
          </TestableReference>
