@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 1.1.5
+
+* Simplify project structure
+
+
 ## 1.1.4
 
 * Add playground sample

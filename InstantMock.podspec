@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   # Spec Metadata
   s.name         = "InstantMock"
-  s.version      = "1.1.4"
+  s.version      = "1.1.5"
   s.summary      = "InstantMock makes it easy to create and use mocks in Swift 3"
 
   # Description used to generate tags and improve search results.
@@ -27,7 +27,8 @@ Pod::Spec.new do |s|
   s.source_files = "Sources/**/*.{h,m,swift}"
   s.requires_arc = true
   s.ios.deployment_target = "9.0"
-  # s.osx.deployment_target = "10.10" # FIXME: disable osx deployment for now
+  s.osx.deployment_target = "10.10"
+  s.tvos.deployment_target = '9.0'
 
   # Project Linking
   s.frameworks   = 'XCTest'
