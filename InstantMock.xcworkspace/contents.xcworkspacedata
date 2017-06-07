@@ -5,6 +5,6 @@
       location = "group:InstantMock.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/pat/Desktop/stuff/InstantMock/Example/Example.playground">
+      location = "group:Example.playground">
    </FileRef>
 </Workspace>
