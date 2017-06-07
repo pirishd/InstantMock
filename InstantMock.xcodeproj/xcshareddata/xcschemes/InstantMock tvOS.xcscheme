@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "InstantMock_Example.app"
-               BlueprintName = "InstantMock_Example"
-               ReferencedContainer = "container:InstantMock.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "InstantMock_Tests.xctest"
-               BlueprintName = "InstantMock_Tests"
+               BlueprintIdentifier = "43E6EF6F1EE74E8400FFC9E0"
+               BuildableName = "InstantMock.framework"
+               BlueprintName = "InstantMock tvOS"
                ReferencedContainer = "container:InstantMock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "InstantMock_Tests.xctest"
-               BlueprintName = "InstantMock_Tests"
+               BlueprintIdentifier = "43E6EF771EE74E8400FFC9E0"
+               BuildableName = "InstantMockTests tvOS.xctest"
+               BlueprintName = "InstantMockTests tvOS"
                ReferencedContainer = "container:InstantMock.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "InstantMock_Example.app"
-            BlueprintName = "InstantMock_Example"
+            BlueprintIdentifier = "43E6EF6F1EE74E8400FFC9E0"
+            BuildableName = "InstantMock.framework"
+            BlueprintName = "InstantMock tvOS"
             ReferencedContainer = "container:InstantMock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,16 +62,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "InstantMock_Example.app"
-            BlueprintName = "InstantMock_Example"
+            BlueprintIdentifier = "43E6EF6F1EE74E8400FFC9E0"
+            BuildableName = "InstantMock.framework"
+            BlueprintName = "InstantMock tvOS"
             ReferencedContainer = "container:InstantMock.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -95,16 +80,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "InstantMock_Example.app"
-            BlueprintName = "InstantMock_Example"
+            BlueprintIdentifier = "43E6EF6F1EE74E8400FFC9E0"
+            BuildableName = "InstantMock.framework"
+            BlueprintName = "InstantMock tvOS"
             ReferencedContainer = "container:InstantMock.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
