@@ -99,6 +99,14 @@ class BasicMockTests: XCTestCase {
     }
 
 
+    func testExpect_count_zero() {
+        mock.expect().call(mock.basic(arg1: Arg.eq("Hello2"), arg2: Arg.any()), count: 0)
+        _ = mock.basic(arg1: "Hello", arg2: 3)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
     func testReject() {
         mock.reject().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any()))
         mock.verify()
