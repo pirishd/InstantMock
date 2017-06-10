@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.author       = { "Patrick Irlande (pirishd)" => "pirishd@icloud.com" }
 
   # Source Location
-  s.source       = { :git => "https://github.com/pirishd/InstantMock", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/pirishd/InstantMock.git", :tag => "#{s.version}" }
 
   # Source Code
   s.source_files = "Sources/**/*.{h,m,swift}"
