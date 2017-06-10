@@ -135,7 +135,7 @@ Verifying expectations and rejections is done this way:
 mock.verify()
 ```
 
-## How to Set Stubs?
+## How to Stub Calls?
 
 Stubs aim at performing actions when a function is called with some arguments. They are set using a syntax like in the following example:
 
