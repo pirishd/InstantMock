@@ -3,7 +3,7 @@
 //  InstantMock
 //
 //  Created by Patrick on 20/05/2017.
-//  Copyright © 2017 pirishd. All rights reserved.
+//  Copyright 2017 pirishd. All rights reserved.
 //
 
 import InstantMock
