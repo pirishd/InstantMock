@@ -70,28 +70,28 @@ class VehiculeMock: Mock, Vehicule {
 
 /// Let's go to holidays!
 
-// Jean is going first
-let jeanVehiculeMock = VehiculeMock()
-let jean = Traveler(name: "Jean", vehicule: jeanVehiculeMock)
+// James is going first
+let jamesVehiculeMock = VehiculeMock()
+let james = Traveler(name: "James", vehicule: jamesVehiculeMock)
 
-// Expect Jean's vehicule to start
-jeanVehiculeMock.expect().call(jeanVehiculeMock.starts())
+// Expect James' vehicule to start
+jamesVehiculeMock.expect().call(jamesVehiculeMock.starts())
 
-// Unfortunately, specify that Jean's vehicule won't go to destination
-jeanVehiculeMock.stub().call(
-    jeanVehiculeMock.goes(to: Arg.any(), numberOfHalts: Arg.eq(2))
+// Unfortunately, specify that James' vehicule won't go to destination
+jamesVehiculeMock.stub().call(
+    jamesVehiculeMock.goes(to: Arg.any(), numberOfHalts: Arg.eq(2))
 ).andReturn(false)
 
-// So, don't expect Jean to stop the vehicule when arriving
-jeanVehiculeMock.reject().call(jeanVehiculeMock.stops(onStop: Arg.closure()))
+// So, don't expect James to stop the vehicule when arriving
+jamesVehiculeMock.reject().call(jamesVehiculeMock.stops(onStop: Arg.closure()))
 
 
-// Let's test Jean's travel!
-jean.travel(to: "Paris")
+// Let's test James' travel!
+james.travel(to: "Paris")
 
 
 // Verify expectations
-jeanVehiculeMock.verify()
+jamesVehiculeMock.verify()
 
 
 

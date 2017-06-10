@@ -3,7 +3,7 @@
 //  InstantMock
 //
 //  Created by Patrick on 06/05/2017.
-//  Copyright © 2017 pirishd. All rights reserved.
+//  Copyright 2017 pirishd. All rights reserved.
 //
 
 import XCTest
@@ -93,6 +93,14 @@ class BasicMockTests: XCTestCase {
         mock.verify()
         XCTAssertFalse(self.assertionMock.succeeded)
 
+        _ = mock.basic(arg1: "Hello", arg2: 3)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpect_count_zero() {
+        mock.expect().call(mock.basic(arg1: Arg.eq("Hello2"), arg2: Arg.any()), count: 0)
         _ = mock.basic(arg1: "Hello", arg2: 3)
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)

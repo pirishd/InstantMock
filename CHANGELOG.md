@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 1.1.6
+
+* Few enhancements in doc, tests and build
+
+
 ## 1.1.5
 
 * Simplify project structure

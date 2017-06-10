@@ -3,9 +3,8 @@
 //  InstantMock
 //
 //  Created by Patrick on 08/05/2017.
-//  Copyright © 2017 pirishd. All rights reserved.
+//  Copyright 2017 pirishd. All rights reserved.
 //
-
 
 import XCTest
 @testable import InstantMock
