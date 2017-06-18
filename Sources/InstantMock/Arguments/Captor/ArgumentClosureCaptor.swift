@@ -8,7 +8,7 @@
 
 
 /** This class enables to capture arguments of type closure */
-public class ArgumentClosureCaptor<T> {
+/* SW4 public class ArgumentClosureCaptor<T> {
 
     /// Argument that captures values
     fileprivate var arg: ArgumentCapture?
@@ -63,3 +63,4 @@ extension ArgumentClosureCaptor: ArgumentCaptorValues {
     }
 
 }
+*/

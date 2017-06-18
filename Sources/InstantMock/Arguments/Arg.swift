@@ -50,7 +50,7 @@ public class Arg<T> {
     // MARK: Arguments matching a condition
 
     /** Register a closure to be verified, with mandatory type */
-    public static func verify(_ condition: @escaping (T) -> Bool) -> T {
+ /* SW 4   public static func verify(_ condition: @escaping (T) -> Bool) -> T {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.verify(condition, argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
@@ -88,13 +88,13 @@ public class Arg<T> {
 
         // return default nil value
         return nil
-    }
+    }*/
 
 
     // MARK: Arguments matching a closure
 
     /** Register a closure */
-    public static func closure<Args, Ret>() -> T where T == (Args) -> Ret {
+   /* SW4 public static func closure<Args, Ret>() -> T where T == (Args) -> Ret {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
@@ -111,7 +111,7 @@ public class Arg<T> {
 
         // return default value
         return DefaultClosureHandler.it()
-    }
+    }*/
 }
 
 

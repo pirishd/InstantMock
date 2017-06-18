@@ -16,7 +16,7 @@ public protocol ArgumentVerifyMandatoryTyped: ArgumentVerify {
 
 
 /** Main implementation of the configuration of an argument that must verify a precise condition */
-class ArgumentVerifyMandatoryImpl<T>: ArgumentVerifyMandatoryTyped {
+/* SW4 class ArgumentVerifyMandatoryImpl<T>: ArgumentVerifyMandatoryTyped {
 
     /// Condition that must be verified
     let condition: ((T) -> Bool)
@@ -54,4 +54,4 @@ extension ArgumentVerifyMandatoryImpl: CustomStringConvertible {
         return "conditioned<\(type(of: self.condition))>"
     }
 
-}
+}*/
