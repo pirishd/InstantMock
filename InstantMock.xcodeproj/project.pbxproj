@@ -902,11 +902,12 @@
 				TargetAttributes = {
 					43D363F41EE73C96007C90CC = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					43D363FD1EE73C96007C90CC = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					43E6EECA1EE749B700FFC9E0 = {
@@ -1427,7 +1428,8 @@
 				PRODUCT_NAME = InstantMock;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1447,7 +1449,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1459,7 +1462,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1471,7 +1475,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
