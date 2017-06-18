@@ -15,7 +15,7 @@ public protocol ArgumentAny: Argument {}
 class ArgumentAnyImpl: ArgumentAny {
 
     /// Type description for the arg
-    fileprivate let typeDescription: String
+    private let typeDescription: String
 
 
     /** Initialize with given type description */

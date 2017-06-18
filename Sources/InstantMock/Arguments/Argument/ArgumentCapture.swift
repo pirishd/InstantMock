@@ -20,10 +20,10 @@ class ArgumentCaptureImpl<T>: ArgumentCapture  {
 
 
     /// Type description for the arg
-    fileprivate let typeDescription: String
+    private let typeDescription: String
 
     /// Inner captured values
-    fileprivate var values = [T?]()
+    private var values = [T?]()
 
     /// Last captured value
     var value: Any? {

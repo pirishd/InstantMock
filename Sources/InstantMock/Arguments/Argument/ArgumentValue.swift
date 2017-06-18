@@ -26,7 +26,7 @@ class ArgumentValueImpl<T>: ArgumentValueTyped {
     let value: T?
 
     /// Verifier to be used for the match
-    fileprivate let verifier: Verifier
+    private let verifier: Verifier
 
 
     // MARK: Initializers

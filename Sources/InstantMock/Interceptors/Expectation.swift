@@ -12,19 +12,19 @@ public class Expectation: CallInterceptor {
 
 
     /// Expected number of calls
-    fileprivate var expectedNumberOfCalls: Int?
+    private var expectedNumberOfCalls: Int?
 
     /// Actual number of calls
-    fileprivate var numberOfCalls: Int = 0
+    private var numberOfCalls: Int = 0
 
     /// Expectation must be rejected
-    fileprivate var reject: Bool
+    private var reject: Bool
 
     /// Stub instance
-    fileprivate let stub: Stub
+    private let stub: Stub
 
     /// Assertion
-    fileprivate let assertion: Assertion
+    private let assertion: Assertion
 
 
     // MARK: Initializers
