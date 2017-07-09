@@ -8,7 +8,7 @@
 
 import InstantMock
 
-
+/* SW 4
 class ArgumentFactoryMock<T>: ArgumentFactory {
 
     var argumentValue: ArgumentValue?
@@ -61,3 +61,4 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
     }
 
 }
+*/

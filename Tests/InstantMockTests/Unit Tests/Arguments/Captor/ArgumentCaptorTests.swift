@@ -10,7 +10,7 @@
 import XCTest
 @testable import InstantMock
 
-
+/* SW 4
 class ArgumentCaptorTests: XCTestCase {
 
     private var storageMock: ArgumentStorageMock!
@@ -69,3 +69,4 @@ class ArgumentCaptorTests: XCTestCase {
     }
 
 }
+*/

@@ -32,7 +32,7 @@ class ClosureMock: Mock, ClosureProtocol {
 
 }
 
-
+/* SW 4
 class ClosureMockTests: XCTestCase {
 
     private var mock: ClosureMock!
@@ -101,5 +101,5 @@ class ClosureMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
-}
+} */
 

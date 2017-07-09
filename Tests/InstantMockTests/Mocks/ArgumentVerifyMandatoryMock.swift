@@ -8,7 +8,7 @@
 
 import InstantMock
 
-
+/* SW 4
 class ArgumentVerifyMandatoryMock<T>: ArgumentVerifyMandatoryTyped {
 
     var condition: (T) -> Bool
@@ -24,3 +24,4 @@ class ArgumentVerifyMandatoryMock<T>: ArgumentVerifyMandatoryTyped {
     }
     
 }
+*/

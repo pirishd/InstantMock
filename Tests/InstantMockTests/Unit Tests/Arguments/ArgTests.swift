@@ -13,7 +13,7 @@ import XCTest
 
 class DummyArg {}
 
-
+/* SW 4
 class ArgTests: XCTestCase {
 
     private var argStorage: ArgumentStorageMock!
@@ -140,3 +140,4 @@ class ArgTests: XCTestCase {
     }
 
 }
+*/

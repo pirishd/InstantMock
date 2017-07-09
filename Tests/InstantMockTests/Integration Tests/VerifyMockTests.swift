@@ -29,7 +29,7 @@ class VerifyMock: Mock, VerifyProtocol {
 }
 
 
-
+/* SW 4
 class VerifyMockTests: XCTestCase {
 
     private var mock: VerifyMock!
@@ -96,3 +96,4 @@ class VerifyMockTests: XCTestCase {
     }
 
 }
+*/

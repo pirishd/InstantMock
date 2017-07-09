@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentVerifyMandatoryTests: XCTestCase {
+/* SW 4 class ArgumentVerifyMandatoryTests: XCTestCase {
 
     private var arg: ArgumentVerifyMandatoryImpl<String>!
 
@@ -44,4 +44,4 @@ class ArgumentVerifyMandatoryTests: XCTestCase {
         XCTAssertTrue(match)
     }
 
-}
+} */

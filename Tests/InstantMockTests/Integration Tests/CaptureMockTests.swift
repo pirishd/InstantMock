@@ -31,7 +31,7 @@ class CaptureMock: Mock, CaptureProtocol {
 }
 
 
-
+/* SW 4
 class CaptureMockTests: XCTestCase {
 
     private var mock: CaptureMock!
@@ -96,3 +96,4 @@ class CaptureMockTests: XCTestCase {
     }
 
 }
+*/
