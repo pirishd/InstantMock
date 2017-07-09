@@ -40,4 +40,11 @@ class DefaultClosureHandler {
         return closure
     }
 
+
+    /** Provide a default closure with provided signature (5 args) */
+    public static func it<Arg1, Arg2, Arg3, Arg4, Arg5, Ret>() -> (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret {
+        let closure: (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret = { _, _, _, _, _ in return Void() as! Ret }
+        return closure
+    }
+
 }
