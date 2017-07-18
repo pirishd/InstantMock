@@ -20,8 +20,8 @@ class ArgumentsConfigurationTests: XCTestCase {
         ("testDescription_empty", testDescription_empty),
         ("testDescription_oneValue", testDescription_oneValue),
         ("testDescription_severalValues", testDescription_severalValues),
-        /* SW 4 ("testEquality", testEquality),
-        ("testGreaterThan", testGreaterThan), */
+        ("testEquality", testEquality),
+        ("testGreaterThan", testGreaterThan),
     ]
 
 
@@ -48,7 +48,7 @@ class ArgumentsConfigurationTests: XCTestCase {
         XCTAssertEqual(ret, "argument_value_mock, argument_any_mock")
     }
 
-/* SW 4
+
     func testEquality() {
         let args1 = ArgumentsConfiguration([ArgumentValueMock(12), ArgumentVerifyMandatoryMock<String>({str in true})])
         XCTAssertEqual(args1, args1)
@@ -84,5 +84,5 @@ class ArgumentsConfigurationTests: XCTestCase {
         args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({str in false}), ArgumentAnyMock()])
         XCTAssertGreaterThan(args1, args2)
     }
-*/
+
 }

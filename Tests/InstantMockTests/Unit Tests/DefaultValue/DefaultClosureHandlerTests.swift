@@ -21,6 +21,7 @@ class DefaultClosureHandlerTests: XCTestCase {
         ("testIt_fiveArgs", testIt_fiveArgs),
     ]
 
+
     func testIt_noArgs() {
         let closure = DefaultClosureHandler.it() as () -> Int
         XCTAssertNotNil(closure)

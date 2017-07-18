@@ -28,7 +28,7 @@ public class ArgumentCaptor<T> {
 extension ArgumentCaptor {
 
     /** Capture an argument of expected type */
-    public func capture() -> T {
+   /* SW 4 public func capture() -> T {
         let factory = ArgumentFactoryImpl<T>()
         return self.capture(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
@@ -48,7 +48,7 @@ extension ArgumentCaptor {
             fatalError("Unexpected type, only `MockUsable` types can be used with `captors`")
         }
         return ret
-    }
+    } */
 
 }
 

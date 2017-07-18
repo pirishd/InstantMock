@@ -50,7 +50,7 @@ public class Arg<T> {
     // MARK: Arguments matching a condition
 
     /** Register a closure to be verified, with mandatory type */
- /* SW 4   public static func verify(_ condition: @escaping (T) -> Bool) -> T {
+    public static func verify(_ condition: @escaping (T) -> Bool) -> T {
         let factory = ArgumentFactoryImpl<T>()
         return Arg.verify(condition, argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
@@ -88,30 +88,8 @@ public class Arg<T> {
 
         // return default nil value
         return nil
-    }*/
-
-
-    // MARK: Arguments matching a closure
-
-    /** Register a closure */
-   /* SW4 public static func closure<Args, Ret>() -> T where T == (Args) -> Ret {
-        let factory = ArgumentFactoryImpl<T>()
-        return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
     }
 
-
-    /** Register a closure (for dependency injection) */
-    static func closure<Args, Ret, F>(argFactory: F, argStorage: ArgumentStorage) -> T
-        where T == (Args) -> Ret, F: ArgumentFactory, F.Value == T {
-
-        // create and store instance
-        let typeDescription = "\(T.self)"
-        let arg = argFactory.argumentClosure(typeDescription)
-        argStorage.store(arg)
-
-        // return default value
-        return DefaultClosureHandler.it()
-    }*/
 }
 
 

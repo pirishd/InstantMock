@@ -8,16 +8,17 @@
 
 import InstantMock
 
-/* SW 4
+
 class ArgumentFactoryMock<T>: ArgumentFactory {
+
 
     var argumentValue: ArgumentValue?
     var argumentAny: ArgumentAny?
     var argumentClosure: ArgumentClosure?
     var argumentVerify: ArgumentVerify?
     var argumentVerifyOpt: ArgumentVerify?
-    var argumentCapture: ArgumentCapture?
-
+    /* SW 4 var argumentCapture: ArgumentCapture?
+     */
 
     func argument(value: T?) -> ArgumentValue {
         let argValue = ArgumentValueMock<T>(value)
@@ -53,12 +54,12 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
         return argVerify
     }
 
-
+/* SW 4
     func argumentCapture(_ typeDescription: String) -> ArgumentCapture {
         let argCapture = ArgumentCaptureMock()
         self.argumentCapture = argCapture
         return argCapture
     }
-
-}
 */
+}
+
