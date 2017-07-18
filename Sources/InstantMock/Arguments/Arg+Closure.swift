@@ -22,13 +22,13 @@ extension Arg {
     static func closure<Arg1, Ret, F>(argFactory: F, argStorage: ArgumentStorage) -> (Arg1) -> Ret
         where F: ArgumentFactory, F.Value == T {
 
-            // create and store instance
-            let typeDescription = "\(T.self)"
-            let arg = argFactory.argumentClosure(typeDescription)
-            argStorage.store(arg)
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
 
-            // return default value
-            return DefaultClosureHandler.it() as (Arg1) -> Ret
+        // return default value
+        return DefaultClosureHandler.it() as (Arg1) -> Ret
     }
 
 
@@ -43,13 +43,13 @@ extension Arg {
     static func closure<Arg1, Arg2, Ret, F>(argFactory: F, argStorage: ArgumentStorage) -> (Arg1, Arg2) -> Ret
         where F: ArgumentFactory, F.Value == T {
 
-            // create and store instance
-            let typeDescription = "\(T.self)"
-            let arg = argFactory.argumentClosure(typeDescription)
-            argStorage.store(arg)
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
 
-            // return default value
-            return DefaultClosureHandler.it() as (Arg1, Arg2) -> Ret
+        // return default value
+        return DefaultClosureHandler.it() as (Arg1, Arg2) -> Ret
     }
 
 
@@ -64,13 +64,13 @@ extension Arg {
     static func closure<Arg1, Arg2, Arg3, Ret, F>(argFactory: F, argStorage: ArgumentStorage)
         -> (Arg1, Arg2, Arg3) -> Ret where F: ArgumentFactory, F.Value == T {
 
-            // create and store instance
-            let typeDescription = "\(T.self)"
-            let arg = argFactory.argumentClosure(typeDescription)
-            argStorage.store(arg)
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
 
-            // return default value
-            return DefaultClosureHandler.it() as (Arg1, Arg2, Arg3) -> Ret
+        // return default value
+        return DefaultClosureHandler.it() as (Arg1, Arg2, Arg3) -> Ret
     }
 
 
@@ -86,13 +86,13 @@ extension Arg {
     static func closure<Arg1, Arg2, Arg3, Arg4, Ret, F>(argFactory: F, argStorage: ArgumentStorage)
         -> (Arg1, Arg2, Arg3, Arg4) -> Ret where F: ArgumentFactory, F.Value == T {
 
-            // create and store instance
-            let typeDescription = "\(T.self)"
-            let arg = argFactory.argumentClosure(typeDescription)
-            argStorage.store(arg)
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
 
-            // return default value
-            return DefaultClosureHandler.it() as (Arg1, Arg2, Arg3, Arg4) -> Ret
+        // return default value
+        return DefaultClosureHandler.it() as (Arg1, Arg2, Arg3, Arg4) -> Ret
     }
 
 
@@ -100,9 +100,9 @@ extension Arg {
     public static func closure<Arg1, Arg2, Arg3, Arg4, Arg5, Ret>() -> T
         where T == (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret {
 
-            let factory = ArgumentFactoryImpl<T>()
-            return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
-                as (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
+            as (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret
     }
 
 
@@ -110,15 +110,13 @@ extension Arg {
     static func closure<Arg1, Arg2, Arg3, Arg4, Arg5, Ret, F>(argFactory: F, argStorage: ArgumentStorage)
         -> (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret where F: ArgumentFactory, F.Value == T {
 
-            // create and store instance
-            let typeDescription = "\(T.self)"
-            let arg = argFactory.argumentClosure(typeDescription)
-            argStorage.store(arg)
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
 
-            // return default value
-            return DefaultClosureHandler.it() as (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret
+        // return default value
+        return DefaultClosureHandler.it() as (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret
     }
-
-
 
 }
