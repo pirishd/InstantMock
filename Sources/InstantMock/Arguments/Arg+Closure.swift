@@ -10,6 +10,26 @@
 /** Extension for Arg, dedicated to matching a closure */
 extension Arg {
 
+    /** Register a closure with no arg */
+    public static func closure<Ret>() -> T where T == () -> Ret {
+        let factory = ArgumentFactoryImpl<T>()
+        return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance) as () -> Ret
+    }
+
+
+    /** Register a closure with one arg (for dependency injection) */
+    static func closure<Ret, F>(argFactory: F, argStorage: ArgumentStorage) -> () -> Ret
+        where F: ArgumentFactory, F.Value == T {
+
+        // create and store instance
+        let typeDescription = "\(T.self)"
+        let arg = argFactory.argumentClosure(typeDescription)
+        argStorage.store(arg)
+
+        // return default value
+        return DefaultClosureHandler.it() as () -> Ret
+    }
+
 
     /** Register a closure with one arg */
     public static func closure<Arg1, Ret>() -> T where T == (Arg1) -> Ret {
