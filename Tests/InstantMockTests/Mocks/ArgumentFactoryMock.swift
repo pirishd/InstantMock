@@ -17,8 +17,8 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
     var argumentClosure: ArgumentClosure?
     var argumentVerify: ArgumentVerify?
     var argumentVerifyOpt: ArgumentVerify?
-    /* SW 4 var argumentCapture: ArgumentCapture?
-     */
+    var argumentCapture: ArgumentCapture?
+
 
     func argument(value: T?) -> ArgumentValue {
         let argValue = ArgumentValueMock<T>(value)
@@ -54,12 +54,12 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
         return argVerify
     }
 
-/* SW 4
+
     func argumentCapture(_ typeDescription: String) -> ArgumentCapture {
         let argCapture = ArgumentCaptureMock()
         self.argumentCapture = argCapture
         return argCapture
     }
-*/
+
 }
 
