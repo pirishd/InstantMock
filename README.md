@@ -186,6 +186,7 @@ Matching a value that verifies a certain condition is done with `Arg.verify({ _ 
 
 ### Closure
 Matching a closure is a special case. Use the following syntax: `Arg.closure()`.
+*Limitation: closures can be matched as long as they have less than 5 arguments.*
 
 ## Argument Capturing
 
@@ -210,6 +211,7 @@ let values = captor.allValues
 ### Capturing a Closure
 
 Capturing a closure is a special case. Use the following syntax:
+*Limitation: closures can be captured as long as they have less than 5 arguments.*
 
 ```Swift
 // create captor for type closure `(Int) -> Bool`
