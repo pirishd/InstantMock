@@ -11,19 +11,19 @@
 public class Stub: CallInterceptor {
 
     /// Flag indicating that a return value is expected
-    fileprivate var hasReturnValue = false
+    private var hasReturnValue = false
 
     /// The actual return value
-    fileprivate var returnValue: Any?
+    private var returnValue: Any?
 
     /// Closure determining the return value
-    fileprivate var returnValueClosure: ((_ args: [Any?]) -> Any?)?
+    private var returnValueClosure: ((_ args: [Any?]) -> Any?)?
 
     /// Closure to be called before returning
-    fileprivate var closure: ((_ args: [Any?]) -> Void)?
+    private var closure: ((_ args: [Any?]) -> Void)?
 
     /// Error to be thrown
-    fileprivate var error: Error?
+    private var error: Error?
 
     /// Flag indicating that the stub is configured to return something
     var returns: Bool {

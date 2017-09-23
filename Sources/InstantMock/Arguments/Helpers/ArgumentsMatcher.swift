@@ -11,7 +11,7 @@
 class ArgumentsMatcher {
 
     /// Provided arguments
-    fileprivate let args: [Any?]
+    private let args: [Any?]
 
     /** Initialize new instance with arguments and configuration */
     init(_ args: [Any?]) {

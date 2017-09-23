@@ -19,7 +19,7 @@ protocol ArgumentCaptorValues {
 public class ArgumentCaptorValuesImpl<T>: ArgumentCaptorValues {
 
     /// Argument capture instance
-    fileprivate var arg: ArgumentCapture?
+    private var arg: ArgumentCapture?
 
     /// Captured value
     public var value: T? {

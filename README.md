@@ -4,11 +4,13 @@
 
 # InstantMock
 
-## Create Mocks Easily in Swift 3
+## Create Mocks Easily in Swift 4
 
 [![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
 
-*InstantMock* aims at creating mocks easily in Swift 3, and configuring them with expectations or stubbed implementations.
+*InstantMock* aims at creating mocks easily in Swift 4, and configuring them with expectations or stubbed implementations.
+
+For previous versions supporting Swift 3, see InstantMock versions 1.1.x.
 
 For examples, see `Example.playground`.
 
@@ -187,6 +189,8 @@ Matching a value that verifies a certain condition is done with `Arg.verify({ _ 
 ### Closure
 Matching a closure is a special case. Use the following syntax: `Arg.closure()`.
 
+*Limitation: closures can be matched as long as they have less than 5 arguments.*
+
 ## Argument Capturing
 
 Arguments can also be captured for later use thanks to the `ArgumentCaptor` class.
@@ -211,6 +215,8 @@ let values = captor.allValues
 
 Capturing a closure is a special case. Use the following syntax:
 
+*Limitation: closures can be captured as long as they have less than 5 arguments.*
+
 ```Swift
 // create captor for type closure `(Int) -> Bool`
 let captor = ArgumentClosureCaptor<(Int) -> Bool>()
@@ -232,12 +238,12 @@ extension SomeClass: MockUsable {
     static var any = SomeClass() // any value
     
     // return any value
-    static var anyValue: MockUsable {
+    public static var anyValue: MockUsable {
         return SomeClass.any
     }
 
     // returns true if an object is equal to another `MockUsable` object
-    func equal(to value: MockUsable) -> Bool {
+    public func equal(to value: MockUsable?) -> Bool {
         guard let value = value as? SomeClass else { return false }
         return self == value
     }

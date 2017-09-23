@@ -11,6 +11,7 @@ import InstantMock
 
 class ArgumentFactoryMock<T>: ArgumentFactory {
 
+
     var argumentValue: ArgumentValue?
     var argumentAny: ArgumentAny?
     var argumentClosure: ArgumentClosure?
@@ -61,3 +62,4 @@ class ArgumentFactoryMock<T>: ArgumentFactory {
     }
 
 }
+

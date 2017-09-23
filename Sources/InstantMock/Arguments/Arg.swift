@@ -90,28 +90,6 @@ public class Arg<T> {
         return nil
     }
 
-
-    // MARK: Arguments matching a closure
-
-    /** Register a closure */
-    public static func closure<Args, Ret>() -> T where T == (Args) -> Ret {
-        let factory = ArgumentFactoryImpl<T>()
-        return Arg.closure(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
-    }
-
-
-    /** Register a closure (for dependency injection) */
-    static func closure<Args, Ret, F>(argFactory: F, argStorage: ArgumentStorage) -> T
-        where T == (Args) -> Ret, F: ArgumentFactory, F.Value == T {
-
-        // create and store instance
-        let typeDescription = "\(T.self)"
-        let arg = argFactory.argumentClosure(typeDescription)
-        argStorage.store(arg)
-
-        // return default value
-        return DefaultClosureHandler.it()
-    }
 }
 
 
