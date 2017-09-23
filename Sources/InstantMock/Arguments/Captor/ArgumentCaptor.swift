@@ -11,10 +11,10 @@
 public class ArgumentCaptor<T> {
 
     /// Argument that captures values
-    fileprivate var arg: ArgumentCapture?
+    private var arg: ArgumentCapture?
 
     /// Delegate for returning captured values
-    fileprivate lazy var delegate: ArgumentCaptorValuesImpl<T> = {
+    private lazy var delegate: ArgumentCaptorValuesImpl<T> = {
         return ArgumentCaptorValuesImpl<T>(self.arg)
     }()
 

@@ -15,7 +15,7 @@ public protocol ArgumentClosure: Argument {}
 class ArgumentClosureImpl: ArgumentClosure {
 
     /// Type description for the arg
-    fileprivate let typeDescription: String
+    private let typeDescription: String
 
 
     /** Initialize with given type description */

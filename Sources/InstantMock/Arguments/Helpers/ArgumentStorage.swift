@@ -29,7 +29,7 @@ class ArgumentStorageImpl {
     static let instance = ArgumentStorageImpl()
 
     /// Actual storage array
-    fileprivate var storage = [Argument]()
+    private var storage = [Argument]()
 }
 
 

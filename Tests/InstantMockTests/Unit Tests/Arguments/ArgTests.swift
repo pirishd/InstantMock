@@ -13,7 +13,6 @@ import XCTest
 
 class DummyArg {}
 
-
 class ArgTests: XCTestCase {
 
     private var argStorage: ArgumentStorageMock!
@@ -31,7 +30,7 @@ class ArgTests: XCTestCase {
         ("testEq_object", testEq_object),
         ("testAny_string", testAny_string),
         ("testAny_int", testAny_int),
-        ("testClosure_string", testClosure_string),
+        ("testVerify_string", testVerify_string),
     ]
 
 
@@ -128,7 +127,7 @@ class ArgTests: XCTestCase {
     }
 
 
-    func testClosure_string() {
+    func testVerify_string() {
         let factory = ArgumentFactoryMock<String>()
         let val = Arg.verify({ str in true }, argFactory: factory, argStorage: self.argStorage) as String
 
@@ -140,3 +139,4 @@ class ArgTests: XCTestCase {
     }
 
 }
+

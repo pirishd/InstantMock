@@ -63,15 +63,15 @@ public protocol MockStub {
 open class Mock {
 
     // interceptors defined in registration mode
-    fileprivate var expectationBeingRegistered: Expectation?
-    fileprivate var stubBeingRegistered: Stub?
+    private var expectationBeingRegistered: Expectation?
+    private var stubBeingRegistered: Stub?
 
     // interceptors storage
-    fileprivate let expectationStorage = CallInterceptorStorage<Expectation>()
-    fileprivate let stubStorage = CallInterceptorStorage<Stub>()
+    private let expectationStorage = CallInterceptorStorage<Expectation>()
+    private let stubStorage = CallInterceptorStorage<Stub>()
 
     // interceptors factories
-    fileprivate let expectationFactory: ExpectationFactory
+    private let expectationFactory: ExpectationFactory
 
 
     // MARK: Initializers
@@ -145,7 +145,7 @@ extension Mock {
         - parameter function: function for which expectations must be handled
         - parameter argsConfig: arguments configuration passed to the function being regsitered
      */
-   fileprivate func register(expectation: Expectation, for function: String, with argsConfig: ArgumentsConfiguration) {
+   private func register(expectation: Expectation, for function: String, with argsConfig: ArgumentsConfiguration) {
 
         // compute configurations based on provided args
         let configuration = CallConfiguration(for: function, with: argsConfig)
@@ -164,7 +164,7 @@ extension Mock {
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    fileprivate func handleExpectationsWhileBeingCalled(for function: String, with args: [Any?]) {
+    private func handleExpectationsWhileBeingCalled(for function: String, with args: [Any?]) {
 
         // retrieve expectations for the function
         let expectations = self.expectationStorage.interceptors(for: function)
@@ -206,7 +206,7 @@ extension Mock: MockStub {
         - parameter function: function for which stubs must be handled
         - parameter argsConfig: arguments configuration passed to the function being regsitered
      */
-    fileprivate func register(stub: Stub, for function: String, with argsConfig: ArgumentsConfiguration) {
+    private func register(stub: Stub, for function: String, with argsConfig: ArgumentsConfiguration) {
 
 
         // compute configurations based on provided args
@@ -226,7 +226,7 @@ extension Mock: MockStub {
         - parameter function: function being called
         - parameter args: list of arguments passed to the function being called
      */
-    fileprivate func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) throws -> (T?, Bool) {
+    private func handleStubsWhileBeingCalled<T>(for function: String, with args: [Any?]) throws -> (T?, Bool) {
         var ret: T?
         var useDefaultValue = true
 

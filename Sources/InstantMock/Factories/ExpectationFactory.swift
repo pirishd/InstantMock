@@ -19,16 +19,16 @@ public protocol ExpectationFactory {
 
 
 /** Main implementation */
-class ExpectationFactoryImpl: ExpectationFactory {
+public class ExpectationFactoryImpl: ExpectationFactory {
 
     /// Singleton
-    static let instance = ExpectationFactoryImpl()
+    public static let instance = ExpectationFactoryImpl()
 
-    func expectation(withStub stub: Stub) -> Expectation {
+    public func expectation(withStub stub: Stub) -> Expectation {
         return Expectation(withStub: stub)
     }
 
-    func rejection(withStub stub: Stub) -> Expectation {
+    public func rejection(withStub stub: Stub) -> Expectation {
         return Expectation(withStub: stub, reject: true)
     }
 
