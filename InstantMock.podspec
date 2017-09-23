@@ -4,11 +4,11 @@ Pod::Spec.new do |s|
   # Spec Metadata
   s.name         = "InstantMock"
   s.version      = "2.0.0"
-  s.summary      = "InstantMock makes it easy to create and use mocks in Swift 3"
+  s.summary      = "InstantMock makes it easy to create and use mocks in Swift"
 
   # Description used to generate tags and improve search results.
   s.description  = <<-DESC
-                   InstantMock aims at creating mocks easily in Swift 3. It provides a simple
+                   InstantMock aims at creating mocks easily in Swift. It provides a simple
                    way to mock, stub and verify expectations.
                    DESC
 
