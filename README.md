@@ -10,6 +10,8 @@
 
 *InstantMock* aims at creating mocks easily in Swift 4, and configuring them with expectations or stubbed implementations.
 
+For previous versions supporting Swift 3, see InstantMock versions 1.1.x.
+
 For examples, see `Example.playground`.
 
 ## How to Create a Mock?
