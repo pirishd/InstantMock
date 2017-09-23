@@ -238,12 +238,12 @@ extension SomeClass: MockUsable {
     static var any = SomeClass() // any value
     
     // return any value
-    static var anyValue: MockUsable {
+    public static var anyValue: MockUsable {
         return SomeClass.any
     }
 
     // returns true if an object is equal to another `MockUsable` object
-    func equal(to value: MockUsable) -> Bool {
+    public func equal(to value: MockUsable?) -> Bool {
         guard let value = value as? SomeClass else { return false }
         return self == value
     }
