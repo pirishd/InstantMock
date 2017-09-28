@@ -1,5 +1,11 @@
 # Changelog
 
+
+## 2.0.1
+
+* Fix podspec doc
+
+
 ## 2.0.0
 
 * Swift 4 Support (introduced a limitation on the number of arguments for closure management, see Swift bug [SR-2008](https://bugs.swift.org/browse/SR-2008) and [SE-0110](https://github.com/apple/swift-evolution/blob/master/proposals/0110-distingish-single-tuple-arg.md)).
