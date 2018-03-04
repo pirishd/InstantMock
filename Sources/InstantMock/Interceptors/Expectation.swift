@@ -38,8 +38,8 @@ public class Expectation: CallInterceptor {
     /** Initialize with provided stub and assertion (for dependency injection) */
     public init(withStub stub: Stub, reject: Bool = false, assertion: Assertion) {
         self.stub = stub
-        self.assertion = assertion
         self.reject = reject
+        self.assertion = assertion
     }
 
 

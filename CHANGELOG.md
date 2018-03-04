@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 2.1.0
+
+* Add handling of property setters, with a syntax like `mock.expect().call(mock.property.set(mock.prop, value: Arg.any()))`
+* Review README
+
+
 ## 2.0.1
 
 * Fix podspec doc

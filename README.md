@@ -16,7 +16,7 @@ For examples, see `Example.playground`.
 
 ## How to Create a Mock?
 
-*InstantMock* allows to create a single mock that can be used in many tests, for a protocol or a class.
+*InstantMock* enables to create a single mock that can be used in many tests, for a protocol or a class.
 
 ### For a Protocol
 
@@ -101,6 +101,24 @@ func baz() throws -> Bool {
 }
 ```
 
+#### Properties
+It is possible to mock properties declared in a protocol, like in the following example:
+```Swift
+// define protocol with a property `prop` that has a getter and a setter
+protocol FooProperty {
+    var prop: String { get set }
+}
+
+// mock of `FooProperty`
+class FooPropertyMock: Mock, FooProperty {
+    var prop: String {
+        get { return super.call()! }
+        set { return super.call(newValue) }
+    }
+}
+```
+
+
 ## How to Set Expectations?
 
 Expectations aim at verifying that a call is done with some arguments. They are set using a syntax like in the following example:
@@ -130,6 +148,23 @@ mock.expect().call(
 )
 ```
 
+### Properties
+Setting expectations on properties can be done using the following syntax:
+
+```Swift
+// create mock instance
+let mock = FooPropertyMock()
+
+// create expectation on `mock`, that is verified when the property `prop` is called
+mock.expect().call(mock.prop)
+
+// create expectation on `mock`, that is verified when the property `prop` is set
+// with the exact value "hello"
+mock.expect().call(
+    mock.property.set(mock.prop, value: Arg.eq("hello"))
+)
+```
+
 ### Verifications
 Verifying expectations and rejections is done this way:
 ```Swift
@@ -156,7 +191,7 @@ mock.stub().call(
 Set the return value with `andReturn(…)` on the stub instance.
 
 ### Compute a Return Value
-This is done with `andReturn(closure: { _ in return … })` on the stub instance. That allows to return different values on the same stub, depending on some conditions.
+This is done with `andReturn(closure: { _ in return … })` on the stub instance. This enables to return different values on the same stub, depending on some conditions.
 
 ### Call Another Function
 This is done with `andDo( { _ in … } )` on the stub instance.
@@ -177,11 +212,11 @@ Rules:
 
 Expectations are verified only if arguments match what is registered. Same goes for calling stubbed implementations.
 
-### Precise Value
-Matching a precise value is done with `Arg.eq(…)`.
+### Exact Value
+Matching an exact value is done with `Arg.eq(…)`.
 
-### Type that Adopt MockUsable
-Matching a value of a type that adopts `MockUsable` is done with `Arg.any()`.
+### Any Value
+Matching any value can be done for types that adopt the `MockUsable` protocol, with `Arg.any()`.
 
 ### Certain Condition
 Matching a value that verifies a certain condition is done with `Arg.verify({ _  in return … })`.
@@ -283,7 +318,7 @@ pod 'InstantMock'
 let package = Package(
     name: "example",
     dependencies: [
-        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 1)
+        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 2)
     ]
 )
 ```

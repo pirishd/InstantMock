@@ -11,12 +11,18 @@ import XCTest
 
 
 protocol BasicProtocol {
+    var prop: String { get set }
     func basic(arg1: String, arg2: Int) -> String
     func basicOpt(arg1: String?, arg2: Int?) -> String?
 }
 
 
 class BasicMock: Mock, BasicProtocol {
+
+    var prop: String {
+        get { return super.call()! }
+        set { super.call(newValue) }
+    }
 
     func basic(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
@@ -52,6 +58,9 @@ class BasicMockTests: XCTestCase {
         ("testSeveralStubs", testSeveralStubs),
         ("testExpectAndStub", testExpectAndStub),
         ("testStub_returnAndDo", testStub_returnAndDo),
+        ("testExpectProperty_value", testExpectProperty_value),
+        ("testExpectProperty_any", testExpectProperty_any),
+        ("testExpectProperty_value_setter_getter", testExpectProperty_value_setter_getter),
     ]
 
 
@@ -181,6 +190,42 @@ class BasicMockTests: XCTestCase {
 
         retValue = mock.basic(arg1: "Hello", arg2: 2)
         XCTAssertEqual(retValue, "aa")
+    }
+
+
+    func testExpectProperty_value() {
+        mock.expect().call(mock.property.set(mock.prop, value: Arg.eq("test")))
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        mock.prop = "test"
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpectProperty_any() {
+        mock.expect().call(mock.property.set(mock.prop, value: Arg.any()))
+        mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        mock.prop = "test"
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    // test dedicated to making sure there is no mixup between property setter and getter
+    func testExpectProperty_value_setter_getter() {
+        mock.expect().call(mock.property.set(mock.prop, value: Arg.eq("test")))
+        mock.expect().call(mock.prop).andReturn("test2")
+
+        mock.prop = "test"
+        let ret = mock.prop
+
+        mock.verify()
+        XCTAssertEqual(ret, "test2")
+        XCTAssertTrue(self.assertionMock.succeeded)
     }
 
 }

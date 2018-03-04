@@ -73,6 +73,16 @@ open class Mock {
     // interceptors factories
     private let expectationFactory: ExpectationFactory
 
+    // deferring registration for property mocking
+    private var deferCallRegistration = false
+    var deferredFunction: String?
+
+    // property needed to be mocked
+    public var property: Property {
+        self.deferCallRegistration = true
+        return Property(mock: self)
+    }
+
 
     // MARK: Initializers
 
@@ -82,6 +92,7 @@ open class Mock {
     }
 
 }
+
 
 
 /* Extension for handling the creation of mock expectations */
@@ -258,6 +269,7 @@ extension Mock {
     /** Call with no return value */
     public func call(_ args: Any?..., function: String = #function) -> Void {
         var ret: Void?
+
         do {
             try ret = self.doCall(args, function: function)
         } catch {
@@ -270,6 +282,7 @@ extension Mock {
     /** Call with return type object */
     public func call<T>(_ args: Any?..., function: String = #function) -> T? {
         var ret: T?
+
         do {
             try ret = self.doCall(args, function: function) as T?
         } catch {
@@ -313,7 +326,7 @@ extension Mock {
         - parameter args: args for the function being registered
         - returns: return value for that function
      */
-    private func handleRegistration<T>(of function: String, with args: [Any?]) -> T? {
+    func handleRegistration<T>(of function: String, with args: [Any?]) -> T? {
 
         // create a new arguments configuration
         let argsConfig = ArgumentsConfiguration(ArgumentStorageImpl.instance.all())
@@ -325,8 +338,6 @@ extension Mock {
 
         // perform actual registration
         let ret: T? = self.register(function, with: argsConfig)
-
-
         return ret
     }
 
@@ -340,6 +351,32 @@ extension Mock {
     private func register<T>(_ function: String, with argsConfig: ArgumentsConfiguration) -> T? {
         var ret: T?
 
+        // defer registration (for setter mocking)
+        if self.deferCallRegistration {
+            self.deferredFunction = function
+            self.deferCallRegistration = false
+        }
+        // or register immediately
+        else {
+            self.doRegister(function, with: argsConfig)
+        }
+
+        // default value
+        if let value = DefaultValueHandler<T>().it {
+            ret = value
+        }
+
+        return ret
+    }
+
+
+    /**
+        Performs the actual registration of a function
+        - parameter function: function being registered
+        - parameter argsConfig: arguments configuration passed to the function being regsitered
+        - returns: return value for that function
+     */
+    private func doRegister(_ function: String, with argsConfig: ArgumentsConfiguration) {
         // register expectation if necessary
         if let expectation = self.expectationBeingRegistered {
             self.register(expectation: expectation, for: function, with: argsConfig)
@@ -349,13 +386,6 @@ extension Mock {
         if let stub = self.stubBeingRegistered {
             self.register(stub: stub, for: function, with: argsConfig)
         }
-
-        // default value
-        if let value = DefaultValueHandler<T>().it {
-            ret = value
-        }
-
-        return ret
     }
 
 
