@@ -25,6 +25,9 @@
 		43400AB01F23DCFE00F892EC /* ArgumentClosureCaptorTests+NoArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43400AAC1F23DCB200F892EC /* ArgumentClosureCaptorTests+NoArg.swift */; };
 		43400AB11F23DCFF00F892EC /* ArgumentClosureCaptorTests+NoArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43400AAC1F23DCB200F892EC /* ArgumentClosureCaptorTests+NoArg.swift */; };
 		43400AB21F23DCFF00F892EC /* ArgumentClosureCaptorTests+NoArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43400AAC1F23DCB200F892EC /* ArgumentClosureCaptorTests+NoArg.swift */; };
+		438FC740204BF25900E6848F /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438FC73F204BF25900E6848F /* Property.swift */; };
+		438FC741204BF25900E6848F /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438FC73F204BF25900E6848F /* Property.swift */; };
+		438FC742204BF25900E6848F /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438FC73F204BF25900E6848F /* Property.swift */; };
 		43ACEFF31F2372F4006DADC0 /* ArgumentClosureCaptor+ThreeArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ACEFF21F2372F4006DADC0 /* ArgumentClosureCaptor+ThreeArgs.swift */; };
 		43ACEFF51F237321006DADC0 /* ArgumentClosureCaptor+FourArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ACEFF41F237321006DADC0 /* ArgumentClosureCaptor+FourArgs.swift */; };
 		43ACEFF71F237335006DADC0 /* ArgumentClosureCaptor+FiveArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ACEFF61F237335006DADC0 /* ArgumentClosureCaptor+FiveArgs.swift */; };
@@ -328,6 +331,7 @@
 		431FC8921F236FFF0002247F /* ArgumentClosureCaptor+TwoArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+TwoArgs.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+TwoArgs.swift"; sourceTree = SOURCE_ROOT; };
 		43400AAA1F23DC6900F892EC /* ArgumentClosureCaptor+NoArg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+NoArg.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+NoArg.swift"; sourceTree = SOURCE_ROOT; };
 		43400AAC1F23DCB200F892EC /* ArgumentClosureCaptorTests+NoArg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptorTests+NoArg.swift"; path = "Tests/InstantMockTests/Unit Tests/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptorTests+NoArg.swift"; sourceTree = SOURCE_ROOT; };
+		438FC73F204BF25900E6848F /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Property.swift; path = Sources/InstantMock/Property/Property.swift; sourceTree = SOURCE_ROOT; };
 		43ACEFF21F2372F4006DADC0 /* ArgumentClosureCaptor+ThreeArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+ThreeArgs.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+ThreeArgs.swift"; sourceTree = SOURCE_ROOT; };
 		43ACEFF41F237321006DADC0 /* ArgumentClosureCaptor+FourArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+FourArgs.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+FourArgs.swift"; sourceTree = SOURCE_ROOT; };
 		43ACEFF61F237335006DADC0 /* ArgumentClosureCaptor+FiveArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+FiveArgs.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+FiveArgs.swift"; sourceTree = SOURCE_ROOT; };
@@ -502,6 +506,14 @@
 			name = ArgumentClosureCaptor;
 			sourceTree = "<group>";
 		};
+		438FC73E204BF24F00E6848F /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				438FC73F204BF25900E6848F /* Property.swift */,
+			);
+			name = Property;
+			sourceTree = "<group>";
+		};
 		43D363EB1EE73C96007C90CC = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +544,7 @@
 				43E6EE081EE73E6100FFC9E0 /* Factories */,
 				43E6EE0B1EE73E7200FFC9E0 /* Interceptors */,
 				43E6EE171EE73E9800FFC9E0 /* MockUsable */,
+				438FC73E204BF24F00E6848F /* Property */,
 				43E6EE281EE73EA900FFC9E0 /* Verifications */,
 				43E6EDDC1EE73DB300FFC9E0 /* Mock.swift */,
 				43D3640F1EE73CBA007C90CC /* Supporting Files */,
@@ -1077,6 +1090,7 @@
 			files = (
 				43E6EDE01EE73DC900FFC9E0 /* Arg.swift in Sources */,
 				43E6EDEB1EE73DD700FFC9E0 /* ArgumentValue.swift in Sources */,
+				438FC740204BF25900E6848F /* Property.swift in Sources */,
 				43E6EDE71EE73DD700FFC9E0 /* Argument.swift in Sources */,
 				43E6EDF91EE73E1E00FFC9E0 /* ArgumentClosureCaptor.swift in Sources */,
 				43E6EDEA1EE73DD700FFC9E0 /* ArgumentClosure.swift in Sources */,
@@ -1185,6 +1199,7 @@
 			files = (
 				43E6EF031EE74A5400FFC9E0 /* Expectation.swift in Sources */,
 				43E6EF091EE74A5A00FFC9E0 /* Int+MockUsable.swift in Sources */,
+				438FC741204BF25900E6848F /* Property.swift in Sources */,
 				43E6EEF51EE74A3500FFC9E0 /* ArgumentCapture.swift in Sources */,
 				43E6EF081EE74A5A00FFC9E0 /* Double+MockUsable.swift in Sources */,
 				43E6EEF01EE74A3000FFC9E0 /* ArgumentClosure.swift in Sources */,
@@ -1293,6 +1308,7 @@
 			files = (
 				43E6EF9D1EE74F1100FFC9E0 /* Expectation.swift in Sources */,
 				43E6EFA31EE74F1600FFC9E0 /* Int+MockUsable.swift in Sources */,
+				438FC742204BF25900E6848F /* Property.swift in Sources */,
 				43E6EF8F1EE74EF700FFC9E0 /* ArgumentCapture.swift in Sources */,
 				43E6EFA21EE74F1600FFC9E0 /* Double+MockUsable.swift in Sources */,
 				43E6EF8A1EE74EF100FFC9E0 /* ArgumentClosure.swift in Sources */,
