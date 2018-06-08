@@ -34,7 +34,7 @@ public class ArgumentCaptorValuesImpl<T>: ArgumentCaptorValues {
     public var allValues: [T?] {
         var ret = [T?]()
         if let captureArg = self.arg {
-            ret = captureArg.allValues.map { $0 as? T }.flatMap { $0 }
+            ret = captureArg.allValues.map { $0 as? T }.compactMap { $0 }
         }
         return ret
     }
