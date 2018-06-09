@@ -16,15 +16,15 @@ protocol CaptureProtocol {
 
     // basic cases
     func someFunc(arg1: String, arg2: Int) -> String
-    func someFunc(arg: String, closure: ((Int, SomeCaptureObject) -> String))
+    func someFunc(arg: String, closure: @escaping ((Int, SomeCaptureObject) -> String))
 
     // number of args for closure
-    func otherFuncNoArg(closure: () -> Int)
-    func otherFuncOneArg(closure: (Int) -> Int)
-    func otherFuncTwoArgs(closure: (Int, Int) -> Int)
-    func otherFuncThreeArgs(closure: (Int, Int, Int) -> Int)
-    func otherFuncFourArgs(closure: (Int, Int, Int, Int) -> Int)
-    func otherFuncFiveArgs(closure: (Int, Int, Int, Int, Int) -> Int)
+    func otherFuncNoArg(closure: @escaping () -> Int)
+    func otherFuncOneArg(closure: @escaping (Int) -> Int)
+    func otherFuncTwoArgs(closure: @escaping (Int, Int) -> Int)
+    func otherFuncThreeArgs(closure: @escaping (Int, Int, Int) -> Int)
+    func otherFuncFourArgs(closure: @escaping (Int, Int, Int, Int) -> Int)
+    func otherFuncFiveArgs(closure: @escaping (Int, Int, Int, Int, Int) -> Int)
 }
 
 
@@ -34,31 +34,31 @@ class CaptureMock: Mock, CaptureProtocol {
         return super.call(arg1, arg2)!
     }
 
-    func someFunc(arg: String, closure: ((Int, SomeCaptureObject) -> String)) {
+    func someFunc(arg: String, closure: @escaping ((Int, SomeCaptureObject) -> String)) {
         super.call(arg, closure)
     }
 
-    func otherFuncNoArg(closure: () -> Int) {
+    func otherFuncNoArg(closure: @escaping () -> Int) {
         super.call(closure)
     }
 
-    func otherFuncOneArg(closure: (Int) -> Int) {
+    func otherFuncOneArg(closure: @escaping (Int) -> Int) {
         super.call(closure)
     }
 
-    func otherFuncTwoArgs(closure: (Int, Int) -> Int) {
+    func otherFuncTwoArgs(closure: @escaping (Int, Int) -> Int) {
         super.call(closure)
     }
 
-    func otherFuncThreeArgs(closure: (Int, Int, Int) -> Int) {
+    func otherFuncThreeArgs(closure: @escaping (Int, Int, Int) -> Int) {
         super.call(closure)
     }
 
-    func otherFuncFourArgs(closure: (Int, Int, Int, Int) -> Int) {
+    func otherFuncFourArgs(closure: @escaping (Int, Int, Int, Int) -> Int) {
         super.call(closure)
     }
 
-    func otherFuncFiveArgs(closure: (Int, Int, Int, Int, Int) -> Int) {
+    func otherFuncFiveArgs(closure: @escaping (Int, Int, Int, Int, Int) -> Int) {
         super.call(closure)
     }
 
