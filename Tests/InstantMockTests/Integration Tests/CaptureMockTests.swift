@@ -112,8 +112,8 @@ class CaptureMockTests: XCTestCase {
         XCTAssertEqual(captureStr.value, "London")
         XCTAssertEqual(captureInt.value, 42)
 
-        XCTAssertEqual(captureStr.allValues.flatMap {$0}, ["Paris", "London"])
-        XCTAssertEqual(captureInt.allValues.flatMap {$0}, [32, 42])
+        XCTAssertEqual(captureStr.allValues.compactMap {$0}, ["Paris", "London"])
+        XCTAssertEqual(captureInt.allValues.compactMap {$0}, [32, 42])
     }
 
 
