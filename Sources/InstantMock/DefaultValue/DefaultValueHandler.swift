@@ -12,7 +12,7 @@ class DefaultValueHandler<T> {
 
 
     /** Return the default value, or nil if type is neither `MockUsable`, nor `Closure` */
-    var it: T? {
+    var mockInstance: T? {
         var ret: T?
 
         // try to fetch the default value of `MockUsable` types

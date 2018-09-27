@@ -25,13 +25,13 @@ class DefaultValueHandlerTests: XCTestCase {
 
     func testIt_notMockUsable() {
         let defaultValueHandler = DefaultValueHandler<DummyDefaultValueHandler>()
-        XCTAssertNil(defaultValueHandler.it)
+        XCTAssertNil(defaultValueHandler.mockInstance)
     }
 
 
     func testIt_string() {
         let defaultValueHandler = DefaultValueHandler<String>()
-        XCTAssertEqual(defaultValueHandler.it, String.any)
+        XCTAssertEqual(defaultValueHandler.mockInstance, String.any)
     }
 
 }

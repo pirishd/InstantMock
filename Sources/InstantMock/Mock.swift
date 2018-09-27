@@ -11,7 +11,7 @@
 public protocol MockDelegate {
 
     /// Provide mock instance
-    var it: Mock { get }
+    var mockInstance: Mock { get }
 }
 
 
@@ -362,7 +362,7 @@ extension Mock {
         }
 
         // default value
-        if let value = DefaultValueHandler<T>().it {
+        if let value = DefaultValueHandler<T>().mockInstance {
             ret = value
         }
 
@@ -404,7 +404,7 @@ extension Mock {
         (ret, useDefaultValue) = try self.handleStubsWhileBeingCalled(for: function, with: args)
 
         // default value
-        if useDefaultValue, let value = DefaultValueHandler<T>().it {
+        if useDefaultValue, let value = DefaultValueHandler<T>().mockInstance {
             ret = value
         }
 

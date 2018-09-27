@@ -71,7 +71,7 @@ public class Arg<T> {
         argStorage.store(arg)
 
         // return default value
-        guard let ret = DefaultValueHandler<T>().it else {
+        guard let ret = DefaultValueHandler<T>().mockInstance else {
             fatalError("Unexpected type, only `MockUsable` types can be used with `verify`")
         }
         return ret
@@ -122,7 +122,7 @@ extension Arg where T: MockUsable {
         argStorage.store(arg)
 
         // return default value
-        guard let ret = DefaultValueHandler<T>().it else {
+        guard let ret = DefaultValueHandler<T>().mockInstance else {
             fatalError("Unexpected type, only `MockUsable` types can be used with `any`")
         }
         return ret

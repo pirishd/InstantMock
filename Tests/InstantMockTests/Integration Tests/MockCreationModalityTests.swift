@@ -24,7 +24,7 @@ class InheritanceMock: Mock, SomeProtocol {
 }
 
 
-class DelegateItMock: Any, MockDelegate, SomeProtocol {
+class DelegateInstanceMock: Any, MockDelegate, SomeProtocol {
 
     private let expectationFactory: ExpectationFactory
     private let mock: Mock!
@@ -34,7 +34,7 @@ class DelegateItMock: Any, MockDelegate, SomeProtocol {
         self.mock = Mock(expectationFactory)
     }
 
-    var it: Mock {
+    var mockInstance: Mock {
         return self.mock
     }
 
@@ -56,7 +56,7 @@ class DelegateFullMock: Any, MockDelegate, MockExpectation, MockStub, SomeProtoc
     }
 
 
-    var it: Mock {
+    var mockInstance: Mock {
         return self.mock
     }
 
@@ -115,12 +115,12 @@ class MockCreationModalityTests: XCTestCase {
 
 
     func testExpect_delegateItMock() {
-        let mock = DelegateItMock(withExpectationFactory: self.expectationFactory)
-        mock.it.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg.any()))
+        let mock = DelegateInstanceMock(withExpectationFactory: self.expectationFactory)
+        mock.mockInstance.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg.any()))
 
         _ = mock.someFunc(arg1: "Hello", arg2: 2)
 
-        mock.it.verify()
+        mock.mockInstance.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 

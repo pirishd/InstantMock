@@ -44,7 +44,7 @@ extension ArgumentCaptor {
         argStorage.store(arg)
 
         // otherwise, try to guess the default value from required type
-        guard let ret = DefaultValueHandler<T>().it else {
+        guard let ret = DefaultValueHandler<T>().mockInstance else {
             fatalError("Unexpected type, only `MockUsable` types can be used with `captors`")
         }
         return ret
