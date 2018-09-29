@@ -13,6 +13,7 @@
 For examples, see `Example.playground`.
 
 Swift versions compatibility:
+
 Swift version | InstantMock version
 ---|---
 4.2 | 2.2
