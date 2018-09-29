@@ -13,11 +13,11 @@
 For examples, see `Example.playground`.
 
 Swift versions compatibility:
-| Swift version | InstantMock version |
-| ------------- |:-----------:|
-| 4.2           | 2.2         |
-| 4.0           | 2.0/2.1     |
-| 3.X           | 1.1.X       |
+Swift version | InstantMock version
+---|---
+4.2 | 2.2
+4.0 | 2.0/2.1
+3.X | 1.1.X
 
 ## How to Create a Mock?
 
