@@ -43,7 +43,7 @@ class Traveler {
 protocol Vehicule {
     func starts()
     func goes(to: String, numberOfHalts: Int) -> Bool
-    func stops(onStop: () -> String)
+    func stops(onStop: @escaping () -> String)
 }
 
 
@@ -58,7 +58,7 @@ class VehiculeMock: Mock, Vehicule {
         return super.call(destination, numberOfHalts)!
     }
 
-    func stops(onStop: () -> String) {
+    func stops(onStop: @escaping () -> String) {
         super.call(onStop)
     }
 

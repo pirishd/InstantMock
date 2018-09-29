@@ -34,7 +34,7 @@ class FooMock: Mock, Foo {
     func bar(arg1: String, arg2: Int) -> Bool {
         return super.call(arg1, arg2)! // provide values to parent class
     }
-    
+
 }
 ```
 
@@ -47,12 +47,12 @@ class Foo {
     func bar(arg1: String, arg2: Int) -> Bool
 }
 
-// MARK: Mock class inherits from `Foo` and adopts the `MockDelegate` protocol 
+// MARK: Mock class inherits from `Foo` and adopts the `MockDelegate` protocol
 class FooMock: Foo, MockDelegate {
 
     // create `Mock` delegate instance
     private let mock = Mock()
-    
+
     // conform to the `MockDelegate` protocol, by providing the `Mock` instance
     var it: Mock {
         return mock
@@ -62,7 +62,7 @@ class FooMock: Foo, MockDelegate {
     override func bar(arg1: String, arg2: Int) -> Bool {
         return mock.call(arg1, arg2)! // provide values to the delegate
     }
-    
+
 }
 ```
 
@@ -269,9 +269,9 @@ Adding `MockUsable` on an existing type is done by creating an extension that ad
 
 ```Swift
 extension SomeClass: MockUsable {
-    
+
     static var any = SomeClass() // any value
-    
+
     // return any value
     public static var anyValue: MockUsable {
         return SomeClass.any
@@ -285,6 +285,9 @@ extension SomeClass: MockUsable {
 
 }
 ```
+
+Adding `MockUsable` on an existing type that uses inheritance, should always be done on the deepest subclass.
+Indeed, adding this extension to both a parent and a subclass would create build conflicts.
 
 ### Supported Types
 
