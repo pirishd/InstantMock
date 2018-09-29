@@ -10,9 +10,14 @@
 
 *InstantMock* aims at creating mocks easily in Swift 4, and configuring them with expectations or stubbed implementations.
 
-For previous versions supporting Swift 3, see InstantMock versions 1.1.x.
-
 For examples, see `Example.playground`.
+
+Swift versions compatibility:
+| Swift version | InstantMock version |
+| ------------- |:-----------:|
+| 4.2           | 2.2         |
+| 4.0           | 2.0/2.1     |
+| 3.X           | 1.1.X       |
 
 ## How to Create a Mock?
 
@@ -304,7 +309,7 @@ For now, the following types are `MockUsable`:
 List of changes can be found [here](CHANGELOG.md).
 
 ## Requirements
-* Xcode 8.2
+* Xcode 10
 * iOS 9
 * osX 10.10
 
@@ -321,7 +326,7 @@ pod 'InstantMock'
 let package = Package(
     name: "example",
     dependencies: [
-        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 2)
+        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 2, minor: 2)
     ]
 )
 ```

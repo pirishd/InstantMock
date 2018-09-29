@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   # Spec Metadata
   s.name         = "InstantMock"
-  s.version      = "2.1.0"
+  s.version      = "2.2.0"
   s.summary      = "InstantMock makes it easy to create and use mocks in Swift"
 
   # Description used to generate tags and improve search results.
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/pirishd/InstantMock"
 
-  # Spec License 
+  # Spec License
   s.license      = "MIT"
 
   # Author Metadata
@@ -26,6 +26,7 @@ Pod::Spec.new do |s|
   # Source Code
   s.source_files = "Sources/**/*.{h,m,swift}"
   s.requires_arc = true
+  s.swift_version = '4.2'
   s.ios.deployment_target = "9.0"
   s.osx.deployment_target = "10.10"
   s.tvos.deployment_target = '9.0'
