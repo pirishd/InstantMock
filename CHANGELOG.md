@@ -1,6 +1,19 @@
 # Changelog
 
 
+
+## 2.2.1
+
+* Fix README
+
+
+## 2.2.0
+
+* Swift 4.2 support
+* Compatible with Xcode 10
+* Review README
+
+
 ## 2.1.0
 
 * Add handling of property setters, with a syntax like `mock.expect().call(mock.property.set(mock.prop, value: Arg.any()))`
