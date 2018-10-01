@@ -54,7 +54,7 @@ class FooMock: Foo, MockDelegate {
     private let mock = Mock()
     
     // conform to the `MockDelegate` protocol, by providing the `Mock` instance
-    var it: Mock {
+    var mockInstance: Mock {
         return mock
     }
 
