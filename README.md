@@ -10,9 +10,15 @@
 
 *InstantMock* aims at creating mocks easily in Swift 4, and configuring them with expectations or stubbed implementations.
 
-For previous versions supporting Swift 3, see InstantMock versions 1.1.x.
-
 For examples, see `Example.playground`.
+
+Swift versions compatibility:
+
+Swift version | InstantMock version
+---|---
+4.2 | 2.2.X
+4.0 | 2.0/2.1
+3.X | 1.1.X
 
 ## How to Create a Mock?
 
@@ -34,7 +40,7 @@ class FooMock: Mock, Foo {
     func bar(arg1: String, arg2: Int) -> Bool {
         return super.call(arg1, arg2)! // provide values to parent class
     }
-    
+
 }
 ```
 
@@ -47,12 +53,12 @@ class Foo {
     func bar(arg1: String, arg2: Int) -> Bool
 }
 
-// MARK: Mock class inherits from `Foo` and adopts the `MockDelegate` protocol 
+// MARK: Mock class inherits from `Foo` and adopts the `MockDelegate` protocol
 class FooMock: Foo, MockDelegate {
 
     // create `Mock` delegate instance
     private let mock = Mock()
-    
+
     // conform to the `MockDelegate` protocol, by providing the `Mock` instance
     var mockInstance: Mock {
         return mock
@@ -62,7 +68,7 @@ class FooMock: Foo, MockDelegate {
     override func bar(arg1: String, arg2: Int) -> Bool {
         return mock.call(arg1, arg2)! // provide values to the delegate
     }
-    
+
 }
 ```
 
@@ -269,9 +275,9 @@ Adding `MockUsable` on an existing type is done by creating an extension that ad
 
 ```Swift
 extension SomeClass: MockUsable {
-    
+
     static var any = SomeClass() // any value
-    
+
     // return any value
     public static var anyValue: MockUsable {
         return SomeClass.any
@@ -285,6 +291,9 @@ extension SomeClass: MockUsable {
 
 }
 ```
+
+Adding `MockUsable` on an existing type that uses inheritance, should always be done on the deepest subclass.
+Indeed, adding this extension to both a parent and a subclass would create build conflicts.
 
 ### Supported Types
 
@@ -301,7 +310,7 @@ For now, the following types are `MockUsable`:
 List of changes can be found [here](CHANGELOG.md).
 
 ## Requirements
-* Xcode 8.2
+* Xcode 10
 * iOS 9
 * osX 10.10
 
@@ -318,7 +327,7 @@ pod 'InstantMock'
 let package = Package(
     name: "example",
     dependencies: [
-        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 2)
+        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 2, minor: 2)
     ]
 )
 ```

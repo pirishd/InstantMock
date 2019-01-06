@@ -33,7 +33,7 @@ class ArgumentCaptureImpl<T>: ArgumentCapture  {
     /// Last captured value (typed)
     var valueTyped: T? {
         var ret: T? = nil
-        if let val = self.values.last as? T {
+        if let val = self.values.last {
             ret = val
         }
         return ret
