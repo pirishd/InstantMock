@@ -61,6 +61,8 @@ class BasicMockTests: XCTestCase {
         ("testExpectProperty_value", testExpectProperty_value),
         ("testExpectProperty_any", testExpectProperty_any),
         ("testExpectProperty_value_setter_getter", testExpectProperty_value_setter_getter),
+        ("testResetExpectations", testResetExpectations),
+        ("testResetStubs", testResetStubs),
     ]
 
 
@@ -228,4 +230,17 @@ class BasicMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+    func testResetExpectations() {
+        mock.reject().call(mock.basic(arg1: Arg.any(), arg2: Arg.any()))
+        mock.resetExpectations()
+        _ = mock.basic(arg1: "", arg2: 0)
+        mock.verify()
+    }
+    
+    func testResetStubs() {
+        mock.stub().call(mock.basic(arg1: Arg.any(), arg2: Arg.any())).andReturn("string")
+        mock.resetStubs()
+        let ret = mock.basic(arg1: "", arg2: 2)
+        XCTAssertNotEqual(ret, "string")
+    }
 }
