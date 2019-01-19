@@ -1,6 +1,10 @@
 # Changelog
 
 
+## 2.2.2
+
+* Enable to reset expectations and stubs
+
 
 ## 2.2.1
 
