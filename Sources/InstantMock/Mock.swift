@@ -91,6 +91,19 @@ open class Mock {
         self.expectationFactory = expectationFactory
     }
 
+    
+    // MARK: Methods
+    /** Resets all expectations and rejects */
+    public func resetExpectations() {
+        self.expectationBeingRegistered = nil
+        self.expectationStorage.removeAll()
+    }
+    
+    /** Resets all stubs */
+    public func resetStubs() {
+        self.stubBeingRegistered = nil
+        self.stubStorage.removeAll()
+    }
 }
 
 
