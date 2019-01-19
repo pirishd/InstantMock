@@ -27,6 +27,7 @@ class CallInterceptorStorageTests: XCTestCase {
         ("testInterceptors", testInterceptors),
         ("testRegisterInterceptors", testRegisterInterceptors),
         ("testAll", testAll),
+        ("testRemoveAll", testRemoveAll),
     ]
 
 
@@ -70,5 +71,13 @@ class CallInterceptorStorageTests: XCTestCase {
         XCTAssertTrue(all.contains(where: { $0 === stub2} ))
         XCTAssertTrue(all.contains(where: { $0 === stub3} ))
     }
-
+    
+    func testRemoveAll() {
+        self.repository.store(interceptor: stub, for: "someFunction")
+        let stub2 = Stub()
+        self.repository.store(interceptor: stub2, for: "someFunction")
+        XCTAssertEqual(self.repository.all().count, 2)
+        self.repository.removeAll()
+        XCTAssertEqual(self.repository.all().count, 0)
+    }
 }

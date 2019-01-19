@@ -45,4 +45,8 @@ class CallInterceptorStorage<T: CallInterceptor> {
         }
     }
 
+    /** Invalidates repository */
+    func removeAll() {
+        self.repository.removeAll()
+    }
 }
