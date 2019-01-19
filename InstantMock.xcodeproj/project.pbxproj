@@ -490,7 +490,7 @@
 				43ACEFF41F237321006DADC0 /* ArgumentClosureCaptor+FourArgs.swift */,
 				43ACEFF61F237335006DADC0 /* ArgumentClosureCaptor+FiveArgs.swift */,
 			);
-			name = ArgumentClosureCaptor;
+			path = ArgumentClosureCaptor;
 			sourceTree = "<group>";
 		};
 		431FC8901F236F8F0002247F /* ArgumentClosureCaptor */ = {
@@ -511,7 +511,32 @@
 			children = (
 				438FC73F204BF25900E6848F /* Property.swift */,
 			);
-			name = Property;
+			path = Property;
+			sourceTree = "<group>";
+		};
+		43B5830D21F33932008AEAF6 /* InstantMock */ = {
+			isa = PBXGroup;
+			children = (
+				43E6EDDC1EE73DB300FFC9E0 /* Mock.swift */,
+				43E6EDDE1EE73DBA00FFC9E0 /* Arguments */,
+				43E6EE031EE73E4D00FFC9E0 /* DefaultValue */,
+				43E6EE081EE73E6100FFC9E0 /* Factories */,
+				43E6EE0B1EE73E7200FFC9E0 /* Interceptors */,
+				43E6EE171EE73E9800FFC9E0 /* MockUsable */,
+				438FC73E204BF24F00E6848F /* Property */,
+				43E6EE281EE73EA900FFC9E0 /* Verifications */,
+			);
+			path = InstantMock;
+			sourceTree = "<group>";
+		};
+		43B5830F21F33A1B008AEAF6 /* InstantMockTests */ = {
+			isa = PBXGroup;
+			children = (
+				43E6EE2E1EE73ED300FFC9E0 /* Integration Tests */,
+				43E6EE2F1EE73EDC00FFC9E0 /* Mocks */,
+				43E6EE2D1EE73ECE00FFC9E0 /* Unit Tests */,
+			);
+			path = InstantMockTests;
 			sourceTree = "<group>";
 		};
 		43D363EB1EE73C96007C90CC = {
@@ -539,47 +564,20 @@
 		43D363F71EE73C96007C90CC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				43E6EDDE1EE73DBA00FFC9E0 /* Arguments */,
-				43E6EE031EE73E4D00FFC9E0 /* DefaultValue */,
-				43E6EE081EE73E6100FFC9E0 /* Factories */,
-				43E6EE0B1EE73E7200FFC9E0 /* Interceptors */,
-				43E6EE171EE73E9800FFC9E0 /* MockUsable */,
-				438FC73E204BF24F00E6848F /* Property */,
-				43E6EE281EE73EA900FFC9E0 /* Verifications */,
-				43E6EDDC1EE73DB300FFC9E0 /* Mock.swift */,
-				43D3640F1EE73CBA007C90CC /* Supporting Files */,
+				43B5830D21F33932008AEAF6 /* InstantMock */,
+				43E6EDD81EE73DAA00FFC9E0 /* Info.plist */,
+				43E6EDD91EE73DAA00FFC9E0 /* InstantMock.h */,
 			);
-			name = Sources;
-			path = InstantMock;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		43D364021EE73C96007C90CC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				43E6EE2F1EE73EDC00FFC9E0 /* Mocks */,
-				43E6EE2E1EE73ED300FFC9E0 /* Integration Tests */,
-				43E6EE2D1EE73ECE00FFC9E0 /* Unit Tests */,
-				43D364101EE73CD1007C90CC /* Supporting Files */,
-			);
-			name = Tests;
-			path = InstantMockTests;
-			sourceTree = "<group>";
-		};
-		43D3640F1EE73CBA007C90CC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				43E6EDD81EE73DAA00FFC9E0 /* Info.plist */,
-				43E6EDD91EE73DAA00FFC9E0 /* InstantMock.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		43D364101EE73CD1007C90CC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
+				43B5830F21F33A1B008AEAF6 /* InstantMockTests */,
 				43E6EE951EE7406200FFC9E0 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		43E6EDDE1EE73DBA00FFC9E0 /* Arguments */ = {
@@ -591,7 +589,7 @@
 				43E6EDF31EE73E1500FFC9E0 /* Captor */,
 				43E6EDFA1EE73E2900FFC9E0 /* Helpers */,
 			);
-			name = Arguments;
+			path = Arguments;
 			sourceTree = "<group>";
 		};
 		43E6EDE11EE73DCB00FFC9E0 /* Argument */ = {
@@ -604,7 +602,7 @@
 				43E6EDEC1EE73DDA00FFC9E0 /* ArgumentVerify */,
 				43E6EDE41EE73DD700FFC9E0 /* ArgumentCapture.swift */,
 			);
-			name = Argument;
+			path = Argument;
 			sourceTree = "<group>";
 		};
 		43E6EDEC1EE73DDA00FFC9E0 /* ArgumentVerify */ = {
@@ -614,7 +612,7 @@
 				43E6EDEE1EE73DE500FFC9E0 /* ArgumentVerifyMandatory.swift */,
 				43E6EDEF1EE73DE500FFC9E0 /* ArgumentVerifyOptional.swift */,
 			);
-			name = ArgumentVerify;
+			path = ArgumentVerify;
 			sourceTree = "<group>";
 		};
 		43E6EDF31EE73E1500FFC9E0 /* Captor */ = {
@@ -625,7 +623,7 @@
 				43E6EDF41EE73E1E00FFC9E0 /* ArgumentCaptor.swift */,
 				43E6EDF51EE73E1E00FFC9E0 /* ArgumentCaptorValues.swift */,
 			);
-			name = Captor;
+			path = Captor;
 			sourceTree = "<group>";
 		};
 		43E6EDFA1EE73E2900FFC9E0 /* Helpers */ = {
@@ -636,7 +634,7 @@
 				43E6EDFD1EE73E3000FFC9E0 /* ArgumentsMatcher.swift */,
 				43E6EDFE1EE73E3000FFC9E0 /* ArgumentStorage.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		43E6EE031EE73E4D00FFC9E0 /* DefaultValue */ = {
@@ -645,7 +643,7 @@
 				43E6EE041EE73E5800FFC9E0 /* DefaultClosureHandler.swift */,
 				43E6EE051EE73E5800FFC9E0 /* DefaultValueHandler.swift */,
 			);
-			name = DefaultValue;
+			path = DefaultValue;
 			sourceTree = "<group>";
 		};
 		43E6EE081EE73E6100FFC9E0 /* Factories */ = {
@@ -653,7 +651,7 @@
 			children = (
 				43E6EE091EE73E6900FFC9E0 /* ExpectationFactory.swift */,
 			);
-			name = Factories;
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		43E6EE0B1EE73E7200FFC9E0 /* Interceptors */ = {
@@ -664,7 +662,7 @@
 				43E6EE0E1EE73E8300FFC9E0 /* Expectation.swift */,
 				43E6EE0F1EE73E8300FFC9E0 /* Stub.swift */,
 			);
-			name = Interceptors;
+			path = Interceptors;
 			sourceTree = "<group>";
 		};
 		43E6EE0C1EE73E7B00FFC9E0 /* Helpers */ = {
@@ -674,6 +672,7 @@
 				43E6EE141EE73E8900FFC9E0 /* CallInterceptorStorage.swift */,
 			);
 			name = Helpers;
+			path = InstantMock/Interceptors/Helpers;
 			sourceTree = "<group>";
 		};
 		43E6EE171EE73E9800FFC9E0 /* MockUsable */ = {
@@ -688,7 +687,7 @@
 				43E6EE1E1EE73E9F00FFC9E0 /* Set+MockUsable.swift */,
 				43E6EE1F1EE73E9F00FFC9E0 /* String+MockUsable.swift */,
 			);
-			name = MockUsable;
+			path = MockUsable;
 			sourceTree = "<group>";
 		};
 		43E6EE281EE73EA900FFC9E0 /* Verifications */ = {
@@ -697,7 +696,7 @@
 				43E6EE291EE73EB300FFC9E0 /* Assertion.swift */,
 				43E6EE2A1EE73EB300FFC9E0 /* Verifier.swift */,
 			);
-			name = Verifications;
+			path = Verifications;
 			sourceTree = "<group>";
 		};
 		43E6EE2D1EE73ECE00FFC9E0 /* Unit Tests */ = {
@@ -709,7 +708,7 @@
 				43E6EE831EE73F7400FFC9E0 /* MockUsable */,
 				43E6EE921EE73F9600FFC9E0 /* Verifications */,
 			);
-			name = "Unit Tests";
+			path = "Unit Tests";
 			sourceTree = "<group>";
 		};
 		43E6EE2E1EE73ED300FFC9E0 /* Integration Tests */ = {
@@ -723,7 +722,7 @@
 				43E6EE4B1EE73EED00FFC9E0 /* TypesMockTests.swift */,
 				43E6EE4C1EE73EED00FFC9E0 /* VerifyMockTests.swift */,
 			);
-			name = "Integration Tests";
+			path = "Integration Tests";
 			sourceTree = "<group>";
 		};
 		43E6EE2F1EE73EDC00FFC9E0 /* Mocks */ = {
@@ -741,7 +740,7 @@
 				43E6EE391EE73EE300FFC9E0 /* ExpectationFactoryMock.swift */,
 				43E6EE3A1EE73EE300FFC9E0 /* VerifierMock.swift */,
 			);
-			name = Mocks;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		43E6EE541EE73EF600FFC9E0 /* Arguments */ = {
@@ -749,14 +748,14 @@
 			children = (
 				43E6EE551EE73EFF00FFC9E0 /* ArgTests.swift */,
 				43DE5B061F1DD1F200EEA9B2 /* Arg+ClosureTests.swift */,
-				43E6EE571EE73F0100FFC9E0 /* Argument */,
+				43E6EE571EE73F0100FFC9E0 /* Arg */,
 				43E6EE641EE73F0E00FFC9E0 /* Captor */,
 				43E6EE6B1EE73F2300FFC9E0 /* Helpers */,
 			);
-			name = Arguments;
+			path = Arguments;
 			sourceTree = "<group>";
 		};
-		43E6EE571EE73F0100FFC9E0 /* Argument */ = {
+		43E6EE571EE73F0100FFC9E0 /* Arg */ = {
 			isa = PBXGroup;
 			children = (
 				43E6EE581EE73F0900FFC9E0 /* ArgumentAnyTests.swift */,
@@ -766,7 +765,7 @@
 				43E6EE5C1EE73F0900FFC9E0 /* ArgumentVerifyMandatoryTests.swift */,
 				43E6EE5D1EE73F0900FFC9E0 /* ArgumentVerifyOptionalTests.swift */,
 			);
-			name = Argument;
+			path = Arg;
 			sourceTree = "<group>";
 		};
 		43E6EE641EE73F0E00FFC9E0 /* Captor */ = {
@@ -776,7 +775,7 @@
 				43E6EE661EE73F1800FFC9E0 /* ArgumentCaptorTests.swift */,
 				43E6EE671EE73F1800FFC9E0 /* ArgumentCaptorValuesTests.swift */,
 			);
-			name = Captor;
+			path = Captor;
 			sourceTree = "<group>";
 		};
 		43E6EE6B1EE73F2300FFC9E0 /* Helpers */ = {
@@ -786,7 +785,7 @@
 				43E6EE6D1EE73F2D00FFC9E0 /* ArgumentsMatcherTests.swift */,
 				43E6EE6E1EE73F2D00FFC9E0 /* ArgumentStorageTests.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		43E6EE721EE73F3A00FFC9E0 /* DefaultValue */ = {
@@ -795,7 +794,7 @@
 				43E6EE731EE73F4900FFC9E0 /* DefaultClosureHandlerTests.swift */,
 				43E6EE741EE73F4900FFC9E0 /* DefaultValueHandlerTests.swift */,
 			);
-			name = DefaultValue;
+			path = DefaultValue;
 			sourceTree = "<group>";
 		};
 		43E6EE771EE73F4D00FFC9E0 /* Interceptors */ = {
@@ -807,7 +806,7 @@
 				43E6EE7A1EE73F5B00FFC9E0 /* ExpectationTests.swift */,
 				43E6EE7B1EE73F5B00FFC9E0 /* StubTests.swift */,
 			);
-			name = Interceptors;
+			path = Interceptors;
 			sourceTree = "<group>";
 		};
 		43E6EE801EE73F6000FFC9E0 /* Helpers */ = {
@@ -815,7 +814,7 @@
 			children = (
 				43E6EE811EE73F6700FFC9E0 /* CallConfigurationTests.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		43E6EE831EE73F7400FFC9E0 /* MockUsable */ = {
@@ -829,7 +828,7 @@
 				43E6EE891EE73F7D00FFC9E0 /* SetMockUsableTests.swift */,
 				43E6EE8A1EE73F7D00FFC9E0 /* StringMockUsableTests.swift */,
 			);
-			name = MockUsable;
+			path = MockUsable;
 			sourceTree = "<group>";
 		};
 		43E6EE921EE73F9600FFC9E0 /* Verifications */ = {
@@ -837,7 +836,7 @@
 			children = (
 				43E6EE931EE73FA100FFC9E0 /* VerifierTests.swift */,
 			);
-			name = Verifications;
+			path = Verifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
