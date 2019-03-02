@@ -100,10 +100,18 @@ func returnsCustom() -> CustomType {
 }
 ```
 #### Throwing
-For catching errors on throwing methods, simply use `callThrowable()` instead of `call()`. For example:
+For catching errors on throwing methods, simply use `callThrowing()` instead of `call()`.
+
+If a return value type adopts the [MockUsable](#mockusable) protocol (which is the case for the most common types like `Bool`, `Int`…), just force unwrapping the result to `callThrowing()`, like in the following example:
 ```Swift
-func baz() throws -> Bool {
-    return try mock.callThrowable()!
+func bazMockUsable() throws -> Bool {
+    return try callThrowing()!
+}
+```
+For other types, make sure to provide a default value, like in the following example:
+```Swift
+func bazCustom() throws -> CustomType {
+    return try callThrowing() ?? CustomType() // return a `CustomType` default value
 }
 ```
 

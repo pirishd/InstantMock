@@ -154,7 +154,7 @@ extension Mock {
     /**
         Verify that all expectations are ok
         - parameter file: optional string for the name of the file being verified, default takes caller file name
-        - parameter file: optional line for the line of the file being verified, default takes caller file line
+        - parameter line: optional line for the line of the file being verified, default takes caller file line
      */
     public func verify(file: StaticString? = #file, line: UInt? = #line) {
         for expectation in self.expectationStorage.all() {
@@ -231,7 +231,6 @@ extension Mock: MockStub {
         - parameter argsConfig: arguments configuration passed to the function being regsitered
      */
     private func register(stub: Stub, for function: String, with argsConfig: ArgumentsConfiguration) {
-
 
         // compute configurations based on provided args
         let configuration = CallConfiguration(for: function, with: argsConfig)
