@@ -232,7 +232,6 @@ extension Mock: MockStub {
      */
     private func register(stub: Stub, for function: String, with argsConfig: ArgumentsConfiguration) {
 
-
         // compute configurations based on provided args
         let configuration = CallConfiguration(for: function, with: argsConfig)
         stub.configuration = configuration
