@@ -1,6 +1,13 @@
 # Changelog
 
 
+
+## 2.5.0
+
+* Swift 5 support
+* Fix https://github.com/pirishd/InstantMock/issues/70 dictionary `MockUsable` equality issue with Swift 5
+
+
 ## 2.2.3
 
 * Fix documentation
