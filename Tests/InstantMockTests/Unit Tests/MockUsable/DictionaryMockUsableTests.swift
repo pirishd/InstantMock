@@ -68,4 +68,18 @@ class DictionaryMockUsableTests: XCTestCase {
         XCTAssertTrue(ret)
     }
 
+
+    func testEqual_toWrongOrder() {
+        let dict1: [String: Any] = [
+            "foo": 1,
+            "bar": 2
+        ]
+        let dict2: [String: Any] = [
+            "bar": 2,
+            "foo": 1
+        ]
+
+        XCTAssertTrue(dict1.equal(to: dict2))
+    }
+
 }
