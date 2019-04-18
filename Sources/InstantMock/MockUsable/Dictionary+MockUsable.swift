@@ -19,10 +19,27 @@ extension Dictionary: MockUsable {
     }
 
     public func equal(to value: MockUsable?) -> Bool {
-        guard let arrayValue = value as? Dictionary else { return false }
+        guard let dictValue = value as? Dictionary else { return false }
 
-        return VerifierImpl.instance.equalArray(Array(self.keys), to: Array(arrayValue.keys))
-            && VerifierImpl.instance.equalArray(Array(self.values), to: Array(arrayValue.values))
+        // sort keys and compare them
+        let dictValueKeys = dictValue.keys.sorted { key1, key2 -> Bool in
+            return key1.hashValue < key2.hashValue
+        }
+        let keys = self.keys.sorted { key1, key2 -> Bool in
+            return key1.hashValue < key2.hashValue
+        }
+        if !VerifierImpl.instance.equalArray(keys, to: dictValueKeys) {
+            return false
+        }
+
+        // compare values
+        for key in keys {
+            if !VerifierImpl.instance.equal(self[key], to: dictValue[key]) {
+                return false
+            }
+        }
+
+        return true
     }
 
 }
