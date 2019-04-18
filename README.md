@@ -4,11 +4,11 @@
 
 # InstantMock
 
-## Create Mocks Easily in Swift 4
+## Create Mocks Easily in Swift
 
 [![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
 
-*InstantMock* aims at creating mocks easily in Swift 4, and configuring them with expectations or stubbed implementations.
+*InstantMock* aims at creating mocks easily in Swift, and configuring them with expectations or stubbed implementations.
 
 For examples, see `Example.playground`.
 
@@ -16,6 +16,7 @@ Swift versions compatibility:
 
 Swift version | InstantMock version
 ---|---
+5.0 | 2.5.X
 4.2 | 2.2.X
 4.0 | 2.0/2.1
 3.X | 1.1.X
