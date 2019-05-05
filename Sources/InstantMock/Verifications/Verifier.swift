@@ -35,12 +35,7 @@ class VerifierImpl: Verifier {
         if arg == nil && value != nil { return false }
 
         // otherwise, perform advanced verifications
-        if let arg = arg, let value = value {
-            return self.equal(arg, to: value)
-        }
-
-        // default case
-        return false
+        return self.equal(arg!, to: value!)
     }
 
 
