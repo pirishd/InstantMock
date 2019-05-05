@@ -11,7 +11,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgClosureTests: XCTestCase {
+final class ArgClosureTests: XCTestCase {
 
     private var argStorage: ArgumentStorageMock!
 

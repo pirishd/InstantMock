@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class CallInterceptorStorageTests: XCTestCase {
+final class CallInterceptorStorageTests: XCTestCase {
 
     private var repository: CallInterceptorStorage<Stub>!
     private var stub: Stub!

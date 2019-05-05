@@ -8,7 +8,7 @@
 
 
 /** Class designed to match some arguments against an argument configuration */
-class ArgumentsMatcher {
+final class ArgumentsMatcher {
 
     /// Provided arguments
     private let args: [Any?]

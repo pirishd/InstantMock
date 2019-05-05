@@ -30,7 +30,7 @@ public protocol Assertion {
 
 
 /** Standard implementation of an Assertion */
-class AssertionImpl: Assertion {
+final class AssertionImpl: Assertion {
 
     /// Singleton
     static let instance = AssertionImpl()

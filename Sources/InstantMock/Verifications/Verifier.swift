@@ -14,7 +14,7 @@ public protocol Verifier {
 
 
 /** Main verifier implementation */
-class VerifierImpl: Verifier {
+final class VerifierImpl: Verifier {
 
 
     /// Singleton
@@ -35,12 +35,7 @@ class VerifierImpl: Verifier {
         if arg == nil && value != nil { return false }
 
         // otherwise, perform advanced verifications
-        if let arg = arg, let value = value {
-            return self.equal(arg, to: value)
-        }
-
-        // default case
-        return false
+        return self.equal(arg!, to: value!)
     }
 
 
@@ -60,6 +55,11 @@ class VerifierImpl: Verifier {
         // try to compare by reference
         if (arg as AnyObject) === (value as AnyObject) {
             return true
+        }
+
+        // arguments can be types
+        if let argType = arg as? Any.Type, let valueType = value as? Any.Type {
+            return argType == valueType
         }
 
         // default case

@@ -8,7 +8,7 @@
 
 
 /** This class is a helper that provides default values */
-class DefaultValueHandler<T> {
+final class DefaultValueHandler<T> {
 
 
     /** Return the default value, or nil if type is neither `MockUsable`, nor `Closure` */

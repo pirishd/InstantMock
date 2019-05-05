@@ -19,7 +19,7 @@ public protocol ExpectationFactory {
 
 
 /** Main implementation */
-public class ExpectationFactoryImpl: ExpectationFactory {
+public final class ExpectationFactoryImpl: ExpectationFactory {
 
     /// Singleton
     public static let instance = ExpectationFactoryImpl()

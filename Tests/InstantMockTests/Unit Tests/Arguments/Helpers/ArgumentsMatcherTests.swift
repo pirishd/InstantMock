@@ -9,10 +9,10 @@
 import XCTest
 @testable import InstantMock
 
-class DummyArgsMatcher {}
+final class DummyArgsMatcher {}
 
 
-class ArgumentsMatcherTests: XCTestCase {
+final class ArgumentsMatcherTests: XCTestCase {
 
 
     static var allTests = [

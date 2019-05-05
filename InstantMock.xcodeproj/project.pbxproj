@@ -19,6 +19,9 @@
 		431C4CAD1F2372580081CEE4 /* ArgumentClosureCaptor+TwoArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C4CA71F23724C0081CEE4 /* ArgumentClosureCaptor+TwoArgs.swift */; };
 		431FC88F1F236F220002247F /* ArgumentClosureCaptor+OneArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431FC88E1F236F220002247F /* ArgumentClosureCaptor+OneArg.swift */; };
 		431FC8931F236FFF0002247F /* ArgumentClosureCaptor+TwoArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431FC8921F236FFF0002247F /* ArgumentClosureCaptor+TwoArgs.swift */; };
+		432BAB08227F4D63003275E1 /* ExpectationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BAB04227F4D39003275E1 /* ExpectationFactoryTests.swift */; };
+		432BAB09227F4D64003275E1 /* ExpectationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BAB04227F4D39003275E1 /* ExpectationFactoryTests.swift */; };
+		432BAB0A227F4D65003275E1 /* ExpectationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BAB04227F4D39003275E1 /* ExpectationFactoryTests.swift */; };
 		43400AAB1F23DC6900F892EC /* ArgumentClosureCaptor+NoArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43400AAA1F23DC6900F892EC /* ArgumentClosureCaptor+NoArg.swift */; };
 		43400AAE1F23DCFA00F892EC /* ArgumentClosureCaptor+NoArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43400AAA1F23DC6900F892EC /* ArgumentClosureCaptor+NoArg.swift */; };
 		43400AAF1F23DCFB00F892EC /* ArgumentClosureCaptor+NoArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43400AAA1F23DC6900F892EC /* ArgumentClosureCaptor+NoArg.swift */; };
@@ -329,6 +332,7 @@
 		431C4CA71F23724C0081CEE4 /* ArgumentClosureCaptor+TwoArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+TwoArgs.swift"; path = "Tests/InstantMockTests/Unit Tests/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+TwoArgs.swift"; sourceTree = SOURCE_ROOT; };
 		431FC88E1F236F220002247F /* ArgumentClosureCaptor+OneArg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+OneArg.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+OneArg.swift"; sourceTree = SOURCE_ROOT; };
 		431FC8921F236FFF0002247F /* ArgumentClosureCaptor+TwoArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+TwoArgs.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+TwoArgs.swift"; sourceTree = SOURCE_ROOT; };
+		432BAB04227F4D39003275E1 /* ExpectationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectationFactoryTests.swift; sourceTree = "<group>"; };
 		43400AAA1F23DC6900F892EC /* ArgumentClosureCaptor+NoArg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptor+NoArg.swift"; path = "Sources/InstantMock/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptor+NoArg.swift"; sourceTree = SOURCE_ROOT; };
 		43400AAC1F23DCB200F892EC /* ArgumentClosureCaptorTests+NoArg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ArgumentClosureCaptorTests+NoArg.swift"; path = "Tests/InstantMockTests/Unit Tests/Arguments/Captor/ArgumentClosureCaptor/ArgumentClosureCaptorTests+NoArg.swift"; sourceTree = SOURCE_ROOT; };
 		438FC73F204BF25900E6848F /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Property.swift; path = Sources/InstantMock/Property/Property.swift; sourceTree = SOURCE_ROOT; };
@@ -504,6 +508,14 @@
 				43ACEFFC1F237419006DADC0 /* ArgumentClosureCaptorTests+FiveArgs.swift */,
 			);
 			name = ArgumentClosureCaptor;
+			sourceTree = "<group>";
+		};
+		432BAB03227F4D24003275E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				432BAB04227F4D39003275E1 /* ExpectationFactoryTests.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		438FC73E204BF24F00E6848F /* Property */ = {
@@ -704,6 +716,7 @@
 			children = (
 				43E6EE541EE73EF600FFC9E0 /* Arguments */,
 				43E6EE721EE73F3A00FFC9E0 /* DefaultValue */,
+				432BAB03227F4D24003275E1 /* Factories */,
 				43E6EE771EE73F4D00FFC9E0 /* Interceptors */,
 				43E6EE831EE73F7400FFC9E0 /* MockUsable */,
 				43E6EE921EE73F9600FFC9E0 /* Verifications */,
@@ -1180,6 +1193,7 @@
 				43E6EEAD1EE7411300FFC9E0 /* ArgumentValueTests.swift in Sources */,
 				43E6EEC41EE7413700FFC9E0 /* VerifierTests.swift in Sources */,
 				43E6EEB81EE7412900FFC9E0 /* CallConfigurationTests.swift in Sources */,
+				432BAB08227F4D63003275E1 /* ExpectationFactoryTests.swift in Sources */,
 				43E6EEB51EE7411E00FFC9E0 /* ArgumentStorageTests.swift in Sources */,
 				43E6EEB21EE7411800FFC9E0 /* ArgumentCaptorValuesTests.swift in Sources */,
 				43E6EE9D1EE7410200FFC9E0 /* ArgumentVerifyMandatoryMock.swift in Sources */,
@@ -1289,6 +1303,7 @@
 				43E6EF201EE74A8A00FFC9E0 /* ArgumentValueTests.swift in Sources */,
 				43E6EF371EE74AA700FFC9E0 /* VerifierTests.swift in Sources */,
 				43E6EF2B1EE74A9D00FFC9E0 /* CallConfigurationTests.swift in Sources */,
+				432BAB09227F4D64003275E1 /* ExpectationFactoryTests.swift in Sources */,
 				43E6EF281EE74A9300FFC9E0 /* ArgumentStorageTests.swift in Sources */,
 				43E6EF251EE74A8E00FFC9E0 /* ArgumentCaptorValuesTests.swift in Sources */,
 				43E6EEE81EE74A1500FFC9E0 /* ArgumentVerifyMandatoryMock.swift in Sources */,
@@ -1398,6 +1413,7 @@
 				43E6EFD81EE74F4C00FFC9E0 /* StringMockUsableTests.swift in Sources */,
 				43E6EFAC1EE74F2500FFC9E0 /* ArgumentAnyMock.swift in Sources */,
 				43E6EFC81EE74F3C00FFC9E0 /* ArgumentsConfigurationTests.swift in Sources */,
+				432BAB0A227F4D65003275E1 /* ExpectationFactoryTests.swift in Sources */,
 				43E6EFCE1EE74F4700FFC9E0 /* CallInterceptorStorageTests.swift in Sources */,
 				43E6EFB21EE74F2500FFC9E0 /* ArgumentVerifyMandatoryMock.swift in Sources */,
 				43E6EFC11EE74F3300FFC9E0 /* ArgumentClosureTests.swift in Sources */,

@@ -8,7 +8,7 @@
 
 
 /** This class represents an expectation to be verified */
-public class Expectation: CallInterceptor {
+public final class Expectation: CallInterceptor {
 
 
     /// Expected number of calls

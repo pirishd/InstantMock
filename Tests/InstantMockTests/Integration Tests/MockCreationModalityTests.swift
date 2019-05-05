@@ -15,7 +15,7 @@ protocol SomeProtocol {
 }
 
 
-class InheritanceMock: Mock, SomeProtocol {
+final class InheritanceMock: Mock, SomeProtocol {
 
     func someFunc(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
@@ -24,7 +24,7 @@ class InheritanceMock: Mock, SomeProtocol {
 }
 
 
-class DelegateItMock: Any, MockDelegate, SomeProtocol {
+final class DelegateItMock: Any, MockDelegate, SomeProtocol {
 
     private let expectationFactory: ExpectationFactory
     private let mock: Mock!
@@ -45,7 +45,7 @@ class DelegateItMock: Any, MockDelegate, SomeProtocol {
 }
 
 
-class DelegateFullMock: Any, MockDelegate, MockExpectation, MockStub, SomeProtocol {
+final class DelegateFullMock: Any, MockDelegate, MockExpectation, MockStub, SomeProtocol {
 
     private let expectationFactory: ExpectationFactory
     private let mock: Mock!
@@ -83,7 +83,7 @@ class DelegateFullMock: Any, MockDelegate, MockExpectation, MockStub, SomeProtoc
 }
 
 
-class MockCreationModalityTests: XCTestCase {
+final class MockCreationModalityTests: XCTestCase {
 
     private var assertionMock: AssertionMock!
     private var expectationFactory: ExpectationFactoryMock!

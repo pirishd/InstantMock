@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class CallConfigurationTests: XCTestCase {
+final class CallConfigurationTests: XCTestCase {
 
 
     static var allTests = [

@@ -12,7 +12,7 @@ public protocol ArgumentClosure: Argument {}
 
 
 /** Main implementation of the configuration of an argument that verifies a closure */
-class ArgumentClosureImpl: ArgumentClosure {
+final class ArgumentClosureImpl: ArgumentClosure {
 
     /// Type description for the arg
     private let typeDescription: String

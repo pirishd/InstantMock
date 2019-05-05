@@ -23,7 +23,7 @@ public protocol ArgumentStorage {
 
 
 /** Implementation for storing arguments */
-class ArgumentStorageImpl {
+final class ArgumentStorageImpl {
 
     /// Singleton
     static let instance = ArgumentStorageImpl()

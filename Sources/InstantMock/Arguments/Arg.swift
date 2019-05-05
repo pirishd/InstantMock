@@ -8,7 +8,7 @@
 
 
 /** This class represents a generic Argument being registered */
-public class Arg<T> {
+public final class Arg<T> {
 
 
     // MARK: Arguments matching exact values

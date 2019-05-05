@@ -8,13 +8,13 @@
 
 
 /** This class enables to capture arguments of type closure */
-public class ArgumentClosureCaptor<T> {
+public final class ArgumentClosureCaptor<T> {
 
     /// Argument that captures values
     var arg: ArgumentCapture?
 
     /// Delegate for returning captured values
-    fileprivate lazy var delegate: ArgumentCaptorValuesImpl<T> = {
+    private lazy var delegate: ArgumentCaptorValuesImpl<T> = {
         return ArgumentCaptorValuesImpl<T>(self.arg)
     }()
 

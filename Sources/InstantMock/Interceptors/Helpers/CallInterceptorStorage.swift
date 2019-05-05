@@ -8,7 +8,7 @@
 
 
 /** Class responsible for storing call interceptors */
-class CallInterceptorStorage<T: CallInterceptor> {
+final class CallInterceptorStorage<T: CallInterceptor> {
 
 
     /** Storing dictionary */

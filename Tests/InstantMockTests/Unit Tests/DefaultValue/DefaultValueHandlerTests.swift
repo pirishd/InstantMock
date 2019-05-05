@@ -11,10 +11,10 @@ import XCTest
 @testable import InstantMock
 
 
-class DummyDefaultValueHandler {}
+final class DummyDefaultValueHandler {}
 
 
-class DefaultValueHandlerTests: XCTestCase {
+final class DefaultValueHandlerTests: XCTestCase {
 
 
     static var allTests = [

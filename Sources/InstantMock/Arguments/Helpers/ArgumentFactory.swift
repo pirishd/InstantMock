@@ -30,7 +30,7 @@ public protocol ArgumentFactory {
 
 
 /** Implementation of argument factory */
-class ArgumentFactoryImpl<T>: ArgumentFactory {
+final class ArgumentFactoryImpl<T>: ArgumentFactory {
 
     func argument(value: T?) -> ArgumentValue {
         return ArgumentValueImpl<T>(value)

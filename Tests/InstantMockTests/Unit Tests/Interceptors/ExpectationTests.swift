@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ExpectationTests: XCTestCase {
+final class ExpectationTests: XCTestCase {
 
     private var expectation: Expectation!
     private var argsConfig: ArgumentsConfiguration!
