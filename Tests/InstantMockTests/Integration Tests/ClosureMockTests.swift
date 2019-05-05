@@ -11,7 +11,7 @@ import XCTest
 @testable import InstantMock
 
 
-class SomeClosureObject {}
+final class SomeClosureObject {}
 
 
 protocol ClosureProtocol {
@@ -30,7 +30,7 @@ protocol ClosureProtocol {
 }
 
 
-class ClosureMock: Mock, ClosureProtocol {
+final class ClosureMock: Mock, ClosureProtocol {
 
     func someFunc(arg: String, closure: @escaping (String, SomeClosureObject) -> Int) {
         super.call(arg, closure)
@@ -68,7 +68,7 @@ class ClosureMock: Mock, ClosureProtocol {
 
 
 
-class ClosureMockTests: XCTestCase {
+final class ClosureMockTests: XCTestCase {
 
     private var mock: ClosureMock!
     private var assertionMock: AssertionMock!

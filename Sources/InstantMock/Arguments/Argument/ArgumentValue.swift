@@ -20,7 +20,7 @@ public protocol ArgumentValueTyped: ArgumentValue {
 
 
 /** Main implementation of the configuration of an argument that must verify a precise value */
-class ArgumentValueImpl<T>: ArgumentValueTyped {
+final class ArgumentValueImpl<T>: ArgumentValueTyped {
 
     /// Value that must match
     let value: T?

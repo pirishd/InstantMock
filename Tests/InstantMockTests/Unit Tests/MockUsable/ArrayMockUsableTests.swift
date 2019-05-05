@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArrayMockUsableTests: XCTestCase {
+final class ArrayMockUsableTests: XCTestCase {
 
     static var allTests = [
         ("testEqual_toNil", testEqual_toNil),

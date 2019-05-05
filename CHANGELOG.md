@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 2.5.1
+
+* Support verifications of types, like `Arg.eq(String.self)`
+* Add unit tests
+* Some Swift simplifications, `final` keyword enforcement
+
 
 ## 2.5.0
 

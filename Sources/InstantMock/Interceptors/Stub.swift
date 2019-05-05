@@ -8,7 +8,7 @@
 
 
 /** This class represents a stub */
-public class Stub: CallInterceptor {
+public final class Stub: CallInterceptor {
 
     /// Flag indicating that a return value is expected
     private var hasReturnValue = false

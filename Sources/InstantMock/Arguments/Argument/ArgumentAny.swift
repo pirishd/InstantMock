@@ -12,7 +12,7 @@ public protocol ArgumentAny: Argument {}
 
 
 /** Main implementation of the configuration of an argument that verifies any values */
-class ArgumentAnyImpl: ArgumentAny {
+final class ArgumentAnyImpl: ArgumentAny {
 
     /// Type description for the arg
     private let typeDescription: String

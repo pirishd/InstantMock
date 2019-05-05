@@ -11,7 +11,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentCaptureTests: XCTestCase {
+final class ArgumentCaptureTests: XCTestCase {
 
     private var capture: ArgumentCaptureImpl<String>!
 

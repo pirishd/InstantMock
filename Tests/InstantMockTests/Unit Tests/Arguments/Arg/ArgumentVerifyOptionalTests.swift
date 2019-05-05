@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentVerifyOptionalTests: XCTestCase {
+final class ArgumentVerifyOptionalTests: XCTestCase {
 
     private var arg: ArgumentVerifyOptionalImpl<String>!
 

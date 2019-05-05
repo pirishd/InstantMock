@@ -10,14 +10,17 @@ import XCTest
 @testable import InstantMock
 
 
+
 protocol BasicProtocol {
     var prop: String { get set }
     func basic(arg1: String, arg2: Int) -> String
     func basicOpt(arg1: String?, arg2: Int?) -> String?
+    func basicType(type: String.Type)
 }
 
 
-class BasicMock: Mock, BasicProtocol {
+
+final class BasicMock: Mock, BasicProtocol {
 
     var prop: String {
         get { return super.call()! }
@@ -32,11 +35,15 @@ class BasicMock: Mock, BasicProtocol {
         return super.call(arg1, arg2)
     }
 
+    func basicType(type: String.Type) {
+        return super.call(type)
+    }
+
 }
 
 
 
-class BasicMockTests: XCTestCase {
+final class BasicMockTests: XCTestCase {
 
     private var mock: BasicMock!
     private var assertionMock: AssertionMock!
@@ -55,6 +62,11 @@ class BasicMockTests: XCTestCase {
         ("testExpect_optional_nil", testExpect_optional_nil),
         ("testExpect_optional_nonnil", testExpect_optional_nonnil),
         ("testExpect_count", testExpect_count),
+        ("testExpect_count_zero", testExpect_count_zero),
+        ("testExpect_type", testExpect_type),
+        ("testReject", testReject),
+        ("testReject_count", testReject_count),
+        ("testStub", testStub),
         ("testSeveralStubs", testSeveralStubs),
         ("testExpectAndStub", testExpectAndStub),
         ("testStub_returnAndDo", testStub_returnAndDo),
@@ -113,6 +125,14 @@ class BasicMockTests: XCTestCase {
     func testExpect_count_zero() {
         mock.expect().call(mock.basic(arg1: Arg.eq("Hello2"), arg2: Arg.any()), count: 0)
         _ = mock.basic(arg1: "Hello", arg2: 3)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpect_type() {
+        mock.expect().call(mock.basicType(type: Arg.eq(String.self)))
+        mock.basicType(type: String.self)
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
@@ -230,17 +250,20 @@ class BasicMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+
     func testResetExpectations() {
         mock.reject().call(mock.basic(arg1: Arg.any(), arg2: Arg.any()))
         mock.resetExpectations()
         _ = mock.basic(arg1: "", arg2: 0)
         mock.verify()
     }
-    
+
+
     func testResetStubs() {
         mock.stub().call(mock.basic(arg1: Arg.any(), arg2: Arg.any())).andReturn("string")
         mock.resetStubs()
         let ret = mock.basic(arg1: "", arg2: 2)
         XCTAssertNotEqual(ret, "string")
     }
+
 }

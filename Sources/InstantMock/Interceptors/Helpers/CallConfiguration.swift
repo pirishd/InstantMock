@@ -8,7 +8,7 @@
 
 
 /** Class representing the configuration of a call */
-class CallConfiguration {
+final class CallConfiguration {
 
     /// Function called
     let function: String

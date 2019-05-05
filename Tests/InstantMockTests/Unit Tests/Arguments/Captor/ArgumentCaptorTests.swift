@@ -11,7 +11,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentCaptorTests: XCTestCase {
+final class ArgumentCaptorTests: XCTestCase {
 
     private var storageMock: ArgumentStorageMock!
     private var factoryMock: ArgumentFactoryMock<String>!

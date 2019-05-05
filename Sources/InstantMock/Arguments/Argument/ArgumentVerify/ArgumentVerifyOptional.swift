@@ -16,7 +16,7 @@ public protocol ArgumentVerifyOptionalTyped: ArgumentVerify {
 
 
 /** Main implementation of the configuration of an argument that must verify a precise condition */
-class ArgumentVerifyOptionalImpl<T>: ArgumentVerifyOptionalTyped {
+final class ArgumentVerifyOptionalImpl<T>: ArgumentVerifyOptionalTyped {
 
     /// Condition that must be verified
     let condition: ((T?) -> Bool)

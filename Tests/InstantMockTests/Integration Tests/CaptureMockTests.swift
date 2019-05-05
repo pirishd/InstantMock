@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class SomeCaptureObject {}
+final class SomeCaptureObject {}
 
 protocol CaptureProtocol {
 
@@ -28,7 +28,7 @@ protocol CaptureProtocol {
 }
 
 
-class CaptureMock: Mock, CaptureProtocol {
+final class CaptureMock: Mock, CaptureProtocol {
 
     func someFunc(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
@@ -66,7 +66,7 @@ class CaptureMock: Mock, CaptureProtocol {
 
 
 
-class CaptureMockTests: XCTestCase {
+final class CaptureMockTests: XCTestCase {
 
     private var mock: CaptureMock!
     private var assertionMock: AssertionMock!

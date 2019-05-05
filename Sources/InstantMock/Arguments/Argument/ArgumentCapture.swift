@@ -16,7 +16,7 @@ public protocol ArgumentCapture: Argument {
 
 
 /** This class represents the configuration of an argument that captures passed values */
-class ArgumentCaptureImpl<T>: ArgumentCapture  {
+final class ArgumentCaptureImpl<T>: ArgumentCapture  {
 
 
     /// Type description for the arg
