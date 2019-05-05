@@ -280,34 +280,21 @@ extension Mock {
 
     /** Call with no return value */
     public func call(_ args: Any?..., function: String = #function) -> Void {
-        var ret: Void?
-
-        do {
-            try ret = self.doCall(args, function: function)
-        } catch {
-            // no error to be caught
-        }
-        return ret ?? Void()
+        let ret: Void? = try? self.doCall(args, function: function)
+        return ret ?? ()
     }
 
 
     /** Call with return type object */
     public func call<T>(_ args: Any?..., function: String = #function) -> T? {
-        var ret: T?
-
-        do {
-            try ret = self.doCall(args, function: function) as T?
-        } catch {
-            // no error to be caught
-        }
-        return ret
+        return try? self.doCall(args, function: function) as T?
     }
 
 
     /** Throwing call with no return value */
     public func callThrowing(_ args: Any?..., function: String = #function) throws -> Void {
         let ret: Void? = try self.doCall(args, function: function)
-        return ret ?? Void()
+        return ret ?? ()
     }
 
 
