@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class BoolMockUsableTests: XCTestCase {
+final class BoolMockUsableTests: XCTestCase {
 
     static var allTests = [
         ("testEqual_toNil", testEqual_toNil),

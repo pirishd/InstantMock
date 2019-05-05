@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class VerifierTests: XCTestCase {
+final class VerifierTests: XCTestCase {
 
     private var verifier: VerifierImpl!
 

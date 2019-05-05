@@ -10,10 +10,10 @@ import XCTest
 @testable import InstantMock
 
 
-class DummyArgConfiguration {}
+final class DummyArgConfiguration {}
 
 
-class ArgumentsConfigurationTests: XCTestCase {
+final class ArgumentsConfigurationTests: XCTestCase {
 
 
     static var allTests = [

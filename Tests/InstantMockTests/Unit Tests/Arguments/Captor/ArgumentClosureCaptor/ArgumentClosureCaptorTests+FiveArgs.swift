@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentClosureCaptorTests_FiveArgs: XCTestCase {
+final class ArgumentClosureCaptorTests_FiveArgs: XCTestCase {
 
     private var storageMock: ArgumentStorageMock!
     private var factoryMock: ArgumentFactoryMock<(Int, Int, Int, Int, Int) -> String>!

@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class DictionaryMockUsableTests: XCTestCase {
+final class DictionaryMockUsableTests: XCTestCase {
 
 
     static var allTests = [

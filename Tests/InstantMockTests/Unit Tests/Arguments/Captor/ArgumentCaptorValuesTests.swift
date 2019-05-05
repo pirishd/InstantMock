@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentCaptorValuesTests: XCTestCase {
+final class ArgumentCaptorValuesTests: XCTestCase {
 
 
     static var allTests = [

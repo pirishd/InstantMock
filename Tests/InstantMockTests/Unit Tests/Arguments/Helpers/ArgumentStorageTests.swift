@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentStorageTests: XCTestCase {
+final class ArgumentStorageTests: XCTestCase {
 
     private var storage: ArgumentStorageImpl!
 

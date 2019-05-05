@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class DefaultClosureHandlerTests: XCTestCase {
+final class DefaultClosureHandlerTests: XCTestCase {
 
     static var allTests = [
         ("testIt_noArgs", testIt_noArgs),

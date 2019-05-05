@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class StubTests: XCTestCase {
+final class StubTests: XCTestCase {
 
     private var stub: Stub!
     private var argsConfig: ArgumentsConfiguration!
