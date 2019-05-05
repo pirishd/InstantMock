@@ -16,7 +16,7 @@ protocol VerifyProtocol {
 }
 
 
-class VerifyMock: Mock, VerifyProtocol {
+final class VerifyMock: Mock, VerifyProtocol {
 
     func someFunc(arg1: String, arg2: Int) -> String {
         return super.call(arg1, arg2)!
@@ -29,7 +29,7 @@ class VerifyMock: Mock, VerifyProtocol {
 }
 
 
-class VerifyMockTests: XCTestCase {
+final class VerifyMockTests: XCTestCase {
 
     private var mock: VerifyMock!
     private var assertionMock: AssertionMock!

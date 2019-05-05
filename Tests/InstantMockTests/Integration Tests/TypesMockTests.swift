@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class SomeObject: NSObject { }
+final class SomeObject: NSObject { }
 
 
 protocol TypesProtocol {
@@ -27,7 +27,7 @@ protocol TypesProtocol {
 }
 
 
-class TypesMock: Mock, TypesProtocol {
+final class TypesMock: Mock, TypesProtocol {
 
     func empty() {
         let _: Void = super.call()
@@ -72,7 +72,7 @@ class TypesMock: Mock, TypesProtocol {
 }
 
 
-class TypesMockTests: XCTestCase {
+final class TypesMockTests: XCTestCase {
 
     private var mock: TypesMock!
     private var assertionMock: AssertionMock!

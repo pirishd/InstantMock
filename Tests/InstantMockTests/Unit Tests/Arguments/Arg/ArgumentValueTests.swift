@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentValueTests: XCTestCase {
+final class ArgumentValueTests: XCTestCase {
 
     private var verifier: VerifierMock!
 

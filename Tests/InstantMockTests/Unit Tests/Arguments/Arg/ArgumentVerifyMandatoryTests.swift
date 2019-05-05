@@ -10,7 +10,7 @@ import XCTest
 @testable import InstantMock
 
 
-class ArgumentVerifyMandatoryTests: XCTestCase {
+final class ArgumentVerifyMandatoryTests: XCTestCase {
 
     private var arg: ArgumentVerifyMandatoryImpl<String>!
 

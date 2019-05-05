@@ -16,7 +16,7 @@ protocol ThrowingProtocol {
 }
 
 
-class ThrowingMock: Mock, ThrowingProtocol {
+final class ThrowingMock: Mock, ThrowingProtocol {
 
     func throwing() throws {
         try super.callThrowing()
@@ -30,7 +30,7 @@ class ThrowingMock: Mock, ThrowingProtocol {
 
 
 
-class ThrowingMockTests: XCTestCase {
+final class ThrowingMockTests: XCTestCase {
 
     private enum ThrowingError: Error {
         case some

@@ -62,6 +62,11 @@ class VerifierImpl: Verifier {
             return true
         }
 
+        // arguments can be types
+        if let argType = arg as? Any.Type, let valueType = value as? Any.Type {
+            return argType == valueType
+        }
+
         // default case
         return false
     }

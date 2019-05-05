@@ -32,6 +32,8 @@ class VerifierTests: XCTestCase {
         ("testMatch_closure_failure", testMatch_closure_failure),
         ("testEqualArray_success", testEqualArray_success),
         ("testEqualArray_failure", testEqualArray_failure),
+        ("testTypes_success", testTypes_success),
+        ("testTypes_failure", testTypes_failure),
     ]
 
 
@@ -109,7 +111,29 @@ class VerifierTests: XCTestCase {
         array2 = ["val1", "val3"]
         ret = self.verifier.equalArray(array1, to: array2)
         XCTAssertFalse(ret)
-}
+    }
+
+
+    func testTypes_success() {
+        let type1 = String.self
+        let type2 = String.self
+
+        let ret = self.verifier.equal(type1, to: type2)
+        XCTAssertTrue(ret)
+    }
+
+
+    func testTypes_failure() {
+        let type1 = String.self
+        let type2 = Bool.self
+        let str = "Hello"
+
+        var ret = self.verifier.equal(type1, to: str)
+        XCTAssertFalse(ret)
+
+        ret = self.verifier.equal(type1, to: type2)
+        XCTAssertFalse(ret)
+    }
 
 }
 
