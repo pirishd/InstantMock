@@ -8,7 +8,7 @@
 
 
 /** Represents a property to be mocked */
-public class Property {
+public final class Property {
 
     /// mock dependency
     private weak var mock: Mock?

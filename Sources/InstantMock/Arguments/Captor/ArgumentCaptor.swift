@@ -8,7 +8,7 @@
 
 
 /** This class enables to capture arguments of any types (except closures) */
-public class ArgumentCaptor<T> {
+public final class ArgumentCaptor<T> {
 
     /// Argument that captures values
     private var arg: ArgumentCapture?

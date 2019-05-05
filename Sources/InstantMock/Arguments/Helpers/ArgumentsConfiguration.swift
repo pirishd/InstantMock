@@ -8,7 +8,7 @@
 
 
 /** Class representing a configuration of arguments */
-class ArgumentsConfiguration {
+final class ArgumentsConfiguration {
 
     /// Actual expected arguments
     let args: [Argument]

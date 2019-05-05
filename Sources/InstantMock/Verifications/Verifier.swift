@@ -14,7 +14,7 @@ public protocol Verifier {
 
 
 /** Main verifier implementation */
-class VerifierImpl: Verifier {
+final class VerifierImpl: Verifier {
 
 
     /// Singleton

@@ -16,7 +16,7 @@ protocol ArgumentCaptorValues {
 
 
 /** Main implementation for returning captured values */
-public class ArgumentCaptorValuesImpl<T>: ArgumentCaptorValues {
+public final class ArgumentCaptorValuesImpl<T>: ArgumentCaptorValues {
 
     /// Argument capture instance
     private var arg: ArgumentCapture?

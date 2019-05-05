@@ -8,7 +8,7 @@
 
 
 /** Helper that provides a simple way to create closure arguments with any argument and return value types */
-class DefaultClosureHandler {
+final class DefaultClosureHandler {
 
     /** Provide a default closure with provided signature (no args) */
     public static func it<Ret>() -> () -> Ret {
