@@ -39,7 +39,9 @@ final class StubTests: XCTestCase {
         ("testBest_one", testBest_one),
         ("testBest_several", testBest_several),
         ("testEqual", testEqual),
+        ("testEqual_defaultFailure", testEqual_defaultFailure),
         ("testGreaterThan", testGreaterThan),
+        ("testGreaterThan_defaultFailure", testGreaterThan_defaultFailure),
     ]
 
 
@@ -191,6 +193,13 @@ final class StubTests: XCTestCase {
     }
 
 
+    func testEqual_defaultFailure() {
+        let stub1 = Stub()
+        let stub2 = Stub()
+        XCTAssertNotEqual(stub1, stub2)
+    }
+
+
     func testGreaterThan() {
         let stub1 = Stub()
         stub1.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentValueMock(12), ArgumentValueMock(13)]))
@@ -198,6 +207,13 @@ final class StubTests: XCTestCase {
         stub2.configuration = CallConfiguration(for: "func", with: ArgumentsConfiguration([ArgumentValueMock(12), ArgumentAnyMock()]))
 
         XCTAssertGreaterThan(stub1, stub2)
+    }
+
+
+    func testGreaterThan_defaultFailure() {
+        let stub1 = Stub()
+        let stub2 = Stub()
+        XCTAssertFalse(stub1 > stub2)
     }
 
 }
