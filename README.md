@@ -6,7 +6,7 @@
 
 ## Create Mocks Easily in Swift
 
-[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master)
+[![Build Status](https://api.travis-ci.org/pirishd/InstantMock.svg)](https://travis-ci.org/pirishd/InstantMock/) [![codecov.io](https://codecov.io/gh/pirishd/InstantMock/branch/master/graphs/badge.svg)](https://codecov.io/gh/pirishd/InstantMock/branch/master) [![CocoaPods Plattforms](https://img.shields.io/cocoapods/p/InstantMock.svg)](https://cocoapods.org/pods/InstantMock) [![CocoaPods Version](https://img.shields.io/cocoapods/v/InstantMock.svg)](https://cocoapods.org/pods/InstantMock)
 
 *InstantMock* aims at creating mocks easily in Swift, and configuring them with expectations or stubbed implementations.
 
@@ -254,6 +254,11 @@ Expectations are verified only if arguments match what is registered. Same goes 
 
 ### Exact Value
 Matching an exact value is done with `Arg.eq(…)`.
+
+Values can be matched if they:
+- conform to the `AnyObject` protocol, which is the case for all classes implicitly, for example `Arg.eq(NSString("hello"))`
+- or conform to the `MockUsable` protocol, for example `Arg.eq(42)`
+- or they are types, for example `Arg.eq(String.self)`
 
 ### Any Value
 Matching any value can be done for types that adopt the `MockUsable` protocol, with `Arg.any()`.
