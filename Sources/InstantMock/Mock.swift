@@ -262,7 +262,7 @@ extension Mock: MockStub {
             if retVal is T? {
                 ret = retVal as? T
             } else {
-                fatalError("Unexpected type of return value")
+                fatalError("Unexpected type of return value \(T.self)")
             }
             if stub.returns { useDefaultValue = false }
         }
