@@ -57,6 +57,11 @@ final class VerifierImpl: Verifier {
             return true
         }
 
+        // compare Void types
+        if arg is Void && value is Void {
+            return true
+        }
+
         // arguments can be types
         if let argType = arg as? Any.Type, let valueType = value as? Any.Type {
             return argType == valueType

@@ -32,6 +32,7 @@ final class VerifierTests: XCTestCase {
         ("testMatch_closure_failure", testMatch_closure_failure),
         ("testEqualArray_success", testEqualArray_success),
         ("testEqualArray_failure", testEqualArray_failure),
+        ("testVoid", testVoid),
         ("testTypes_success", testTypes_success),
         ("testTypes_failure", testTypes_failure),
     ]
@@ -111,6 +112,18 @@ final class VerifierTests: XCTestCase {
         array2 = ["val1", "val3"]
         ret = self.verifier.equalArray(array1, to: array2)
         XCTAssertFalse(ret)
+    }
+
+
+    func testVoid() {
+        let void1: Void = ()
+        let void2: Void = ()
+
+        var ret = self.verifier.equal(void1, to: "bad")
+        XCTAssertFalse(ret)
+
+        ret = self.verifier.equal(void1, to: void2)
+        XCTAssertTrue(ret)
     }
 
 
