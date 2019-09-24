@@ -114,6 +114,18 @@ final class VerifierTests: XCTestCase {
     }
 
 
+    func testVoid() {
+        let void1: Void = ()
+        let void2: Void = ()
+
+        var ret = self.verifier.equal(void1, to: "bad")
+        XCTAssertFalse(ret)
+
+        ret = self.verifier.equal(void1, to: void2)
+        XCTAssertTrue(ret)
+    }
+
+
     func testTypes_success() {
         let type1 = String.self
         let type2 = String.self
