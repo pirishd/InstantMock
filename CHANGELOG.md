@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 2.5.2
+
+* Fix missing handling of `Void` type
+* Add some logs
+
+
 ## 2.5.1
 
 * Support verifications of types, like `Arg.eq(String.self)`
