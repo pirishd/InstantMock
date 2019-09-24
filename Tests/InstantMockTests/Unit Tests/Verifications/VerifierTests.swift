@@ -32,6 +32,7 @@ final class VerifierTests: XCTestCase {
         ("testMatch_closure_failure", testMatch_closure_failure),
         ("testEqualArray_success", testEqualArray_success),
         ("testEqualArray_failure", testEqualArray_failure),
+        ("testVoid", testVoid),
         ("testTypes_success", testTypes_success),
         ("testTypes_failure", testTypes_failure),
     ]
