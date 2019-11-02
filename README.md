@@ -215,13 +215,13 @@ Set the return value with `andReturn(…)` on the stub instance.
 This is done with `andReturn(closure: { _ in return … })` on the stub instance. This enables to return different values on the same stub, depending on some conditions.
 
 ### Call Another Function
-This is done with `andDo( { _ in … } )` on the stub instance.
+This is done with `andDo { _ in … } ` on the stub instance.
 
 ### Throw an Error
 This is done with `andThrow(…)` on the stub instance.
 
 ### Chaining
-Chaining several actions on the same stub is possible, given they don't confict. For example, it is possible to return a value and call another function, like in `andReturn(true).andDo({ _ in print("something") })`.
+Chaining several actions on the same stub is possible, given they don't confict. For example, it is possible to return a value and call another function, like in `andReturn(true).andDo { _ in print("something") }`.
 
 Rules:
 * the last closure registered by `andDo` is called first
@@ -293,6 +293,8 @@ let values = captor.allValues
 ```
 ### Capturing a Closure
 
+Capturing a closure is particularly useful for stubbing the behavior of a method with callbacks, see [this conversation](https://github.com/pirishd/InstantMock/issues/86).
+
 Capturing a closure is a special case. Use the following syntax:
 
 *Limitation: closures can be captured as long as they have less than 5 arguments.*
@@ -355,20 +357,25 @@ List of changes can be found [here](CHANGELOG.md).
 
 ## Installation
 ### Cocoapods
-*InstantMock* is available using [CocoaPods](http://cocoapods.org). Just add the following line to your `Podfile`:
+*InstantMock* is available using [CocoaPods](http://cocoapods.org), see `Podfile` example:
 ```
-pod 'InstantMock'
+target 'Example' do
+
+    # Tests target
+    target 'ExampleTests' do
+        inherit! :search_paths
+        pod 'InstantMock'
+    end
+
+end
 ```
 
 ### Swift Package Manager
-*InstantMock* is available using Swift Package Manager. Just add the following line to your `Package.swift` file:
-```Swift
-let package = Package(
-    name: "example",
-    dependencies: [
-        .Package(url: "https://github.com/pirishd/InstantMock", majorVersion: 2, minor: 2)
-    ]
-)
+
+*InstantMock* is available using the Swift Package Manager, by adding the dependency either with Xcode or by editing the `Package.swift` file:
+
+```
+.package(url: "https://github.com/pirishd/InstantMock", from: "2.5.3"),
 ```
 
 ## Inspiration
