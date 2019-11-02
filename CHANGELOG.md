@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 2.5.3
+
+* Review integration with the Swift Package Manager
+* Update README accordingly
+
+
 ## 2.5.2
 
 * Fix missing handling of `Void` type
