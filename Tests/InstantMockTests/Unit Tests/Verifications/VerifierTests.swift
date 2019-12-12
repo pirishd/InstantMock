@@ -35,6 +35,7 @@ final class VerifierTests: XCTestCase {
         ("testVoid", testVoid),
         ("testTypes_success", testTypes_success),
         ("testTypes_failure", testTypes_failure),
+        ("testTuples_success", testTuples_success),
     ]
 
 
@@ -145,6 +146,47 @@ final class VerifierTests: XCTestCase {
         XCTAssertFalse(ret)
 
         ret = self.verifier.equal(type1, to: type2)
+        XCTAssertFalse(ret)
+    }
+
+
+    func testTuples_success() {
+        let tuple1 = (43, "toto")
+        let tuple2 = (43, "toto")
+
+        var ret = self.verifier.equal(tuple1, to: tuple2)
+        XCTAssertTrue(ret)
+
+        let tuple4 = (43, "toto", 12)
+        let tuple5 = (43, "toto", 12)
+
+        ret = self.verifier.equal(tuple4, to: tuple5)
+        XCTAssertTrue(ret)
+
+        let tuple6 = (43, "toto", 12, "rt")
+        let tuple7 = (43, "toto", 12, "rt")
+
+        ret = self.verifier.equal(tuple6, to: tuple7)
+        XCTAssertTrue(ret)
+
+        let tuple8 = (43, "toto", 12, "rt", "n")
+        let tuple9 = (43, "toto", 12, "rt", "n")
+
+        ret = self.verifier.equal(tuple8, to: tuple9)
+        XCTAssertTrue(ret)
+    }
+
+
+    func testTuples_failure() {
+        let tuple1 = (43, "toto", "az")
+        let tuple2 = (43, "toto", "bz")
+
+        var ret = self.verifier.equal(tuple1, to: tuple2)
+        XCTAssertFalse(ret)
+
+        let tuple3 = (43, "toto", "az", 12)
+
+        ret = self.verifier.equal(tuple1, to: tuple3)
         XCTAssertFalse(ret)
     }
 
