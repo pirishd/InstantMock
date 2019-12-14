@@ -259,6 +259,7 @@ Values can be matched if they:
 - conform to the `AnyObject` protocol, which is the case for all classes implicitly, for example `Arg.eq(NSString("hello"))`
 - or conform to the `MockUsable` protocol, for example `Arg.eq(42)`
 - or they are types, for example `Arg.eq(String.self)`
+- or they are tuples, limited to 5 values, for example `Arg.eq(("a string", 42))`
 
 ### Any Value
 Matching any value can be done for types that adopt the `MockUsable` protocol, with `Arg.any()`.
