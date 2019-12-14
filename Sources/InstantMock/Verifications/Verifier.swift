@@ -22,10 +22,10 @@ final class VerifierImpl: Verifier {
 
 
     /**
-        Make sure two optional values are equal
-        - parameter arg: first argument
-        - paramater value: second argument
-        - returs: true if two values are equal
+     Make sure two optional values are equal
+     - parameter arg: first argument
+     - paramater value: second argument
+     - returs: true if two values are equal
      */
     func equal(_ arg: Any?, to value: Any?) -> Bool {
 
@@ -40,10 +40,10 @@ final class VerifierImpl: Verifier {
 
 
     /**
-        Make sure two non-nil values are equal
-        - parameter arg: first argument
-        - paramater value: second argument
-        - returs: true if two values are equal
+     Make sure two non-nil values are equal
+     - parameter arg: first argument
+     - paramater value: second argument
+     - returs: true if two values are equal
      */
     func equal(_ arg: Any, to value: Any) -> Bool {
 
@@ -67,16 +67,69 @@ final class VerifierImpl: Verifier {
             return argType == valueType
         }
 
+        // arguments can be tuples
+        if self.equalTuples(arg, to: value) {
+            return true
+        }
+
         // default case
         return false
     }
 
 
     /**
-        Make sure two arrays are equal
-        - parameter arg: first argument
-        - paramater value: second argument
-        - returs: true if two values are equal
+     Make sure two values that are tuples are equal (up to five arguments in the tuple)
+     - parameter arg: first argument
+     - paramater value: second argument
+     - returs: true if two values are equal
+     */
+    private func equalTuples(_ arg: Any?, to value: Any?) -> Bool {
+        return self.equalTuple2(arg, to: value) || self.equalTuple3(arg, to: value)
+            || self.equalTuple4(arg, to: value) || self.equalTuple5(arg, to: value)
+    }
+
+
+    private func equalTuple2(_ arg: Any?, to value: Any?) -> Bool {
+        if let (arg1, arg2) = arg as? (Any?, Any?), let (val1, val2) = value as? (Any?, Any?) {
+            return self.equal(arg1, to: val1) && self.equal(arg2, to: val2)
+        }
+        return false
+    }
+
+
+    private func equalTuple3(_ arg: Any?, to value: Any?) -> Bool {
+        if let (arg1, arg2, arg3) = arg as? (Any?, Any?, Any?), let (val1, val2, val3) = value as? (Any?, Any?, Any?) {
+            return self.equal(arg1, to: val1) && self.equal(arg2, to: val2) && self.equal(arg3, to: val3)
+        }
+        return false
+    }
+
+
+    private func equalTuple4(_ arg: Any?, to value: Any?) -> Bool {
+        if let (arg1, arg2, arg3, arg4) = arg as? (Any?, Any?, Any?, Any?),
+            let (val1, val2, val3, val4) = value as? (Any?, Any?, Any?, Any?) {
+            return self.equal(arg1, to: val1) && self.equal(arg2, to: val2)
+                && self.equal(arg3, to: val3) && self.equal(arg4, to: val4)
+        }
+        return false
+    }
+
+
+    private func equalTuple5(_ arg: Any?, to value: Any?) -> Bool {
+        if let (arg1, arg2, arg3, arg4, arg5) = arg as? (Any?, Any?, Any?, Any?, Any?),
+            let (val1, val2, val3, val4, val5) = value as? (Any?, Any?, Any?, Any?, Any?) {
+            return self.equal(arg1, to: val1) && self.equal(arg2, to: val2)
+                && self.equal(arg3, to: val3) && self.equal(arg4, to: val4) && self.equal(arg5, to: val5)
+        }
+        return false
+    }
+
+
+    /**
+     Make sure two arrays are equal
+     - parameter arg: first argument
+     - paramater value: second argument
+     - returs: true if two values are equal
      */
     func equalArray(_ arg: [Any?], to value: [Any?]) -> Bool {
 
