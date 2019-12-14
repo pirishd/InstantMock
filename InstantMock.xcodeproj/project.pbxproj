@@ -1586,7 +1586,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
-				MARKETING_VERSION = 2.5.3;
+				MARKETING_VERSION = 2.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SKIP_INSTALL = YES;
@@ -1608,7 +1608,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
-				MARKETING_VERSION = 2.5.3;
+				MARKETING_VERSION = 2.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SKIP_INSTALL = YES;
@@ -1655,7 +1655,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 2.5.3;
+				MARKETING_VERSION = 2.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SDKROOT = macosx;
@@ -1679,7 +1679,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 2.5.3;
+				MARKETING_VERSION = 2.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SDKROOT = macosx;
@@ -1732,7 +1732,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
-				MARKETING_VERSION = 2.5.3;
+				MARKETING_VERSION = 2.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SDKROOT = appletvos;
@@ -1755,7 +1755,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PLATFORM_DIR)/Developer/Library/Frameworks";
-				MARKETING_VERSION = 2.5.3;
+				MARKETING_VERSION = 2.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pirishd.InstantMock;
 				PRODUCT_NAME = InstantMock;
 				SDKROOT = appletvos;
