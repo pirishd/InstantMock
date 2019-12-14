@@ -16,6 +16,7 @@ protocol BasicProtocol {
     func basic(arg1: String, arg2: Int) -> String
     func basicOpt(arg1: String?, arg2: Int?) -> String?
     func basicType(type: String.Type)
+    func basicTuple(tuple: (String, Int?))
 }
 
 
@@ -36,7 +37,11 @@ final class BasicMock: Mock, BasicProtocol {
     }
 
     func basicType(type: String.Type) {
-        return super.call(type)
+        super.call(type)
+    }
+
+    func basicTuple(tuple: (String, Int?)) {
+        super.call(tuple)
     }
 
 }
@@ -64,6 +69,7 @@ final class BasicMockTests: XCTestCase {
         ("testExpect_count", testExpect_count),
         ("testExpect_count_zero", testExpect_count_zero),
         ("testExpect_type", testExpect_type),
+        ("testExpect_tuple", testExpect_tuple),
         ("testReject", testReject),
         ("testReject_count", testReject_count),
         ("testStub", testStub),
@@ -133,6 +139,14 @@ final class BasicMockTests: XCTestCase {
     func testExpect_type() {
         mock.expect().call(mock.basicType(type: Arg.eq(String.self)))
         mock.basicType(type: String.self)
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+
+    func testExpect_tuple() {
+        mock.expect().call(mock.basicTuple(tuple: Arg.eq(("toto", 42))))
+        mock.basicTuple(tuple: ("toto", 42))
         mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }

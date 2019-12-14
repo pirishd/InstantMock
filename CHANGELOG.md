@@ -1,6 +1,11 @@
 # Changelog
 
 
+## 2.5.4
+
+* `Arg.eq()` now supports tuples
+
+
 ## 2.5.3
 
 * Review integration with the Swift Package Manager

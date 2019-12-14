@@ -1,6 +1,6 @@
 language: swift
 osx_image: xcode11.2
 script:
-  - xcodebuild -scheme "InstantMock iOS" -workspace InstantMock.xcworkspace/ -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.2' build test
+  - xcodebuild -scheme "InstantMock iOS" -workspace InstantMock.xcworkspace/ -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.2.2' build test
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'InstantMock'
