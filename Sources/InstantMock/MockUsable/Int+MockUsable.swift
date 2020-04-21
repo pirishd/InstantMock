@@ -8,17 +8,20 @@
 
 
 /** Extension for making `Int` easily usage in mocks */
-extension Int: MockUsable {
-
-    public static let any = 42
+extension FixedWidthInteger where Self: MockUsable {
 
     public static var anyValue: MockUsable {
         return Int.any
     }
 
     public func equal(to value: MockUsable?) -> Bool {
-        guard let intValue = value as? Int else { return false }
+        guard let intValue = value as? Self else { return false }
         return self == intValue
     }
 
 }
+
+extension Int: MockUsable { public static let any = 42 }
+extension Int64: MockUsable { public static let any = 42 }
+extension UInt: MockUsable { public static let any = 42 }
+extension UInt64: MockUsable { public static let any = 42 }
