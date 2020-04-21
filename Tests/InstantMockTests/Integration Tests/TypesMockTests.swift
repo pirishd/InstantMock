@@ -45,6 +45,10 @@ final class TypesMock: Mock, TypesProtocol {
         return super.call(int)!
     }
     
+    func unsignedInteger(_ int: UInt) -> UInt {
+        return super.call(int)!
+    }
+    
     func unsignedInteger64(_ int: UInt64) -> UInt64 {
         return super.call(int)!
     }
@@ -103,6 +107,7 @@ final class TypesMockTests: XCTestCase {
         ("testBool", testBool),
         ("testInt", testInt),
         ("testInt64", testInt64),
+        ("testUnsignedInt", testUnsignedInt),
         ("testUnsignedInt64", testUnsignedInt64),
         ("testFloat", testFloat),
         ("testDouble", testDouble),
@@ -166,6 +171,17 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
     
+    func testUnsignedInt() {
+        self.mock.expect().call(self.mock.unsignedInteger(Arg.any()))
+
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.unsignedInteger(12)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
     
     func testUnsignedInt64() {
         self.mock.expect().call(self.mock.unsignedInteger64(Arg.any()))
