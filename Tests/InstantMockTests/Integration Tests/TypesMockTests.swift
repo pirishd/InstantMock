@@ -40,7 +40,19 @@ final class TypesMock: Mock, TypesProtocol {
     func integer(_ int: Int) -> Int {
         return super.call(int)!
     }
+    
+    func integer64(_ int: Int64) -> Int64 {
+        return super.call(int)!
+    }
+    
+    func unsignedInteger64(_ int: UInt64) -> UInt64 {
+        return super.call(int)!
+    }
 
+    func float(_ float: Float) -> Float {
+        return super.call(float)!
+    }
+    
     func double(_ double: Double) -> Double {
         return super.call(double)!
     }
@@ -90,6 +102,9 @@ final class TypesMockTests: XCTestCase {
         ("testEmpty", testEmpty),
         ("testBool", testBool),
         ("testInt", testInt),
+        ("testInt64", testInt64),
+        ("testUnsignedInt64", testUnsignedInt64),
+        ("testFloat", testFloat),
         ("testDouble", testDouble),
         ("testString", testString),
         ("testString_nil", testString_nil),
@@ -138,7 +153,46 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+    
+    func testInt64() {
+        self.mock.expect().call(self.mock.integer64(Arg.any()))
 
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.integer64(12)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+    
+    
+    func testUnsignedInt64() {
+        self.mock.expect().call(self.mock.unsignedInteger64(Arg.any()))
+
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.unsignedInteger64(12)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+    
+    func testFloat() {
+        self.mock.expect().call(self.mock.float(Arg.any()))
+
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.float(12.0)
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+    
+    
     func testDouble() {
         self.mock.expect().call(self.mock.double(Arg.any()))
 
