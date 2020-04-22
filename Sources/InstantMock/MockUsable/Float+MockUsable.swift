@@ -2,7 +2,7 @@
 //  Float+MockUsable.swift
 //  InstantMock
 //
-//  Created by Patrick on 06/05/2017.
+//  Created by Arnaud Barisain-Monrose on 21/04/2020.
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
