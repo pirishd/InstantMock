@@ -12,4 +12,4 @@ install:
 script:
   - ./ci/script.sh
 after_success:
-  - ./ci/after_success.sh'
+  - ./ci/after_success.sh
