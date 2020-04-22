@@ -2,7 +2,7 @@
 //  StringMockUsableTests.swift
 //  InstantMock
 //
-//  Created by Patrick on 06/05/2017.
+//  Created by Arnaud Barisain-Monrose on 22/04/2020.
 //  Copyright 2017 pirishd. All rights reserved.
 //
 
@@ -10,29 +10,29 @@ import XCTest
 @testable import InstantMock
 
 
-final class StringMockUsableTests: XCTestCase {
+final class DateMockUsableTests: XCTestCase {
 
 
     func testEqual_toNil() {
-        let ret = "any".equal(to: nil)
+        let ret = Date(timeIntervalSince1970: 1234).equal(to: nil)
         XCTAssertFalse(ret)
     }
 
 
     func testEqual_toWrongType() {
-        let ret = "any".equal(to: 12)
+        let ret = Date(timeIntervalSince1970: 1234).equal(to: 12)
         XCTAssertFalse(ret)
     }
 
 
     func testEqual_toWrongValue() {
-        let ret = "any".equal(to: "other")
+        let ret = Date(timeIntervalSince1970: 1234).equal(to: Date(timeIntervalSince1970: 22222))
         XCTAssertFalse(ret)
     }
 
 
     func testEqual_toExpectedValue() {
-        let ret = "any".equal(to: "any")
+        let ret = Date(timeIntervalSince1970: 1234).equal(to: Date(timeIntervalSince1970: 1234))
         XCTAssertTrue(ret)
     }
 

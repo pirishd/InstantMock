@@ -13,14 +13,8 @@ import XCTest
 final class ArgumentCaptorValuesTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testValue", testValue),
-        ("testAllValues", testAllValues),
-    ]
-
-
     func testValue() {
-        var argumentCapture: ArgumentCaptureImpl<String>? = nil
+        var argumentCapture: ArgumentCaptureImpl<String>?
         var captor = ArgumentCaptorValuesImpl<String>(argumentCapture)
         XCTAssertNil(captor.value)
 
@@ -33,7 +27,7 @@ final class ArgumentCaptorValuesTests: XCTestCase {
 
 
     func testAllValues() {
-        var argumentCapture: ArgumentCaptureImpl<String>? = nil
+        var argumentCapture: ArgumentCaptureImpl<String>?
         var captor = ArgumentCaptorValuesImpl<String>(argumentCapture)
         XCTAssertEqual(captor.allValues.count, 0)
 
@@ -45,4 +39,3 @@ final class ArgumentCaptorValuesTests: XCTestCase {
     }
 
 }
-

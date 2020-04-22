@@ -1,6 +1,19 @@
 # Changelog
 
 
+## 2.5.5
+
+* Make `Int64`, `UInt`, `UInt64` types `MockUsable`
+* Make `Float` type `MockUsable`
+* Make `Date` type `MockUsable`
+* Fix `swift test` command line execution on Xcode 11.4
+* Cleanup project for testing properly on Linux
+* Improve CI:
+  * Update Xcode version to 11.3 (Travis does not support Xcode 11.4 yet)
+  * Now running `swift build` and `swift test`
+  * Now running on Linux (Ubuntu Bionic) too ;)
+
+
 ## 2.5.4
 
 * `Arg.eq()` now supports tuples

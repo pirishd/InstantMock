@@ -21,24 +21,6 @@ final class VerifierTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testEqual_bothNil", testEqual_bothNil),
-        ("testEqual_firstNil", testEqual_firstNil),
-        ("testEqual_secondNil", testEqual_secondNil),
-        ("testEqual_strings", testEqual_strings),
-        ("testEqual_stringsWithDifferentValues", testEqual_stringsWithDifferentValues),
-        ("testEqual_references", testEqual_references),
-        ("testMatch_differentReferences", testMatch_differentReferences),
-        ("testMatch_closure_failure", testMatch_closure_failure),
-        ("testEqualArray_success", testEqualArray_success),
-        ("testEqualArray_failure", testEqualArray_failure),
-        ("testVoid", testVoid),
-        ("testTypes_success", testTypes_success),
-        ("testTypes_failure", testTypes_failure),
-        ("testTuples_success", testTuples_success),
-    ]
-
-
     func testEqual_bothNil() {
         let ret = self.verifier.equal(nil, to: nil)
         XCTAssertTrue(ret)
@@ -66,6 +48,24 @@ final class VerifierTests: XCTestCase {
     func testEqual_stringsWithDifferentValues() {
         let ret = self.verifier.equal("something", to: "something else")
         XCTAssertFalse(ret)
+    }
+
+
+    func testEqual_floats() {
+        let ret = self.verifier.equal(1.234 as Float, to: 1.234 as Float)
+        XCTAssertTrue(ret)
+    }
+
+
+    func testEqual_int64s() {
+        let ret = self.verifier.equal(Int64.max, to: Int64.max)
+        XCTAssertTrue(ret)
+    }
+
+
+    func testEqual_uint64s() {
+        let ret = self.verifier.equal(UInt64.max, to: UInt64.max)
+        XCTAssertTrue(ret)
     }
 
 
@@ -192,4 +192,3 @@ final class VerifierTests: XCTestCase {
     }
 
 }
-

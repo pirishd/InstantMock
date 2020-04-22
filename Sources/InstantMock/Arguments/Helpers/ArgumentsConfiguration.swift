@@ -34,11 +34,12 @@ extension ArgumentsConfiguration: CustomStringConvertible {
         } else {
             value = "none"
         }
-        
+
         return value
     }
-    
+
 }
+
 
 /** Extension that returns the number of args of any kinds */
 extension ArgumentsConfiguration {

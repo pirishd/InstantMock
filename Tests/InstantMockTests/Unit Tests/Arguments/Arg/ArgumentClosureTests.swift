@@ -13,12 +13,6 @@ import XCTest
 final class ArgumentClosureTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testDescription", testDescription),
-        ("testMatch", testMatch),
-    ]
-
-
     func testDescription() {
         let value = ArgumentClosureImpl("(String) -> Int")
         let desc = value.description

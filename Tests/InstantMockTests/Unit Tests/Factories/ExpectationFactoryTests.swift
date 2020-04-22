@@ -14,12 +14,6 @@ import XCTest
 final class ExpectationFactoryTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testExpectationWithStub", testExpectationWithStub),
-        ("testRejectionWithStub", testRejectionWithStub),
-    ]
-
-
     func testExpectationWithStub() {
         let expectation = ExpectationFactoryImpl().expectation(withStub: Stub())
         XCTAssertNotNil(expectation)

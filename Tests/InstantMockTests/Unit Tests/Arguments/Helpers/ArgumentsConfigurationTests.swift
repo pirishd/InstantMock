@@ -16,15 +16,6 @@ final class DummyArgConfiguration {}
 final class ArgumentsConfigurationTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testDescription_empty", testDescription_empty),
-        ("testDescription_oneValue", testDescription_oneValue),
-        ("testDescription_severalValues", testDescription_severalValues),
-        ("testEquality", testEquality),
-        ("testGreaterThan", testGreaterThan),
-    ]
-
-
     func testDescription_empty() {
         let list = [Argument]()
         let ret = ArgumentsConfiguration(list).description
@@ -50,10 +41,10 @@ final class ArgumentsConfigurationTests: XCTestCase {
 
 
     func testEquality() {
-        let args1 = ArgumentsConfiguration([ArgumentValueMock(12), ArgumentVerifyMandatoryMock<String>({str in true})])
+        let args1 = ArgumentsConfiguration([ArgumentValueMock(12), ArgumentVerifyMandatoryMock<String>({_ in true})])
         XCTAssertEqual(args1, args1)
 
-        var args2 = ArgumentsConfiguration([ArgumentValueMock(13), ArgumentVerifyMandatoryMock<String>({str in true})])
+        var args2 = ArgumentsConfiguration([ArgumentValueMock(13), ArgumentVerifyMandatoryMock<String>({_ in true})])
         XCTAssertEqual(args1, args2)
 
         args2 = ArgumentsConfiguration([ArgumentValueMock(13), ArgumentValueMock(14)])
@@ -62,26 +53,26 @@ final class ArgumentsConfigurationTests: XCTestCase {
         args2 = ArgumentsConfiguration([ArgumentValueMock(13), ArgumentAnyMock()])
         XCTAssertNotEqual(args1, args2)
 
-        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({str in false}), ArgumentVerifyMandatoryMock<String>({str in true})])
+        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({_ in false}), ArgumentVerifyMandatoryMock<String>({_ in true})])
         XCTAssertNotEqual(args1, args2)
 
-        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({str in false}), ArgumentAnyMock()])
+        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({_ in false}), ArgumentAnyMock()])
         XCTAssertNotEqual(args1, args2)
     }
 
 
     func testGreaterThan() {
-        let args1 = ArgumentsConfiguration([ArgumentValueMock(12), ArgumentVerifyMandatoryMock<String>({str in true})])
+        let args1 = ArgumentsConfiguration([ArgumentValueMock(12), ArgumentVerifyMandatoryMock<String>({_ in true})])
         var args2 = ArgumentsConfiguration([ArgumentValueMock(13), ArgumentValueMock(14)])
         XCTAssertGreaterThan(args2, args1)
 
         args2 = ArgumentsConfiguration([ArgumentValueMock(13), ArgumentAnyMock()])
         XCTAssertGreaterThan(args1, args2)
 
-        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({str in false}), ArgumentVerifyMandatoryMock<String>({str in true})])
+        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({_ in false}), ArgumentVerifyMandatoryMock<String>({_ in true})])
         XCTAssertGreaterThan(args1, args2)
 
-        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({str in false}), ArgumentAnyMock()])
+        args2 = ArgumentsConfiguration([ArgumentVerifyMandatoryMock<String>({_ in false}), ArgumentAnyMock()])
         XCTAssertGreaterThan(args1, args2)
     }
 

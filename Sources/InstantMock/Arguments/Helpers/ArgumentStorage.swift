@@ -34,7 +34,7 @@ final class ArgumentStorageImpl {
 
 
 /** Extension for actually store arguments */
-extension ArgumentStorageImpl: ArgumentStorage{
+extension ArgumentStorageImpl: ArgumentStorage {
 
     func store(_ arg: Argument) {
         self.storage.append(arg)

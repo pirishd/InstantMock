@@ -23,28 +23,6 @@ final class StubTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testHandleCall_nil", testHandleCall_nil),
-        ("testHandleCall_andReturn", testHandleCall_andReturn),
-        ("testReturns_andThrow", testReturns_andThrow),
-        ("testHandleCall_andReturnClosure", testHandleCall_andReturnClosure),
-        ("testHandleCall_andReturn_andReturnClosure", testHandleCall_andReturn_andReturnClosure),
-        ("testHandleCall_andReturn_andDo", testHandleCall_andReturn_andDo),
-        ("testHandleCall_andReturnClosure_andDo", testHandleCall_andReturnClosure_andDo),
-        ("testHandleCall_capture", testHandleCall_capture),
-        ("testReturns_false", testReturns_false),
-        ("testReturns_andReturn", testReturns_andReturn),
-        ("testReturns_andReturnClosure", testReturns_andReturnClosure),
-        ("testBest_none", testBest_none),
-        ("testBest_one", testBest_one),
-        ("testBest_several", testBest_several),
-        ("testEqual", testEqual),
-        ("testEqual_defaultFailure", testEqual_defaultFailure),
-        ("testGreaterThan", testGreaterThan),
-        ("testGreaterThan_defaultFailure", testGreaterThan_defaultFailure),
-    ]
-
-
     func testHandleCall_nil() {
         let ret = try! self.stub.handleCall([])
         XCTAssertNil(ret)
@@ -85,7 +63,6 @@ final class StubTests: XCTestCase {
 
 
     func testHandleCall_andDo() {
-
         var something = ""
         self.stub.andDo { _ in something = "not_empty" }
 
@@ -138,7 +115,7 @@ final class StubTests: XCTestCase {
 
 
     func testReturns_andReturnClosure() {
-        self.stub.andReturn(closure: { _ in return 12} )
+        self.stub.andReturn(closure: { _ in return 12})
         let returns = self.stub.returns
         XCTAssertTrue(returns)
     }
@@ -163,7 +140,6 @@ final class StubTests: XCTestCase {
 
 
     func testBest_several() {
-
         let valueMock12 = ArgumentValueMock(12)
         let valueMock37 = ArgumentValueMock(37)
         let valueMock42 = ArgumentValueMock(42)
@@ -217,4 +193,3 @@ final class StubTests: XCTestCase {
     }
 
 }
-

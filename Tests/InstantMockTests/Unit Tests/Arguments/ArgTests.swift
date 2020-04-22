@@ -23,17 +23,6 @@ final class ArgTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testEq_string", testEq_string),
-        ("testEq_int", testEq_int),
-        ("testEq_intOptional", testEq_intOptional),
-        ("testEq_object", testEq_object),
-        ("testAny_string", testAny_string),
-        ("testAny_int", testAny_int),
-        ("testVerify_string", testVerify_string),
-    ]
-
-
     func testEq_string() {
         let factory = ArgumentFactoryMock<String>()
         let val = Arg.eq("Hello", argFactory: factory, argStorage: self.argStorage)
@@ -67,7 +56,7 @@ final class ArgTests: XCTestCase {
 
     func testEq_intOptional() {
         let factory = ArgumentFactoryMock<Int>()
-        var arg: Int? = nil
+        var arg: Int?
         var val = Arg.eq(arg, argFactory: factory, argStorage: self.argStorage)
         XCTAssertNil(val)
         XCTAssertEqual(self.argStorage.args.count, 1)
@@ -129,14 +118,13 @@ final class ArgTests: XCTestCase {
 
     func testVerify_string() {
         let factory = ArgumentFactoryMock<String>()
-        let val = Arg.verify({ str in true }, argFactory: factory, argStorage: self.argStorage) as String
+        let val = Arg.verify({ _ in true }, argFactory: factory, argStorage: self.argStorage) as String
 
         XCTAssertEqual(val, String.any)
         XCTAssertEqual(self.argStorage.args.count, 1)
 
-        _ = Arg.verify({ str in false }, argFactory: factory, argStorage: self.argStorage) as String
+        _ = Arg.verify({ _ in false }, argFactory: factory, argStorage: self.argStorage) as String
         XCTAssertEqual(self.argStorage.args.count, 2)
     }
 
 }
-

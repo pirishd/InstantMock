@@ -13,12 +13,6 @@ import XCTest
 final class CallConfigurationTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testEqual", testEqual),
-        ("testGreaterThan", testGreaterThan),
-    ]
-
-
     func testEqual() {
         let args1 = ArgumentsConfiguration([ArgumentValueMock(12)])
         let args2 = ArgumentsConfiguration([ArgumentValueMock(13)])

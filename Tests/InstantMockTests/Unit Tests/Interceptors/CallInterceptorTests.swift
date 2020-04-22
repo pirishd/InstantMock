@@ -13,13 +13,6 @@ import XCTest
 final class CallInterceptorTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testMatching_noConfig", testMatching_noConfig),
-        ("testMatching_oneMatching", testMatching_oneMatching),
-        ("testMatching_success", testMatching_success),
-    ]
-
-
     func testMatching_noConfig() {
         let interceptor = CallInterceptor()
 

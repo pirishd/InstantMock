@@ -16,16 +16,8 @@ final class ArgumentVerifyOptionalTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.arg = ArgumentVerifyOptionalImpl({ str in true })
+        self.arg = ArgumentVerifyOptionalImpl({ _ in true })
     }
-
-
-    static var allTests = [
-        ("testDescription", testDescription),
-        ("testMatch_wrongType", testMatch_wrongType),
-        ("testMatch_success", testMatch_success),
-        ("testMatch_success_nil", testMatch_success_nil),
-    ]
 
 
     func testDescription() {

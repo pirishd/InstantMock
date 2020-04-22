@@ -16,5 +16,5 @@ class ArgumentAnyMock: ArgumentAny {
     func match(_ value: Any?) -> Bool {
         return true
     }
-    
+
 }

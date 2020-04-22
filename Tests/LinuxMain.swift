@@ -1,41 +1,8 @@
 import XCTest
-@testable import InstantMockTests
 
-XCTMain([
-    testCase(InstantMockTests.allTests),
-    testCase(BasicMockTests),
-    testCase(CaptureMockTests),
-    testCase(ClosureMockTests),
-    testCase(MockCreationModalityTests),
-    testCase(ThrowingMockTests),
-    testCase(TypesMockTests),
-    testCase(VerifyMockTests),
-    testCase(ArgumentAnyTests),
-    testCase(ArgumentCaptureTests),
-    testCase(ArgumentClosureTests),
-    testCase(ArgumentValueTests),
-    testCase(ArgumentVerifyMandatoryTests),
-    testCase(ArgumentVerifyOptionalTests),
-    testCase(ArgTests),
-    testCase(ArgumentCaptorClosureTests),
-    testCase(ArgumentCaptorTests),
-    testCase(ArgumentCaptorValuesTests),
-    testCase(ArgumentsConfigurationTests),
-    testCase(ArgumentsMatcherTests),
-    testCase(ArgumentStorageTests),
-    testCase(DefaultClosureHandlerTests),
-    testCase(DefaultValueHandlerTests),
-    testCase(CallInterceptorStorageTests),
-    testCase(CallInterceptorTests),
-    testCase(ExpectationTests),
-    testCase(CallConfigurationTests),
-    testCase(StubTests),
-    testCase(ArrayMockUsableTests),
-    testCase(BoolMockUsableTests),
-    testCase(DictionaryMockUsableTests),
-    testCase(DoubleMockUsableTests),
-    testCase(IntMockUsableTests),
-    testCase(SetMockUsableTests),
-    testCase(StringMockUsableTests),
-    testCase(VerifierTests),
-])
+import InstantMockTests
+
+var tests = [XCTestCaseEntry]()
+tests += InstantMockTests.__allTests()
+
+XCTMain(tests)

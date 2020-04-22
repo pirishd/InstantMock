@@ -341,12 +341,15 @@ Indeed, adding this extension to both a parent and a subclass would create build
 
 For now, the following types are `MockUsable`:
 * Bool
-* Int
+* Int, Int64
+* UInt, UInt64
+* Float
 * Double
 * String
 * Set
 * Array
 * Dictionary
+* Date
 
 ## Changelog
 List of changes can be found [here](CHANGELOG.md).
@@ -376,7 +379,7 @@ end
 *InstantMock* is available using the Swift Package Manager, by adding the dependency either with Xcode or by editing the `Package.swift` file:
 
 ```
-.package(url: "https://github.com/pirishd/InstantMock", from: "2.5.3"),
+.package(url: "https://github.com/pirishd/InstantMock", from: "2.5.5"),
 ```
 
 ## Inspiration

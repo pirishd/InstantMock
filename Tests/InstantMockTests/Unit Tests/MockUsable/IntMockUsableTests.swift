@@ -13,14 +13,6 @@ import XCTest
 final class IntMockUsableTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testEqual_toNil", testEqual_toNil),
-        ("testEqual_toWrongType", testEqual_toWrongType),
-        ("testEqual_toWrongValue", testEqual_toWrongValue),
-        ("testEqual_toExpectedValue", testEqual_toExpectedValue),
-    ]
-
-
     func testEqual_toNil() {
         let ret = 12.equal(to: nil)
         XCTAssertFalse(ret)
@@ -44,5 +36,16 @@ final class IntMockUsableTests: XCTestCase {
         XCTAssertTrue(ret)
     }
 
+
+    func testEqual_toExpectedValue_int64() {
+        let ret = Int64.max.equal(to: Int64.max)
+        XCTAssertTrue(ret)
+    }
+
+
+    func testEqual_toExpectedValue_uint64() {
+        let ret = UInt64.max.equal(to: UInt64.max)
+        XCTAssertTrue(ret)
+    }
 
 }
