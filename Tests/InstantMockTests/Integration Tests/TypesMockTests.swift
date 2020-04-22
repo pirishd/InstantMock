@@ -81,6 +81,10 @@ final class TypesMock: Mock, TypesProtocol {
         return super.call(array)!
     }
 
+    func date(_ date: Date) -> Date {
+        return super.call(date)!
+    }
+    
     func dictionary(_ dictionary: Dictionary<String, Int>) -> Dictionary<String, Int> {
         return super.call(dictionary)!
     }
@@ -116,6 +120,7 @@ final class TypesMockTests: XCTestCase {
         ("testObject", testObject),
         ("testSet", testSet),
         ("testArray", testArray),
+        ("testDate", testDate),
         ("testDictionary", testDictionary),
     ]
 
@@ -294,7 +299,20 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
+    
+    func testDate() {
+        self.mock.expect().call(self.mock.date(Arg.any()))
 
+        self.mock.verify()
+        XCTAssertFalse(self.assertionMock.succeeded)
+
+        _ = self.mock.date(Date(timeIntervalSince1970: 1234))
+
+        self.mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+    }
+
+    
     func testDictionary() {
         var dict = Dictionary<String, Int>()
         dict["key"] = 12
