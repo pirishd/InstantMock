@@ -80,18 +80,6 @@ final class CaptureMockTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testExpect_capture", testExpect_capture),
-        ("testExpect_capture_closure", testExpect_capture_closure),
-        ("testExpect_capture_closure_noArg", testExpect_capture_closure_noArg),
-        ("testExpect_capture_closure_oneArg", testExpect_capture_closure_oneArg),
-        ("testExpect_capture_closure_twoArgs", testExpect_capture_closure_twoArgs),
-        ("testExpect_capture_closure_threeArgs", testExpect_capture_closure_threeArgs),
-        ("testExpect_capture_closure_fourArgs", testExpect_capture_closure_fourArgs),
-        ("testExpect_capture_closure_fiveArgs", testExpect_capture_closure_fiveArgs),
-    ]
-
-
     func testExpect_capture() {
 
         let captureStr = ArgumentCaptor<String>()

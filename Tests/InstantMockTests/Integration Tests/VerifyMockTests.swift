@@ -43,13 +43,6 @@ final class VerifyMockTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testExpect_stringVerify", testExpect_stringVerify),
-        ("testStub_intVerify", testStub_intVerify),
-        ("testExpect_stringOpt", testExpect_stringOpt),
-    ]
-
-
     func testExpect_stringVerify() {
 
         mock.expect().call(mock.someFunc(arg1: Arg.verify({ str in str.hasPrefix("hello")}), arg2: Arg.any()))

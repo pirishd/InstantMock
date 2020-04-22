@@ -20,14 +20,6 @@ final class ArgumentVerifyOptionalTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testDescription", testDescription),
-        ("testMatch_wrongType", testMatch_wrongType),
-        ("testMatch_success", testMatch_success),
-        ("testMatch_success_nil", testMatch_success_nil),
-    ]
-
-
     func testDescription() {
         let desc = self.arg.description
         XCTAssertEqual(desc, "conditioned<(Optional<String>) -> Bool>")

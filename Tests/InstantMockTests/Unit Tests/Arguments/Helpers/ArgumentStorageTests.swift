@@ -20,12 +20,6 @@ final class ArgumentStorageTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testStore", testStore),
-        ("testFlush", testFlush),
-    ]
-
-
     func testStore() {
         var count = self.storage.all().count
         XCTAssertEqual(count, 0)

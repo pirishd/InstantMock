@@ -23,14 +23,6 @@ final class CallInterceptorStorageTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testInterceptors", testInterceptors),
-        ("testRegisterInterceptors", testRegisterInterceptors),
-        ("testAll", testAll),
-        ("testRemoveAll", testRemoveAll),
-    ]
-
-
     func testInterceptors() {
         let interceptors = self.repository.interceptors(for: "")
         XCTAssertEqual(interceptors.count, 0)

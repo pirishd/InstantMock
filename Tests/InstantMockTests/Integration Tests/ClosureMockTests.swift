@@ -82,19 +82,6 @@ final class ClosureMockTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testExpect", testExpect),
-        ("testExpect_optionalNil", testExpect_optionalNil),
-        ("testExpect_optionalNotNil", testExpect_optionalNotNil),
-        ("testExpect_noArg", testExpect_noArg),
-        ("testExpect_oneArg", testExpect_oneArg),
-        ("testExpect_twoArgs", testExpect_twoArgs),
-        ("testExpect_threeArgs", testExpect_threeArgs),
-        ("testExpect_fourArgs", testExpect_fourArgs),
-        ("testExpect_fiveArgs", testExpect_fiveArgs),
-    ]
-
-
     func testExpect() {
         self.mock.expect().call(self.mock.someFunc(
             arg: Arg.any(),

@@ -21,12 +21,6 @@ final class ArgumentValueTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testDescription", testDescription),
-        ("testMatch", testMatch),
-    ]
-
-
     func testDescription() {
         var value = ArgumentValueImpl("Hello", verifier: self.verifier)
         var desc = value.description

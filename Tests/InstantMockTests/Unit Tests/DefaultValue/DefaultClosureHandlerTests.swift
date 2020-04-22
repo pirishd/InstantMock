@@ -12,16 +12,6 @@ import XCTest
 
 final class DefaultClosureHandlerTests: XCTestCase {
 
-    static var allTests = [
-        ("testIt_noArgs", testIt_noArgs),
-        ("testIt_oneArg", testIt_oneArg),
-        ("testIt_twoArgs", testIt_twoArgs),
-        ("testIt_threeArgs", testIt_threeArgs),
-        ("testIt_fourArgs", testIt_fourArgs),
-        ("testIt_fiveArgs", testIt_fiveArgs),
-    ]
-
-
     func testIt_noArgs() {
         let closure = DefaultClosureHandler.it() as () -> Int
         XCTAssertNotNil(closure)

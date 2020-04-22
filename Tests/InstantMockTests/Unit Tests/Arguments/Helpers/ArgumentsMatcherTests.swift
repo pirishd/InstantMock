@@ -15,13 +15,6 @@ final class DummyArgsMatcher {}
 final class ArgumentsMatcherTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testMatch_wrongNumberOfArgs", testMatch_wrongNumberOfArgs),
-        ("testMatch_isAny", testMatch_isAny),
-        ("testMatch_severalValues", testMatch_severalValues),
-    ]
-
-
     func testMatch_wrongNumberOfArgs() {
         let config = ArgumentsConfiguration([Argument]())
 

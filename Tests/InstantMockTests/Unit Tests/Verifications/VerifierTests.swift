@@ -21,27 +21,6 @@ final class VerifierTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testEqual_bothNil", testEqual_bothNil),
-        ("testEqual_firstNil", testEqual_firstNil),
-        ("testEqual_secondNil", testEqual_secondNil),
-        ("testEqual_strings", testEqual_strings),
-        ("testEqual_stringsWithDifferentValues", testEqual_stringsWithDifferentValues),
-        ("testEqual_floats", testEqual_floats),
-        ("testEqual_int64s", testEqual_int64s),
-        ("testEqual_uint64s", testEqual_uint64s),
-        ("testEqual_references", testEqual_references),
-        ("testMatch_differentReferences", testMatch_differentReferences),
-        ("testMatch_closure_failure", testMatch_closure_failure),
-        ("testEqualArray_success", testEqualArray_success),
-        ("testEqualArray_failure", testEqualArray_failure),
-        ("testVoid", testVoid),
-        ("testTypes_success", testTypes_success),
-        ("testTypes_failure", testTypes_failure),
-        ("testTuples_success", testTuples_success),
-    ]
-
-
     func testEqual_bothNil() {
         let ret = self.verifier.equal(nil, to: nil)
         XCTAssertTrue(ret)

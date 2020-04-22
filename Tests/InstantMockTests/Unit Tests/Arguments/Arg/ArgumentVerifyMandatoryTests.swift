@@ -20,13 +20,6 @@ final class ArgumentVerifyMandatoryTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testDescription", testDescription),
-        ("testMatch_wrongType", testMatch_wrongType),
-        ("testMatch_success", testMatch_success),
-    ]
-
-
     func testDescription() {
         let desc = self.arg.description
         XCTAssertEqual(desc, "conditioned<(String) -> Bool>")

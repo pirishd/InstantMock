@@ -96,13 +96,6 @@ final class MockCreationModalityTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testExpect_inheritanceMock", testExpect_inheritanceMock),
-        ("testExpect_delegateItMock", testExpect_delegateItMock),
-        ("testExpect_delegateFullMock", testExpect_delegateFullMock),
-    ]
-
-
     func testExpect_inheritanceMock() {
         let mock = InheritanceMock(self.expectationFactory)
         mock.expect().call(mock.someFunc(arg1: Arg.eq("Hello"), arg2: Arg.any()))

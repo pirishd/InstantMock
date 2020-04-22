@@ -13,14 +13,6 @@ import XCTest
 final class DoubleMockUsableTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testEqual_toNil", testEqual_toNil),
-        ("testEqual_toWrongType", testEqual_toWrongType),
-        ("testEqual_toWrongValue", testEqual_toWrongValue),
-        ("testEqual_toExpectedValue", testEqual_toExpectedValue),
-    ]
-
-
     func testEqual_toNil() {
         let ret = 12.0.equal(to: nil)
         XCTAssertFalse(ret)

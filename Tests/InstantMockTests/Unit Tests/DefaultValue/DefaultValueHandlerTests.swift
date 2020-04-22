@@ -17,12 +17,6 @@ final class DummyDefaultValueHandler {}
 final class DefaultValueHandlerTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testIt_notMockUsable", testIt_notMockUsable),
-        ("testIt_string", testIt_string),
-    ]
-
-
     func testIt_notMockUsable() {
         let defaultValueHandler = DefaultValueHandler<DummyDefaultValueHandler>()
         XCTAssertNil(defaultValueHandler.it)

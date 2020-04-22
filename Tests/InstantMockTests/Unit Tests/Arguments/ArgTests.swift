@@ -23,17 +23,6 @@ final class ArgTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testEq_string", testEq_string),
-        ("testEq_int", testEq_int),
-        ("testEq_intOptional", testEq_intOptional),
-        ("testEq_object", testEq_object),
-        ("testAny_string", testAny_string),
-        ("testAny_int", testAny_int),
-        ("testVerify_string", testVerify_string),
-    ]
-
-
     func testEq_string() {
         let factory = ArgumentFactoryMock<String>()
         let val = Arg.eq("Hello", argFactory: factory, argStorage: self.argStorage)

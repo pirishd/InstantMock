@@ -62,28 +62,6 @@ final class BasicMockTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testExpect", testExpect),
-        ("testExpect_optional_nil", testExpect_optional_nil),
-        ("testExpect_optional_nonnil", testExpect_optional_nonnil),
-        ("testExpect_count", testExpect_count),
-        ("testExpect_count_zero", testExpect_count_zero),
-        ("testExpect_type", testExpect_type),
-        ("testExpect_tuple", testExpect_tuple),
-        ("testReject", testReject),
-        ("testReject_count", testReject_count),
-        ("testStub", testStub),
-        ("testSeveralStubs", testSeveralStubs),
-        ("testExpectAndStub", testExpectAndStub),
-        ("testStub_returnAndDo", testStub_returnAndDo),
-        ("testExpectProperty_value", testExpectProperty_value),
-        ("testExpectProperty_any", testExpectProperty_any),
-        ("testExpectProperty_value_setter_getter", testExpectProperty_value_setter_getter),
-        ("testResetExpectations", testResetExpectations),
-        ("testResetStubs", testResetStubs),
-    ]
-
-
     func testExpect() {
         mock.expect().call(mock.basic(arg1: Arg.eq("Hello"), arg2: Arg.any()))
         mock.verify()

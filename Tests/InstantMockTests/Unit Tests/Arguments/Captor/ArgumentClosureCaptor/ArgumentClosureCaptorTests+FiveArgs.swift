@@ -25,13 +25,6 @@ final class ArgumentClosureCaptorTests_FiveArgs: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testCapture", testCapture),
-        ("testValue", testValue),
-        ("testAllValues", testAllValues),
-    ]
-
-
     func testCapture() {
         let val = captor.capture(argFactory: self.factoryMock, argStorage: self.storageMock)
             as (Int, Int, Int, Int, Int) -> String
