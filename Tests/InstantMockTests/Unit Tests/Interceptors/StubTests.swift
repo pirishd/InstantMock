@@ -63,7 +63,6 @@ final class StubTests: XCTestCase {
 
 
     func testHandleCall_andDo() {
-
         var something = ""
         self.stub.andDo { _ in something = "not_empty" }
 
@@ -116,7 +115,7 @@ final class StubTests: XCTestCase {
 
 
     func testReturns_andReturnClosure() {
-        self.stub.andReturn(closure: { _ in return 12} )
+        self.stub.andReturn(closure: { _ in return 12})
         let returns = self.stub.returns
         XCTAssertTrue(returns)
     }
@@ -141,7 +140,6 @@ final class StubTests: XCTestCase {
 
 
     func testBest_several() {
-
         let valueMock12 = ArgumentValueMock(12)
         let valueMock37 = ArgumentValueMock(37)
         let valueMock42 = ArgumentValueMock(42)
@@ -195,4 +193,3 @@ final class StubTests: XCTestCase {
     }
 
 }
-

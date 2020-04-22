@@ -24,5 +24,5 @@ final class ArgumentAnyTests: XCTestCase {
         let match = any.match("Anything")
         XCTAssertTrue(match)
     }
-    
+
 }

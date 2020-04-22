@@ -29,7 +29,6 @@ final class ThrowingMock: Mock, ThrowingProtocol {
 }
 
 
-
 final class ThrowingMockTests: XCTestCase {
 
     private enum ThrowingError: Error {
@@ -59,7 +58,7 @@ final class ThrowingMockTests: XCTestCase {
     func testStub_andThrow_returnNotThrow() {
         mock.stub().call(try! mock.throwingAndReturn()).andReturn("something")
 
-        var ret: String? = nil
+        var ret: String?
         XCTAssertNoThrow(ret = try mock.throwingAndReturn())
         XCTAssertEqual(ret, "something")
     }

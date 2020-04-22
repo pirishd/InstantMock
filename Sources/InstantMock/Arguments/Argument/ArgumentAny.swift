@@ -42,5 +42,5 @@ extension ArgumentAnyImpl: CustomStringConvertible {
     var description: String {
         return "any<\(self.typeDescription)>"
     }
-    
+
 }

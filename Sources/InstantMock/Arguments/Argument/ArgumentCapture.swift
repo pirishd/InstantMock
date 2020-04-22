@@ -16,8 +16,7 @@ public protocol ArgumentCapture: Argument {
 
 
 /** This class represents the configuration of an argument that captures passed values */
-final class ArgumentCaptureImpl<T>: ArgumentCapture  {
-
+final class ArgumentCaptureImpl<T>: ArgumentCapture {
 
     /// Type description for the arg
     private let typeDescription: String
@@ -32,7 +31,7 @@ final class ArgumentCaptureImpl<T>: ArgumentCapture  {
 
     /// Last captured value (typed)
     var valueTyped: T? {
-        var ret: T? = nil
+        var ret: T?
         if let val = self.values.last {
             ret = val
         }
