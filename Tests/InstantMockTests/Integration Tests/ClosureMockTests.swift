@@ -67,7 +67,6 @@ final class ClosureMock: Mock, ClosureProtocol {
 }
 
 
-
 final class ClosureMockTests: XCTestCase {
 
     private var mock: ClosureMock!
@@ -88,7 +87,7 @@ final class ClosureMockTests: XCTestCase {
             closure: Arg.closure()
         ))
 
-        self.mock.someFunc(arg: "Hello", closure: { (str, obj) -> Int in
+        self.mock.someFunc(arg: "Hello", closure: { (_, _) -> Int in
             return 42
         })
 
@@ -116,7 +115,7 @@ final class ClosureMockTests: XCTestCase {
             closure: Arg.closure()
         ))
 
-        self.mock.someFuncOpt(arg: "Hello", closure: { (str, obj) -> Int in
+        self.mock.someFuncOpt(arg: "Hello", closure: { (_, _) -> Int in
             return 42
         })
 

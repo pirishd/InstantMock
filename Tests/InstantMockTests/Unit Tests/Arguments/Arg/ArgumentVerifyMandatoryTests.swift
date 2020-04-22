@@ -16,7 +16,7 @@ final class ArgumentVerifyMandatoryTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.arg = ArgumentVerifyMandatoryImpl({ str in true })
+        self.arg = ArgumentVerifyMandatoryImpl({ _ in true })
     }
 
 

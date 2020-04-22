@@ -40,7 +40,6 @@ public protocol MockStub {
 }
 
 
-
 /**
     A `Mock` instance is dedicated to being used in unit tests, in order to mock some specific behaviors.
     It can be used in two particular cases:
@@ -91,19 +90,20 @@ open class Mock {
         self.expectationFactory = expectationFactory
     }
 
-    
+
     // MARK: Methods
     /** Resets all expectations and rejects */
     public func resetExpectations() {
         self.expectationBeingRegistered = nil
         self.expectationStorage.removeAll()
     }
-    
+
     /** Resets all stubs */
     public func resetStubs() {
         self.stubBeingRegistered = nil
         self.stubStorage.removeAll()
     }
+
 }
 
 
@@ -149,7 +149,6 @@ extension Mock: MockExpectationFactory {
 
 /* Extension for handling mock expectations */
 extension Mock {
-
 
     /**
         Verify that all expectations are ok
@@ -270,16 +269,14 @@ extension Mock: MockStub {
         return (ret, useDefaultValue)
     }
 
-
 }
 
 
 /** Extension for handling calls to the mock */
 extension Mock {
 
-
     /** Call with no return value */
-    public func call(_ args: Any?..., function: String = #function) -> Void {
+    public func call(_ args: Any?..., function: String = #function) {
         let ret: Void? = try? self.doCall(args, function: function)
         return ret ?? ()
     }
@@ -292,7 +289,7 @@ extension Mock {
 
 
     /** Throwing call with no return value */
-    public func callThrowing(_ args: Any?..., function: String = #function) throws -> Void {
+    public func callThrowing(_ args: Any?..., function: String = #function) throws {
         let ret: Void? = try self.doCall(args, function: function)
         return ret ?? ()
     }
@@ -409,6 +406,5 @@ extension Mock {
 
         return ret
     }
-
 
 }

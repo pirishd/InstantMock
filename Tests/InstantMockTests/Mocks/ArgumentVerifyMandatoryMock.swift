@@ -22,6 +22,5 @@ class ArgumentVerifyMandatoryMock<T>: ArgumentVerifyMandatoryTyped {
     func match(_ value: Any?) -> Bool {
         return true
     }
-    
-}
 
+}

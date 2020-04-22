@@ -22,8 +22,9 @@ final class CallConfiguration {
         self.function = function
         self.args = args
     }
-    
+
 }
+
 
 /** Two configurations are comparable, in terms of arguments */
 extension CallConfiguration: Comparable {}

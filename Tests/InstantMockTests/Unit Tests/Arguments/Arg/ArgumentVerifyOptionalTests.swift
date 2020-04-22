@@ -16,7 +16,7 @@ final class ArgumentVerifyOptionalTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.arg = ArgumentVerifyOptionalImpl({ str in true })
+        self.arg = ArgumentVerifyOptionalImpl({ _ in true })
     }
 
 

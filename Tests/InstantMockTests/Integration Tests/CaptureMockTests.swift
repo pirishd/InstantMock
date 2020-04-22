@@ -65,7 +65,6 @@ final class CaptureMock: Mock, CaptureProtocol {
 }
 
 
-
 final class CaptureMockTests: XCTestCase {
 
     private var mock: CaptureMock!
@@ -110,7 +109,7 @@ final class CaptureMockTests: XCTestCase {
         let captor = ArgumentClosureCaptor<(Int, SomeCaptureObject) -> String>()
         mock.expect().call(mock.someFunc(arg: Arg.any(), closure: captor.capture()))
 
-        mock.someFunc(arg: "Hello") { (num, obj) -> String in
+        mock.someFunc(arg: "Hello") { (num, _) -> String in
             return "\(num)"
         }
 
@@ -214,4 +213,3 @@ final class CaptureMockTests: XCTestCase {
     }
 
 }
-

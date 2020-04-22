@@ -6,7 +6,6 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
-
 /** Extension for making `Int` easily usage in mocks */
 extension FixedWidthInteger where Self: MockUsable {
 
@@ -19,28 +18,28 @@ extension FixedWidthInteger where Self: MockUsable {
 
 extension Int: MockUsable {
     public static let any = 42
-    
+
     public static var anyValue: MockUsable {
         return Int.any
     }
 }
 extension Int64: MockUsable {
     public static let any = 42 as Int64
-    
+
     public static var anyValue: MockUsable {
         return Int64.any
     }
 }
 extension UInt: MockUsable {
     public static let any = 42 as UInt
-    
+
     public static var anyValue: MockUsable {
         return UInt.any
     }
 }
 extension UInt64: MockUsable {
     public static let any = 42 as UInt64
-    
+
     public static var anyValue: MockUsable {
         return UInt64.any
     }

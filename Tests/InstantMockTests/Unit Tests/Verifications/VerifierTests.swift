@@ -44,25 +44,30 @@ final class VerifierTests: XCTestCase {
         XCTAssertTrue(ret)
     }
 
+
     func testEqual_stringsWithDifferentValues() {
         let ret = self.verifier.equal("something", to: "something else")
         XCTAssertFalse(ret)
     }
-    
+
+
     func testEqual_floats() {
         let ret = self.verifier.equal(1.234 as Float, to: 1.234 as Float)
         XCTAssertTrue(ret)
     }
-    
+
+
     func testEqual_int64s() {
         let ret = self.verifier.equal(Int64.max, to: Int64.max)
         XCTAssertTrue(ret)
     }
 
+
     func testEqual_uint64s() {
         let ret = self.verifier.equal(UInt64.max, to: UInt64.max)
         XCTAssertTrue(ret)
     }
+
 
     func testEqual_references() {
         let instance = DummyArgsMatcher()
@@ -187,4 +192,3 @@ final class VerifierTests: XCTestCase {
     }
 
 }
-

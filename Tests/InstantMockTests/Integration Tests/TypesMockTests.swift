@@ -40,15 +40,15 @@ final class TypesMock: Mock, TypesProtocol {
     func integer(_ int: Int) -> Int {
         return super.call(int)!
     }
-    
+
     func integer64(_ int: Int64) -> Int64 {
         return super.call(int)!
     }
-    
+
     func unsignedInteger(_ int: UInt) -> UInt {
         return super.call(int)!
     }
-    
+
     func unsignedInteger64(_ int: UInt64) -> UInt64 {
         return super.call(int)!
     }
@@ -56,7 +56,7 @@ final class TypesMock: Mock, TypesProtocol {
     func float(_ float: Float) -> Float {
         return super.call(float)!
     }
-    
+
     func double(_ double: Double) -> Double {
         return super.call(double)!
     }
@@ -84,7 +84,7 @@ final class TypesMock: Mock, TypesProtocol {
     func date(_ date: Date) -> Date {
         return super.call(date)!
     }
-    
+
     func dictionary(_ dictionary: Dictionary<String, Int>) -> Dictionary<String, Int> {
         return super.call(dictionary)!
     }
@@ -144,7 +144,7 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
-    
+
     func testInt64() {
         self.mock.expect().call(self.mock.integer64(Arg.any()))
 
@@ -156,7 +156,8 @@ final class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
-    
+
+
     func testUnsignedInt() {
         self.mock.expect().call(self.mock.unsignedInteger(Arg.any()))
 
@@ -168,7 +169,8 @@ final class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
-    
+
+
     func testUnsignedInt64() {
         self.mock.expect().call(self.mock.unsignedInteger64(Arg.any()))
 
@@ -181,7 +183,7 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
-    
+
     func testFloat() {
         self.mock.expect().call(self.mock.float(Arg.any()))
 
@@ -193,8 +195,8 @@ final class TypesMockTests: XCTestCase {
         self.mock.verify()
         XCTAssertTrue(self.assertionMock.succeeded)
     }
-    
-    
+
+
     func testDouble() {
         self.mock.expect().call(self.mock.double(Arg.any()))
 
@@ -280,7 +282,7 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
-    
+
     func testDate() {
         self.mock.expect().call(self.mock.date(Arg.any()))
 
@@ -293,7 +295,7 @@ final class TypesMockTests: XCTestCase {
         XCTAssertTrue(self.assertionMock.succeeded)
     }
 
-    
+
     func testDictionary() {
         var dict = Dictionary<String, Int>()
         dict["key"] = 12
