@@ -13,12 +13,6 @@ import XCTest
 final class ArgumentCaptorValuesTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testValue", testValue),
-        ("testAllValues", testAllValues),
-    ]
-
-
     func testValue() {
         var argumentCapture: ArgumentCaptureImpl<String>? = nil
         var captor = ArgumentCaptorValuesImpl<String>(argumentCapture)

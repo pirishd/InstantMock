@@ -20,16 +20,6 @@ final class ArgClosureTests: XCTestCase {
         self.argStorage = ArgumentStorageMock()
     }
 
-    static var allTests = [
-        ("testClosure_noArg", testClosure_noArg),
-        ("testClosure_oneArg", testClosure_oneArg),
-        ("testClosure_twoArgs", testClosure_twoArgs),
-        ("testClosure_threeArgs", testClosure_threeArgs),
-        ("testClosure_fourArgs", testClosure_fourArgs),
-        ("testClosure_fiveArgs", testClosure_fiveArgs),
-    ]
-
-
     func testClosure_noArg() {
         let factory = ArgumentFactoryMock<() -> Int>()
         let closure = Arg.closure(argFactory: factory, argStorage: self.argStorage) as () -> Int

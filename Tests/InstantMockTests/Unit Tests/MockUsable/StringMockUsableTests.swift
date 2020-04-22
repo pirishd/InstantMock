@@ -13,14 +13,6 @@ import XCTest
 final class StringMockUsableTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testEqual_toNil", testEqual_toNil),
-        ("testEqual_toWrongType", testEqual_toWrongType),
-        ("testEqual_toWrongValue", testEqual_toWrongValue),
-        ("testEqual_toExpectedValue", testEqual_toExpectedValue),
-    ]
-
-
     func testEqual_toNil() {
         let ret = "any".equal(to: nil)
         XCTAssertFalse(ret)

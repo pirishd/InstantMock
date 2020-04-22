@@ -23,22 +23,6 @@ final class ExpectationTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testHandleCall", testHandleCall),
-        ("testVerified_basic", testVerified_basic),
-        ("testVerified_called", testVerified_called),
-        ("testVerified_withExpectedNumberOfCalls", testVerified_withExpectedNumberOfCalls),
-        ("testReason_basic", testReason_basic),
-        ("testReason_called", testReason_called),
-        ("testReason_withExpectedNumberOfCalls", testReason_withExpectedNumberOfCalls),
-        ("testReason_rejected_basic", testReason_rejected_basic),
-        ("testReason_rejected_notCalled", testReason_rejected_notCalled),
-        ("testReason_rejected_withExpectedNumberOfCalls", testReason_rejected_withExpectedNumberOfCalls),
-        ("testVerify_accepted", testVerify_accepted),
-        ("testVerify_rejected", testVerify_rejected),
-    ]
-
-
     func testHandleCall() {
         let ret = try! self.expectation.handleCall([])
         XCTAssertNil(ret)

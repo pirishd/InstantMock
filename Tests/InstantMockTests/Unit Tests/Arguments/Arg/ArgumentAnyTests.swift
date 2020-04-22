@@ -12,12 +12,6 @@ import XCTest
 
 final class ArgumentAnyTests: XCTestCase {
 
-    static var allTests = [
-        ("testDescription", testDescription),
-        ("testMatch", testMatch),
-    ]
-
-
     func testDescription() {
         let value = ArgumentAnyImpl("String")
         let desc = value.description

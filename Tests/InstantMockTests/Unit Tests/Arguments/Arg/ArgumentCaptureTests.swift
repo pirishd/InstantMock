@@ -21,18 +21,6 @@ final class ArgumentCaptureTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testMatch", testMatch),
-        ("testDescription", testDescription),
-        ("testValue_empty", testValue_empty),
-        ("testAllValues_empty", testAllValues_empty),
-        ("testValue_setValue_nil", testValue_setValue_nil),
-        ("testValue_setValue_wrongType", testValue_setValue_wrongType),
-        ("testValue_setValue_simple", testValue_setValue_simple),
-        ("testValue_setValue_several", testValue_setValue_several),
-    ]
-
-
     func testMatch() {
         let match = self.capture.match("Anything")
         XCTAssertTrue(match)

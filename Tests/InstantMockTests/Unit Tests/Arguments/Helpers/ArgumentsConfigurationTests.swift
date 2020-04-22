@@ -16,15 +16,6 @@ final class DummyArgConfiguration {}
 final class ArgumentsConfigurationTests: XCTestCase {
 
 
-    static var allTests = [
-        ("testDescription_empty", testDescription_empty),
-        ("testDescription_oneValue", testDescription_oneValue),
-        ("testDescription_severalValues", testDescription_severalValues),
-        ("testEquality", testEquality),
-        ("testGreaterThan", testGreaterThan),
-    ]
-
-
     func testDescription_empty() {
         let list = [Argument]()
         let ret = ArgumentsConfiguration(list).description

@@ -106,25 +106,6 @@ final class TypesMockTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testEmpty", testEmpty),
-        ("testBool", testBool),
-        ("testInt", testInt),
-        ("testInt64", testInt64),
-        ("testUnsignedInt", testUnsignedInt),
-        ("testUnsignedInt64", testUnsignedInt64),
-        ("testFloat", testFloat),
-        ("testDouble", testDouble),
-        ("testString", testString),
-        ("testString_nil", testString_nil),
-        ("testObject", testObject),
-        ("testSet", testSet),
-        ("testArray", testArray),
-        ("testDate", testDate),
-        ("testDictionary", testDictionary),
-    ]
-
-
     func testEmpty() {
         self.mock.expect().call(self.mock.empty())
 

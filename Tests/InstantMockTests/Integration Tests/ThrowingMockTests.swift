@@ -48,13 +48,6 @@ final class ThrowingMockTests: XCTestCase {
     }
 
 
-    static var allTests = [
-        ("testStub_andThrow", testStub_andThrow),
-        ("testStub_andThrow_returnNotThrow", testStub_andThrow_returnNotThrow),
-        ("testStub_andThrow_returnThrow", testStub_andThrow_returnThrow),
-    ]
-
-
     func testStub_andThrow() {
         mock.stub().call(try! mock.throwing()).andThrow(ThrowingError.some)
         XCTAssertThrowsError(try mock.throwing()) { (error) -> Void in
