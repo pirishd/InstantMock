@@ -18,6 +18,8 @@ final class IntMockUsableTests: XCTestCase {
         ("testEqual_toWrongType", testEqual_toWrongType),
         ("testEqual_toWrongValue", testEqual_toWrongValue),
         ("testEqual_toExpectedValue", testEqual_toExpectedValue),
+        ("testEqual_toExpectedValue_int64", testEqual_toExpectedValue_int64),
+        ("testEqual_toExpectedValue_uint64", testEqual_toExpectedValue_uint64),
     ]
 
 
@@ -43,6 +45,15 @@ final class IntMockUsableTests: XCTestCase {
         let ret = 12.equal(to: 12)
         XCTAssertTrue(ret)
     }
+    
+    func testEqual_toExpectedValue_int64() {
+        let ret = Int64.max.equal(to: Int64.max)
+        XCTAssertTrue(ret)
+    }
 
+    func testEqual_toExpectedValue_uint64() {
+        let ret = UInt64.max.equal(to: UInt64.max)
+        XCTAssertTrue(ret)
+    }
 
 }
