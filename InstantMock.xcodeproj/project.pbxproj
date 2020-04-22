@@ -301,6 +301,12 @@
 		43E6EFD71EE74F4C00FFC9E0 /* SetMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E6EE891EE73F7D00FFC9E0 /* SetMockUsableTests.swift */; };
 		43E6EFD81EE74F4C00FFC9E0 /* StringMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E6EE8A1EE73F7D00FFC9E0 /* StringMockUsableTests.swift */; };
 		43E6EFD91EE74F5100FFC9E0 /* VerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E6EE931EE73FA100FFC9E0 /* VerifierTests.swift */; };
+		5171A85F245044F900585752 /* Date+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A85E245044F800585752 /* Date+MockUsable.swift */; };
+		5171A860245044F900585752 /* Date+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A85E245044F800585752 /* Date+MockUsable.swift */; };
+		5171A861245044F900585752 /* Date+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A85E245044F800585752 /* Date+MockUsable.swift */; };
+		5171A8632450455B00585752 /* DateMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A8622450455B00585752 /* DateMockUsableTests.swift */; };
+		5171A8642450455B00585752 /* DateMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A8622450455B00585752 /* DateMockUsableTests.swift */; };
+		5171A8652450455B00585752 /* DateMockUsableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A8622450455B00585752 /* DateMockUsableTests.swift */; };
 		517CDAE7244EF62F00952FF5 /* Float+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CDAE6244EF62F00952FF5 /* Float+MockUsable.swift */; };
 		517CDAE8244EF62F00952FF5 /* Float+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CDAE6244EF62F00952FF5 /* Float+MockUsable.swift */; };
 		517CDAE9244EF62F00952FF5 /* Float+MockUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CDAE6244EF62F00952FF5 /* Float+MockUsable.swift */; };
@@ -439,6 +445,8 @@
 		43E6EED31EE749B700FFC9E0 /* InstantMockTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "InstantMockTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E6EF701EE74E8400FFC9E0 /* InstantMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstantMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E6EF781EE74E8400FFC9E0 /* InstantMockTests tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "InstantMockTests tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5171A85E245044F800585752 /* Date+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MockUsable.swift"; sourceTree = "<group>"; };
+		5171A8622450455B00585752 /* DateMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateMockUsableTests.swift; sourceTree = "<group>"; };
 		517CDAE6244EF62F00952FF5 /* Float+MockUsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+MockUsable.swift"; sourceTree = "<group>"; };
 		517CDAEA244EF65A00952FF5 /* FloatMockUsableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatMockUsableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -700,6 +708,7 @@
 			children = (
 				43E6EE181EE73E9F00FFC9E0 /* Array+MockUsable.swift */,
 				43E6EE191EE73E9F00FFC9E0 /* Bool+MockUsable.swift */,
+				5171A85E245044F800585752 /* Date+MockUsable.swift */,
 				43E6EE1A1EE73E9F00FFC9E0 /* Dictionary+MockUsable.swift */,
 				43E6EE1B1EE73E9F00FFC9E0 /* Double+MockUsable.swift */,
 				517CDAE6244EF62F00952FF5 /* Float+MockUsable.swift */,
@@ -844,6 +853,7 @@
 			children = (
 				43E6EE841EE73F7D00FFC9E0 /* ArrayMockUsableTests.swift */,
 				43E6EE851EE73F7D00FFC9E0 /* BoolMockUsableTests.swift */,
+				5171A8622450455B00585752 /* DateMockUsableTests.swift */,
 				43E6EE861EE73F7D00FFC9E0 /* DictionaryMockUsableTests.swift */,
 				43E6EE871EE73F7D00FFC9E0 /* DoubleMockUsableTests.swift */,
 				517CDAEA244EF65A00952FF5 /* FloatMockUsableTests.swift */,
@@ -1125,6 +1135,7 @@
 				43E6EDE91EE73DD700FFC9E0 /* ArgumentCapture.swift in Sources */,
 				43E6EE0A1EE73E6900FFC9E0 /* ExpectationFactory.swift in Sources */,
 				43E6EE021EE73E3000FFC9E0 /* ArgumentStorage.swift in Sources */,
+				5171A85F245044F900585752 /* Date+MockUsable.swift in Sources */,
 				43E6EE201EE73E9F00FFC9E0 /* Array+MockUsable.swift in Sources */,
 				43E6EE101EE73E8300FFC9E0 /* CallInterceptor.swift in Sources */,
 				431FC8931F236FFF0002247F /* ArgumentClosureCaptor+TwoArgs.swift in Sources */,
@@ -1167,6 +1178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E6EEA91EE7410C00FFC9E0 /* ArgTests.swift in Sources */,
+				5171A8632450455B00585752 /* DateMockUsableTests.swift in Sources */,
 				43E6EE9C1EE7410200FFC9E0 /* ArgumentValueMock.swift in Sources */,
 				43E6EEAC1EE7411300FFC9E0 /* ArgumentClosureTests.swift in Sources */,
 				43E6EEB11EE7411800FFC9E0 /* ArgumentCaptorTests.swift in Sources */,
@@ -1237,6 +1249,7 @@
 				43E6EF071EE74A5A00FFC9E0 /* Dictionary+MockUsable.swift in Sources */,
 				43E6EF021EE74A5400FFC9E0 /* CallInterceptor.swift in Sources */,
 				43E6EEFB1EE74A4000FFC9E0 /* ArgumentsMatcher.swift in Sources */,
+				5171A860245044F900585752 /* Date+MockUsable.swift in Sources */,
 				43E6EEF71EE74A3B00FFC9E0 /* ArgumentCaptorValues.swift in Sources */,
 				43E6EEF81EE74A3B00FFC9E0 /* ArgumentClosureCaptor.swift in Sources */,
 				431C4CA51F23720C0081CEE4 /* ArgumentClosureCaptor+TwoArgs.swift in Sources */,
@@ -1279,6 +1292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E6EF1C1EE74A8000FFC9E0 /* ArgTests.swift in Sources */,
+				5171A8642450455B00585752 /* DateMockUsableTests.swift in Sources */,
 				43E6EEE71EE74A1500FFC9E0 /* ArgumentValueMock.swift in Sources */,
 				43E6EF1F1EE74A8A00FFC9E0 /* ArgumentClosureTests.swift in Sources */,
 				43E6EF241EE74A8E00FFC9E0 /* ArgumentCaptorTests.swift in Sources */,
@@ -1349,6 +1363,7 @@
 				43E6EFA11EE74F1600FFC9E0 /* Dictionary+MockUsable.swift in Sources */,
 				43E6EF9C1EE74F1100FFC9E0 /* CallInterceptor.swift in Sources */,
 				43E6EF951EE74F0100FFC9E0 /* ArgumentsMatcher.swift in Sources */,
+				5171A861245044F900585752 /* Date+MockUsable.swift in Sources */,
 				43E6EF911EE74EFC00FFC9E0 /* ArgumentCaptorValues.swift in Sources */,
 				43E6EF921EE74EFC00FFC9E0 /* ArgumentClosureCaptor.swift in Sources */,
 				431C4CA61F23720D0081CEE4 /* ArgumentClosureCaptor+TwoArgs.swift in Sources */,
@@ -1391,6 +1406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E6EFCA1EE74F3C00FFC9E0 /* ArgumentStorageTests.swift in Sources */,
+				5171A8652450455B00585752 /* DateMockUsableTests.swift in Sources */,
 				43E6EFC91EE74F3C00FFC9E0 /* ArgumentsMatcherTests.swift in Sources */,
 				43E6EFCF1EE74F4700FFC9E0 /* CallInterceptorTests.swift in Sources */,
 				43E6EFB51EE74F2500FFC9E0 /* ExpectationFactoryMock.swift in Sources */,
