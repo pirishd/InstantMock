@@ -341,7 +341,9 @@ Indeed, adding this extension to both a parent and a subclass would create build
 
 For now, the following types are `MockUsable`:
 * Bool
-* Int
+* Int, Int64
+* UInt, UInt64
+* Float
 * Double
 * String
 * Set
