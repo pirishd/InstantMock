@@ -349,6 +349,7 @@ For now, the following types are `MockUsable`:
 * Set
 * Array
 * Dictionary
+* Date
 
 ## Changelog
 List of changes can be found [here](CHANGELOG.md).
