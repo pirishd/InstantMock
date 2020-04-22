@@ -6,6 +6,7 @@
 //  Copyright © 2017 pirishd. All rights reserved.
 //
 
+import Foundation
 
 /** Extension for making `Date` easily usage in mocks */
 extension Date: MockUsable {
