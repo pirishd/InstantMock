@@ -332,6 +332,9 @@ extension Mock {
             fatalError("Invalid argument configuration, see Arg class for more information")
         }
 
+        // once args have been verified, flush the storage as no longer useful
+        ArgumentStorageImpl.instance.flush()
+
         // perform actual registration
         let ret: T? = self.register(function, with: argsConfig)
         return ret
