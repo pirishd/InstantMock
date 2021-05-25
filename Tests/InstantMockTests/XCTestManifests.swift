@@ -240,6 +240,7 @@ extension BasicMockTests {
         ("testExpect", testExpect),
         ("testExpect_count", testExpect_count),
         ("testExpect_count_zero", testExpect_count_zero),
+        ("testExpect_missingArgumentStorageFlushAfterRegistration", testExpect_missingArgumentStorageFlushAfterRegistration),
         ("testExpect_optional_nil", testExpect_optional_nil),
         ("testExpect_optional_nonnil", testExpect_optional_nonnil),
         ("testExpect_tuple", testExpect_tuple),
@@ -311,11 +312,17 @@ extension CaptureMockTests {
         ("testExpect_capture", testExpect_capture),
         ("testExpect_capture_closure", testExpect_capture_closure),
         ("testExpect_capture_closure_fiveArgs", testExpect_capture_closure_fiveArgs),
+        ("testExpect_capture_closure_fiveArgs_throws", testExpect_capture_closure_fiveArgs_throws),
         ("testExpect_capture_closure_fourArgs", testExpect_capture_closure_fourArgs),
+        ("testExpect_capture_closure_fourArgs_throws", testExpect_capture_closure_fourArgs_throws),
         ("testExpect_capture_closure_noArg", testExpect_capture_closure_noArg),
+        ("testExpect_capture_closure_noArg_throws", testExpect_capture_closure_noArg_throws),
         ("testExpect_capture_closure_oneArg", testExpect_capture_closure_oneArg),
+        ("testExpect_capture_closure_oneArg_throws", testExpect_capture_closure_oneArg_throws),
         ("testExpect_capture_closure_threeArgs", testExpect_capture_closure_threeArgs),
+        ("testExpect_capture_closure_threeArgs_throws", testExpect_capture_closure_threeArgs_throws),
         ("testExpect_capture_closure_twoArgs", testExpect_capture_closure_twoArgs),
+        ("testExpect_capture_closure_twoArgs_throws", testExpect_capture_closure_twoArgs_throws),
     ]
 }
 
