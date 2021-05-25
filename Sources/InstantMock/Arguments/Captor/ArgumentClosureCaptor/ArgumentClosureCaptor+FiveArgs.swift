@@ -11,11 +11,21 @@
 extension ArgumentClosureCaptor {
 
 
-    /** Capture an argument of expected type */
+    /** Capture a closure of expected type */
     public func capture<Arg1, Arg2, Arg3, Arg4, Arg5, Ret>() -> T where T == (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret {
         let factory = ArgumentFactoryImpl<T>()
         return self.capture(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
             as (Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret
+    }
+
+
+    /** Capture a closure of expected type that can throw */
+    public func capture<Arg1, Arg2, Arg3, Arg4, Arg5, Ret>() -> T
+        where T == (Arg1, Arg2, Arg3, Arg4, Arg5) throws -> Ret
+    {
+        let factory = ArgumentFactoryImpl<T>()
+        return self.capture(argFactory: factory, argStorage: ArgumentStorageImpl.instance)
+            as (Arg1, Arg2, Arg3, Arg4, Arg5) throws -> Ret
     }
 
 

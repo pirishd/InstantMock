@@ -25,6 +25,14 @@ protocol CaptureProtocol {
     func otherFuncThreeArgs(closure: @escaping (Int, Int, Int) -> Int)
     func otherFuncFourArgs(closure: @escaping (Int, Int, Int, Int) -> Int)
     func otherFuncFiveArgs(closure: @escaping (Int, Int, Int, Int, Int) -> Int)
+
+    // number of args for closure that throw
+    func otherFuncNoArgThrows(closure: @escaping () throws -> Int)
+    func otherFuncOneArgThrows(closure: @escaping (Int) throws -> Int)
+    func otherFuncTwoArgsThrows(closure: @escaping (Int, Int) throws -> Int)
+    func otherFuncThreeArgsThrows(closure: @escaping (Int, Int, Int) throws -> Int)
+    func otherFuncFourArgsThrows(closure: @escaping (Int, Int, Int, Int) throws -> Int)
+    func otherFuncFiveArgsThrows(closure: @escaping (Int, Int, Int, Int, Int) throws -> Int)
 }
 
 
@@ -62,6 +70,30 @@ final class CaptureMock: Mock, CaptureProtocol {
         super.call(closure)
     }
 
+    func otherFuncNoArgThrows(closure: @escaping () throws -> Int) {
+        super.call(closure)
+    }
+
+    func otherFuncOneArgThrows(closure: @escaping (Int) throws -> Int) {
+        super.call(closure)
+    }
+
+    func otherFuncTwoArgsThrows(closure: @escaping (Int, Int) throws -> Int) {
+        super.call(closure)
+    }
+
+    func otherFuncThreeArgsThrows(closure: @escaping (Int, Int, Int) throws -> Int) {
+        super.call(closure)
+    }
+
+    func otherFuncFourArgsThrows(closure: @escaping (Int, Int, Int, Int) throws -> Int) {
+        super.call(closure)
+    }
+
+    func otherFuncFiveArgsThrows(closure: @escaping (Int, Int, Int, Int, Int) throws -> Int) {
+        super.call(closure)
+    }
+
 }
 
 
@@ -69,6 +101,11 @@ final class CaptureMockTests: XCTestCase {
 
     private var mock: CaptureMock!
     private var assertionMock: AssertionMock!
+
+
+    enum DummyError: Error {
+        case dummy
+    }
 
 
     override func setUp() {
@@ -138,6 +175,26 @@ final class CaptureMockTests: XCTestCase {
     }
 
 
+    func testExpect_capture_closure_noArg_throws() {
+        let captor = ArgumentClosureCaptor<() throws -> Int>()
+        mock.expect().call(mock.otherFuncNoArgThrows(closure: captor.capture()))
+
+        mock.otherFuncNoArgThrows { throw DummyError.dummy }
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        do {
+            let ret = try captor.value!()
+            XCTAssertNil(ret)
+        } catch DummyError.dummy {
+        } catch {
+            XCTFail("unexpected error=\(error)")
+        }
+        XCTAssertEqual(captor.allValues.count, 1)
+    }
+
+
     func testExpect_capture_closure_oneArg() {
         let captor = ArgumentClosureCaptor<(Int) -> Int>()
         mock.expect().call(mock.otherFuncOneArg(closure: captor.capture()))
@@ -149,6 +206,26 @@ final class CaptureMockTests: XCTestCase {
         XCTAssertNotNil(captor.value)
         let ret = captor.value!(3)
         XCTAssertEqual(ret, 3)
+        XCTAssertEqual(captor.allValues.count, 1)
+    }
+
+
+    func testExpect_capture_closure_oneArg_throws() {
+        let captor = ArgumentClosureCaptor<(Int) throws -> Int>()
+        mock.expect().call(mock.otherFuncOneArgThrows(closure: captor.capture()))
+
+        mock.otherFuncOneArgThrows { _ in throw DummyError.dummy }
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        do {
+            let ret = try captor.value!(3)
+            XCTAssertNil(ret)
+        } catch DummyError.dummy {
+        } catch {
+            XCTFail("unexpected error=\(error)")
+        }
         XCTAssertEqual(captor.allValues.count, 1)
     }
 
@@ -168,6 +245,26 @@ final class CaptureMockTests: XCTestCase {
     }
 
 
+    func testExpect_capture_closure_twoArgs_throws() {
+        let captor = ArgumentClosureCaptor<(Int, Int) throws -> Int>()
+        mock.expect().call(mock.otherFuncTwoArgsThrows(closure: captor.capture()))
+
+        mock.otherFuncTwoArgsThrows { _, _ in throw DummyError.dummy }
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        do {
+            let ret = try captor.value!(3, 5)
+            XCTAssertNil(ret)
+        } catch DummyError.dummy {
+        } catch {
+            XCTFail("unexpected error=\(error)")
+        }
+        XCTAssertEqual(captor.allValues.count, 1)
+    }
+
+
     func testExpect_capture_closure_threeArgs() {
         let captor = ArgumentClosureCaptor<(Int, Int, Int) -> Int>()
         mock.expect().call(mock.otherFuncThreeArgs(closure: captor.capture()))
@@ -179,6 +276,26 @@ final class CaptureMockTests: XCTestCase {
         XCTAssertNotNil(captor.value)
         let ret = captor.value!(1, 2, 3)
         XCTAssertEqual(ret, 6)
+        XCTAssertEqual(captor.allValues.count, 1)
+    }
+
+
+    func testExpect_capture_closure_threeArgs_throws() {
+        let captor = ArgumentClosureCaptor<(Int, Int, Int) throws -> Int>()
+        mock.expect().call(mock.otherFuncThreeArgsThrows(closure: captor.capture()))
+
+        mock.otherFuncThreeArgsThrows { _, _, _ in throw DummyError.dummy }
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        do {
+            let ret = try captor.value!(1, 2, 3)
+            XCTAssertNil(ret)
+        } catch DummyError.dummy {
+        } catch {
+            XCTFail("unexpected error=\(error)")
+        }
         XCTAssertEqual(captor.allValues.count, 1)
     }
 
@@ -198,6 +315,26 @@ final class CaptureMockTests: XCTestCase {
     }
 
 
+    func testExpect_capture_closure_fourArgs_throws() {
+        let captor = ArgumentClosureCaptor<(Int, Int, Int, Int) throws -> Int>()
+        mock.expect().call(mock.otherFuncFourArgsThrows(closure: captor.capture()))
+
+        mock.otherFuncFourArgsThrows { _, _, _, _ in throw DummyError.dummy }
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        do {
+            let ret = try captor.value!(1, 2, 3, 4)
+            XCTAssertNil(ret)
+        } catch DummyError.dummy {
+        } catch {
+            XCTFail("unexpected error=\(error)")
+        }
+        XCTAssertEqual(captor.allValues.count, 1)
+    }
+
+
     func testExpect_capture_closure_fiveArgs() {
         let captor = ArgumentClosureCaptor<(Int, Int, Int, Int, Int) -> Int>()
         mock.expect().call(mock.otherFuncFiveArgs(closure: captor.capture()))
@@ -209,6 +346,26 @@ final class CaptureMockTests: XCTestCase {
         XCTAssertNotNil(captor.value)
         let ret = captor.value!(1, 2, 3, 4, 5)
         XCTAssertEqual(ret, 15)
+        XCTAssertEqual(captor.allValues.count, 1)
+    }
+
+
+    func testExpect_capture_closure_fiveArgs_throws() {
+        let captor = ArgumentClosureCaptor<(Int, Int, Int, Int, Int) throws -> Int>()
+        mock.expect().call(mock.otherFuncFiveArgsThrows(closure: captor.capture()))
+
+        mock.otherFuncFiveArgsThrows { _, _, _, _, _ in throw DummyError.dummy }
+        mock.verify()
+        XCTAssertTrue(self.assertionMock.succeeded)
+
+        XCTAssertNotNil(captor.value)
+        do {
+            let ret = try captor.value!(1, 2, 3, 4, 5)
+            XCTAssertNil(ret)
+        } catch DummyError.dummy {
+        } catch {
+            XCTFail("unexpected error=\(error)")
+        }
         XCTAssertEqual(captor.allValues.count, 1)
     }
 
