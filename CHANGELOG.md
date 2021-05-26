@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 2.5.6
+
+* Fix #103: Missing argument storage flush after registration
+* Support capture of closure that throw exceptions
+
+
 ## 2.5.5
 
 * Make `Int64`, `UInt`, `UInt64` types `MockUsable`
