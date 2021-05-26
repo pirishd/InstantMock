@@ -258,4 +258,41 @@ final class BasicMockTests: XCTestCase {
         XCTAssertNotEqual(ret, "string")
     }
 
+
+    // See ticket #103
+    func testExpect_missingArgumentStorageFlushAfterRegistration() {
+        class ObjectTest: MockUsable {
+            static var anyValue: MockUsable { return ObjectTest() }
+
+            func equal(to: MockUsable?) -> Bool {
+                return true
+            }
+        }
+
+        class ObjectUsage {
+            func use(object: ObjectTest) {}
+        }
+
+        class ObjectUsageMock: ObjectUsage, MockDelegate {
+            private var mock = Mock()
+            var it: Mock { return mock }
+
+            override func use(object: ObjectTest) {
+                it.call(object)
+            }
+        }
+
+        var objectTest: ObjectTest? = ObjectTest()
+        weak var weakObjectTest = objectTest
+
+        let mock = ObjectUsageMock()
+        mock.it.expect().call(mock.use(object: Arg.eq(objectTest!)))
+
+        objectTest = nil
+        mock.it.resetStubs()
+        mock.it.resetExpectations()
+
+        XCTAssertNil(weakObjectTest)
+    }
+
 }
