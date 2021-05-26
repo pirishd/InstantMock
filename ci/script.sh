@@ -11,5 +11,5 @@ swift test
 
 # on MacOS, also run xcodebuild
 if [[ $TRAVIS_OS_NAME = 'osx' ]]; then
-  xcodebuild -scheme "InstantMock iOS" -workspace InstantMock.xcworkspace/ -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' build test
+  xcodebuild -scheme "InstantMock iOS" -workspace InstantMock.xcworkspace/ -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5' build test
 fi
