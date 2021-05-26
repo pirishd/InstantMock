@@ -379,7 +379,7 @@ end
 *InstantMock* is available using the Swift Package Manager, by adding the dependency either with Xcode or by editing the `Package.swift` file:
 
 ```
-.package(url: "https://github.com/pirishd/InstantMock", from: "2.5.5"),
+.package(url: "https://github.com/pirishd/InstantMock", from: "2.5.6"),
 ```
 
 ## Inspiration
